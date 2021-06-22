@@ -77,8 +77,8 @@ extern class RayLib {
     // EndShaderMode
     // BeginBlendMode
     // EndBlendMode
-    // BeginScissorMode
-    // EndScissorMode
+    @:native("BeginScissorMode")            public static function BeginScissorMode(x:Int, y:Int, width:Int, height:Int):Void;
+    @:native("EndScissorMode")              public static function EndScissorMode():Void;
     // BeginVrStereoMode
     // EndVrStereoMode
     
@@ -785,6 +785,7 @@ extern class CameraModes {
 @:include("raylib.h")
 @:native("Texture2D")
 @:structAccess
+@:unreflective
 extern class Texture2D {
 }
 
@@ -802,6 +803,11 @@ typedef Texture = Texture2D;
 @:native("Image")
 @:structAccess
 extern class Image {
+    var data:cpp.RawPointer<cpp.Void>;
+    var width:Int;
+    var height:Int;
+    var mipmaps:Int;
+    var format:Int;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
