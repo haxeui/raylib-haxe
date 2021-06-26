@@ -185,10 +185,10 @@ extern class RayLib {
     // SetGamepadMappings
     
     // Input-related functions: mouse
-    @:native("IsMouseButtonPressed")        public static function IsMouseButtonPressed(button:Int):Bool;
-    @:native("IsMouseButtonDown")           public static function IsMouseButtonDown(button:Int):Bool;
-    @:native("IsMouseButtonReleased")       public static function IsMouseButtonReleased(button:Int):Bool;
-    @:native("IsMouseButtonUp")             public static function IsMouseButtonUp(button:Int):Bool;
+    @:native("IsMouseButtonPressed")        public static function IsMouseButtonPressed(button:MouseButton):Bool;
+    @:native("IsMouseButtonDown")           public static function IsMouseButtonDown(button:MouseButton):Bool;
+    @:native("IsMouseButtonReleased")       public static function IsMouseButtonReleased(button:MouseButton):Bool;
+    @:native("IsMouseButtonUp")             public static function IsMouseButtonUp(button:MouseButton):Bool;
     @:native("GetMouseX")                   public static function GetMouseX():Int;
     @:native("GetMouseY")                   public static function GetMouseY():Int;
     @:native("GetMousePosition")            public static function GetMousePosition():Vector2;
@@ -197,7 +197,7 @@ extern class RayLib {
     @:native("SetMouseOffset")              public static function SetMouseOffset(offsetX:Int, offsetY:Int):Void;
     @:native("SetMouseScale")               public static function SetMouseScale(offsetX:Float, offsetY:Float):Void;
     @:native("GetMouseWheelMove")           public static function GetMouseWheelMove():Float;
-    @:native("SetMouseCursor")              public static function SetMouseCursor(cursor:Int):Void;
+    @:native("SetMouseCursor")              public static function SetMouseCursor(cursor:MouseCursor):Void;
     
     // Input-related functions: touch
     @:native("GetTouchX")                   public static function GetTouchX():Int;
@@ -215,7 +215,7 @@ extern class RayLib {
     // GetGesturePinchAngle
     
     // Camera System Functions (Module: camera)
-    @:native("SetCameraMode")               public static function SetCameraMode(camera:Camera, mode:Int):Void;
+    @:native("SetCameraMode")               public static function SetCameraMode(camera:Camera, mode:CameraMode):Void;
     @:native("UpdateCamera")                public static function UpdateCamera(camera:cpp.RawPointer<Camera>):Void;
     // SetCameraPanControl
     // SetCameraAltControl
@@ -673,7 +673,7 @@ extern class Camera3D {
     var target:Vector3;
     var up:Vector3;
     var fovy:Float;
-    var projection:Int;
+    var projection:CameraProjection;
     
     public static inline function create():Camera {
         return untyped __cpp__("{ 0 }");
@@ -726,14 +726,14 @@ extern class Colors {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 @:include("raylib.h")
-extern enum abstract MouseButtons(Int) from Int to Int {
-    @:native("MOUSE_BUTTON_LEFT")       public static var MOUSE_BUTTON_LEFT:Int;
-    @:native("MOUSE_BUTTON_RIGHT")      public static var MOUSE_BUTTON_RIGHT:Int;
-    @:native("MOUSE_BUTTON_MIDDLE")     public static var MOUSE_BUTTON_MIDDLE:Int;
-    @:native("MOUSE_BUTTON_SIDE")       public static var MOUSE_BUTTON_SIDE:Int;
-    @:native("MOUSE_BUTTON_EXTRA")      public static var MOUSE_BUTTON_EXTRA:Int;
-    @:native("MOUSE_BUTTON_FORWARD")    public static var MOUSE_BUTTON_FORWARD:Int;
-    @:native("MOUSE_BUTTON_BACK")       public static var MOUSE_BUTTON_BACK:Int;
+extern enum abstract MouseButton(Int) from Int to Int {
+    @:native("MOUSE_BUTTON_LEFT")       public static var LEFT:Int;
+    @:native("MOUSE_BUTTON_RIGHT")      public static var RIGHT:Int;
+    @:native("MOUSE_BUTTON_MIDDLE")     public static var MIDDLE:Int;
+    @:native("MOUSE_BUTTON_SIDE")       public static var SIDE:Int;
+    @:native("MOUSE_BUTTON_EXTRA")      public static var EXTRA:Int;
+    @:native("MOUSE_BUTTON_FORWARD")    public static var FORWARD:Int;
+    @:native("MOUSE_BUTTON_BACK")       public static var BACK:Int;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -741,18 +741,18 @@ extern enum abstract MouseButtons(Int) from Int to Int {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 @:include("raylib.h")
-extern enum abstract MouseCursors(Int) from Int to Int {
-    @:native("MOUSE_CURSOR_DEFAULT")        public static var MOUSE_CURSOR_DEFAULT:Int;
-    @:native("MOUSE_CURSOR_ARROW")          public static var MOUSE_CURSOR_ARROW:Int;
-    @:native("MOUSE_CURSOR_IBEAM")          public static var MOUSE_CURSOR_IBEAM:Int;
-    @:native("MOUSE_CURSOR_CROSSHAIR")      public static var MOUSE_CURSOR_CROSSHAIR:Int;
-    @:native("MOUSE_CURSOR_POINTING_HAND")  public static var MOUSE_CURSOR_POINTING_HAND:Int;
-    @:native("MOUSE_CURSOR_RESIZE_EW")      public static var MOUSE_CURSOR_RESIZE_EW:Int;
-    @:native("MOUSE_CURSOR_RESIZE_NS")      public static var MOUSE_CURSOR_RESIZE_NS:Int;
-    @:native("MOUSE_CURSOR_RESIZE_NWSE")    public static var MOUSE_CURSOR_RESIZE_NWSE:Int;
-    @:native("MOUSE_CURSOR_RESIZE_NESW")    public static var MOUSE_CURSOR_RESIZE_NESW:Int;
-    @:native("MOUSE_CURSOR_RESIZE_ALL")     public static var MOUSE_CURSOR_RESIZE_ALL:Int;
-    @:native("MOUSE_CURSOR_NOT_ALLOWED")    public static var MOUSE_CURSOR_NOT_ALLOWED:Int;
+extern enum abstract MouseCursor(Int) from Int to Int {
+    @:native("MOUSE_CURSOR_DEFAULT")        public static var DEFAULT:Int;
+    @:native("MOUSE_CURSOR_ARROW")          public static var ARROW:Int;
+    @:native("MOUSE_CURSOR_IBEAM")          public static var IBEAM:Int;
+    @:native("MOUSE_CURSOR_CROSSHAIR")      public static var CROSSHAIR:Int;
+    @:native("MOUSE_CURSOR_POINTING_HAND")  public static var POINTING_HAND:Int;
+    @:native("MOUSE_CURSOR_RESIZE_EW")      public static var RESIZE_EW:Int;
+    @:native("MOUSE_CURSOR_RESIZE_NS")      public static var RESIZE_NS:Int;
+    @:native("MOUSE_CURSOR_RESIZE_NWSE")    public static var RESIZE_NWSE:Int;
+    @:native("MOUSE_CURSOR_RESIZE_NESW")    public static var RESIZE_NESW:Int;
+    @:native("MOUSE_CURSOR_RESIZE_ALL")     public static var RESIZE_ALL:Int;
+    @:native("MOUSE_CURSOR_NOT_ALLOWED")    public static var NOT_ALLOWED:Int;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -760,9 +760,9 @@ extern enum abstract MouseCursors(Int) from Int to Int {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 @:include("raylib.h")
-extern enum abstract CameraProjections(Int) from Int to Int {
-    @:native("CAMERA_PERSPECTIVE")      public static var CAMERA_PERSPECTIVE:Int;
-    @:native("CAMERA_ORTHOGRAPHIC")     public static var CAMERA_ORTHOGRAPHIC:Int;
+extern enum abstract CameraProjection(Int) from Int to Int {
+    @:native("CAMERA_PERSPECTIVE")      public static var PERSPECTIVE:Int;
+    @:native("CAMERA_ORTHOGRAPHIC")     public static var ORTHOGRAPHIC:Int;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -896,12 +896,12 @@ extern enum abstract KeyboardKey(Int) from Int to Int {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 @:include("raylib.h")
-extern enum abstract CameraModes(Int) from Int to Int {
-    @:native("CAMERA_CUSTOM")           public static var CAMERA_CUSTOM:Int;
-    @:native("CAMERA_FREE")             public static var CAMERA_FREE:Int;
-    @:native("CAMERA_ORBITAL")          public static var CAMERA_ORBITAL:Int;
-    @:native("CAMERA_FIRST_PERSON")     public static var CAMERA_FIRST_PERSON:Int;
-    @:native("CAMERA_THIRD_PERSON")     public static var CAMERA_THIRD_PERSON:Int;
+extern enum abstract CameraMode(Int) from Int to Int {
+    @:native("CAMERA_CUSTOM")           public static var CUSTOM:Int;
+    @:native("CAMERA_FREE")             public static var FREE:Int;
+    @:native("CAMERA_ORBITAL")          public static var ORBITAL:Int;
+    @:native("CAMERA_FIRST_PERSON")     public static var FIRST_PERSON:Int;
+    @:native("CAMERA_THIRD_PERSON")     public static var THIRD_PERSON:Int;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
