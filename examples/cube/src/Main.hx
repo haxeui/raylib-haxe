@@ -1,18 +1,3 @@
-# raylib-haxe
-
-Haxe bindings for RayLib
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/haxeui/haxe-raylib/main/.github/images/screen.png"/>
-</p>
-
-# usage
-
-```
-haxelib git haxe-raylib https://github.com/haxeui/raylib-haxe
-```
-
-```haxe
 package;
 
 import RayLib.*;
@@ -67,4 +52,3 @@ class Main {
         CloseWindow();
     }
 }
-```
