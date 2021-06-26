@@ -108,9 +108,9 @@ extern class RayLib {
     
     // Timing-related functions
     @:native("SetTargetFPS")                public static function SetTargetFPS(fps:Int):Void;
-    // GetFPS
-    // GetFrameTime
-    // GetTime
+    @:native("GetFPS")                      public static function GetFPS():Int;
+    @:native("GetFrameTime")                public static function GetFrameTime():Float;
+    @:native("GetTime")                     public static function GetTime():Float;
     
     // Misc. functions
     // GetRandomValue
@@ -403,7 +403,7 @@ extern class RayLib {
     
     // Text misc. functions
     @:native("MeasureText")                 public static function MeasureText(text:cpp.ConstCharStar, fontSize:Int):Int;
-    // MeasureTextEx
+    @:native("MeasureTextEx")               public static function MeasureTextEx(font:Font, text:cpp.ConstCharStar, fontSize:Float, spacing:Float):Vector2;
     // GetGlyphIndex
     
     // Text strings management functions (no utf8 strings, only byte chars)
@@ -726,7 +726,7 @@ extern class Colors {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 @:include("raylib.h")
-extern class MouseButtons {
+extern enum abstract MouseButtons(Int) from Int to Int {
     @:native("MOUSE_BUTTON_LEFT")       public static var MOUSE_BUTTON_LEFT:Int;
     @:native("MOUSE_BUTTON_RIGHT")      public static var MOUSE_BUTTON_RIGHT:Int;
     @:native("MOUSE_BUTTON_MIDDLE")     public static var MOUSE_BUTTON_MIDDLE:Int;
@@ -741,7 +741,7 @@ extern class MouseButtons {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 @:include("raylib.h")
-extern class MouseCursors {
+extern enum abstract MouseCursors(Int) from Int to Int {
     @:native("MOUSE_CURSOR_DEFAULT")        public static var MOUSE_CURSOR_DEFAULT:Int;
     @:native("MOUSE_CURSOR_ARROW")          public static var MOUSE_CURSOR_ARROW:Int;
     @:native("MOUSE_CURSOR_IBEAM")          public static var MOUSE_CURSOR_IBEAM:Int;
@@ -760,7 +760,7 @@ extern class MouseCursors {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 @:include("raylib.h")
-extern class CameraProjections {
+extern enum abstract CameraProjections(Int) from Int to Int {
     @:native("CAMERA_PERSPECTIVE")      public static var CAMERA_PERSPECTIVE:Int;
     @:native("CAMERA_ORTHOGRAPHIC")     public static var CAMERA_ORTHOGRAPHIC:Int;
 }
@@ -770,7 +770,133 @@ extern class CameraProjections {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 @:include("raylib.h")
-extern class CameraModes {
+extern enum abstract KeyboardKey(Int) from Int to Int {
+    @:native("KEY_NULL")                public static var KEY_NULL:Int;
+    
+    // Alphanumeric keys
+    @:native("KEY_APOSTROPHE")          public static var KEY_APOSTROPHE:Int;
+    @:native("KEY_COMMA")               public static var KEY_COMMA:Int;
+    @:native("KEY_MINUS")               public static var KEY_MINUS:Int;
+    @:native("KEY_PERIOD")              public static var KEY_PERIOD:Int;
+    @:native("KEY_SLASH")               public static var KEY_SLASH:Int;
+    @:native("KEY_ZERO")                public static var KEY_ZERO:Int;
+    @:native("KEY_ONE")                 public static var KEY_ONE:Int;
+    @:native("KEY_TWO")                 public static var KEY_TWO:Int;
+    @:native("KEY_THREE")               public static var KEY_THREE:Int;
+    @:native("KEY_FOUR")                public static var KEY_FOUR:Int;
+    @:native("KEY_FIVE")                public static var KEY_FIVE:Int;
+    @:native("KEY_SIX")                 public static var KEY_SIX:Int;
+    @:native("KEY_SEVEN")               public static var KEY_SEVEN:Int;
+    @:native("KEY_EIGHT")               public static var KEY_EIGHT:Int;
+    @:native("KEY_NINE")                public static var KEY_NINE:Int;
+    @:native("KEY_SEMICOLON")           public static var KEY_SEMICOLON:Int;
+    @:native("KEY_EQUAL")               public static var KEY_EQUAL:Int;
+    @:native("KEY_A")                   public static var KEY_A:Int;
+    @:native("KEY_B")                   public static var KEY_B:Int;
+    @:native("KEY_C")                   public static var KEY_C:Int;
+    @:native("KEY_D")                   public static var KEY_D:Int;
+    @:native("KEY_E")                   public static var KEY_E:Int;
+    @:native("KEY_F")                   public static var KEY_F:Int;
+    @:native("KEY_G")                   public static var KEY_G:Int;
+    @:native("KEY_H")                   public static var KEY_H:Int;
+    @:native("KEY_I")                   public static var KEY_I:Int;
+    @:native("KEY_J")                   public static var KEY_J:Int;
+    @:native("KEY_K")                   public static var KEY_K:Int;
+    @:native("KEY_L")                   public static var KEY_L:Int;
+    @:native("KEY_M")                   public static var KEY_M:Int;
+    @:native("KEY_N")                   public static var KEY_N:Int;
+    @:native("KEY_O")                   public static var KEY_O:Int;
+    @:native("KEY_P")                   public static var KEY_P:Int;
+    @:native("KEY_Q")                   public static var KEY_Q:Int;
+    @:native("KEY_R")                   public static var KEY_R:Int;
+    @:native("KEY_S")                   public static var KEY_S:Int;
+    @:native("KEY_T")                   public static var KEY_T:Int;
+    @:native("KEY_U")                   public static var KEY_U:Int;
+    @:native("KEY_V")                   public static var KEY_V:Int;
+    @:native("KEY_W")                   public static var KEY_W:Int;
+    @:native("KEY_X")                   public static var KEY_X:Int;
+    @:native("KEY_Y")                   public static var KEY_Y:Int;
+    @:native("KEY_Z")                   public static var KEY_Z:Int;
+    
+    // Function keys
+    @:native("KEY_SPACE")               public static var KEY_SPACE:Int;
+    @:native("KEY_ESCAPE")              public static var KEY_ESCAPE:Int;
+    @:native("KEY_ENTER")               public static var KEY_ENTER:Int;
+    @:native("KEY_TAB")                 public static var KEY_TAB:Int;
+    @:native("KEY_BACKSPACE")           public static var KEY_BACKSPACE:Int;
+    @:native("KEY_INSERT")              public static var KEY_INSERT:Int;
+    @:native("KEY_DELETE")              public static var KEY_DELETE:Int;
+    @:native("KEY_RIGHT")               public static var KEY_RIGHT:Int;
+    @:native("KEY_LEFT")                public static var KEY_LEFT:Int;
+    @:native("KEY_DOWN")                public static var KEY_DOWN:Int;
+    @:native("KEY_UP")                  public static var KEY_UP:Int;
+    @:native("KEY_PAGE_UP")             public static var KEY_PAGE_UP:Int;
+    @:native("KEY_PAGE_DOWN")           public static var KEY_PAGE_DOWN:Int;
+    @:native("KEY_HOME")                public static var KEY_HOME:Int;
+    @:native("KEY_END")                 public static var KEY_END:Int;
+    @:native("KEY_CAPS_LOCK")           public static var KEY_CAPS_LOCK:Int;
+    @:native("KEY_SCROLL_LOCK")         public static var KEY_SCROLL_LOCK:Int;
+    @:native("KEY_NUM_LOCK")            public static var KEY_NUM_LOCK:Int;
+    @:native("KEY_PRINT_SCREEN")        public static var KEY_PRINT_SCREEN:Int;
+    @:native("KEY_PAUSE")               public static var KEY_PAUSE:Int;
+    @:native("KEY_F1")                  public static var KEY_F1:Int;
+    @:native("KEY_F2")                  public static var KEY_F2:Int;
+    @:native("KEY_F3")                  public static var KEY_F3:Int;
+    @:native("KEY_F4")                  public static var KEY_F4:Int;
+    @:native("KEY_F5")                  public static var KEY_F5:Int;
+    @:native("KEY_F6")                  public static var KEY_F6:Int;
+    @:native("KEY_F7")                  public static var KEY_F7:Int;
+    @:native("KEY_F8")                  public static var KEY_F8:Int;
+    @:native("KEY_F9")                  public static var KEY_F9:Int;
+    @:native("KEY_F10")                 public static var KEY_F10:Int;
+    @:native("KEY_F11")                 public static var KEY_F11:Int;
+    @:native("KEY_F12")                 public static var KEY_F12:Int;
+    @:native("KEY_LEFT_SHIFT")          public static var KEY_LEFT_SHIFT:Int;
+    @:native("KEY_LEFT_CONTROL")        public static var KEY_LEFT_CONTROL:Int;
+    @:native("KEY_LEFT_ALT")            public static var KEY_LEFT_ALT:Int;
+    @:native("KEY_LEFT_SUPER")          public static var KEY_LEFT_SUPER:Int;
+    @:native("KEY_RIGHT_SHIFT")         public static var KEY_RIGHT_SHIFT:Int;
+    @:native("KEY_RIGHT_CONTROL")       public static var KEY_RIGHT_CONTROL:Int;
+    @:native("KEY_RIGHT_ALT")           public static var KEY_RIGHT_ALT:Int;
+    @:native("KEY_RIGHT_SUPER")         public static var KEY_RIGHT_SUPER:Int;
+    @:native("KEY_KB_MENU")             public static var KEY_KB_MENU:Int;
+    @:native("KEY_LEFT_BRACKET")        public static var KEY_LEFT_BRACKET:Int;
+    @:native("KEY_BACKSLASH")           public static var KEY_BACKSLASH:Int;
+    @:native("KEY_RIGHT_BRACKET")       public static var KEY_RIGHT_BRACKET:Int;
+    @:native("KEY_GRAVE")               public static var KEY_GRAVE:Int;
+    
+    // Keypad keys
+    @:native("KEY_KP_0")                public static var KEY_KP_0:Int;
+    @:native("KEY_KP_1")                public static var KEY_KP_1:Int;
+    @:native("KEY_KP_2")                public static var KEY_KP_2:Int;
+    @:native("KEY_KP_3")                public static var KEY_KP_3:Int;
+    @:native("KEY_KP_4")                public static var KEY_KP_4:Int;
+    @:native("KEY_KP_5")                public static var KEY_KP_5:Int;
+    @:native("KEY_KP_6")                public static var KEY_KP_6:Int;
+    @:native("KEY_KP_7")                public static var KEY_KP_7:Int;
+    @:native("KEY_KP_8")                public static var KEY_KP_8:Int;
+    @:native("KEY_KP_9")                public static var KEY_KP_9:Int;
+    @:native("KEY_KP_DECIMAL")          public static var KEY_KP_DECIMAL:Int;
+    @:native("KEY_KP_DIVIDE")           public static var KEY_KP_DIVIDE:Int;
+    @:native("KEY_KP_MULTIPLY")         public static var KEY_KP_MULTIPLY:Int;
+    @:native("KEY_KP_SUBTRACT")         public static var KEY_KP_SUBTRACT:Int;
+    @:native("KEY_KP_ADD")              public static var KEY_KP_ADD:Int;
+    @:native("KEY_KP_ENTER")            public static var KEY_KP_ENTER:Int;
+    @:native("KEY_KP_EQUAL")            public static var KEY_KP_EQUAL:Int;
+    
+    // Android key buttons
+    @:native("KEY_BACK")                public static var KEY_BACK:Int;
+    @:native("KEY_MENU")                public static var KEY_MENU:Int;
+    @:native("KEY_VOLUME_UP")           public static var KEY_VOLUME_UP:Int;
+    @:native("KEY_VOLUME_DOWN")         public static var KEY_VOLUME_DOWN:Int;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+@:include("raylib.h")
+extern enum abstract CameraModes(Int) from Int to Int {
     @:native("CAMERA_CUSTOM")           public static var CAMERA_CUSTOM:Int;
     @:native("CAMERA_FREE")             public static var CAMERA_FREE:Int;
     @:native("CAMERA_ORBITAL")          public static var CAMERA_ORBITAL:Int;
@@ -809,11 +935,6 @@ extern class Image {
     var mipmaps:Int;
     var format:Int;
 }
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
