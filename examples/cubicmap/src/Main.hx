@@ -60,7 +60,7 @@ class Main {
         UnloadTexture(cubicmap);
         UnloadTexture(texture);
         UnloadModel(model);
-        
+
         CloseWindow();
     }
 }
