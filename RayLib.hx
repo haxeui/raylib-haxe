@@ -371,12 +371,12 @@ extern class RayLib {
     // Color/pixel related functions
     @:native("Fade")                        public static function Fade(color:Color, alpha:Float):Color;
     @:native("ColorToInt")                  public static function ColorToInt(color:Color):Int;
-    // ColorNormalize
-    // ColorFromNormalized
-    // ColorToHSV
-    // ColorFromHSV
-    // ColorAlpha
-    // ColorAlphaBlend
+    @:native("ColorNormalize")              public static function ColorNormalize(color:Color):Vector4;
+    @:native("ColorFromNormalized")         public static function ColorFromNormalized(normalized:Vector4):Color;
+    @:native("ColorToHSV")                  public static function ColorToHSV(color:Color):Vector3;
+    @:native("ColorFromHSV")                public static function ColorFromHSV(hue:Float, saturation:Float, value:Float):Color;
+    @:native("ColorAlpha")                  public static function ColorAlpha(color:Color, alpha:Float):Color;
+    @:native("ColorAlphaBlend")             public static function ColorAlphaBlend(dst:Color, src:Color, tint:Color):Color;
     @:native("GetColor")                    public static function GetColor(hexValue:Int):Color;
     @:native("GetPixelColor")               public static function GetPixelColor(srcPtr:cpp.RawPointer<cpp.Void>, format:Int):Color;
     @:native("SetPixelColor")               public static function SetPixelColor(srcPtr:cpp.RawPointer<cpp.Void>, color:Color, format:Int):Void;
