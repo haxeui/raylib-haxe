@@ -19,6 +19,22 @@ jobs:
       with:
         haxe-version: ${{ matrix.haxe-version }}
 
+    - name: Install deps (${{ matrix.example }}, haxe ${{ matrix.haxe-version }}, ${{ matrix.os }})
+      if: ${{ matrix.os == 'ubuntu-latest' }}
+      run: |
+        sudo apt-get update
+        sudo apt-get install libxinerama-dev
+        sudo apt-get install libasound2-dev
+        sudo apt-get install mesa-common-dev
+        sudo apt-get install libgl-dev
+        sudo apt-get install libxi-dev
+        sudo apt-get install zip
+        sudo apt-get install libxrandr-dev
+        sudo apt-get install libudev-dev
+        sudo apt-get install libx11-dev
+        sudo apt-get install libxcursor-dev
+        
+
     - name: Setup app (${{ matrix.example }}, haxe ${{ matrix.haxe-version }}, ${{ matrix.os }})
       run: |
         haxelib dev raylib-haxe .
