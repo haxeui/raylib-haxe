@@ -17,17 +17,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Setup Haxe (${{ matrix.target }}, haxe ${{ matrix.haxe-version }}, ${{ matrix.os }})
+    - name: Setup Haxe (${{ matrix.example }}, haxe ${{ matrix.haxe-version }}, ${{ matrix.os }})
       uses: krdlab/setup-haxe@v1
       with:
         haxe-version: ${{ matrix.haxe-version }}
 
-    - name: Setup app (${{ matrix.target }}, haxe ${{ matrix.haxe-version }}, ${{ matrix.os }})
+    - name: Setup app (${{ matrix.example }}, haxe ${{ matrix.haxe-version }}, ${{ matrix.os }})
       run: |
         haxelib dev raylib-haxe .
         haxelib install hxcpp --always --quiet
 
-    - name: Build app (${{ matrix.target }}, haxe ${{ matrix.haxe-version }}, ${{ matrix.os }})
+    - name: Build app (${{ matrix.example }}, haxe ${{ matrix.haxe-version }}, ${{ matrix.os }})
       run: |
         cd examples/${{ matrix.example }}
         haxe build.hxml
