@@ -1,4 +1,4 @@
-name: Build
+name: Build Windows, Ubuntu & OSX
 
 on: [push, repository_dispatch]
 
@@ -8,7 +8,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [windows-latest, macos-latest]
+        os: [windows-latest, ubuntu-latest, macos-latest]
         haxe-version: [4.0.5, 4.1.5, 4.2.2]
         example: [3d-picking, cubicmap, heightmap, waving-cubes, world-screen]
 
