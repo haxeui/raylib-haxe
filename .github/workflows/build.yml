@@ -1,0 +1,33 @@
+name: Build
+
+on: [push, repository_dispatch]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [windows-latest]
+        haxe-version: [3.4.7, 4.0.5, 4.1.5, 4.2.2]
+        example: [3d-picking, cubicmap, heightmap, waving-cubes, world-screen]
+        exclude:  
+          - os: windows-latest
+            haxe-version: 3.4.7
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup Haxe (${{ matrix.target }}, haxe ${{ matrix.haxe-version }}, ${{ matrix.os }})
+      uses: krdlab/setup-haxe@v1
+      with:
+        haxe-version: ${{ matrix.haxe-version }}
+
+    - name: Setup app (${{ matrix.target }}, haxe ${{ matrix.haxe-version }}, ${{ matrix.os }})
+      run: |
+        haxelib dev raylib-haxe .
+        haxelib install hxcpp --always --quiet
+
+    - name: Build app (${{ matrix.target }}, haxe ${{ matrix.haxe-version }}, ${{ matrix.os }})
+      run: |
+        cd examples/${{ matrix.example }}
+        haxe build.hxml
