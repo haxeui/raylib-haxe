@@ -98,7 +98,7 @@ extern class RayLib {
     // UnloadShader
     
     // Screen-space-related functions
-    // GetMouseRay
+    @:native("GetMouseRay")                 public static function GetMouseRay(mousePosition:Vector2, camera:Camera):Ray;
     // GetCameraMatrix
     // GetCameraMatrix2D
     @:native("GetWorldToScreen")            public static function GetWorldToScreen(position:Vector3, camera:Camera):Vector2;
@@ -164,10 +164,10 @@ extern class RayLib {
     // OpenURL
     
     // Input-related functions: keyboard
-    @:native("IsKeyPressed")                public static function IsKeyPressed(key:Int):Bool;
-    @:native("IsKeyDown")                   public static function IsKeyDown(key:Int):Bool;
-    @:native("IsKeyReleased")               public static function IsKeyReleased(key:Int):Bool;
-    @:native("SetExitKey")                  public static function SetExitKey(key:Int):Void;
+    @:native("IsKeyPressed")                public static function IsKeyPressed(key:KeyboardKey):Bool;
+    @:native("IsKeyDown")                   public static function IsKeyDown(key:KeyboardKey):Bool;
+    @:native("IsKeyReleased")               public static function IsKeyReleased(key:KeyboardKey):Bool;
+    @:native("SetExitKey")                  public static function SetExitKey(key:KeyboardKey):Void;
     @:native("GetKeyPressed")               public static function GetKeyPressed():Int;
     @:native("GetCharPressed")              public static function GetCharPressed():Int;
     
@@ -447,7 +447,7 @@ extern class RayLib {
     // DrawCylinder
     // DrawCylinderWires
     // DrawPlane
-    // DrawRay
+    @:native("DrawRay")                 public static function DrawRay(ray:Ray, color:Color):Void;
     @:native("DrawGrid")                public static function DrawGrid(slices:Int, spacing:Int):Void;
     
     // Model loading/unloading functions
@@ -510,7 +510,7 @@ extern class RayLib {
     // CheckCollisionBoxes
     // CheckCollisionBoxSphere
     // GetRayCollisionSphere
-    // GetRayCollisionBox
+    @:native("GetRayCollisionBox")      public static function GetRayCollisionBox(ray:Ray, boundingBox:BoundingBox):RayCollision;
     // GetRayCollisionModel
     // GetRayCollisionMesh
     // GetRayCollisionTriangle
@@ -950,7 +950,6 @@ extern class CharInfo {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 @:include("raylib.h")
 @:native("Font")
 @:structAccess
@@ -967,3 +966,52 @@ extern class Font {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+@:include("raylib.h")
+@:native("Ray")
+@:structAccess
+extern class Ray {
+    var position:Vector3;
+    var direction:Vector3;
+    
+    public static inline function create():Ray {
+        return untyped __cpp__("{ 0 }");
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+@:include("raylib.h")
+@:native("RayCollision")
+@:structAccess
+extern class RayCollision {
+    var hit:Bool;
+    var distance:Float;
+    var point:Vector3;
+    var normal:Vector3;
+    
+    public static inline function create():RayCollision {
+        return untyped __cpp__("{ 0 }");
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+@:include("raylib.h")
+@:native("BoundingBox")
+@:structAccess
+extern class BoundingBox {
+    var min:Vector3;
+    var max:Vector3;
+    
+    public static inline function create(min:Vector3, max:Vector3):BoundingBox {
+        return untyped __cpp__("{ {0}, {1} }", min, max);
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
