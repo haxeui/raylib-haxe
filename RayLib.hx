@@ -340,7 +340,7 @@ extern class RayLib {
     // ImageDrawTextEx
     
     // Texture loading functions
-    // LoadTexture
+    @:native("LoadTexture")                 public static function LoadTexture(fileName:cpp.ConstCharStar):Texture2D;
     @:native("LoadTextureFromImage")        public static function LoadTextureFromImage(image:Image):Texture2D;
     // LoadTextureFromImage
     // LoadTextureCubemap
@@ -360,7 +360,7 @@ extern class RayLib {
     // Texture drawing functions
     @:native("DrawTexture")                 public static function DrawTexture(texture:Texture2D, posX:Int, posY:Int, tint:Color):Void;
     // DrawTextureV
-    // DrawTextureEx
+    @:native("DrawTextureEx")               public static function DrawTextureEx(texture:Texture2D, position:Vector2, rotation:Float, scale:Float, tint:Color):Void;
     // DrawTextureRec
     // DrawTextureQuad
     // DrawTextureTiled
@@ -488,7 +488,7 @@ extern class RayLib {
     // GenMeshTorus
     // GenMeshKnot
     @:native("GenMeshHeightmap")        public static function GenMeshHeightmap(heightmap:Image, size:Vector3):Mesh;
-    // GenMeshCubicmap
+    @:native("GenMeshCubicmap")         public static function GenMeshCubicmap(cubicmap:Image, cubeSize:Vector3):Mesh;
     
     // Mesh manipulation functions
     // GetMeshBoundingBox
