@@ -57,6 +57,22 @@
             <file name="${glfw_folder}/src/cocoa_time.c" />
         </files>
 
+        <!-- LINUX COMPILER -->
+        <files id="haxe" if="linux">
+            <file name="${glfw_folder}/src/xkb_unicode.c" />
+            <file name="${glfw_folder}/src/glx_context.c" />
+
+            <compilerflag value="-DPLATFORM_DESKTOP" />
+            <compilerflag value="-D_GLFW_X11" />
+
+            <file name="${glfw_folder}/src/x11_init.c" />
+            <file name="${glfw_folder}/src/x11_monitor.c" />
+            <file name="${glfw_folder}/src/linux_joystick.c" />
+            <file name="${glfw_folder}/src/x11_window.c" />
+            <file name="${glfw_folder}/src/posix_thread.c" />
+            <file name="${glfw_folder}/src/posix_time.c" />
+        </files>
+
         <!-- WINDOWS LINKER -->
         <target id="haxe" tool="linker" toolid="exe" if="windows">
             <lib name="Winmm.lib" />
@@ -74,5 +90,8 @@
             <flag value="OpenGL" />
         </target>
 
+        <!-- LINUX LINKER -->
+        <target id="haxe" tool="linker" if="linux">
+        </target>
     </section>    
 </xml>
