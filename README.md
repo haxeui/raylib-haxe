@@ -1,3 +1,5 @@
+[![Build](https://github.com/haxeui/raylib-haxe/actions/workflows/build.yml/badge.svg)](https://github.com/haxeui/raylib-haxe/actions/workflows/build.yml)
+
 # raylib-haxe
 
 Haxe bindings for RayLib
