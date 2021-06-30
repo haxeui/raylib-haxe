@@ -16,7 +16,7 @@ class Main {
         
         InitWindow(screenWidth, screenHeight, "RAYLIB HAXE!");
         
-        var camera = Camera.create();
+        var camera = Camera.createEmpty();
         camera.position = Vector3.create(10, 10, 10);
         camera.target = Vector3.create(0, 0, 0);
         camera.up = Vector3.create(0, 1, 0);
