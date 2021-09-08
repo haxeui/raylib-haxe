@@ -117,8 +117,8 @@ extern class RayLib {
     // TakeScreenshot
     // SetConfigFlags
     
-    // TraceLog
-    // SetTraceLogLevel
+    @:native("TraceLog")                    public static function TraceLog(logLevel:Int, text:cpp.ConstCharStar):Void;
+    @:native("SetTraceLogLevel")            public static function SetTraceLogLevel(logLevel:Int):Void;
     // MemAlloc
     // MemRealloc
     // MemFree
@@ -1058,16 +1058,16 @@ extern class Mesh {
     var vertexCount:Int;
     var triangleCount:Int;
     
-    var vertices:cpp.RawPointer<Float>;
-    var texcoords:cpp.RawPointer<Float>;
-    var texcoords2:cpp.RawPointer<Float>;
-    var normals:cpp.RawPointer<Float>;
-    var tangents:cpp.RawPointer<Float>;
+    var vertices:cpp.RawPointer<cpp.Float32>;
+    var texcoords:cpp.RawPointer<cpp.Float32>;
+    var texcoords2:cpp.RawPointer<cpp.Float32>;
+    var normals:cpp.RawPointer<cpp.Float32>;
+    var tangents:cpp.RawPointer<cpp.Float32>;
     
-    var animVertices:cpp.RawPointer<Float>;
-    var animNormals:cpp.RawPointer<Float>;
+    var animVertices:cpp.RawPointer<cpp.Float32>;
+    var animNormals:cpp.RawPointer<cpp.Float32>;
     var boneIds:cpp.RawPointer<Int>;
-    var boneWeights:cpp.RawPointer<Float>;
+    var boneWeights:cpp.RawPointer<cpp.Float32>;
     
     var vaoId:Int;
     var vboId:cpp.RawPointer<Int>;
@@ -1183,3 +1183,18 @@ typedef RenderTexture2D = RenderTexture;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+@:include("raylib.h")
+extern enum abstract TraceLogLevel(Int) from Int to Int {
+    @:native("LOG_ALL")                 public static var ALL:Int;
+    @:native("LOG_TRACE")               public static var TRACE:Int;
+    @:native("LOG_DEBUG")               public static var DEBUG:Int;
+    @:native("LOG_INFO")                public static var INFO:Int;
+    @:native("LOG_WARNING")             public static var WARNING:Int;
+    @:native("LOG_ERROR")               public static var ERROR:Int;
+    @:native("LOG_FATAL")               public static var FATAL:Int;
+    @:native("LOG_NONE")                public static var NONE:Int;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
