@@ -26,7 +26,7 @@ class Main {
         var model = LoadModelFromMesh(mesh);
         
         var texture = LoadTexture("../resources/cubicmap_atlas.png");
-        model.materials[0].maps[MaterialMapIndex.DIFFUSE].texture = texture;
+        model.materials[0].maps[MaterialMapIndex.ALBEDO].texture = texture;
         
         var mapPosition = Vector3.create(-16, 0, -8);
         

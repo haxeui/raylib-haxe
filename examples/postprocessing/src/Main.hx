@@ -33,7 +33,7 @@ class Main {
         
         var model = LoadModel("../resources/models/church.obj");
         var texture = LoadTexture("../resources/models/church_diffuse.png");
-        model.materials[0].maps[MaterialMapIndex.DIFFUSE].texture = texture;
+        model.materials[0].maps[MaterialMapIndex.ALBEDO].texture = texture;
         
         var position = Vector3.create(0, 0, 0);
         

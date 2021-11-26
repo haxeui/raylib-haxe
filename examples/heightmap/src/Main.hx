@@ -26,7 +26,7 @@ class Main {
         var mesh = GenMeshHeightmap(image, Vector3.create(16, 8, 16));
         var model = LoadModelFromMesh(mesh); 
         
-        model.materials[0].maps[MaterialMapIndex.DIFFUSE].texture = texture;
+        model.materials[0].maps[MaterialMapIndex.ALBEDO].texture = texture;
         var mapPosition = Vector3.create( -8, 0, -8);
         
         UnloadImage(image);

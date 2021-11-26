@@ -30,8 +30,8 @@ class Main {
         var cubePosition = Vector3.create(0, 1, 0);
         var cubeSize = Vector3.create(2, 2, 2);
         
-        var ray = Ray.create();
-        var collision = RayCollision.create();
+        var ray = Ray.createEmpty();
+        var collision = RayCollision.createEmpty();
         
         SetCameraMode(camera, CameraMode.FREE);
         
