@@ -8,13 +8,13 @@ Haxe bindings for RayLib
   <img src="https://raw.githubusercontent.com/haxeui/raylib-haxe/main/.github/images/screen.png"/>
 </p>
 
-# installation
+# Installation
 
 ```
 haxelib install raylib-haxe
 ```
 
-# basic usage
+# Basic Usage
 
 Simpy create a build file (`build.hxml`) with the following:
 
@@ -60,7 +60,7 @@ Refer to [hello world example](https://github.com/haxeui/raylib-haxe/tree/main/e
 
 
 
-# advanced usage
+# Advanced Usage
 
 Refer to [examples](https://github.com/haxeui/raylib-haxe/tree/main/examples) for more advanced usage
 
@@ -128,3 +128,13 @@ class Main {
 }
 
 ```
+
+# Regenerate Externs
+
+You shouldnt need to regenerate the externs (if you do, open an issue and they can be regenerated in this repository!) but if you do, simply run:
+
+```
+haxelib run raylib-haxe
+```
+
+This will pull the latest api dump (from here: https://raw.githubusercontent.com/raysan5/raylib/master/parser/raylib_api.xml) and regenerate the `RayLib.hx` from that. 
