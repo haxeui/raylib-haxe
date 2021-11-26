@@ -8,11 +8,46 @@ Haxe bindings for RayLib
   <img src="https://raw.githubusercontent.com/haxeui/raylib-haxe/main/.github/images/screen.png"/>
 </p>
 
-# usage
+# installation
 
 ```
-haxelib git raylib-haxe https://github.com/haxeui/raylib-haxe
+haxelib install raylib-haxe
 ```
+
+# basic usage
+
+Refer to [hello world example](https://github.com/haxeui/raylib-haxe/tree/main/examples/hello-world) for basic usage
+
+```haxe
+package;
+
+import RayLib.*;
+import RayLib.Colors.*;
+
+class Main {
+    static function main() {
+        var screenWidth:Int = 800;
+        var screenHeight:Int = 450;
+        
+        InitWindow(screenWidth, screenHeight, "RAYLIB HAXE!");
+        
+        SetTargetFPS(60);
+        
+        while (!WindowShouldClose()) {
+            BeginDrawing();
+                ClearBackground(RAYWHITE);
+                DrawText("Hello World", Std.int((screenWidth - MeasureText("Hello World", 20)) / 2), 25, 20, GRAY);
+            EndDrawing();
+        }
+        
+        CloseWindow();
+    }
+}
+```
+
+# advanced usage
+
+Refer to [examples](https://github.com/haxeui/raylib-haxe/tree/main/examples) for more advanced usage
 
 ```haxe
 package;
@@ -43,7 +78,7 @@ class Main {
         var mesh = GenMeshHeightmap(image, Vector3.create(16, 8, 16));
         var model = LoadModelFromMesh(mesh); 
         
-        model.materials[0].maps[MaterialMapIndex.DIFFUSE].texture = texture;
+        model.materials[0].maps[MaterialMapIndex.ALBEDO].texture = texture;
         var mapPosition = Vector3.create( -8, 0, -8);
         
         UnloadImage(image);
