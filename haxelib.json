@@ -9,6 +9,8 @@
     },
     "releasenote": "1.0 release",
     "tags": [
+        "raylib",
+        "externs"
     ],
     "license": "MIT",
     "name": "raylib-haxe",
