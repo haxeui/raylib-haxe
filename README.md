@@ -16,7 +16,16 @@ haxelib install raylib-haxe
 
 # basic usage
 
-Refer to [hello world example](https://github.com/haxeui/raylib-haxe/tree/main/examples/hello-world) for basic usage
+Simpy create a build file (`build.hxml`) with the following:
+
+```
+-lib raylib-haxe
+-cp src
+-cpp bin
+-main Main
+```
+
+create a `src` directory with a `Main.hx` containing the following:
 
 ```haxe
 package;
@@ -44,6 +53,12 @@ class Main {
     }
 }
 ```
+
+To build run `haxe build.hxml` from the project root, this will create a `Main` executable (for OSX, Linux or Windows) in a `bin` folder.
+
+Refer to [hello world example](https://github.com/haxeui/raylib-haxe/tree/main/examples/hello-world) for a working example. 
+
+
 
 # advanced usage
 
