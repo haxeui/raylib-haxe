@@ -90,12 +90,12 @@ extern class Matrix {
 @:native("Color")
 @:structAccess
 extern class Color {
-    var r:Int; // Color red value
-    var g:Int; // Color green value
-    var b:Int; // Color blue value
-    var a:Int; // Color alpha value
+    var r:cpp.UInt8; // Color red value
+    var g:cpp.UInt8; // Color green value
+    var b:cpp.UInt8; // Color blue value
+    var a:cpp.UInt8; // Color alpha value
 
-    public static inline function create(r:Int, g:Int, b:Int, a:Int):Color {
+    public static inline function create(r:cpp.UInt8, g:cpp.UInt8, b:cpp.UInt8, a:cpp.UInt8):Color {
         return untyped __cpp__("{ (unsigned char){0}, (unsigned char){1}, (unsigned char){2}, (unsigned char){3} }", r, g, b, a);
     }
 
@@ -306,16 +306,16 @@ extern class Mesh {
     var texcoords2:cpp.RawPointer<Float>; // Vertex second texture coordinates (useful for lightmaps) (shader-location = 5)
     var normals:cpp.RawPointer<Float>; // Vertex normals (XYZ - 3 components per vertex) (shader-location = 2)
     var tangents:cpp.RawPointer<Float>; // Vertex tangents (XYZW - 4 components per vertex) (shader-location = 4)
-    var colors:cpp.RawPointer<Int>; // Vertex colors (RGBA - 4 components per vertex) (shader-location = 3)
+    var colors:cpp.RawPointer<cpp.UInt8>; // Vertex colors (RGBA - 4 components per vertex) (shader-location = 3)
     var indices:cpp.RawPointer<Int>; // Vertex indices (in case vertex data comes indexed)
     var animVertices:cpp.RawPointer<Float>; // Animated vertex positions (after bones transformations)
     var animNormals:cpp.RawPointer<Float>; // Animated normals (after bones transformations)
-    var boneIds:cpp.RawPointer<Int>; // Vertex bone ids, max 255 bone ids, up to 4 bones influence by vertex (skinning)
+    var boneIds:cpp.RawPointer<cpp.UInt8>; // Vertex bone ids, max 255 bone ids, up to 4 bones influence by vertex (skinning)
     var boneWeights:cpp.RawPointer<Float>; // Vertex bone weight, up to 4 bones influence by vertex (skinning)
     var vaoId:Int; // OpenGL Vertex Array Object id
     var vboId:cpp.RawPointer<Int>; // OpenGL Vertex Buffer Objects id (default vertex data)
 
-    public static inline function create(vertexCount:Int, triangleCount:Int, vertices:cpp.RawPointer<Float>, texcoords:cpp.RawPointer<Float>, texcoords2:cpp.RawPointer<Float>, normals:cpp.RawPointer<Float>, tangents:cpp.RawPointer<Float>, colors:cpp.RawPointer<Int>, indices:cpp.RawPointer<Int>, animVertices:cpp.RawPointer<Float>, animNormals:cpp.RawPointer<Float>, boneIds:cpp.RawPointer<Int>, boneWeights:cpp.RawPointer<Float>, vaoId:Int, vboId:cpp.RawPointer<Int>):Mesh {
+    public static inline function create(vertexCount:Int, triangleCount:Int, vertices:cpp.RawPointer<Float>, texcoords:cpp.RawPointer<Float>, texcoords2:cpp.RawPointer<Float>, normals:cpp.RawPointer<Float>, tangents:cpp.RawPointer<Float>, colors:cpp.RawPointer<cpp.UInt8>, indices:cpp.RawPointer<Int>, animVertices:cpp.RawPointer<Float>, animNormals:cpp.RawPointer<Float>, boneIds:cpp.RawPointer<cpp.UInt8>, boneWeights:cpp.RawPointer<Float>, vaoId:Int, vboId:cpp.RawPointer<Int>):Mesh {
         return untyped __cpp__("{ (int){0}, (int){1}, (float *){2}, (float *){3}, (float *){4}, (float *){5}, (float *){6}, (unsigned char *){7}, (unsigned short *){8}, (float *){9}, (float *){10}, (unsigned char *){11}, (float *){12}, (unsigned int){13}, (unsigned int *){14} }", vertexCount, triangleCount, vertices, texcoords, texcoords2, normals, tangents, colors, indices, animVertices, animNormals, boneIds, boneWeights, vaoId, vboId);
     }
 
@@ -772,8 +772,8 @@ extern class RayLib {
     @:native("SetSaveFileDataCallback")                  public static function SetSaveFileDataCallback(callback:SaveFileDataCallback):Void;      // Set custom file binary data saver
     @:native("SetLoadFileTextCallback")                  public static function SetLoadFileTextCallback(callback:LoadFileTextCallback):Void;      // Set custom file text data loader
     @:native("SetSaveFileTextCallback")                  public static function SetSaveFileTextCallback(callback:SaveFileTextCallback):Void;      // Set custom file text data saver
-    @:native("LoadFileData")                             public static function LoadFileData(fileName:cpp.ConstCharStar, bytesRead:cpp.RawPointer<Int>):cpp.RawPointer<Int>;      // Load file data as byte array (read)
-    @:native("UnloadFileData")                           public static function UnloadFileData(data:cpp.RawPointer<Int>):Void;      // Unload file data allocated by LoadFileData()
+    @:native("LoadFileData")                             public static function LoadFileData(fileName:cpp.ConstCharStar, bytesRead:cpp.RawPointer<Int>):cpp.RawPointer<cpp.UInt8>;      // Load file data as byte array (read)
+    @:native("UnloadFileData")                           public static function UnloadFileData(data:cpp.RawPointer<cpp.UInt8>):Void;      // Unload file data allocated by LoadFileData()
     @:native("SaveFileData")                             public static function SaveFileData(fileName:cpp.ConstCharStar, data:cpp.RawPointer<cpp.Void>, bytesToWrite:Int):Bool;      // Save data to file from byte array (write), returns true on success
     @:native("LoadFileText")                             public static function LoadFileText(fileName:cpp.ConstCharStar):cpp.RawPointer<Int>;      // Load text data from file (read), returns a '\0' terminated string
     @:native("UnloadFileText")                           public static function UnloadFileText(text:cpp.RawPointer<Int>):Void;      // Unload file text data allocated by LoadFileText()
@@ -794,10 +794,10 @@ extern class RayLib {
     @:native("GetDroppedFiles")                          public static function GetDroppedFiles(count:cpp.RawPointer<Int>):cpp.RawPointer<cpp.RawPointer<Int>>;      // Get dropped files names (memory should be freed)
     @:native("ClearDroppedFiles")                        public static function ClearDroppedFiles():Void;      // Clear dropped files paths buffer (free memory)
     @:native("GetFileModTime")                           public static function GetFileModTime(fileName:cpp.ConstCharStar):Int;      // Get file modification time (last write time)
-    @:native("CompressData")                             public static function CompressData(data:cpp.RawPointer<Int>, dataLength:Int, compDataLength:cpp.RawPointer<Int>):cpp.RawPointer<Int>;      // Compress data (DEFLATE algorithm)
-    @:native("DecompressData")                           public static function DecompressData(compData:cpp.RawPointer<Int>, compDataLength:Int, dataLength:cpp.RawPointer<Int>):cpp.RawPointer<Int>;      // Decompress data (DEFLATE algorithm)
-    @:native("EncodeDataBase64")                         public static function EncodeDataBase64(data:cpp.RawConstPointer<Int>, dataLength:Int, outputLength:cpp.RawPointer<Int>):cpp.RawPointer<Int>;      // Encode data to Base64 string
-    @:native("DecodeDataBase64")                         public static function DecodeDataBase64(data:cpp.RawPointer<Int>, outputLength:cpp.RawPointer<Int>):cpp.RawPointer<Int>;      // Decode Base64 string data
+    @:native("CompressData")                             public static function CompressData(data:cpp.RawPointer<cpp.UInt8>, dataLength:Int, compDataLength:cpp.RawPointer<Int>):cpp.RawPointer<cpp.UInt8>;      // Compress data (DEFLATE algorithm)
+    @:native("DecompressData")                           public static function DecompressData(compData:cpp.RawPointer<cpp.UInt8>, compDataLength:Int, dataLength:cpp.RawPointer<Int>):cpp.RawPointer<cpp.UInt8>;      // Decompress data (DEFLATE algorithm)
+    @:native("EncodeDataBase64")                         public static function EncodeDataBase64(data:cpp.RawConstPointer<cpp.UInt8>, dataLength:Int, outputLength:cpp.RawPointer<Int>):cpp.RawPointer<Int>;      // Encode data to Base64 string
+    @:native("DecodeDataBase64")                         public static function DecodeDataBase64(data:cpp.RawPointer<cpp.UInt8>, outputLength:cpp.RawPointer<Int>):cpp.RawPointer<cpp.UInt8>;      // Decode Base64 string data
     @:native("SaveStorageValue")                         public static function SaveStorageValue(position:Int, value:Int):Bool;      // Save integer value to storage file (to defined position), returns true on success
     @:native("LoadStorageValue")                         public static function LoadStorageValue(position:Int):Int;      // Load integer value from storage file (from defined position)
     @:native("OpenURL")                                  public static function OpenURL(url:cpp.ConstCharStar):Void;      // Open URL with default system browser (if available)
@@ -900,7 +900,7 @@ extern class RayLib {
     @:native("LoadImage")                                public static function LoadImage(fileName:cpp.ConstCharStar):Image;      // Load image from file into CPU memory (RAM)
     @:native("LoadImageRaw")                             public static function LoadImageRaw(fileName:cpp.ConstCharStar, width:Int, height:Int, format:Int, headerSize:Int):Image;      // Load image from RAW file data
     @:native("LoadImageAnim")                            public static function LoadImageAnim(fileName:cpp.ConstCharStar, frames:cpp.RawPointer<Int>):Image;      // Load image sequence from file (frames appended to image.data)
-    @:native("LoadImageFromMemory")                      public static function LoadImageFromMemory(fileType:cpp.ConstCharStar, fileData:cpp.RawConstPointer<Int>, dataSize:Int):Image;      // Load image from memory buffer, fileType refers to extension: i.e. '.png'
+    @:native("LoadImageFromMemory")                      public static function LoadImageFromMemory(fileType:cpp.ConstCharStar, fileData:cpp.RawConstPointer<cpp.UInt8>, dataSize:Int):Image;      // Load image from memory buffer, fileType refers to extension: i.e. '.png'
     @:native("LoadImageFromTexture")                     public static function LoadImageFromTexture(texture:Texture2D):Image;      // Load image from GPU texture data
     @:native("LoadImageFromScreen")                      public static function LoadImageFromScreen():Image;      // Load image from screen buffer and (screenshot)
     @:native("UnloadImage")                              public static function UnloadImage(image:Image):Void;      // Unload image from CPU memory (RAM)
@@ -995,8 +995,8 @@ extern class RayLib {
     @:native("LoadFont")                                 public static function LoadFont(fileName:cpp.ConstCharStar):Font;      // Load font from file into GPU memory (VRAM)
     @:native("LoadFontEx")                               public static function LoadFontEx(fileName:cpp.ConstCharStar, fontSize:Int, fontChars:cpp.RawPointer<Int>, glyphCount:Int):Font;      // Load font from file with extended parameters
     @:native("LoadFontFromImage")                        public static function LoadFontFromImage(image:Image, key:Color, firstChar:Int):Font;      // Load font from Image (XNA style)
-    @:native("LoadFontFromMemory")                       public static function LoadFontFromMemory(fileType:cpp.ConstCharStar, fileData:cpp.RawConstPointer<Int>, dataSize:Int, fontSize:Int, fontChars:cpp.RawPointer<Int>, glyphCount:Int):Font;      // Load font from memory buffer, fileType refers to extension: i.e. '.ttf'
-    @:native("LoadFontData")                             public static function LoadFontData(fileData:cpp.RawConstPointer<Int>, dataSize:Int, fontSize:Int, fontChars:cpp.RawPointer<Int>, glyphCount:Int, type:Int):cpp.RawPointer<GlyphInfo>;      // Load font data for further use
+    @:native("LoadFontFromMemory")                       public static function LoadFontFromMemory(fileType:cpp.ConstCharStar, fileData:cpp.RawConstPointer<cpp.UInt8>, dataSize:Int, fontSize:Int, fontChars:cpp.RawPointer<Int>, glyphCount:Int):Font;      // Load font from memory buffer, fileType refers to extension: i.e. '.ttf'
+    @:native("LoadFontData")                             public static function LoadFontData(fileData:cpp.RawConstPointer<cpp.UInt8>, dataSize:Int, fontSize:Int, fontChars:cpp.RawPointer<Int>, glyphCount:Int, type:Int):cpp.RawPointer<GlyphInfo>;      // Load font data for further use
     @:native("GenImageFontAtlas")                        public static function GenImageFontAtlas(chars:cpp.RawConstPointer<GlyphInfo>, recs:cpp.RawPointer<cpp.RawPointer<Rectangle>>, glyphCount:Int, fontSize:Int, padding:Int, packMethod:Int):Image;      // Generate image font atlas using chars info
     @:native("UnloadFontData")                           public static function UnloadFontData(chars:cpp.RawPointer<GlyphInfo>, glyphCount:Int):Void;      // Unload font chars info data (RAM)
     @:native("UnloadFont")                               public static function UnloadFont(font:Font):Void;      // Unload Font from GPU memory (VRAM)
@@ -1109,7 +1109,7 @@ extern class RayLib {
     @:native("IsAudioDeviceReady")                       public static function IsAudioDeviceReady():Bool;      // Check if audio device has been initialized successfully
     @:native("SetMasterVolume")                          public static function SetMasterVolume(volume:Float):Void;      // Set master volume (listener)
     @:native("LoadWave")                                 public static function LoadWave(fileName:cpp.ConstCharStar):Wave;      // Load wave data from file
-    @:native("LoadWaveFromMemory")                       public static function LoadWaveFromMemory(fileType:cpp.ConstCharStar, fileData:cpp.RawConstPointer<Int>, dataSize:Int):Wave;      // Load wave from memory buffer, fileType refers to extension: i.e. '.wav'
+    @:native("LoadWaveFromMemory")                       public static function LoadWaveFromMemory(fileType:cpp.ConstCharStar, fileData:cpp.RawConstPointer<cpp.UInt8>, dataSize:Int):Wave;      // Load wave from memory buffer, fileType refers to extension: i.e. '.wav'
     @:native("LoadSound")                                public static function LoadSound(fileName:cpp.ConstCharStar):Sound;      // Load sound from file
     @:native("LoadSoundFromWave")                        public static function LoadSoundFromWave(wave:Wave):Sound;      // Load sound from wave data
     @:native("UpdateSound")                              public static function UpdateSound(sound:Sound, data:cpp.RawConstPointer<cpp.Void>, sampleCount:Int):Void;      // Update sound buffer with new data
@@ -1133,7 +1133,7 @@ extern class RayLib {
     @:native("LoadWaveSamples")                          public static function LoadWaveSamples(wave:Wave):cpp.RawPointer<Float>;      // Load samples data from wave as a floats array
     @:native("UnloadWaveSamples")                        public static function UnloadWaveSamples(samples:cpp.RawPointer<Float>):Void;      // Unload samples data loaded with LoadWaveSamples()
     @:native("LoadMusicStream")                          public static function LoadMusicStream(fileName:cpp.ConstCharStar):Music;      // Load music stream from file
-    @:native("LoadMusicStreamFromMemory")                public static function LoadMusicStreamFromMemory(fileType:cpp.ConstCharStar, data:cpp.RawPointer<Int>, dataSize:Int):Music;      // Load music stream from data
+    @:native("LoadMusicStreamFromMemory")                public static function LoadMusicStreamFromMemory(fileType:cpp.ConstCharStar, data:cpp.RawPointer<cpp.UInt8>, dataSize:Int):Music;      // Load music stream from data
     @:native("UnloadMusicStream")                        public static function UnloadMusicStream(music:Music):Void;      // Unload music stream
     @:native("PlayMusicStream")                          public static function PlayMusicStream(music:Music):Void;      // Start music playing
     @:native("IsMusicStreamPlaying")                     public static function IsMusicStreamPlaying(music:Music):Bool;      // Check if music is playing
