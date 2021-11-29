@@ -9,6 +9,10 @@
         <files id="haxe">
             <compilerflag value="-I${glfw_folder}/include" />
             <compilerflag value="-I${raylib_folder}" />
+
+            <compilerflag value="-DSUPPORT_FILEFORMAT_JPG" unless="raylib-no-jpg" />
+            <compilerflag value="-DSUPPORT_FILEFORMAT_BMP" unless="raylib-no-bmp" />
+            <compilerflag value="-DSUPPORT_FILEFORMAT_TGA" unless="raylib-no-tga" />
             
             <file name="${raylib_folder}/rcore.c" />
             <file name="${raylib_folder}/utils.c" />
