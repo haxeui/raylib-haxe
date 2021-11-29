@@ -8,15 +8,24 @@ Haxe bindings for RayLib
   <img src="https://raw.githubusercontent.com/haxeui/raylib-haxe/main/.github/images/screen.png"/>
 </p>
 
-# installation
+# Installation
 
 ```
 haxelib install raylib-haxe
 ```
 
-# basic usage
+# Basic Usage
 
-Refer to [hello world example](https://github.com/haxeui/raylib-haxe/tree/main/examples/hello-world) for basic usage
+Simpy create a build file (`build.hxml`) with the following:
+
+```
+-lib raylib-haxe
+-cp src
+-cpp bin
+-main Main
+```
+
+create a `src` directory with a `Main.hx` containing the following:
 
 ```haxe
 package;
@@ -45,7 +54,13 @@ class Main {
 }
 ```
 
-# advanced usage
+To build run `haxe build.hxml` from the project root, this will create a `Main` executable (for OSX, Linux or Windows) in a `bin` folder.
+
+Refer to [hello world example](https://github.com/haxeui/raylib-haxe/tree/main/examples/hello-world) for a working example. 
+
+
+
+# Advanced Usage
 
 Refer to [examples](https://github.com/haxeui/raylib-haxe/tree/main/examples) for more advanced usage
 
@@ -113,3 +128,13 @@ class Main {
 }
 
 ```
+
+# Regenerate Externs
+
+You shouldnt need to regenerate the externs (if you do, open an issue and they can be regenerated in this repository!) but if you do, simply run:
+
+```
+haxelib run raylib-haxe
+```
+
+This will pull the latest api dump (from here: https://raw.githubusercontent.com/raysan5/raylib/master/parser/raylib_api.xml) and regenerate the `RayLib.hx` from that. 
