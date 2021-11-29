@@ -358,8 +358,8 @@ extern class Colors {
         }
         
         var haxeType = switch (cppType.trim()) {
-            case "unsigned char": "Int";
-            case "const unsigned char": "Int";
+            case "unsigned char": "cpp.UInt8";
+            case "const unsigned char": "cpp.UInt8";
             case "const char": "Int";
             case "unsigned int": "Int";
             case "unsigned short": "Int";
