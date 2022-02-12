@@ -1,18 +1,18 @@
 {
-    "version": "1.0.0",
     "contributors": [
         "haxeui",
         "ianharrigan"
     ],
-    "dependencies": {
-        "hxcpp": ""
-    },
-    "releasenote": "1.0 release",
+    "version": "1.1.0",
+    "license": "MIT",
     "tags": [
         "raylib",
         "externs"
     ],
-    "license": "MIT",
+    "releasenote": "1.1.0 release",
+    "dependencies": {
+        "hxcpp": ""
+    },
     "name": "raylib-haxe",
     "description": "Haxe externs for RayLib",
     "url": "https://github.com/haxeui/raylib-haxe"
