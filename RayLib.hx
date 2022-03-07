@@ -1,6 +1,6 @@
 package;
 
-// Vector2
+// Vector2, 2 components
 @:include("raylib.h")
 @:native("Vector2")
 @:structAccess
@@ -17,7 +17,7 @@ extern class Vector2 {
     }
 }
 
-// Vector3
+// Vector3, 3 components
 @:include("raylib.h")
 @:native("Vector3")
 @:structAccess
@@ -35,7 +35,7 @@ extern class Vector3 {
     }
 }
 
-// Vector4
+// Vector4, 4 components
 @:include("raylib.h")
 @:native("Vector4")
 @:structAccess
@@ -54,7 +54,7 @@ extern class Vector4 {
     }
 }
 
-// Matrix
+// Matrix, 4x4 components, column major, OpenGL style, right handed
 @:include("raylib.h")
 @:native("Matrix")
 @:structAccess
@@ -85,7 +85,7 @@ extern class Matrix {
     }
 }
 
-// Color
+// Color, 4 components, R8G8B8A8 (32bit)
 @:include("raylib.h")
 @:native("Color")
 @:structAccess
@@ -104,7 +104,7 @@ extern class Color {
     }
 }
 
-// Rectangle
+// Rectangle, 4 components
 @:include("raylib.h")
 @:native("Rectangle")
 @:structAccess
@@ -123,7 +123,7 @@ extern class Rectangle {
     }
 }
 
-// Image
+// Image, pixel data stored in CPU memory (RAM)
 @:include("raylib.h")
 @:native("Image")
 @:structAccess
@@ -149,7 +149,7 @@ typedef TextureCubemap = Texture;
 // Texture alias
 typedef Texture2D = Texture;
 
-// Texture
+// Texture, tex data stored in GPU memory (VRAM)
 @:include("raylib.h")
 @:native("Texture")
 @:structAccess
@@ -172,7 +172,7 @@ extern class Texture {
 // RenderTexture alias
 typedef RenderTexture2D = RenderTexture;
 
-// RenderTexture
+// RenderTexture, fbo for texture rendering
 @:include("raylib.h")
 @:native("RenderTexture")
 @:structAccess
@@ -190,7 +190,7 @@ extern class RenderTexture {
     }
 }
 
-// NPatchInfo
+// NPatchInfo, n-patch layout info
 @:include("raylib.h")
 @:native("NPatchInfo")
 @:structAccess
@@ -211,7 +211,7 @@ extern class NPatchInfo {
     }
 }
 
-// GlyphInfo
+// GlyphInfo, font characters glyphs info
 @:include("raylib.h")
 @:native("GlyphInfo")
 @:structAccess
@@ -231,7 +231,7 @@ extern class GlyphInfo {
     }
 }
 
-// Font
+// Font, font texture and GlyphInfo array data
 @:include("raylib.h")
 @:native("Font")
 @:structAccess
@@ -255,7 +255,7 @@ extern class Font {
 // Camera3D alias
 typedef Camera = Camera3D;
 
-// Camera3D
+// Camera, defines position/orientation in 3d space
 @:include("raylib.h")
 @:native("Camera3D")
 @:structAccess
@@ -275,7 +275,7 @@ extern class Camera3D {
     }
 }
 
-// Camera2D
+// Camera2D, defines position/orientation in 2d space
 @:include("raylib.h")
 @:native("Camera2D")
 @:structAccess
@@ -294,7 +294,7 @@ extern class Camera2D {
     }
 }
 
-// Mesh
+// Mesh, vertex data and vao/vbo
 @:include("raylib.h")
 @:native("Mesh")
 @:structAccess
@@ -359,7 +359,7 @@ extern class MaterialMap {
     }
 }
 
-// Material
+// Material, includes shader and maps
 @:include("raylib.h")
 @:native("Material")
 @:structAccess
@@ -377,7 +377,7 @@ extern class Material {
     }
 }
 
-// Transform
+// Transform, vectex transformation data
 @:include("raylib.h")
 @:native("Transform")
 @:structAccess
@@ -395,7 +395,7 @@ extern class Transform {
     }
 }
 
-// BoneInfo
+// Bone, skeletal animation bone
 @:include("raylib.h")
 @:native("BoneInfo")
 @:structAccess
@@ -412,7 +412,7 @@ extern class BoneInfo {
     }
 }
 
-// Model
+// Model, meshes, materials and animation data
 @:include("raylib.h")
 @:native("Model")
 @:structAccess
@@ -455,7 +455,7 @@ extern class ModelAnimation {
     }
 }
 
-// Ray
+// Ray, ray for raycasting
 @:include("raylib.h")
 @:native("Ray")
 @:structAccess
@@ -472,7 +472,7 @@ extern class Ray {
     }
 }
 
-// RayCollision
+// RayCollision, ray hit information
 @:include("raylib.h")
 @:native("RayCollision")
 @:structAccess
@@ -508,7 +508,7 @@ extern class BoundingBox {
     }
 }
 
-// Wave
+// Wave, audio wave data
 @:include("raylib.h")
 @:native("Wave")
 @:structAccess
@@ -528,7 +528,7 @@ extern class Wave {
     }
 }
 
-// AudioStream
+// AudioStream, custom audio stream
 @:include("raylib.h")
 @:native("AudioStream")
 @:structAccess
@@ -564,7 +564,7 @@ extern class Sound {
     }
 }
 
-// Music
+// Music, audio stream, anything longer than ~10 seconds should be streamed
 @:include("raylib.h")
 @:native("Music")
 @:structAccess
@@ -584,7 +584,7 @@ extern class Music {
     }
 }
 
-// VrDeviceInfo
+// VrDeviceInfo, Head-Mounted-Display device parameters
 @:include("raylib.h")
 @:native("VrDeviceInfo")
 @:structAccess
@@ -609,7 +609,7 @@ extern class VrDeviceInfo {
     }
 }
 
-// VrStereoConfig
+// VrStereoConfig, VR stereo rendering configuration for simulator
 @:include("raylib.h")
 @:native("VrStereoConfig")
 @:structAccess
@@ -632,40 +632,55 @@ extern class VrStereoConfig {
     }
 }
 
-// TODO: empty structs - not sure where they come from in the api - but they need to be defined
 @:include("raylib.h")
 @:native("LoadFileDataCallback")
 extern class LoadFileDataCallback {
+    public static inline function fromStatic<T>(inStaticFunction:T):LoadFileDataCallback {
+        return untyped __cpp__("(LoadFileDataCallback) *{0}", cpp.Function.fromStaticFunction(inStaticFunction));
+    }
 }
 
 @:include("raylib.h")
 @:native("SaveFileDataCallback")
 extern class SaveFileDataCallback {
+    public static inline function fromStatic<T>(inStaticFunction:T):SaveFileDataCallback {
+        return untyped __cpp__("(SaveFileDataCallback) *{0}", cpp.Function.fromStaticFunction(inStaticFunction));
+    }
 }
 
+@:include("raylib.h")
+@:native("TraceLogCallback")
+extern class TraceLogCallback {
+    public static inline function fromStatic<T>(inStaticFunction:T):TraceLogCallback {
+        return untyped __cpp__("(TraceLogCallback) *{0}", cpp.Function.fromStaticFunction(inStaticFunction));
+    }
+}
+
+@:include("raylib.h")
+@:native("LoadFileTextCallback")
+extern class LoadFileTextCallback {
+    public static inline function fromStatic<T>(inStaticFunction:T):LoadFileTextCallback {
+        return untyped __cpp__("(LoadFileTextCallback) *{0}", cpp.Function.fromStaticFunction(inStaticFunction));
+    }
+}
+
+@:include("raylib.h")
+@:native("SaveFileTextCallback")
+extern class SaveFileTextCallback {
+    public static inline function fromStatic<T>(inStaticFunction:T):SaveFileTextCallback {
+        return untyped __cpp__("(SaveFileTextCallback) *{0}", cpp.Function.fromStaticFunction(inStaticFunction));
+    }
+}
+
+// TODO: empty structs - not sure where they come from in the api - but they need to be defined
 @:include("raylib.h")
 @:native("Quaternion")
 extern class Quaternion {
 }
 
 @:include("raylib.h")
-@:native("TraceLogCallback")
-extern class TraceLogCallback {
-}
-
-@:include("raylib.h")
-@:native("LoadFileTextCallback")
-extern class LoadFileTextCallback {
-}
-
-@:include("raylib.h")
 @:native("rAudioBuffer")
 extern class RAudioBuffer {
-}
-
-@:include("raylib.h")
-@:native("SaveFileTextCallback")
-extern class SaveFileTextCallback {
 }
 
 @:buildXml("<include name='${haxelib:raylib-haxe}/Build.xml'/>")
@@ -682,7 +697,7 @@ extern class RayLib {
     @:native("IsWindowFocused")                          public static function IsWindowFocused():Bool;      // Check if window is currently focused (only PLATFORM_DESKTOP)
     @:native("IsWindowResized")                          public static function IsWindowResized():Bool;      // Check if window has been resized last frame
     @:native("IsWindowState")                            public static function IsWindowState(flag:Int):Bool;      // Check if one specific window flag is enabled
-    @:native("SetWindowState")                           public static function SetWindowState(flags:Int):Void;      // Set window configuration state using flags
+    @:native("SetWindowState")                           public static function SetWindowState(flags:Int):Void;      // Set window configuration state using flags (only PLATFORM_DESKTOP)
     @:native("ClearWindowState")                         public static function ClearWindowState(flags:Int):Void;      // Clear window configuration state flags
     @:native("ToggleFullscreen")                         public static function ToggleFullscreen():Void;      // Toggle window state: fullscreen/windowed (only PLATFORM_DESKTOP)
     @:native("MaximizeWindow")                           public static function MaximizeWindow():Void;      // Set window state: maximized, if resizable (only PLATFORM_DESKTOP)
@@ -694,9 +709,12 @@ extern class RayLib {
     @:native("SetWindowMonitor")                         public static function SetWindowMonitor(monitor:Int):Void;      // Set monitor for the current window (fullscreen mode)
     @:native("SetWindowMinSize")                         public static function SetWindowMinSize(width:Int, height:Int):Void;      // Set window minimum dimensions (for FLAG_WINDOW_RESIZABLE)
     @:native("SetWindowSize")                            public static function SetWindowSize(width:Int, height:Int):Void;      // Set window dimensions
+    @:native("SetWindowOpacity")                         public static function SetWindowOpacity(opacity:Float):Void;      // Set window opacity [0.0f..1.0f] (only PLATFORM_DESKTOP)
     @:native("GetWindowHandle")                          public static function GetWindowHandle():cpp.RawPointer<cpp.Void>;      // Get native window handle
     @:native("GetScreenWidth")                           public static function GetScreenWidth():Int;      // Get current screen width
     @:native("GetScreenHeight")                          public static function GetScreenHeight():Int;      // Get current screen height
+    @:native("GetRenderWidth")                           public static function GetRenderWidth():Int;      // Get current render width (it considers HiDPI)
+    @:native("GetRenderHeight")                          public static function GetRenderHeight():Int;      // Get current render height (it considers HiDPI)
     @:native("GetMonitorCount")                          public static function GetMonitorCount():Int;      // Get number of connected monitors
     @:native("GetCurrentMonitor")                        public static function GetCurrentMonitor():Int;      // Get current connected monitor
     @:native("GetMonitorPosition")                       public static function GetMonitorPosition(monitor:Int):Vector2;      // Get specified monitor position
@@ -993,13 +1011,14 @@ extern class RayLib {
     @:native("GetPixelDataSize")                         public static function GetPixelDataSize(width:Int, height:Int, format:Int):Int;      // Get pixel data size in bytes for certain format
     @:native("GetFontDefault")                           public static function GetFontDefault():Font;      // Get the default Font
     @:native("LoadFont")                                 public static function LoadFont(fileName:cpp.ConstCharStar):Font;      // Load font from file into GPU memory (VRAM)
-    @:native("LoadFontEx")                               public static function LoadFontEx(fileName:cpp.ConstCharStar, fontSize:Int, fontChars:cpp.RawPointer<Int>, glyphCount:Int):Font;      // Load font from file with extended parameters
+    @:native("LoadFontEx")                               public static function LoadFontEx(fileName:cpp.ConstCharStar, fontSize:Int, fontChars:cpp.RawPointer<Int>, glyphCount:Int):Font;      // Load font from file with extended parameters, use NULL for fontChars and 0 for glyphCount to load the default character set
     @:native("LoadFontFromImage")                        public static function LoadFontFromImage(image:Image, key:Color, firstChar:Int):Font;      // Load font from Image (XNA style)
     @:native("LoadFontFromMemory")                       public static function LoadFontFromMemory(fileType:cpp.ConstCharStar, fileData:cpp.RawConstPointer<cpp.UInt8>, dataSize:Int, fontSize:Int, fontChars:cpp.RawPointer<Int>, glyphCount:Int):Font;      // Load font from memory buffer, fileType refers to extension: i.e. '.ttf'
     @:native("LoadFontData")                             public static function LoadFontData(fileData:cpp.RawConstPointer<cpp.UInt8>, dataSize:Int, fontSize:Int, fontChars:cpp.RawPointer<Int>, glyphCount:Int, type:Int):cpp.RawPointer<GlyphInfo>;      // Load font data for further use
     @:native("GenImageFontAtlas")                        public static function GenImageFontAtlas(chars:cpp.RawConstPointer<GlyphInfo>, recs:cpp.RawPointer<cpp.RawPointer<Rectangle>>, glyphCount:Int, fontSize:Int, padding:Int, packMethod:Int):Image;      // Generate image font atlas using chars info
     @:native("UnloadFontData")                           public static function UnloadFontData(chars:cpp.RawPointer<GlyphInfo>, glyphCount:Int):Void;      // Unload font chars info data (RAM)
-    @:native("UnloadFont")                               public static function UnloadFont(font:Font):Void;      // Unload Font from GPU memory (VRAM)
+    @:native("UnloadFont")                               public static function UnloadFont(font:Font):Void;      // Unload font from GPU memory (VRAM)
+    @:native("ExportFontAsCode")                         public static function ExportFontAsCode(font:Font, fileName:cpp.ConstCharStar):Bool;      // Export font as code file, returns true on success
     @:native("DrawFPS")                                  public static function DrawFPS(posX:Int, posY:Int):Void;      // Draw current FPS
     @:native("DrawText")                                 public static function DrawText(text:cpp.ConstCharStar, posX:Int, posY:Int, fontSize:Int, color:Color):Void;      // Draw text (using default font)
     @:native("DrawTextEx")                               public static function DrawTextEx(font:Font, text:cpp.ConstCharStar, position:Vector2, fontSize:Float, spacing:Float, tint:Color):Void;      // Draw text using font and additional parameters
@@ -1565,5 +1584,20 @@ extern class Colors {
     @:native("BLANK")       public static var BLANK:Color;
     @:native("MAGENTA")     public static var MAGENTA:Color;
     @:native("RAYWHITE")    public static var RAYWHITE:Color;
+}
+        
+@:native("va_list")
+extern class VaList {
+    public static inline function int(args:VaList):Int {
+        return untyped __cpp__("va_arg(args, int)");
+    }
+
+    public static inline function string(args:VaList):String {
+        return untyped __cpp__("va_arg(args, const char *)");
+    }
+
+    public static inline function float(args:VaList):Float {
+        return untyped __cpp__("va_arg(args, double)");
+    }
 }
         
