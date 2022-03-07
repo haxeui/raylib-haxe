@@ -12,12 +12,16 @@ class Main {
     static var structsEmpty:Map<String, String> = [
         "Quaternion" => "Quaternion",
         "rAudioBuffer" => "RAudioBuffer",
+    ];
+    
+    static var structsCallbacks:Map<String, String> = [
         "TraceLogCallback" => "TraceLogCallback",
         "LoadFileDataCallback" => "LoadFileDataCallback",
         "SaveFileDataCallback" => "SaveFileDataCallback",
         "LoadFileTextCallback" => "LoadFileTextCallback",
         "SaveFileTextCallback" => "SaveFileTextCallback"
     ];
+
     static var structsAliased:Map<String, String> = [
         "Texture2D" => "Texture",
         "TextureCubemap" => "Texture",
@@ -82,6 +86,23 @@ extern class Colors {
     @:native("RAYWHITE")    public static var RAYWHITE:Color;
 }
         ');
+        
+        sb.add('
+@:native("va_list")
+extern class VaList {
+    public static inline function int(args:VaList):Int {
+        return untyped __cpp__("va_arg(args, int)");
+    }
+
+    public static inline function string(args:VaList):String {
+        return untyped __cpp__("va_arg(args, const char *)");
+    }
+
+    public static inline function float(args:VaList):Float {
+        return untyped __cpp__("va_arg(args, double)");
+    }
+}
+        ');
     }
     
     static function buildStructs(structsEl:Xml, sb:StringBuf) {
@@ -92,6 +113,19 @@ extern class Colors {
             n++;
         }
         log('......${n}');
+        
+        for (callbackStruct in structsCallbacks.keys()) {
+            var value = structsCallbacks.get(callbackStruct);
+            sb.add('@:include("raylib.h")\n');
+            sb.add('@:native("${callbackStruct}")\n');
+            sb.add('extern class ${value} {\n');
+            sb.add('    public static inline function fromStatic<T>(inStaticFunction:T):${callbackStruct} {\n');
+            sb.add('        return untyped __cpp__("(${callbackStruct}) *{0}", cpp.Function.fromStaticFunction(inStaticFunction));\n');
+            sb.add('    }\n');
+            sb.add('}\n');
+            sb.add('\n');
+        }
+        
         sb.add('// TODO: empty structs - not sure where they come from in the api - but they need to be defined\n');
         for (emptyStruct in structsEmpty.keys()) {
             var value = structsEmpty.get(emptyStruct);
@@ -356,6 +390,9 @@ extern class Colors {
         if (structsEmpty.exists(cppType)) {
             return structsEmpty.get(cppType);
         }
+        if (structsCallbacks.exists(cppType)) {
+            return structsCallbacks.get(cppType);
+        }
         
         var haxeType = switch (cppType.trim()) {
             case "unsigned char": "cpp.UInt8";
@@ -375,7 +412,7 @@ extern class Colors {
         }
         
         if (haxeType == null) {
-            log('WARNING: could not find haxe equivelent for cpp type "${cppType}"');
+            log('\nWARNING: could not find haxe equivelent for cpp type "${cppType}"');
             if (failFast == true) {
                 throw('WARNING: could not find haxe equivelent for cpp type "${cppType}"');
             }
