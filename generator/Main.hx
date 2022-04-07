@@ -28,7 +28,7 @@ class Main {
         "Texture2D" => "Texture",
         "TextureCubemap" => "Texture",
         "RenderTexture2D" => "RenderTexture",
-        "Camera" => "Camera3D"
+        "Camera" => "Camera3D",
     ];
     
     static var typeMap:Map<String, String> = [];
@@ -147,10 +147,12 @@ extern class VaList {
             if (to == name) {
                 sb.add('// ${name} alias\n');
                 sb.add('typedef ${alias} = ${name};\n');
+                sb.add('typedef Ray${alias} = Ray${name};\n');
                 sb.add('\n');
                 structsBuilt.set(alias, {
                     name: alias
                 });
+                typeMap.set(alias, 'Ray${name}');
             }
         }
         
@@ -207,29 +209,43 @@ extern class VaList {
             }
         }
         
-        // build create function
+        sb.add('}\n');
         sb.add('\n');
+        
+        /*
+        sb.add('typedef ${orginalName} = cpp.Struct<${name}>;\n');
+        sb.add('\n');
+        */
+        
+        sb.add('@:native("cpp.Reference<${orginalName}>")\n');
+        sb.add('extern class ${orginalName}Ref extends ${name} {\n');
+        sb.add('}\n');
+        sb.add('\n');
+        
+        sb.add('@:native("cpp.Struct<${orginalName}>")\n');
+        sb.add('extern class ${orginalName} extends ${orginalName}Ref {\n');
+
+        // build create function
         sb.add('    public static inline function create(');
         sb.add(createParamsList.join(', '));
-        sb.add('):${name} {\n');
-        sb.add('        return untyped __cpp__("{ ');
+        sb.add('):${orginalName} {\n');
+        sb.add('        var t:${name} = untyped __cpp__("{ ');
         sb.add(createParamsUntypedList.join(', '));
         sb.add(' }", ');
         sb.add(createParamsUntypedParamsList.join(', '));
         sb.add(');\n');
+        sb.add('        return cast t;\n');
         sb.add('    }');
         sb.add('\n');
         
         // build createEmpty function
         sb.add('\n');
-        sb.add('    public static inline function createEmpty():${name} {\n');
-        sb.add('        return untyped __cpp__("{ 0 }");\n');
+        sb.add('    public static inline function createEmpty():${orginalName} {\n');
+        sb.add('        var t:${name} = untyped __cpp__("{ 0 }");\n');
+        sb.add('        return cast t;\n');
         sb.add('    }\n');
-
-        sb.add('}\n');
-        sb.add('\n');
         
-        sb.add('typedef ${orginalName} = cpp.Struct<${name}>;\n');
+        sb.add('}\n');
         sb.add('\n');
         
         typeMap.set(orginalName, name);
@@ -344,7 +360,7 @@ extern class VaList {
         
         sb.add('    @:native("${name}") ');
         pad(40 - name.length, sb);
-        sb.add('public static function ${name}');
+        sb.add('private static function _${name}');
         sb.add('(');
         var paramList:Array<String> = [];
         for (paramEl in functionEl.elementsNamed("Param")) {
@@ -373,13 +389,64 @@ extern class VaList {
             sb.add(' // ${description}');
         }
         sb.add('\n');
+        
+        // inline function
+        haxeRetType = convertType(cppRetType, false);
+        var prefix = 'return';
+        if (haxeRetType == "cpp.Void") {
+            haxeRetType = "Void";
+        }
+        if (haxeRetType == "Void") {
+            prefix = '';
+        } else if (haxeRetType != "Int" && haxeRetType != "Bool" && haxeRetType != "Float" && haxeRetType != "String") {
+            prefix = 'return cast';
+        }
+        pad(40 + '    @:native("${name}") '.length - name.length, sb);
+        sb.add('public static inline function ${name}');
+        sb.add('(');
+        var paramList:Array<String> = [];
+        var paramNames:Array<String> = [];
+        for (paramEl in functionEl.elementsNamed("Param")) {
+            var paramName = paramEl.get("name");
+            if (paramName == "dynamic"){
+                paramName = "dyn";
+            }
+            var paramType = paramEl.get("type");
+            if (paramType.trim().length == 0) {
+                continue;
+            }
+            var paramTypeHaxe = convertType(paramType, false);
+            var paramDesc = paramEl.get("desc");
+            
+            if (paramDesc != null && paramDesc.trim().length != 0) {
+                paramList.push('/* ${paramDesc} */ ${paramName}:${paramTypeHaxe}');
+            } else {
+                paramList.push('${paramName}:${paramTypeHaxe}');
+            }
+            if (paramTypeHaxe != "Int" && paramTypeHaxe != "Bool" && paramTypeHaxe != "Float" && paramTypeHaxe != "String") {
+                paramNames.push("cast " + paramName);
+            } else {
+                paramNames.push(paramName);
+            }
+        }
+        sb.add(paramList.join(", "));
+        sb.add(')');
+        sb.add(':${haxeRetType}');
+        sb.add(' { ${prefix} _$name(');
+        sb.add(paramNames.join(', '));
+        sb.add('); }');
+        if (description != null && description.trim().length != 0) {
+            pad(5, sb);
+            sb.add(' // ${description}');
+        }
+        sb.add('\n');
     }
     
-    static function convertType(cppType:String):String {
+    static function convertType(cppType:String, useTypeMap:Bool = true):String {
         if (cppType == "...") {
             return "haxe.extern.Rest<Any>";
         }
-        if (typeMap.exists(cppType)) {
+        if (typeMap.exists(cppType) && useTypeMap == true) {
             return typeMap.get(cppType);
         }
         if (structsBuilt.exists(cppType)) {
@@ -388,7 +455,7 @@ extern class VaList {
 
         if (cppType.contains("**")) { // pointer
             var type = cppType.substr(0, cppType.indexOf("*")).trim();
-            return 'cpp.RawPointer<cpp.RawPointer<${convertType(type)}>>';
+            return 'cpp.RawPointer<cpp.RawPointer<${convertType(type, useTypeMap)}>>';
         }
         
         if (cppType.contains("*")) { // pointer
@@ -398,9 +465,9 @@ extern class VaList {
             var type = cppType.substr(0, cppType.indexOf("*")).trim();
             if (type.contains("const")) {
                 type = type.replace("const", "").trim();
-                return 'cpp.RawConstPointer<${convertType(type)}>';
+                return 'cpp.RawConstPointer<${convertType(type, useTypeMap)}>';
             }
-            return 'cpp.RawPointer<${convertType(type)}>';
+            return 'cpp.RawPointer<${convertType(type, useTypeMap)}>';
         }
         
         if (structsEmpty.exists(cppType)) {
