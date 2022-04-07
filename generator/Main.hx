@@ -12,6 +12,8 @@ class Main {
     static var structsEmpty:Map<String, String> = [
         "Quaternion" => "Quaternion",
         "rAudioBuffer" => "RAudioBuffer",
+        "rAudioProcessor" => "RAudioProcessor",
+        "AudioCallback" => "AudioCallback",
     ];
     
     static var structsCallbacks:Map<String, String> = [
@@ -28,6 +30,8 @@ class Main {
         "RenderTexture2D" => "RenderTexture",
         "Camera" => "Camera3D"
     ];
+    
+    static var typeMap:Map<String, String> = [];
     
 	static function main() {
         var source = "https://raw.githubusercontent.com/raysan5/raylib/master/parser/raylib_api.xml"; // must use xml version so function params are ordered
@@ -154,6 +158,7 @@ extern class VaList {
     
     static function buildStruct(structEl:Xml, sb:StringBuf) {
         var name:String = structEl.get("name");
+        var orginalName = name;
         var description:String = structEl.get("desc");
         if (description == null || description.trim() == "") {
             description = name;
@@ -162,10 +167,11 @@ extern class VaList {
         //log('    generating "${name}" (${structEl.get("fieldCount")} fields)');
 
         buildStructAliases(name, sb);
+        name = "Ray" + name;
         
         sb.add('// ${description}\n');
         sb.add('@:include("raylib.h")\n');
-        sb.add('@:native("${name}")\n');
+        sb.add('@:native("${orginalName}")\n');
         sb.add('@:structAccess\n');
         sb.add('extern class ${name} {\n');
         
@@ -223,6 +229,10 @@ extern class VaList {
         sb.add('}\n');
         sb.add('\n');
         
+        sb.add('typedef ${orginalName} = cpp.Struct<${name}>;\n');
+        sb.add('\n');
+        
+        typeMap.set(orginalName, name);
         structsBuilt.set(name, structEl);
     }
     
@@ -366,6 +376,12 @@ extern class VaList {
     }
     
     static function convertType(cppType:String):String {
+        if (cppType == "...") {
+            return "haxe.extern.Rest<Any>";
+        }
+        if (typeMap.exists(cppType)) {
+            return typeMap.get(cppType);
+        }
         if (structsBuilt.exists(cppType)) {
             return cppType;
         }
