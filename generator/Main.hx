@@ -217,11 +217,13 @@ extern class VaList {
         sb.add('\n');
         */
         
+        sb.add('@:include("raylib.h")\n');
         sb.add('@:native("cpp.Reference<${orginalName}>")\n');
         sb.add('extern private class ${orginalName}Ref extends ${name} {\n');
         sb.add('}\n');
         sb.add('\n');
         
+        sb.add('@:include("raylib.h")\n');
         sb.add('@:native("cpp.Struct<${orginalName}>")\n');
         sb.add('extern class ${orginalName} extends ${orginalName}Ref {\n');
 
