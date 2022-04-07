@@ -10,7 +10,7 @@ jobs:
       matrix:
         os: [windows-latest, ubuntu-latest, macos-latest]
         haxe-version: [4.1.5, 4.2.2]
-        example: [3d-camera-free, 3d-picking, cubicmap, heightmap, postprocessing, waving-cubes, world-screen]
+        example: [3d-camera-free, 3d-picking, cubicmap, custom-callbacks, fonts, heightmap, hello-world, postprocessing, waving-cubes, world-screen]
 
     steps:
     - uses: actions/checkout@v1
