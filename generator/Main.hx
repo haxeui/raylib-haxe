@@ -195,7 +195,7 @@ extern class VaList {
                     isNativeArray = true;
                 }
                 var haxeType = convertType(cppType);
-                sb.add('    var ${name}:${haxeType};');
+                sb.add('    @:native("${name}") var _${name}:${haxeType};');
                 if (fieldDescription != null && fieldDescription != "") {
                     sb.add(' // ${fieldDescription}');
                 }
@@ -225,6 +225,35 @@ extern class VaList {
         sb.add('@:native("cpp.Struct<${orginalName}>")\n');
         sb.add('extern class ${orginalName} extends ${orginalName}Ref {\n');
 
+        // build getters
+        var fieldIndex = 0;
+        for (f in structEl.elementsNamed("Field")) {
+            var names:Array<String> = f.get("name").split(",");
+            var fieldDescription = f.get("desc");
+            for (name in names) {
+                name = name.trim();
+                var cppType = f.get("type");
+                var isNativeArray = false;
+                if (name.contains("[")) {
+                    var orgName = name;
+                    name = name.substr(0, name.indexOf("[")).trim();
+                    fieldDescription += ' - TODO: cpp native array (original: "${cppType} ${orgName}")';
+                    isNativeArray = true;
+                }
+                var haxeType = convertType(cppType, false);
+                var prefix = "";
+                if (haxeType != "Int" && haxeType != "Bool" && haxeType != "Float" && haxeType != "String") {
+                    prefix = "cast";
+                }
+                sb.add('    public var ${name}(get, set):${haxeType};\n');
+                sb.add('    private inline function get_${name}():${haxeType} { return ${prefix} _${name}; }\n');
+                sb.add('    private inline function set_${name}(value:${haxeType}):${haxeType} { _${name} = ${prefix} value; return value; }\n');
+                sb.add('\n');
+                
+                fieldIndex++;
+            }
+        }
+        
         // build create function
         sb.add('    public static inline function create(');
         sb.add(createParamsList.join(', '));
