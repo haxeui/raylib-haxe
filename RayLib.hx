@@ -2983,33 +2983,33 @@ extern enum abstract NPatchLayout(Int) from Int to Int {
 
 @:include("raylib.h")
 extern class Colors {
-    @:native("LIGHTGRAY")   public static var LIGHTGRAY:Color;
-    @:native("GRAY")        public static var GRAY:Color;
-    @:native("DARKGRAY")    public static var DARKGRAY:Color;
-    @:native("YELLOW")      public static var YELLOW:Color;
-    @:native("GOLD")        public static var GOLD:Color;
-    @:native("ORANGE")      public static var ORANGE:Color;
-    @:native("PINK")        public static var PINK:Color;
-    @:native("RED")         public static var RED:Color;
-    @:native("MAROON")      public static var MAROON:Color;
-    @:native("GREEN")       public static var GREEN:Color;
-    @:native("LIME")        public static var LIME:Color;
-    @:native("DARKGREEN")   public static var DARKGREEN:Color;
-    @:native("SKYBLUE")     public static var SKYBLUE:Color;
-    @:native("BLUE")        public static var BLUE:Color;
-    @:native("DARKBLUE")    public static var DARKBLUE:Color;
-    @:native("PURPLE")      public static var PURPLE:Color;
-    @:native("VIOLET")      public static var VIOLET:Color;
-    @:native("DARKPURPLE")  public static var DARKPURPLE:Color;
-    @:native("BEIGE")       public static var BEIGE:Color;
-    @:native("BROWN")       public static var BROWN:Color;
-    @:native("DARKBROWN")   public static var DARKBROWN:Color;
+    public static var LIGHTGRAY(get, null):Color;   private inline static function get_LIGHTGRAY():Color { return cast untyped __cpp__("LIGHTGRAY"); }
+    public static var GRAY(get, null):Color;        private inline static function get_GRAY():Color { return cast untyped __cpp__("GRAY"); }
+    public static var DARKGRAY(get, null):Color;    private inline static function get_DARKGRAY():Color { return cast untyped __cpp__("DARKGRAY"); }
+    public static var YELLOW(get, null):Color;      private inline static function get_YELLOW():Color { return cast untyped __cpp__("YELLOW"); }
+    public static var GOLD(get, null):Color;        private inline static function get_GOLD():Color { return cast untyped __cpp__("GOLD"); }
+    public static var ORANGE(get, null):Color;      private inline static function get_ORANGE():Color { return cast untyped __cpp__("ORANGE"); }
+    public static var PINK(get, null):Color;        private inline static function get_PINK():Color { return cast untyped __cpp__("PINK"); }
+    public static var RED(get, null):Color;         private inline static function get_RED():Color { return cast untyped __cpp__("RED"); }
+    public static var MAROON(get, null):Color;      private inline static function get_MAROON():Color { return cast untyped __cpp__("MAROON"); }
+    public static var GREEN(get, null):Color;       private inline static function get_GREEN():Color { return cast untyped __cpp__("GREEN"); }
+    public static var LIME(get, null):Color;        private inline static function get_LIME():Color { return cast untyped __cpp__("LIME"); }
+    public static var DARKGREEN(get, null):Color;   private inline static function get_DARKGREEN():Color { return cast untyped __cpp__("DARKGREEN"); }
+    public static var SKYBLUE(get, null):Color;     private inline static function get_SKYBLUE():Color { return cast untyped __cpp__("SKYBLUE"); }
+    public static var BLUE(get, null):Color;        private inline static function get_BLUE():Color { return cast untyped __cpp__("BLUE"); }
+    public static var DARKBLUE(get, null):Color;    private inline static function get_DARKBLUE():Color { return cast untyped __cpp__("DARKBLUE"); }
+    public static var PURPLE(get, null):Color;      private inline static function get_PURPLE():Color { return cast untyped __cpp__("PURPLE"); }
+    public static var DARKPURPLE(get, null):Color;  private inline static function get_DARKPURPLE():Color { return cast untyped __cpp__("DARKPURPLE"); }
+    public static var BEIGE(get, null):Color;       private inline static function get_BEIGE():Color { return cast untyped __cpp__("BEIGE"); }
+    public static var BROWN(get, null):Color;       private inline static function get_BROWN():Color { return cast untyped __cpp__("BROWN"); }
+    public static var DARKBROWN(get, null):Color;   private inline static function get_DARKBROWN():Color { return cast untyped __cpp__("DARKBROWN"); }
     
-    @:native("WHITE")       public static var WHITE:Color;
-    @:native("BLACK")       public static var BLACK:Color;
-    @:native("BLANK")       public static var BLANK:Color;
-    @:native("MAGENTA")     public static var MAGENTA:Color;
-    @:native("RAYWHITE")    public static var RAYWHITE:Color;
+    public static var WHITE(get, null):Color;       private inline static function get_WHITE():Color { return cast untyped __cpp__("WHITE"); }
+    public static var BLACK(get, null):Color;       private inline static function get_BLACK():Color { return cast untyped __cpp__("BLACK"); }
+    public static var BLANK(get, null):Color;       private inline static function get_BLANK():Color { return cast untyped __cpp__("BLANK"); }
+    public static var MAGENTA(get, null):Color;     private inline static function get_MAGENTA():Color { return cast untyped __cpp__("MAGENTA"); }
+    public static var RAYWHITE(get, null):Color;    private inline static function get_RAYWHITE():Color { return cast untyped __cpp__("RAYWHITE"); }
+
 }
         
 @:native("va_list")
