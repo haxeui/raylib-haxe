@@ -5,8 +5,8 @@ package;
 @:native("Vector2")
 @:structAccess
 extern class RayVector2 {
-    var x:Float; // Vector x component
-    var y:Float; // Vector y component
+    @:native("x") var _x:Float; // Vector x component
+    @:native("y") var _y:Float; // Vector y component
 }
 
 @:native("cpp.Reference<Vector2>")
@@ -15,6 +15,14 @@ extern class Vector2Ref extends RayVector2 {
 
 @:native("cpp.Struct<Vector2>")
 extern class Vector2 extends Vector2Ref {
+    public var x(get, set):Float;
+    private inline function get_x():Float { return  _x; }
+    private inline function set_x(value:Float):Float { _x =  value; return value; }
+
+    public var y(get, set):Float;
+    private inline function get_y():Float { return  _y; }
+    private inline function set_y(value:Float):Float { _y =  value; return value; }
+
     public static inline function create(x:Float, y:Float):Vector2 {
         var t:RayVector2 = untyped __cpp__("{ (float){0}, (float){1} }", x, y);
         return cast t;
@@ -31,9 +39,9 @@ extern class Vector2 extends Vector2Ref {
 @:native("Vector3")
 @:structAccess
 extern class RayVector3 {
-    var x:Float; // Vector x component
-    var y:Float; // Vector y component
-    var z:Float; // Vector z component
+    @:native("x") var _x:Float; // Vector x component
+    @:native("y") var _y:Float; // Vector y component
+    @:native("z") var _z:Float; // Vector z component
 }
 
 @:native("cpp.Reference<Vector3>")
@@ -42,6 +50,18 @@ extern class Vector3Ref extends RayVector3 {
 
 @:native("cpp.Struct<Vector3>")
 extern class Vector3 extends Vector3Ref {
+    public var x(get, set):Float;
+    private inline function get_x():Float { return  _x; }
+    private inline function set_x(value:Float):Float { _x =  value; return value; }
+
+    public var y(get, set):Float;
+    private inline function get_y():Float { return  _y; }
+    private inline function set_y(value:Float):Float { _y =  value; return value; }
+
+    public var z(get, set):Float;
+    private inline function get_z():Float { return  _z; }
+    private inline function set_z(value:Float):Float { _z =  value; return value; }
+
     public static inline function create(x:Float, y:Float, z:Float):Vector3 {
         var t:RayVector3 = untyped __cpp__("{ (float){0}, (float){1}, (float){2} }", x, y, z);
         return cast t;
@@ -58,10 +78,10 @@ extern class Vector3 extends Vector3Ref {
 @:native("Vector4")
 @:structAccess
 extern class RayVector4 {
-    var x:Float; // Vector x component
-    var y:Float; // Vector y component
-    var z:Float; // Vector z component
-    var w:Float; // Vector w component
+    @:native("x") var _x:Float; // Vector x component
+    @:native("y") var _y:Float; // Vector y component
+    @:native("z") var _z:Float; // Vector z component
+    @:native("w") var _w:Float; // Vector w component
 }
 
 @:native("cpp.Reference<Vector4>")
@@ -70,6 +90,22 @@ extern class Vector4Ref extends RayVector4 {
 
 @:native("cpp.Struct<Vector4>")
 extern class Vector4 extends Vector4Ref {
+    public var x(get, set):Float;
+    private inline function get_x():Float { return  _x; }
+    private inline function set_x(value:Float):Float { _x =  value; return value; }
+
+    public var y(get, set):Float;
+    private inline function get_y():Float { return  _y; }
+    private inline function set_y(value:Float):Float { _y =  value; return value; }
+
+    public var z(get, set):Float;
+    private inline function get_z():Float { return  _z; }
+    private inline function set_z(value:Float):Float { _z =  value; return value; }
+
+    public var w(get, set):Float;
+    private inline function get_w():Float { return  _w; }
+    private inline function set_w(value:Float):Float { _w =  value; return value; }
+
     public static inline function create(x:Float, y:Float, z:Float, w:Float):Vector4 {
         var t:RayVector4 = untyped __cpp__("{ (float){0}, (float){1}, (float){2}, (float){3} }", x, y, z, w);
         return cast t;
@@ -86,22 +122,22 @@ extern class Vector4 extends Vector4Ref {
 @:native("Matrix")
 @:structAccess
 extern class RayMatrix {
-    var m0:Float; // Matrix first row (4 components)
-    var m4:Float; // Matrix first row (4 components)
-    var m8:Float; // Matrix first row (4 components)
-    var m12:Float; // Matrix first row (4 components)
-    var m1:Float; // Matrix second row (4 components)
-    var m5:Float; // Matrix second row (4 components)
-    var m9:Float; // Matrix second row (4 components)
-    var m13:Float; // Matrix second row (4 components)
-    var m2:Float; // Matrix third row (4 components)
-    var m6:Float; // Matrix third row (4 components)
-    var m10:Float; // Matrix third row (4 components)
-    var m14:Float; // Matrix third row (4 components)
-    var m3:Float; // Matrix fourth row (4 components)
-    var m7:Float; // Matrix fourth row (4 components)
-    var m11:Float; // Matrix fourth row (4 components)
-    var m15:Float; // Matrix fourth row (4 components)
+    @:native("m0") var _m0:Float; // Matrix first row (4 components)
+    @:native("m4") var _m4:Float; // Matrix first row (4 components)
+    @:native("m8") var _m8:Float; // Matrix first row (4 components)
+    @:native("m12") var _m12:Float; // Matrix first row (4 components)
+    @:native("m1") var _m1:Float; // Matrix second row (4 components)
+    @:native("m5") var _m5:Float; // Matrix second row (4 components)
+    @:native("m9") var _m9:Float; // Matrix second row (4 components)
+    @:native("m13") var _m13:Float; // Matrix second row (4 components)
+    @:native("m2") var _m2:Float; // Matrix third row (4 components)
+    @:native("m6") var _m6:Float; // Matrix third row (4 components)
+    @:native("m10") var _m10:Float; // Matrix third row (4 components)
+    @:native("m14") var _m14:Float; // Matrix third row (4 components)
+    @:native("m3") var _m3:Float; // Matrix fourth row (4 components)
+    @:native("m7") var _m7:Float; // Matrix fourth row (4 components)
+    @:native("m11") var _m11:Float; // Matrix fourth row (4 components)
+    @:native("m15") var _m15:Float; // Matrix fourth row (4 components)
 }
 
 @:native("cpp.Reference<Matrix>")
@@ -110,6 +146,70 @@ extern class MatrixRef extends RayMatrix {
 
 @:native("cpp.Struct<Matrix>")
 extern class Matrix extends MatrixRef {
+    public var m0(get, set):Float;
+    private inline function get_m0():Float { return  _m0; }
+    private inline function set_m0(value:Float):Float { _m0 =  value; return value; }
+
+    public var m4(get, set):Float;
+    private inline function get_m4():Float { return  _m4; }
+    private inline function set_m4(value:Float):Float { _m4 =  value; return value; }
+
+    public var m8(get, set):Float;
+    private inline function get_m8():Float { return  _m8; }
+    private inline function set_m8(value:Float):Float { _m8 =  value; return value; }
+
+    public var m12(get, set):Float;
+    private inline function get_m12():Float { return  _m12; }
+    private inline function set_m12(value:Float):Float { _m12 =  value; return value; }
+
+    public var m1(get, set):Float;
+    private inline function get_m1():Float { return  _m1; }
+    private inline function set_m1(value:Float):Float { _m1 =  value; return value; }
+
+    public var m5(get, set):Float;
+    private inline function get_m5():Float { return  _m5; }
+    private inline function set_m5(value:Float):Float { _m5 =  value; return value; }
+
+    public var m9(get, set):Float;
+    private inline function get_m9():Float { return  _m9; }
+    private inline function set_m9(value:Float):Float { _m9 =  value; return value; }
+
+    public var m13(get, set):Float;
+    private inline function get_m13():Float { return  _m13; }
+    private inline function set_m13(value:Float):Float { _m13 =  value; return value; }
+
+    public var m2(get, set):Float;
+    private inline function get_m2():Float { return  _m2; }
+    private inline function set_m2(value:Float):Float { _m2 =  value; return value; }
+
+    public var m6(get, set):Float;
+    private inline function get_m6():Float { return  _m6; }
+    private inline function set_m6(value:Float):Float { _m6 =  value; return value; }
+
+    public var m10(get, set):Float;
+    private inline function get_m10():Float { return  _m10; }
+    private inline function set_m10(value:Float):Float { _m10 =  value; return value; }
+
+    public var m14(get, set):Float;
+    private inline function get_m14():Float { return  _m14; }
+    private inline function set_m14(value:Float):Float { _m14 =  value; return value; }
+
+    public var m3(get, set):Float;
+    private inline function get_m3():Float { return  _m3; }
+    private inline function set_m3(value:Float):Float { _m3 =  value; return value; }
+
+    public var m7(get, set):Float;
+    private inline function get_m7():Float { return  _m7; }
+    private inline function set_m7(value:Float):Float { _m7 =  value; return value; }
+
+    public var m11(get, set):Float;
+    private inline function get_m11():Float { return  _m11; }
+    private inline function set_m11(value:Float):Float { _m11 =  value; return value; }
+
+    public var m15(get, set):Float;
+    private inline function get_m15():Float { return  _m15; }
+    private inline function set_m15(value:Float):Float { _m15 =  value; return value; }
+
     public static inline function create(m0:Float, m4:Float, m8:Float, m12:Float, m1:Float, m5:Float, m9:Float, m13:Float, m2:Float, m6:Float, m10:Float, m14:Float, m3:Float, m7:Float, m11:Float, m15:Float):Matrix {
         var t:RayMatrix = untyped __cpp__("{ (float){0}, (float){1}, (float){2}, (float){3}, (float){4}, (float){5}, (float){6}, (float){7}, (float){8}, (float){9}, (float){10}, (float){11}, (float){12}, (float){13}, (float){14}, (float){15} }", m0, m4, m8, m12, m1, m5, m9, m13, m2, m6, m10, m14, m3, m7, m11, m15);
         return cast t;
@@ -126,10 +226,10 @@ extern class Matrix extends MatrixRef {
 @:native("Color")
 @:structAccess
 extern class RayColor {
-    var r:cpp.UInt8; // Color red value
-    var g:cpp.UInt8; // Color green value
-    var b:cpp.UInt8; // Color blue value
-    var a:cpp.UInt8; // Color alpha value
+    @:native("r") var _r:cpp.UInt8; // Color red value
+    @:native("g") var _g:cpp.UInt8; // Color green value
+    @:native("b") var _b:cpp.UInt8; // Color blue value
+    @:native("a") var _a:cpp.UInt8; // Color alpha value
 }
 
 @:native("cpp.Reference<Color>")
@@ -138,6 +238,22 @@ extern class ColorRef extends RayColor {
 
 @:native("cpp.Struct<Color>")
 extern class Color extends ColorRef {
+    public var r(get, set):cpp.UInt8;
+    private inline function get_r():cpp.UInt8 { return cast _r; }
+    private inline function set_r(value:cpp.UInt8):cpp.UInt8 { _r = cast value; return value; }
+
+    public var g(get, set):cpp.UInt8;
+    private inline function get_g():cpp.UInt8 { return cast _g; }
+    private inline function set_g(value:cpp.UInt8):cpp.UInt8 { _g = cast value; return value; }
+
+    public var b(get, set):cpp.UInt8;
+    private inline function get_b():cpp.UInt8 { return cast _b; }
+    private inline function set_b(value:cpp.UInt8):cpp.UInt8 { _b = cast value; return value; }
+
+    public var a(get, set):cpp.UInt8;
+    private inline function get_a():cpp.UInt8 { return cast _a; }
+    private inline function set_a(value:cpp.UInt8):cpp.UInt8 { _a = cast value; return value; }
+
     public static inline function create(r:cpp.UInt8, g:cpp.UInt8, b:cpp.UInt8, a:cpp.UInt8):Color {
         var t:RayColor = untyped __cpp__("{ (unsigned char){0}, (unsigned char){1}, (unsigned char){2}, (unsigned char){3} }", r, g, b, a);
         return cast t;
@@ -154,10 +270,10 @@ extern class Color extends ColorRef {
 @:native("Rectangle")
 @:structAccess
 extern class RayRectangle {
-    var x:Float; // Rectangle top-left corner position x
-    var y:Float; // Rectangle top-left corner position y
-    var width:Float; // Rectangle width
-    var height:Float; // Rectangle height
+    @:native("x") var _x:Float; // Rectangle top-left corner position x
+    @:native("y") var _y:Float; // Rectangle top-left corner position y
+    @:native("width") var _width:Float; // Rectangle width
+    @:native("height") var _height:Float; // Rectangle height
 }
 
 @:native("cpp.Reference<Rectangle>")
@@ -166,6 +282,22 @@ extern class RectangleRef extends RayRectangle {
 
 @:native("cpp.Struct<Rectangle>")
 extern class Rectangle extends RectangleRef {
+    public var x(get, set):Float;
+    private inline function get_x():Float { return  _x; }
+    private inline function set_x(value:Float):Float { _x =  value; return value; }
+
+    public var y(get, set):Float;
+    private inline function get_y():Float { return  _y; }
+    private inline function set_y(value:Float):Float { _y =  value; return value; }
+
+    public var width(get, set):Float;
+    private inline function get_width():Float { return  _width; }
+    private inline function set_width(value:Float):Float { _width =  value; return value; }
+
+    public var height(get, set):Float;
+    private inline function get_height():Float { return  _height; }
+    private inline function set_height(value:Float):Float { _height =  value; return value; }
+
     public static inline function create(x:Float, y:Float, width:Float, height:Float):Rectangle {
         var t:RayRectangle = untyped __cpp__("{ (float){0}, (float){1}, (float){2}, (float){3} }", x, y, width, height);
         return cast t;
@@ -182,11 +314,11 @@ extern class Rectangle extends RectangleRef {
 @:native("Image")
 @:structAccess
 extern class RayImage {
-    var data:cpp.RawPointer<cpp.Void>; // Image raw data
-    var width:Int; // Image base width
-    var height:Int; // Image base height
-    var mipmaps:Int; // Mipmap levels, 1 by default
-    var format:Int; // Data format (PixelFormat type)
+    @:native("data") var _data:cpp.RawPointer<cpp.Void>; // Image raw data
+    @:native("width") var _width:Int; // Image base width
+    @:native("height") var _height:Int; // Image base height
+    @:native("mipmaps") var _mipmaps:Int; // Mipmap levels, 1 by default
+    @:native("format") var _format:Int; // Data format (PixelFormat type)
 }
 
 @:native("cpp.Reference<Image>")
@@ -195,6 +327,26 @@ extern class ImageRef extends RayImage {
 
 @:native("cpp.Struct<Image>")
 extern class Image extends ImageRef {
+    public var data(get, set):cpp.RawPointer<cpp.Void>;
+    private inline function get_data():cpp.RawPointer<cpp.Void> { return cast _data; }
+    private inline function set_data(value:cpp.RawPointer<cpp.Void>):cpp.RawPointer<cpp.Void> { _data = cast value; return value; }
+
+    public var width(get, set):Int;
+    private inline function get_width():Int { return  _width; }
+    private inline function set_width(value:Int):Int { _width =  value; return value; }
+
+    public var height(get, set):Int;
+    private inline function get_height():Int { return  _height; }
+    private inline function set_height(value:Int):Int { _height =  value; return value; }
+
+    public var mipmaps(get, set):Int;
+    private inline function get_mipmaps():Int { return  _mipmaps; }
+    private inline function set_mipmaps(value:Int):Int { _mipmaps =  value; return value; }
+
+    public var format(get, set):Int;
+    private inline function get_format():Int { return  _format; }
+    private inline function set_format(value:Int):Int { _format =  value; return value; }
+
     public static inline function create(data:cpp.RawPointer<cpp.Void>, width:Int, height:Int, mipmaps:Int, format:Int):Image {
         var t:RayImage = untyped __cpp__("{ (void *){0}, (int){1}, (int){2}, (int){3}, (int){4} }", data, width, height, mipmaps, format);
         return cast t;
@@ -219,11 +371,11 @@ typedef RayTexture2D = RayTexture;
 @:native("Texture")
 @:structAccess
 extern class RayTexture {
-    var id:Int; // OpenGL texture id
-    var width:Int; // Texture base width
-    var height:Int; // Texture base height
-    var mipmaps:Int; // Mipmap levels, 1 by default
-    var format:Int; // Data format (PixelFormat type)
+    @:native("id") var _id:Int; // OpenGL texture id
+    @:native("width") var _width:Int; // Texture base width
+    @:native("height") var _height:Int; // Texture base height
+    @:native("mipmaps") var _mipmaps:Int; // Mipmap levels, 1 by default
+    @:native("format") var _format:Int; // Data format (PixelFormat type)
 }
 
 @:native("cpp.Reference<Texture>")
@@ -232,6 +384,26 @@ extern class TextureRef extends RayTexture {
 
 @:native("cpp.Struct<Texture>")
 extern class Texture extends TextureRef {
+    public var id(get, set):Int;
+    private inline function get_id():Int { return  _id; }
+    private inline function set_id(value:Int):Int { _id =  value; return value; }
+
+    public var width(get, set):Int;
+    private inline function get_width():Int { return  _width; }
+    private inline function set_width(value:Int):Int { _width =  value; return value; }
+
+    public var height(get, set):Int;
+    private inline function get_height():Int { return  _height; }
+    private inline function set_height(value:Int):Int { _height =  value; return value; }
+
+    public var mipmaps(get, set):Int;
+    private inline function get_mipmaps():Int { return  _mipmaps; }
+    private inline function set_mipmaps(value:Int):Int { _mipmaps =  value; return value; }
+
+    public var format(get, set):Int;
+    private inline function get_format():Int { return  _format; }
+    private inline function set_format(value:Int):Int { _format =  value; return value; }
+
     public static inline function create(id:Int, width:Int, height:Int, mipmaps:Int, format:Int):Texture {
         var t:RayTexture = untyped __cpp__("{ (unsigned int){0}, (int){1}, (int){2}, (int){3}, (int){4} }", id, width, height, mipmaps, format);
         return cast t;
@@ -252,9 +424,9 @@ typedef RayRenderTexture2D = RayRenderTexture;
 @:native("RenderTexture")
 @:structAccess
 extern class RayRenderTexture {
-    var id:Int; // OpenGL framebuffer object id
-    var texture:RayTexture; // Color buffer attachment texture
-    var depth:RayTexture; // Depth buffer attachment texture
+    @:native("id") var _id:Int; // OpenGL framebuffer object id
+    @:native("texture") var _texture:RayTexture; // Color buffer attachment texture
+    @:native("depth") var _depth:RayTexture; // Depth buffer attachment texture
 }
 
 @:native("cpp.Reference<RenderTexture>")
@@ -263,6 +435,18 @@ extern class RenderTextureRef extends RayRenderTexture {
 
 @:native("cpp.Struct<RenderTexture>")
 extern class RenderTexture extends RenderTextureRef {
+    public var id(get, set):Int;
+    private inline function get_id():Int { return  _id; }
+    private inline function set_id(value:Int):Int { _id =  value; return value; }
+
+    public var texture(get, set):Texture;
+    private inline function get_texture():Texture { return cast _texture; }
+    private inline function set_texture(value:Texture):Texture { _texture = cast value; return value; }
+
+    public var depth(get, set):Texture;
+    private inline function get_depth():Texture { return cast _depth; }
+    private inline function set_depth(value:Texture):Texture { _depth = cast value; return value; }
+
     public static inline function create(id:Int, texture:RayTexture, depth:RayTexture):RenderTexture {
         var t:RayRenderTexture = untyped __cpp__("{ (unsigned int){0}, (Texture){1}, (Texture){2} }", id, texture, depth);
         return cast t;
@@ -279,12 +463,12 @@ extern class RenderTexture extends RenderTextureRef {
 @:native("NPatchInfo")
 @:structAccess
 extern class RayNPatchInfo {
-    var source:RayRectangle; // Texture source rectangle
-    var left:Int; // Left border offset
-    var top:Int; // Top border offset
-    var right:Int; // Right border offset
-    var bottom:Int; // Bottom border offset
-    var layout:Int; // Layout of the n-patch: 3x3, 1x3 or 3x1
+    @:native("source") var _source:RayRectangle; // Texture source rectangle
+    @:native("left") var _left:Int; // Left border offset
+    @:native("top") var _top:Int; // Top border offset
+    @:native("right") var _right:Int; // Right border offset
+    @:native("bottom") var _bottom:Int; // Bottom border offset
+    @:native("layout") var _layout:Int; // Layout of the n-patch: 3x3, 1x3 or 3x1
 }
 
 @:native("cpp.Reference<NPatchInfo>")
@@ -293,6 +477,30 @@ extern class NPatchInfoRef extends RayNPatchInfo {
 
 @:native("cpp.Struct<NPatchInfo>")
 extern class NPatchInfo extends NPatchInfoRef {
+    public var source(get, set):Rectangle;
+    private inline function get_source():Rectangle { return cast _source; }
+    private inline function set_source(value:Rectangle):Rectangle { _source = cast value; return value; }
+
+    public var left(get, set):Int;
+    private inline function get_left():Int { return  _left; }
+    private inline function set_left(value:Int):Int { _left =  value; return value; }
+
+    public var top(get, set):Int;
+    private inline function get_top():Int { return  _top; }
+    private inline function set_top(value:Int):Int { _top =  value; return value; }
+
+    public var right(get, set):Int;
+    private inline function get_right():Int { return  _right; }
+    private inline function set_right(value:Int):Int { _right =  value; return value; }
+
+    public var bottom(get, set):Int;
+    private inline function get_bottom():Int { return  _bottom; }
+    private inline function set_bottom(value:Int):Int { _bottom =  value; return value; }
+
+    public var layout(get, set):Int;
+    private inline function get_layout():Int { return  _layout; }
+    private inline function set_layout(value:Int):Int { _layout =  value; return value; }
+
     public static inline function create(source:RayRectangle, left:Int, top:Int, right:Int, bottom:Int, layout:Int):NPatchInfo {
         var t:RayNPatchInfo = untyped __cpp__("{ (Rectangle){0}, (int){1}, (int){2}, (int){3}, (int){4}, (int){5} }", source, left, top, right, bottom, layout);
         return cast t;
@@ -309,11 +517,11 @@ extern class NPatchInfo extends NPatchInfoRef {
 @:native("GlyphInfo")
 @:structAccess
 extern class RayGlyphInfo {
-    var value:Int; // Character value (Unicode)
-    var offsetX:Int; // Character offset X when drawing
-    var offsetY:Int; // Character offset Y when drawing
-    var advanceX:Int; // Character advance position X
-    var image:RayImage; // Character image data
+    @:native("value") var _value:Int; // Character value (Unicode)
+    @:native("offsetX") var _offsetX:Int; // Character offset X when drawing
+    @:native("offsetY") var _offsetY:Int; // Character offset Y when drawing
+    @:native("advanceX") var _advanceX:Int; // Character advance position X
+    @:native("image") var _image:RayImage; // Character image data
 }
 
 @:native("cpp.Reference<GlyphInfo>")
@@ -322,6 +530,26 @@ extern class GlyphInfoRef extends RayGlyphInfo {
 
 @:native("cpp.Struct<GlyphInfo>")
 extern class GlyphInfo extends GlyphInfoRef {
+    public var value(get, set):Int;
+    private inline function get_value():Int { return  _value; }
+    private inline function set_value(value:Int):Int { _value =  value; return value; }
+
+    public var offsetX(get, set):Int;
+    private inline function get_offsetX():Int { return  _offsetX; }
+    private inline function set_offsetX(value:Int):Int { _offsetX =  value; return value; }
+
+    public var offsetY(get, set):Int;
+    private inline function get_offsetY():Int { return  _offsetY; }
+    private inline function set_offsetY(value:Int):Int { _offsetY =  value; return value; }
+
+    public var advanceX(get, set):Int;
+    private inline function get_advanceX():Int { return  _advanceX; }
+    private inline function set_advanceX(value:Int):Int { _advanceX =  value; return value; }
+
+    public var image(get, set):Image;
+    private inline function get_image():Image { return cast _image; }
+    private inline function set_image(value:Image):Image { _image = cast value; return value; }
+
     public static inline function create(value:Int, offsetX:Int, offsetY:Int, advanceX:Int, image:RayImage):GlyphInfo {
         var t:RayGlyphInfo = untyped __cpp__("{ (int){0}, (int){1}, (int){2}, (int){3}, (Image){4} }", value, offsetX, offsetY, advanceX, image);
         return cast t;
@@ -338,12 +566,12 @@ extern class GlyphInfo extends GlyphInfoRef {
 @:native("Font")
 @:structAccess
 extern class RayFont {
-    var baseSize:Int; // Base size (default chars height)
-    var glyphCount:Int; // Number of glyph characters
-    var glyphPadding:Int; // Padding around the glyph characters
-    var texture:RayTexture; // Texture atlas containing the glyphs
-    var recs:cpp.RawPointer<RayRectangle>; // Rectangles in texture for the glyphs
-    var glyphs:cpp.RawPointer<RayGlyphInfo>; // Glyphs info data
+    @:native("baseSize") var _baseSize:Int; // Base size (default chars height)
+    @:native("glyphCount") var _glyphCount:Int; // Number of glyph characters
+    @:native("glyphPadding") var _glyphPadding:Int; // Padding around the glyph characters
+    @:native("texture") var _texture:RayTexture; // Texture atlas containing the glyphs
+    @:native("recs") var _recs:cpp.RawPointer<RayRectangle>; // Rectangles in texture for the glyphs
+    @:native("glyphs") var _glyphs:cpp.RawPointer<RayGlyphInfo>; // Glyphs info data
 }
 
 @:native("cpp.Reference<Font>")
@@ -352,6 +580,30 @@ extern class FontRef extends RayFont {
 
 @:native("cpp.Struct<Font>")
 extern class Font extends FontRef {
+    public var baseSize(get, set):Int;
+    private inline function get_baseSize():Int { return  _baseSize; }
+    private inline function set_baseSize(value:Int):Int { _baseSize =  value; return value; }
+
+    public var glyphCount(get, set):Int;
+    private inline function get_glyphCount():Int { return  _glyphCount; }
+    private inline function set_glyphCount(value:Int):Int { _glyphCount =  value; return value; }
+
+    public var glyphPadding(get, set):Int;
+    private inline function get_glyphPadding():Int { return  _glyphPadding; }
+    private inline function set_glyphPadding(value:Int):Int { _glyphPadding =  value; return value; }
+
+    public var texture(get, set):Texture2D;
+    private inline function get_texture():Texture2D { return cast _texture; }
+    private inline function set_texture(value:Texture2D):Texture2D { _texture = cast value; return value; }
+
+    public var recs(get, set):cpp.RawPointer<Rectangle>;
+    private inline function get_recs():cpp.RawPointer<Rectangle> { return cast _recs; }
+    private inline function set_recs(value:cpp.RawPointer<Rectangle>):cpp.RawPointer<Rectangle> { _recs = cast value; return value; }
+
+    public var glyphs(get, set):cpp.RawPointer<GlyphInfo>;
+    private inline function get_glyphs():cpp.RawPointer<GlyphInfo> { return cast _glyphs; }
+    private inline function set_glyphs(value:cpp.RawPointer<GlyphInfo>):cpp.RawPointer<GlyphInfo> { _glyphs = cast value; return value; }
+
     public static inline function create(baseSize:Int, glyphCount:Int, glyphPadding:Int, texture:RayTexture, recs:cpp.RawPointer<RayRectangle>, glyphs:cpp.RawPointer<RayGlyphInfo>):Font {
         var t:RayFont = untyped __cpp__("{ (int){0}, (int){1}, (int){2}, (Texture2D){3}, (Rectangle *){4}, (GlyphInfo *){5} }", baseSize, glyphCount, glyphPadding, texture, recs, glyphs);
         return cast t;
@@ -372,11 +624,11 @@ typedef RayCamera = RayCamera3D;
 @:native("Camera3D")
 @:structAccess
 extern class RayCamera3D {
-    var position:RayVector3; // Camera position
-    var target:RayVector3; // Camera target it looks-at
-    var up:RayVector3; // Camera up vector (rotation over its axis)
-    var fovy:Float; // Camera field-of-view apperture in Y (degrees) in perspective, used as near plane width in orthographic
-    var projection:Int; // Camera projection: CAMERA_PERSPECTIVE or CAMERA_ORTHOGRAPHIC
+    @:native("position") var _position:RayVector3; // Camera position
+    @:native("target") var _target:RayVector3; // Camera target it looks-at
+    @:native("up") var _up:RayVector3; // Camera up vector (rotation over its axis)
+    @:native("fovy") var _fovy:Float; // Camera field-of-view apperture in Y (degrees) in perspective, used as near plane width in orthographic
+    @:native("projection") var _projection:Int; // Camera projection: CAMERA_PERSPECTIVE or CAMERA_ORTHOGRAPHIC
 }
 
 @:native("cpp.Reference<Camera3D>")
@@ -385,6 +637,26 @@ extern class Camera3DRef extends RayCamera3D {
 
 @:native("cpp.Struct<Camera3D>")
 extern class Camera3D extends Camera3DRef {
+    public var position(get, set):Vector3;
+    private inline function get_position():Vector3 { return cast _position; }
+    private inline function set_position(value:Vector3):Vector3 { _position = cast value; return value; }
+
+    public var target(get, set):Vector3;
+    private inline function get_target():Vector3 { return cast _target; }
+    private inline function set_target(value:Vector3):Vector3 { _target = cast value; return value; }
+
+    public var up(get, set):Vector3;
+    private inline function get_up():Vector3 { return cast _up; }
+    private inline function set_up(value:Vector3):Vector3 { _up = cast value; return value; }
+
+    public var fovy(get, set):Float;
+    private inline function get_fovy():Float { return  _fovy; }
+    private inline function set_fovy(value:Float):Float { _fovy =  value; return value; }
+
+    public var projection(get, set):Int;
+    private inline function get_projection():Int { return  _projection; }
+    private inline function set_projection(value:Int):Int { _projection =  value; return value; }
+
     public static inline function create(position:RayVector3, target:RayVector3, up:RayVector3, fovy:Float, projection:Int):Camera3D {
         var t:RayCamera3D = untyped __cpp__("{ (Vector3){0}, (Vector3){1}, (Vector3){2}, (float){3}, (int){4} }", position, target, up, fovy, projection);
         return cast t;
@@ -401,10 +673,10 @@ extern class Camera3D extends Camera3DRef {
 @:native("Camera2D")
 @:structAccess
 extern class RayCamera2D {
-    var offset:RayVector2; // Camera offset (displacement from target)
-    var target:RayVector2; // Camera target (rotation and zoom origin)
-    var rotation:Float; // Camera rotation in degrees
-    var zoom:Float; // Camera zoom (scaling), should be 1.0f by default
+    @:native("offset") var _offset:RayVector2; // Camera offset (displacement from target)
+    @:native("target") var _target:RayVector2; // Camera target (rotation and zoom origin)
+    @:native("rotation") var _rotation:Float; // Camera rotation in degrees
+    @:native("zoom") var _zoom:Float; // Camera zoom (scaling), should be 1.0f by default
 }
 
 @:native("cpp.Reference<Camera2D>")
@@ -413,6 +685,22 @@ extern class Camera2DRef extends RayCamera2D {
 
 @:native("cpp.Struct<Camera2D>")
 extern class Camera2D extends Camera2DRef {
+    public var offset(get, set):Vector2;
+    private inline function get_offset():Vector2 { return cast _offset; }
+    private inline function set_offset(value:Vector2):Vector2 { _offset = cast value; return value; }
+
+    public var target(get, set):Vector2;
+    private inline function get_target():Vector2 { return cast _target; }
+    private inline function set_target(value:Vector2):Vector2 { _target = cast value; return value; }
+
+    public var rotation(get, set):Float;
+    private inline function get_rotation():Float { return  _rotation; }
+    private inline function set_rotation(value:Float):Float { _rotation =  value; return value; }
+
+    public var zoom(get, set):Float;
+    private inline function get_zoom():Float { return  _zoom; }
+    private inline function set_zoom(value:Float):Float { _zoom =  value; return value; }
+
     public static inline function create(offset:RayVector2, target:RayVector2, rotation:Float, zoom:Float):Camera2D {
         var t:RayCamera2D = untyped __cpp__("{ (Vector2){0}, (Vector2){1}, (float){2}, (float){3} }", offset, target, rotation, zoom);
         return cast t;
@@ -429,21 +717,21 @@ extern class Camera2D extends Camera2DRef {
 @:native("Mesh")
 @:structAccess
 extern class RayMesh {
-    var vertexCount:Int; // Number of vertices stored in arrays
-    var triangleCount:Int; // Number of triangles stored (indexed or not)
-    var vertices:cpp.RawPointer<Float>; // Vertex position (XYZ - 3 components per vertex) (shader-location = 0)
-    var texcoords:cpp.RawPointer<Float>; // Vertex texture coordinates (UV - 2 components per vertex) (shader-location = 1)
-    var texcoords2:cpp.RawPointer<Float>; // Vertex second texture coordinates (useful for lightmaps) (shader-location = 5)
-    var normals:cpp.RawPointer<Float>; // Vertex normals (XYZ - 3 components per vertex) (shader-location = 2)
-    var tangents:cpp.RawPointer<Float>; // Vertex tangents (XYZW - 4 components per vertex) (shader-location = 4)
-    var colors:cpp.RawPointer<cpp.UInt8>; // Vertex colors (RGBA - 4 components per vertex) (shader-location = 3)
-    var indices:cpp.RawPointer<Int>; // Vertex indices (in case vertex data comes indexed)
-    var animVertices:cpp.RawPointer<Float>; // Animated vertex positions (after bones transformations)
-    var animNormals:cpp.RawPointer<Float>; // Animated normals (after bones transformations)
-    var boneIds:cpp.RawPointer<cpp.UInt8>; // Vertex bone ids, max 255 bone ids, up to 4 bones influence by vertex (skinning)
-    var boneWeights:cpp.RawPointer<Float>; // Vertex bone weight, up to 4 bones influence by vertex (skinning)
-    var vaoId:Int; // OpenGL Vertex Array Object id
-    var vboId:cpp.RawPointer<Int>; // OpenGL Vertex Buffer Objects id (default vertex data)
+    @:native("vertexCount") var _vertexCount:Int; // Number of vertices stored in arrays
+    @:native("triangleCount") var _triangleCount:Int; // Number of triangles stored (indexed or not)
+    @:native("vertices") var _vertices:cpp.RawPointer<Float>; // Vertex position (XYZ - 3 components per vertex) (shader-location = 0)
+    @:native("texcoords") var _texcoords:cpp.RawPointer<Float>; // Vertex texture coordinates (UV - 2 components per vertex) (shader-location = 1)
+    @:native("texcoords2") var _texcoords2:cpp.RawPointer<Float>; // Vertex second texture coordinates (useful for lightmaps) (shader-location = 5)
+    @:native("normals") var _normals:cpp.RawPointer<Float>; // Vertex normals (XYZ - 3 components per vertex) (shader-location = 2)
+    @:native("tangents") var _tangents:cpp.RawPointer<Float>; // Vertex tangents (XYZW - 4 components per vertex) (shader-location = 4)
+    @:native("colors") var _colors:cpp.RawPointer<cpp.UInt8>; // Vertex colors (RGBA - 4 components per vertex) (shader-location = 3)
+    @:native("indices") var _indices:cpp.RawPointer<Int>; // Vertex indices (in case vertex data comes indexed)
+    @:native("animVertices") var _animVertices:cpp.RawPointer<Float>; // Animated vertex positions (after bones transformations)
+    @:native("animNormals") var _animNormals:cpp.RawPointer<Float>; // Animated normals (after bones transformations)
+    @:native("boneIds") var _boneIds:cpp.RawPointer<cpp.UInt8>; // Vertex bone ids, max 255 bone ids, up to 4 bones influence by vertex (skinning)
+    @:native("boneWeights") var _boneWeights:cpp.RawPointer<Float>; // Vertex bone weight, up to 4 bones influence by vertex (skinning)
+    @:native("vaoId") var _vaoId:Int; // OpenGL Vertex Array Object id
+    @:native("vboId") var _vboId:cpp.RawPointer<Int>; // OpenGL Vertex Buffer Objects id (default vertex data)
 }
 
 @:native("cpp.Reference<Mesh>")
@@ -452,6 +740,66 @@ extern class MeshRef extends RayMesh {
 
 @:native("cpp.Struct<Mesh>")
 extern class Mesh extends MeshRef {
+    public var vertexCount(get, set):Int;
+    private inline function get_vertexCount():Int { return  _vertexCount; }
+    private inline function set_vertexCount(value:Int):Int { _vertexCount =  value; return value; }
+
+    public var triangleCount(get, set):Int;
+    private inline function get_triangleCount():Int { return  _triangleCount; }
+    private inline function set_triangleCount(value:Int):Int { _triangleCount =  value; return value; }
+
+    public var vertices(get, set):cpp.RawPointer<Float>;
+    private inline function get_vertices():cpp.RawPointer<Float> { return cast _vertices; }
+    private inline function set_vertices(value:cpp.RawPointer<Float>):cpp.RawPointer<Float> { _vertices = cast value; return value; }
+
+    public var texcoords(get, set):cpp.RawPointer<Float>;
+    private inline function get_texcoords():cpp.RawPointer<Float> { return cast _texcoords; }
+    private inline function set_texcoords(value:cpp.RawPointer<Float>):cpp.RawPointer<Float> { _texcoords = cast value; return value; }
+
+    public var texcoords2(get, set):cpp.RawPointer<Float>;
+    private inline function get_texcoords2():cpp.RawPointer<Float> { return cast _texcoords2; }
+    private inline function set_texcoords2(value:cpp.RawPointer<Float>):cpp.RawPointer<Float> { _texcoords2 = cast value; return value; }
+
+    public var normals(get, set):cpp.RawPointer<Float>;
+    private inline function get_normals():cpp.RawPointer<Float> { return cast _normals; }
+    private inline function set_normals(value:cpp.RawPointer<Float>):cpp.RawPointer<Float> { _normals = cast value; return value; }
+
+    public var tangents(get, set):cpp.RawPointer<Float>;
+    private inline function get_tangents():cpp.RawPointer<Float> { return cast _tangents; }
+    private inline function set_tangents(value:cpp.RawPointer<Float>):cpp.RawPointer<Float> { _tangents = cast value; return value; }
+
+    public var colors(get, set):cpp.RawPointer<cpp.UInt8>;
+    private inline function get_colors():cpp.RawPointer<cpp.UInt8> { return cast _colors; }
+    private inline function set_colors(value:cpp.RawPointer<cpp.UInt8>):cpp.RawPointer<cpp.UInt8> { _colors = cast value; return value; }
+
+    public var indices(get, set):cpp.RawPointer<Int>;
+    private inline function get_indices():cpp.RawPointer<Int> { return cast _indices; }
+    private inline function set_indices(value:cpp.RawPointer<Int>):cpp.RawPointer<Int> { _indices = cast value; return value; }
+
+    public var animVertices(get, set):cpp.RawPointer<Float>;
+    private inline function get_animVertices():cpp.RawPointer<Float> { return cast _animVertices; }
+    private inline function set_animVertices(value:cpp.RawPointer<Float>):cpp.RawPointer<Float> { _animVertices = cast value; return value; }
+
+    public var animNormals(get, set):cpp.RawPointer<Float>;
+    private inline function get_animNormals():cpp.RawPointer<Float> { return cast _animNormals; }
+    private inline function set_animNormals(value:cpp.RawPointer<Float>):cpp.RawPointer<Float> { _animNormals = cast value; return value; }
+
+    public var boneIds(get, set):cpp.RawPointer<cpp.UInt8>;
+    private inline function get_boneIds():cpp.RawPointer<cpp.UInt8> { return cast _boneIds; }
+    private inline function set_boneIds(value:cpp.RawPointer<cpp.UInt8>):cpp.RawPointer<cpp.UInt8> { _boneIds = cast value; return value; }
+
+    public var boneWeights(get, set):cpp.RawPointer<Float>;
+    private inline function get_boneWeights():cpp.RawPointer<Float> { return cast _boneWeights; }
+    private inline function set_boneWeights(value:cpp.RawPointer<Float>):cpp.RawPointer<Float> { _boneWeights = cast value; return value; }
+
+    public var vaoId(get, set):Int;
+    private inline function get_vaoId():Int { return  _vaoId; }
+    private inline function set_vaoId(value:Int):Int { _vaoId =  value; return value; }
+
+    public var vboId(get, set):cpp.RawPointer<Int>;
+    private inline function get_vboId():cpp.RawPointer<Int> { return cast _vboId; }
+    private inline function set_vboId(value:cpp.RawPointer<Int>):cpp.RawPointer<Int> { _vboId = cast value; return value; }
+
     public static inline function create(vertexCount:Int, triangleCount:Int, vertices:cpp.RawPointer<Float>, texcoords:cpp.RawPointer<Float>, texcoords2:cpp.RawPointer<Float>, normals:cpp.RawPointer<Float>, tangents:cpp.RawPointer<Float>, colors:cpp.RawPointer<cpp.UInt8>, indices:cpp.RawPointer<Int>, animVertices:cpp.RawPointer<Float>, animNormals:cpp.RawPointer<Float>, boneIds:cpp.RawPointer<cpp.UInt8>, boneWeights:cpp.RawPointer<Float>, vaoId:Int, vboId:cpp.RawPointer<Int>):Mesh {
         var t:RayMesh = untyped __cpp__("{ (int){0}, (int){1}, (float *){2}, (float *){3}, (float *){4}, (float *){5}, (float *){6}, (unsigned char *){7}, (unsigned short *){8}, (float *){9}, (float *){10}, (unsigned char *){11}, (float *){12}, (unsigned int){13}, (unsigned int *){14} }", vertexCount, triangleCount, vertices, texcoords, texcoords2, normals, tangents, colors, indices, animVertices, animNormals, boneIds, boneWeights, vaoId, vboId);
         return cast t;
@@ -468,8 +816,8 @@ extern class Mesh extends MeshRef {
 @:native("Shader")
 @:structAccess
 extern class RayShader {
-    var id:Int; // Shader program id
-    var locs:cpp.RawPointer<Int>; // Shader locations array (RL_MAX_SHADER_LOCATIONS)
+    @:native("id") var _id:Int; // Shader program id
+    @:native("locs") var _locs:cpp.RawPointer<Int>; // Shader locations array (RL_MAX_SHADER_LOCATIONS)
 }
 
 @:native("cpp.Reference<Shader>")
@@ -478,6 +826,14 @@ extern class ShaderRef extends RayShader {
 
 @:native("cpp.Struct<Shader>")
 extern class Shader extends ShaderRef {
+    public var id(get, set):Int;
+    private inline function get_id():Int { return  _id; }
+    private inline function set_id(value:Int):Int { _id =  value; return value; }
+
+    public var locs(get, set):cpp.RawPointer<Int>;
+    private inline function get_locs():cpp.RawPointer<Int> { return cast _locs; }
+    private inline function set_locs(value:cpp.RawPointer<Int>):cpp.RawPointer<Int> { _locs = cast value; return value; }
+
     public static inline function create(id:Int, locs:cpp.RawPointer<Int>):Shader {
         var t:RayShader = untyped __cpp__("{ (unsigned int){0}, (int *){1} }", id, locs);
         return cast t;
@@ -494,9 +850,9 @@ extern class Shader extends ShaderRef {
 @:native("MaterialMap")
 @:structAccess
 extern class RayMaterialMap {
-    var texture:RayTexture; // Material map texture
-    var color:RayColor; // Material map color
-    var value:Float; // Material map value
+    @:native("texture") var _texture:RayTexture; // Material map texture
+    @:native("color") var _color:RayColor; // Material map color
+    @:native("value") var _value:Float; // Material map value
 }
 
 @:native("cpp.Reference<MaterialMap>")
@@ -505,6 +861,18 @@ extern class MaterialMapRef extends RayMaterialMap {
 
 @:native("cpp.Struct<MaterialMap>")
 extern class MaterialMap extends MaterialMapRef {
+    public var texture(get, set):Texture2D;
+    private inline function get_texture():Texture2D { return cast _texture; }
+    private inline function set_texture(value:Texture2D):Texture2D { _texture = cast value; return value; }
+
+    public var color(get, set):Color;
+    private inline function get_color():Color { return cast _color; }
+    private inline function set_color(value:Color):Color { _color = cast value; return value; }
+
+    public var value(get, set):Float;
+    private inline function get_value():Float { return  _value; }
+    private inline function set_value(value:Float):Float { _value =  value; return value; }
+
     public static inline function create(texture:RayTexture, color:RayColor, value:Float):MaterialMap {
         var t:RayMaterialMap = untyped __cpp__("{ (Texture2D){0}, (Color){1}, (float){2} }", texture, color, value);
         return cast t;
@@ -521,9 +889,9 @@ extern class MaterialMap extends MaterialMapRef {
 @:native("Material")
 @:structAccess
 extern class RayMaterial {
-    var shader:RayShader; // Material shader
-    var maps:cpp.RawPointer<RayMaterialMap>; // Material maps array (MAX_MATERIAL_MAPS)
-    var params:Float; // Material generic parameters (if required) - TODO: cpp native array (original: "float params[4]")
+    @:native("shader") var _shader:RayShader; // Material shader
+    @:native("maps") var _maps:cpp.RawPointer<RayMaterialMap>; // Material maps array (MAX_MATERIAL_MAPS)
+    @:native("params") var _params:Float; // Material generic parameters (if required) - TODO: cpp native array (original: "float params[4]")
 }
 
 @:native("cpp.Reference<Material>")
@@ -532,6 +900,18 @@ extern class MaterialRef extends RayMaterial {
 
 @:native("cpp.Struct<Material>")
 extern class Material extends MaterialRef {
+    public var shader(get, set):Shader;
+    private inline function get_shader():Shader { return cast _shader; }
+    private inline function set_shader(value:Shader):Shader { _shader = cast value; return value; }
+
+    public var maps(get, set):cpp.RawPointer<MaterialMap>;
+    private inline function get_maps():cpp.RawPointer<MaterialMap> { return cast _maps; }
+    private inline function set_maps(value:cpp.RawPointer<MaterialMap>):cpp.RawPointer<MaterialMap> { _maps = cast value; return value; }
+
+    public var params(get, set):Float;
+    private inline function get_params():Float { return  _params; }
+    private inline function set_params(value:Float):Float { _params =  value; return value; }
+
     public static inline function create(shader:RayShader, maps:cpp.RawPointer<RayMaterialMap>, params:Float):Material {
         var t:RayMaterial = untyped __cpp__("{ (Shader){0}, (MaterialMap *){1}, (float){2} }", shader, maps, params);
         return cast t;
@@ -548,9 +928,9 @@ extern class Material extends MaterialRef {
 @:native("Transform")
 @:structAccess
 extern class RayTransform {
-    var translation:RayVector3; // Translation
-    var rotation:Quaternion; // Rotation
-    var scale:RayVector3; // Scale
+    @:native("translation") var _translation:RayVector3; // Translation
+    @:native("rotation") var _rotation:Quaternion; // Rotation
+    @:native("scale") var _scale:RayVector3; // Scale
 }
 
 @:native("cpp.Reference<Transform>")
@@ -559,6 +939,18 @@ extern class TransformRef extends RayTransform {
 
 @:native("cpp.Struct<Transform>")
 extern class Transform extends TransformRef {
+    public var translation(get, set):Vector3;
+    private inline function get_translation():Vector3 { return cast _translation; }
+    private inline function set_translation(value:Vector3):Vector3 { _translation = cast value; return value; }
+
+    public var rotation(get, set):Quaternion;
+    private inline function get_rotation():Quaternion { return cast _rotation; }
+    private inline function set_rotation(value:Quaternion):Quaternion { _rotation = cast value; return value; }
+
+    public var scale(get, set):Vector3;
+    private inline function get_scale():Vector3 { return cast _scale; }
+    private inline function set_scale(value:Vector3):Vector3 { _scale = cast value; return value; }
+
     public static inline function create(translation:RayVector3, rotation:Quaternion, scale:RayVector3):Transform {
         var t:RayTransform = untyped __cpp__("{ (Vector3){0}, (Quaternion){1}, (Vector3){2} }", translation, rotation, scale);
         return cast t;
@@ -575,8 +967,8 @@ extern class Transform extends TransformRef {
 @:native("BoneInfo")
 @:structAccess
 extern class RayBoneInfo {
-    var name:Int; // Bone name - TODO: cpp native array (original: "char name[32]")
-    var parent:Int; // Bone parent
+    @:native("name") var _name:Int; // Bone name - TODO: cpp native array (original: "char name[32]")
+    @:native("parent") var _parent:Int; // Bone parent
 }
 
 @:native("cpp.Reference<BoneInfo>")
@@ -585,6 +977,14 @@ extern class BoneInfoRef extends RayBoneInfo {
 
 @:native("cpp.Struct<BoneInfo>")
 extern class BoneInfo extends BoneInfoRef {
+    public var name(get, set):Int;
+    private inline function get_name():Int { return  _name; }
+    private inline function set_name(value:Int):Int { _name =  value; return value; }
+
+    public var parent(get, set):Int;
+    private inline function get_parent():Int { return  _parent; }
+    private inline function set_parent(value:Int):Int { _parent =  value; return value; }
+
     public static inline function create(name:Int, parent:Int):BoneInfo {
         var t:RayBoneInfo = untyped __cpp__("{ (char){0}, (int){1} }", name, parent);
         return cast t;
@@ -601,15 +1001,15 @@ extern class BoneInfo extends BoneInfoRef {
 @:native("Model")
 @:structAccess
 extern class RayModel {
-    var transform:RayMatrix; // Local transform matrix
-    var meshCount:Int; // Number of meshes
-    var materialCount:Int; // Number of materials
-    var meshes:cpp.RawPointer<RayMesh>; // Meshes array
-    var materials:cpp.RawPointer<RayMaterial>; // Materials array
-    var meshMaterial:cpp.RawPointer<Int>; // Mesh material number
-    var boneCount:Int; // Number of bones
-    var bones:cpp.RawPointer<RayBoneInfo>; // Bones information (skeleton)
-    var bindPose:cpp.RawPointer<RayTransform>; // Bones base transformation (pose)
+    @:native("transform") var _transform:RayMatrix; // Local transform matrix
+    @:native("meshCount") var _meshCount:Int; // Number of meshes
+    @:native("materialCount") var _materialCount:Int; // Number of materials
+    @:native("meshes") var _meshes:cpp.RawPointer<RayMesh>; // Meshes array
+    @:native("materials") var _materials:cpp.RawPointer<RayMaterial>; // Materials array
+    @:native("meshMaterial") var _meshMaterial:cpp.RawPointer<Int>; // Mesh material number
+    @:native("boneCount") var _boneCount:Int; // Number of bones
+    @:native("bones") var _bones:cpp.RawPointer<RayBoneInfo>; // Bones information (skeleton)
+    @:native("bindPose") var _bindPose:cpp.RawPointer<RayTransform>; // Bones base transformation (pose)
 }
 
 @:native("cpp.Reference<Model>")
@@ -618,6 +1018,42 @@ extern class ModelRef extends RayModel {
 
 @:native("cpp.Struct<Model>")
 extern class Model extends ModelRef {
+    public var transform(get, set):Matrix;
+    private inline function get_transform():Matrix { return cast _transform; }
+    private inline function set_transform(value:Matrix):Matrix { _transform = cast value; return value; }
+
+    public var meshCount(get, set):Int;
+    private inline function get_meshCount():Int { return  _meshCount; }
+    private inline function set_meshCount(value:Int):Int { _meshCount =  value; return value; }
+
+    public var materialCount(get, set):Int;
+    private inline function get_materialCount():Int { return  _materialCount; }
+    private inline function set_materialCount(value:Int):Int { _materialCount =  value; return value; }
+
+    public var meshes(get, set):cpp.RawPointer<Mesh>;
+    private inline function get_meshes():cpp.RawPointer<Mesh> { return cast _meshes; }
+    private inline function set_meshes(value:cpp.RawPointer<Mesh>):cpp.RawPointer<Mesh> { _meshes = cast value; return value; }
+
+    public var materials(get, set):cpp.RawPointer<Material>;
+    private inline function get_materials():cpp.RawPointer<Material> { return cast _materials; }
+    private inline function set_materials(value:cpp.RawPointer<Material>):cpp.RawPointer<Material> { _materials = cast value; return value; }
+
+    public var meshMaterial(get, set):cpp.RawPointer<Int>;
+    private inline function get_meshMaterial():cpp.RawPointer<Int> { return cast _meshMaterial; }
+    private inline function set_meshMaterial(value:cpp.RawPointer<Int>):cpp.RawPointer<Int> { _meshMaterial = cast value; return value; }
+
+    public var boneCount(get, set):Int;
+    private inline function get_boneCount():Int { return  _boneCount; }
+    private inline function set_boneCount(value:Int):Int { _boneCount =  value; return value; }
+
+    public var bones(get, set):cpp.RawPointer<BoneInfo>;
+    private inline function get_bones():cpp.RawPointer<BoneInfo> { return cast _bones; }
+    private inline function set_bones(value:cpp.RawPointer<BoneInfo>):cpp.RawPointer<BoneInfo> { _bones = cast value; return value; }
+
+    public var bindPose(get, set):cpp.RawPointer<Transform>;
+    private inline function get_bindPose():cpp.RawPointer<Transform> { return cast _bindPose; }
+    private inline function set_bindPose(value:cpp.RawPointer<Transform>):cpp.RawPointer<Transform> { _bindPose = cast value; return value; }
+
     public static inline function create(transform:RayMatrix, meshCount:Int, materialCount:Int, meshes:cpp.RawPointer<RayMesh>, materials:cpp.RawPointer<RayMaterial>, meshMaterial:cpp.RawPointer<Int>, boneCount:Int, bones:cpp.RawPointer<RayBoneInfo>, bindPose:cpp.RawPointer<RayTransform>):Model {
         var t:RayModel = untyped __cpp__("{ (Matrix){0}, (int){1}, (int){2}, (Mesh *){3}, (Material *){4}, (int *){5}, (int){6}, (BoneInfo *){7}, (Transform *){8} }", transform, meshCount, materialCount, meshes, materials, meshMaterial, boneCount, bones, bindPose);
         return cast t;
@@ -634,10 +1070,10 @@ extern class Model extends ModelRef {
 @:native("ModelAnimation")
 @:structAccess
 extern class RayModelAnimation {
-    var boneCount:Int; // Number of bones
-    var frameCount:Int; // Number of animation frames
-    var bones:cpp.RawPointer<RayBoneInfo>; // Bones information (skeleton)
-    var framePoses:cpp.RawPointer<cpp.RawPointer<RayTransform>>; // Poses array by frame
+    @:native("boneCount") var _boneCount:Int; // Number of bones
+    @:native("frameCount") var _frameCount:Int; // Number of animation frames
+    @:native("bones") var _bones:cpp.RawPointer<RayBoneInfo>; // Bones information (skeleton)
+    @:native("framePoses") var _framePoses:cpp.RawPointer<cpp.RawPointer<RayTransform>>; // Poses array by frame
 }
 
 @:native("cpp.Reference<ModelAnimation>")
@@ -646,6 +1082,22 @@ extern class ModelAnimationRef extends RayModelAnimation {
 
 @:native("cpp.Struct<ModelAnimation>")
 extern class ModelAnimation extends ModelAnimationRef {
+    public var boneCount(get, set):Int;
+    private inline function get_boneCount():Int { return  _boneCount; }
+    private inline function set_boneCount(value:Int):Int { _boneCount =  value; return value; }
+
+    public var frameCount(get, set):Int;
+    private inline function get_frameCount():Int { return  _frameCount; }
+    private inline function set_frameCount(value:Int):Int { _frameCount =  value; return value; }
+
+    public var bones(get, set):cpp.RawPointer<BoneInfo>;
+    private inline function get_bones():cpp.RawPointer<BoneInfo> { return cast _bones; }
+    private inline function set_bones(value:cpp.RawPointer<BoneInfo>):cpp.RawPointer<BoneInfo> { _bones = cast value; return value; }
+
+    public var framePoses(get, set):cpp.RawPointer<cpp.RawPointer<Transform>>;
+    private inline function get_framePoses():cpp.RawPointer<cpp.RawPointer<Transform>> { return cast _framePoses; }
+    private inline function set_framePoses(value:cpp.RawPointer<cpp.RawPointer<Transform>>):cpp.RawPointer<cpp.RawPointer<Transform>> { _framePoses = cast value; return value; }
+
     public static inline function create(boneCount:Int, frameCount:Int, bones:cpp.RawPointer<RayBoneInfo>, framePoses:cpp.RawPointer<cpp.RawPointer<RayTransform>>):ModelAnimation {
         var t:RayModelAnimation = untyped __cpp__("{ (int){0}, (int){1}, (BoneInfo *){2}, (Transform **){3} }", boneCount, frameCount, bones, framePoses);
         return cast t;
@@ -662,8 +1114,8 @@ extern class ModelAnimation extends ModelAnimationRef {
 @:native("Ray")
 @:structAccess
 extern class RayRay {
-    var position:RayVector3; // Ray position (origin)
-    var direction:RayVector3; // Ray direction
+    @:native("position") var _position:RayVector3; // Ray position (origin)
+    @:native("direction") var _direction:RayVector3; // Ray direction
 }
 
 @:native("cpp.Reference<Ray>")
@@ -672,6 +1124,14 @@ extern class RayRef extends RayRay {
 
 @:native("cpp.Struct<Ray>")
 extern class Ray extends RayRef {
+    public var position(get, set):Vector3;
+    private inline function get_position():Vector3 { return cast _position; }
+    private inline function set_position(value:Vector3):Vector3 { _position = cast value; return value; }
+
+    public var direction(get, set):Vector3;
+    private inline function get_direction():Vector3 { return cast _direction; }
+    private inline function set_direction(value:Vector3):Vector3 { _direction = cast value; return value; }
+
     public static inline function create(position:RayVector3, direction:RayVector3):Ray {
         var t:RayRay = untyped __cpp__("{ (Vector3){0}, (Vector3){1} }", position, direction);
         return cast t;
@@ -688,10 +1148,10 @@ extern class Ray extends RayRef {
 @:native("RayCollision")
 @:structAccess
 extern class RayRayCollision {
-    var hit:Bool; // Did the ray hit something?
-    var distance:Float; // Distance to nearest hit
-    var point:RayVector3; // Point of nearest hit
-    var normal:RayVector3; // Surface normal of hit
+    @:native("hit") var _hit:Bool; // Did the ray hit something?
+    @:native("distance") var _distance:Float; // Distance to nearest hit
+    @:native("point") var _point:RayVector3; // Point of nearest hit
+    @:native("normal") var _normal:RayVector3; // Surface normal of hit
 }
 
 @:native("cpp.Reference<RayCollision>")
@@ -700,6 +1160,22 @@ extern class RayCollisionRef extends RayRayCollision {
 
 @:native("cpp.Struct<RayCollision>")
 extern class RayCollision extends RayCollisionRef {
+    public var hit(get, set):Bool;
+    private inline function get_hit():Bool { return  _hit; }
+    private inline function set_hit(value:Bool):Bool { _hit =  value; return value; }
+
+    public var distance(get, set):Float;
+    private inline function get_distance():Float { return  _distance; }
+    private inline function set_distance(value:Float):Float { _distance =  value; return value; }
+
+    public var point(get, set):Vector3;
+    private inline function get_point():Vector3 { return cast _point; }
+    private inline function set_point(value:Vector3):Vector3 { _point = cast value; return value; }
+
+    public var normal(get, set):Vector3;
+    private inline function get_normal():Vector3 { return cast _normal; }
+    private inline function set_normal(value:Vector3):Vector3 { _normal = cast value; return value; }
+
     public static inline function create(hit:Bool, distance:Float, point:RayVector3, normal:RayVector3):RayCollision {
         var t:RayRayCollision = untyped __cpp__("{ (bool){0}, (float){1}, (Vector3){2}, (Vector3){3} }", hit, distance, point, normal);
         return cast t;
@@ -716,8 +1192,8 @@ extern class RayCollision extends RayCollisionRef {
 @:native("BoundingBox")
 @:structAccess
 extern class RayBoundingBox {
-    var min:RayVector3; // Minimum vertex box-corner
-    var max:RayVector3; // Maximum vertex box-corner
+    @:native("min") var _min:RayVector3; // Minimum vertex box-corner
+    @:native("max") var _max:RayVector3; // Maximum vertex box-corner
 }
 
 @:native("cpp.Reference<BoundingBox>")
@@ -726,6 +1202,14 @@ extern class BoundingBoxRef extends RayBoundingBox {
 
 @:native("cpp.Struct<BoundingBox>")
 extern class BoundingBox extends BoundingBoxRef {
+    public var min(get, set):Vector3;
+    private inline function get_min():Vector3 { return cast _min; }
+    private inline function set_min(value:Vector3):Vector3 { _min = cast value; return value; }
+
+    public var max(get, set):Vector3;
+    private inline function get_max():Vector3 { return cast _max; }
+    private inline function set_max(value:Vector3):Vector3 { _max = cast value; return value; }
+
     public static inline function create(min:RayVector3, max:RayVector3):BoundingBox {
         var t:RayBoundingBox = untyped __cpp__("{ (Vector3){0}, (Vector3){1} }", min, max);
         return cast t;
@@ -742,11 +1226,11 @@ extern class BoundingBox extends BoundingBoxRef {
 @:native("Wave")
 @:structAccess
 extern class RayWave {
-    var frameCount:Int; // Total number of frames (considering channels)
-    var sampleRate:Int; // Frequency (samples per second)
-    var sampleSize:Int; // Bit depth (bits per sample): 8, 16, 32 (24 not supported)
-    var channels:Int; // Number of channels (1-mono, 2-stereo, ...)
-    var data:cpp.RawPointer<cpp.Void>; // Buffer data pointer
+    @:native("frameCount") var _frameCount:Int; // Total number of frames (considering channels)
+    @:native("sampleRate") var _sampleRate:Int; // Frequency (samples per second)
+    @:native("sampleSize") var _sampleSize:Int; // Bit depth (bits per sample): 8, 16, 32 (24 not supported)
+    @:native("channels") var _channels:Int; // Number of channels (1-mono, 2-stereo, ...)
+    @:native("data") var _data:cpp.RawPointer<cpp.Void>; // Buffer data pointer
 }
 
 @:native("cpp.Reference<Wave>")
@@ -755,6 +1239,26 @@ extern class WaveRef extends RayWave {
 
 @:native("cpp.Struct<Wave>")
 extern class Wave extends WaveRef {
+    public var frameCount(get, set):Int;
+    private inline function get_frameCount():Int { return  _frameCount; }
+    private inline function set_frameCount(value:Int):Int { _frameCount =  value; return value; }
+
+    public var sampleRate(get, set):Int;
+    private inline function get_sampleRate():Int { return  _sampleRate; }
+    private inline function set_sampleRate(value:Int):Int { _sampleRate =  value; return value; }
+
+    public var sampleSize(get, set):Int;
+    private inline function get_sampleSize():Int { return  _sampleSize; }
+    private inline function set_sampleSize(value:Int):Int { _sampleSize =  value; return value; }
+
+    public var channels(get, set):Int;
+    private inline function get_channels():Int { return  _channels; }
+    private inline function set_channels(value:Int):Int { _channels =  value; return value; }
+
+    public var data(get, set):cpp.RawPointer<cpp.Void>;
+    private inline function get_data():cpp.RawPointer<cpp.Void> { return cast _data; }
+    private inline function set_data(value:cpp.RawPointer<cpp.Void>):cpp.RawPointer<cpp.Void> { _data = cast value; return value; }
+
     public static inline function create(frameCount:Int, sampleRate:Int, sampleSize:Int, channels:Int, data:cpp.RawPointer<cpp.Void>):Wave {
         var t:RayWave = untyped __cpp__("{ (unsigned int){0}, (unsigned int){1}, (unsigned int){2}, (unsigned int){3}, (void *){4} }", frameCount, sampleRate, sampleSize, channels, data);
         return cast t;
@@ -771,11 +1275,11 @@ extern class Wave extends WaveRef {
 @:native("AudioStream")
 @:structAccess
 extern class RayAudioStream {
-    var buffer:cpp.RawPointer<RAudioBuffer>; // Pointer to internal data used by the audio system
-    var processor:cpp.RawPointer<RAudioProcessor>; // Pointer to internal data processor, useful for audio effects
-    var sampleRate:Int; // Frequency (samples per second)
-    var sampleSize:Int; // Bit depth (bits per sample): 8, 16, 32 (24 not supported)
-    var channels:Int; // Number of channels (1-mono, 2-stereo, ...)
+    @:native("buffer") var _buffer:cpp.RawPointer<RAudioBuffer>; // Pointer to internal data used by the audio system
+    @:native("processor") var _processor:cpp.RawPointer<RAudioProcessor>; // Pointer to internal data processor, useful for audio effects
+    @:native("sampleRate") var _sampleRate:Int; // Frequency (samples per second)
+    @:native("sampleSize") var _sampleSize:Int; // Bit depth (bits per sample): 8, 16, 32 (24 not supported)
+    @:native("channels") var _channels:Int; // Number of channels (1-mono, 2-stereo, ...)
 }
 
 @:native("cpp.Reference<AudioStream>")
@@ -784,6 +1288,26 @@ extern class AudioStreamRef extends RayAudioStream {
 
 @:native("cpp.Struct<AudioStream>")
 extern class AudioStream extends AudioStreamRef {
+    public var buffer(get, set):cpp.RawPointer<RAudioBuffer>;
+    private inline function get_buffer():cpp.RawPointer<RAudioBuffer> { return cast _buffer; }
+    private inline function set_buffer(value:cpp.RawPointer<RAudioBuffer>):cpp.RawPointer<RAudioBuffer> { _buffer = cast value; return value; }
+
+    public var processor(get, set):cpp.RawPointer<RAudioProcessor>;
+    private inline function get_processor():cpp.RawPointer<RAudioProcessor> { return cast _processor; }
+    private inline function set_processor(value:cpp.RawPointer<RAudioProcessor>):cpp.RawPointer<RAudioProcessor> { _processor = cast value; return value; }
+
+    public var sampleRate(get, set):Int;
+    private inline function get_sampleRate():Int { return  _sampleRate; }
+    private inline function set_sampleRate(value:Int):Int { _sampleRate =  value; return value; }
+
+    public var sampleSize(get, set):Int;
+    private inline function get_sampleSize():Int { return  _sampleSize; }
+    private inline function set_sampleSize(value:Int):Int { _sampleSize =  value; return value; }
+
+    public var channels(get, set):Int;
+    private inline function get_channels():Int { return  _channels; }
+    private inline function set_channels(value:Int):Int { _channels =  value; return value; }
+
     public static inline function create(buffer:cpp.RawPointer<RAudioBuffer>, processor:cpp.RawPointer<RAudioProcessor>, sampleRate:Int, sampleSize:Int, channels:Int):AudioStream {
         var t:RayAudioStream = untyped __cpp__("{ (rAudioBuffer *){0}, (rAudioProcessor *){1}, (unsigned int){2}, (unsigned int){3}, (unsigned int){4} }", buffer, processor, sampleRate, sampleSize, channels);
         return cast t;
@@ -800,8 +1324,8 @@ extern class AudioStream extends AudioStreamRef {
 @:native("Sound")
 @:structAccess
 extern class RaySound {
-    var stream:RayAudioStream; // Audio stream
-    var frameCount:Int; // Total number of frames (considering channels)
+    @:native("stream") var _stream:RayAudioStream; // Audio stream
+    @:native("frameCount") var _frameCount:Int; // Total number of frames (considering channels)
 }
 
 @:native("cpp.Reference<Sound>")
@@ -810,6 +1334,14 @@ extern class SoundRef extends RaySound {
 
 @:native("cpp.Struct<Sound>")
 extern class Sound extends SoundRef {
+    public var stream(get, set):AudioStream;
+    private inline function get_stream():AudioStream { return cast _stream; }
+    private inline function set_stream(value:AudioStream):AudioStream { _stream = cast value; return value; }
+
+    public var frameCount(get, set):Int;
+    private inline function get_frameCount():Int { return  _frameCount; }
+    private inline function set_frameCount(value:Int):Int { _frameCount =  value; return value; }
+
     public static inline function create(stream:RayAudioStream, frameCount:Int):Sound {
         var t:RaySound = untyped __cpp__("{ (AudioStream){0}, (unsigned int){1} }", stream, frameCount);
         return cast t;
@@ -826,11 +1358,11 @@ extern class Sound extends SoundRef {
 @:native("Music")
 @:structAccess
 extern class RayMusic {
-    var stream:RayAudioStream; // Audio stream
-    var frameCount:Int; // Total number of frames (considering channels)
-    var looping:Bool; // Music looping enable
-    var ctxType:Int; // Type of music context (audio filetype)
-    var ctxData:cpp.RawPointer<cpp.Void>; // Audio context data, depends on type
+    @:native("stream") var _stream:RayAudioStream; // Audio stream
+    @:native("frameCount") var _frameCount:Int; // Total number of frames (considering channels)
+    @:native("looping") var _looping:Bool; // Music looping enable
+    @:native("ctxType") var _ctxType:Int; // Type of music context (audio filetype)
+    @:native("ctxData") var _ctxData:cpp.RawPointer<cpp.Void>; // Audio context data, depends on type
 }
 
 @:native("cpp.Reference<Music>")
@@ -839,6 +1371,26 @@ extern class MusicRef extends RayMusic {
 
 @:native("cpp.Struct<Music>")
 extern class Music extends MusicRef {
+    public var stream(get, set):AudioStream;
+    private inline function get_stream():AudioStream { return cast _stream; }
+    private inline function set_stream(value:AudioStream):AudioStream { _stream = cast value; return value; }
+
+    public var frameCount(get, set):Int;
+    private inline function get_frameCount():Int { return  _frameCount; }
+    private inline function set_frameCount(value:Int):Int { _frameCount =  value; return value; }
+
+    public var looping(get, set):Bool;
+    private inline function get_looping():Bool { return  _looping; }
+    private inline function set_looping(value:Bool):Bool { _looping =  value; return value; }
+
+    public var ctxType(get, set):Int;
+    private inline function get_ctxType():Int { return  _ctxType; }
+    private inline function set_ctxType(value:Int):Int { _ctxType =  value; return value; }
+
+    public var ctxData(get, set):cpp.RawPointer<cpp.Void>;
+    private inline function get_ctxData():cpp.RawPointer<cpp.Void> { return cast _ctxData; }
+    private inline function set_ctxData(value:cpp.RawPointer<cpp.Void>):cpp.RawPointer<cpp.Void> { _ctxData = cast value; return value; }
+
     public static inline function create(stream:RayAudioStream, frameCount:Int, looping:Bool, ctxType:Int, ctxData:cpp.RawPointer<cpp.Void>):Music {
         var t:RayMusic = untyped __cpp__("{ (AudioStream){0}, (unsigned int){1}, (bool){2}, (int){3}, (void *){4} }", stream, frameCount, looping, ctxType, ctxData);
         return cast t;
@@ -855,16 +1407,16 @@ extern class Music extends MusicRef {
 @:native("VrDeviceInfo")
 @:structAccess
 extern class RayVrDeviceInfo {
-    var hResolution:Int; // Horizontal resolution in pixels
-    var vResolution:Int; // Vertical resolution in pixels
-    var hScreenSize:Float; // Horizontal size in meters
-    var vScreenSize:Float; // Vertical size in meters
-    var vScreenCenter:Float; // Screen center in meters
-    var eyeToScreenDistance:Float; // Distance between eye and display in meters
-    var lensSeparationDistance:Float; // Lens separation distance in meters
-    var interpupillaryDistance:Float; // IPD (distance between pupils) in meters
-    var lensDistortionValues:Float; // Lens distortion constant parameters - TODO: cpp native array (original: "float lensDistortionValues[4]")
-    var chromaAbCorrection:Float; // Chromatic aberration correction parameters - TODO: cpp native array (original: "float chromaAbCorrection[4]")
+    @:native("hResolution") var _hResolution:Int; // Horizontal resolution in pixels
+    @:native("vResolution") var _vResolution:Int; // Vertical resolution in pixels
+    @:native("hScreenSize") var _hScreenSize:Float; // Horizontal size in meters
+    @:native("vScreenSize") var _vScreenSize:Float; // Vertical size in meters
+    @:native("vScreenCenter") var _vScreenCenter:Float; // Screen center in meters
+    @:native("eyeToScreenDistance") var _eyeToScreenDistance:Float; // Distance between eye and display in meters
+    @:native("lensSeparationDistance") var _lensSeparationDistance:Float; // Lens separation distance in meters
+    @:native("interpupillaryDistance") var _interpupillaryDistance:Float; // IPD (distance between pupils) in meters
+    @:native("lensDistortionValues") var _lensDistortionValues:Float; // Lens distortion constant parameters - TODO: cpp native array (original: "float lensDistortionValues[4]")
+    @:native("chromaAbCorrection") var _chromaAbCorrection:Float; // Chromatic aberration correction parameters - TODO: cpp native array (original: "float chromaAbCorrection[4]")
 }
 
 @:native("cpp.Reference<VrDeviceInfo>")
@@ -873,6 +1425,46 @@ extern class VrDeviceInfoRef extends RayVrDeviceInfo {
 
 @:native("cpp.Struct<VrDeviceInfo>")
 extern class VrDeviceInfo extends VrDeviceInfoRef {
+    public var hResolution(get, set):Int;
+    private inline function get_hResolution():Int { return  _hResolution; }
+    private inline function set_hResolution(value:Int):Int { _hResolution =  value; return value; }
+
+    public var vResolution(get, set):Int;
+    private inline function get_vResolution():Int { return  _vResolution; }
+    private inline function set_vResolution(value:Int):Int { _vResolution =  value; return value; }
+
+    public var hScreenSize(get, set):Float;
+    private inline function get_hScreenSize():Float { return  _hScreenSize; }
+    private inline function set_hScreenSize(value:Float):Float { _hScreenSize =  value; return value; }
+
+    public var vScreenSize(get, set):Float;
+    private inline function get_vScreenSize():Float { return  _vScreenSize; }
+    private inline function set_vScreenSize(value:Float):Float { _vScreenSize =  value; return value; }
+
+    public var vScreenCenter(get, set):Float;
+    private inline function get_vScreenCenter():Float { return  _vScreenCenter; }
+    private inline function set_vScreenCenter(value:Float):Float { _vScreenCenter =  value; return value; }
+
+    public var eyeToScreenDistance(get, set):Float;
+    private inline function get_eyeToScreenDistance():Float { return  _eyeToScreenDistance; }
+    private inline function set_eyeToScreenDistance(value:Float):Float { _eyeToScreenDistance =  value; return value; }
+
+    public var lensSeparationDistance(get, set):Float;
+    private inline function get_lensSeparationDistance():Float { return  _lensSeparationDistance; }
+    private inline function set_lensSeparationDistance(value:Float):Float { _lensSeparationDistance =  value; return value; }
+
+    public var interpupillaryDistance(get, set):Float;
+    private inline function get_interpupillaryDistance():Float { return  _interpupillaryDistance; }
+    private inline function set_interpupillaryDistance(value:Float):Float { _interpupillaryDistance =  value; return value; }
+
+    public var lensDistortionValues(get, set):Float;
+    private inline function get_lensDistortionValues():Float { return  _lensDistortionValues; }
+    private inline function set_lensDistortionValues(value:Float):Float { _lensDistortionValues =  value; return value; }
+
+    public var chromaAbCorrection(get, set):Float;
+    private inline function get_chromaAbCorrection():Float { return  _chromaAbCorrection; }
+    private inline function set_chromaAbCorrection(value:Float):Float { _chromaAbCorrection =  value; return value; }
+
     public static inline function create(hResolution:Int, vResolution:Int, hScreenSize:Float, vScreenSize:Float, vScreenCenter:Float, eyeToScreenDistance:Float, lensSeparationDistance:Float, interpupillaryDistance:Float, lensDistortionValues:Float, chromaAbCorrection:Float):VrDeviceInfo {
         var t:RayVrDeviceInfo = untyped __cpp__("{ (int){0}, (int){1}, (float){2}, (float){3}, (float){4}, (float){5}, (float){6}, (float){7}, (float){8}, (float){9} }", hResolution, vResolution, hScreenSize, vScreenSize, vScreenCenter, eyeToScreenDistance, lensSeparationDistance, interpupillaryDistance, lensDistortionValues, chromaAbCorrection);
         return cast t;
@@ -889,14 +1481,14 @@ extern class VrDeviceInfo extends VrDeviceInfoRef {
 @:native("VrStereoConfig")
 @:structAccess
 extern class RayVrStereoConfig {
-    var projection:RayMatrix; // VR projection matrices (per eye) - TODO: cpp native array (original: "Matrix projection[2]")
-    var viewOffset:RayMatrix; // VR view offset matrices (per eye) - TODO: cpp native array (original: "Matrix viewOffset[2]")
-    var leftLensCenter:Float; // VR left lens center - TODO: cpp native array (original: "float leftLensCenter[2]")
-    var rightLensCenter:Float; // VR right lens center - TODO: cpp native array (original: "float rightLensCenter[2]")
-    var leftScreenCenter:Float; // VR left screen center - TODO: cpp native array (original: "float leftScreenCenter[2]")
-    var rightScreenCenter:Float; // VR right screen center - TODO: cpp native array (original: "float rightScreenCenter[2]")
-    var scale:Float; // VR distortion scale - TODO: cpp native array (original: "float scale[2]")
-    var scaleIn:Float; // VR distortion scale in - TODO: cpp native array (original: "float scaleIn[2]")
+    @:native("projection") var _projection:RayMatrix; // VR projection matrices (per eye) - TODO: cpp native array (original: "Matrix projection[2]")
+    @:native("viewOffset") var _viewOffset:RayMatrix; // VR view offset matrices (per eye) - TODO: cpp native array (original: "Matrix viewOffset[2]")
+    @:native("leftLensCenter") var _leftLensCenter:Float; // VR left lens center - TODO: cpp native array (original: "float leftLensCenter[2]")
+    @:native("rightLensCenter") var _rightLensCenter:Float; // VR right lens center - TODO: cpp native array (original: "float rightLensCenter[2]")
+    @:native("leftScreenCenter") var _leftScreenCenter:Float; // VR left screen center - TODO: cpp native array (original: "float leftScreenCenter[2]")
+    @:native("rightScreenCenter") var _rightScreenCenter:Float; // VR right screen center - TODO: cpp native array (original: "float rightScreenCenter[2]")
+    @:native("scale") var _scale:Float; // VR distortion scale - TODO: cpp native array (original: "float scale[2]")
+    @:native("scaleIn") var _scaleIn:Float; // VR distortion scale in - TODO: cpp native array (original: "float scaleIn[2]")
 }
 
 @:native("cpp.Reference<VrStereoConfig>")
@@ -905,6 +1497,38 @@ extern class VrStereoConfigRef extends RayVrStereoConfig {
 
 @:native("cpp.Struct<VrStereoConfig>")
 extern class VrStereoConfig extends VrStereoConfigRef {
+    public var projection(get, set):Matrix;
+    private inline function get_projection():Matrix { return cast _projection; }
+    private inline function set_projection(value:Matrix):Matrix { _projection = cast value; return value; }
+
+    public var viewOffset(get, set):Matrix;
+    private inline function get_viewOffset():Matrix { return cast _viewOffset; }
+    private inline function set_viewOffset(value:Matrix):Matrix { _viewOffset = cast value; return value; }
+
+    public var leftLensCenter(get, set):Float;
+    private inline function get_leftLensCenter():Float { return  _leftLensCenter; }
+    private inline function set_leftLensCenter(value:Float):Float { _leftLensCenter =  value; return value; }
+
+    public var rightLensCenter(get, set):Float;
+    private inline function get_rightLensCenter():Float { return  _rightLensCenter; }
+    private inline function set_rightLensCenter(value:Float):Float { _rightLensCenter =  value; return value; }
+
+    public var leftScreenCenter(get, set):Float;
+    private inline function get_leftScreenCenter():Float { return  _leftScreenCenter; }
+    private inline function set_leftScreenCenter(value:Float):Float { _leftScreenCenter =  value; return value; }
+
+    public var rightScreenCenter(get, set):Float;
+    private inline function get_rightScreenCenter():Float { return  _rightScreenCenter; }
+    private inline function set_rightScreenCenter(value:Float):Float { _rightScreenCenter =  value; return value; }
+
+    public var scale(get, set):Float;
+    private inline function get_scale():Float { return  _scale; }
+    private inline function set_scale(value:Float):Float { _scale =  value; return value; }
+
+    public var scaleIn(get, set):Float;
+    private inline function get_scaleIn():Float { return  _scaleIn; }
+    private inline function set_scaleIn(value:Float):Float { _scaleIn =  value; return value; }
+
     public static inline function create(projection:RayMatrix, viewOffset:RayMatrix, leftLensCenter:Float, rightLensCenter:Float, leftScreenCenter:Float, rightScreenCenter:Float, scale:Float, scaleIn:Float):VrStereoConfig {
         var t:RayVrStereoConfig = untyped __cpp__("{ (Matrix){0}, (Matrix){1}, (float){2}, (float){3}, (float){4}, (float){5}, (float){6}, (float){7} }", projection, viewOffset, leftLensCenter, rightLensCenter, leftScreenCenter, rightScreenCenter, scale, scaleIn);
         return cast t;
