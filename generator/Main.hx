@@ -175,7 +175,7 @@ extern class VaList {
         sb.add('@:include("raylib.h")\n');
         sb.add('@:native("${orginalName}")\n');
         sb.add('@:structAccess\n');
-        sb.add('extern class ${name} {\n');
+        sb.add('extern private class ${name} {\n');
         
         var createParamsList = [];
         var createParamsUntypedList = [];
@@ -195,7 +195,7 @@ extern class VaList {
                     isNativeArray = true;
                 }
                 var haxeType = convertType(cppType);
-                sb.add('    @:native("${name}") var _${name}:${haxeType};');
+                sb.add('    @:native("${name}") private var _${name}:${haxeType};');
                 if (fieldDescription != null && fieldDescription != "") {
                     sb.add(' // ${fieldDescription}');
                 }
@@ -218,7 +218,7 @@ extern class VaList {
         */
         
         sb.add('@:native("cpp.Reference<${orginalName}>")\n');
-        sb.add('extern class ${orginalName}Ref extends ${name} {\n');
+        sb.add('extern private class ${orginalName}Ref extends ${name} {\n');
         sb.add('}\n');
         sb.add('\n');
         
