@@ -195,7 +195,7 @@ extern class VaList {
                     isNativeArray = true;
                 }
                 var haxeType = convertType(cppType);
-                sb.add('    @:native("${name}") private var _${name}:${haxeType};');
+                sb.add('    @:native("${name}") @:dox(hide) @:noCompletion private var _${name}:${haxeType};');
                 if (fieldDescription != null && fieldDescription != "") {
                     sb.add(' // ${fieldDescription}');
                 }
