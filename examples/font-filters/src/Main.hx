@@ -67,6 +67,8 @@ class Main {
             EndDrawing();
         }
         
+        UnloadFont(font);
+        
         CloseWindow();
     }
 }
