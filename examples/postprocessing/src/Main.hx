@@ -10,7 +10,6 @@ import RayLib.Rectangle;
 import RayLib.Shader;
 import RayLib.Vector2;
 import RayLib.Vector3;
-import cpp.RawPointer;
 import RayLib.CameraProjection;
 
 @:unreflective
@@ -60,7 +59,7 @@ class Main {
         SetTargetFPS(60);
         
         while (!WindowShouldClose()) {
-            UpdateCamera(RawPointer.addressOf(camera));
+            UpdateCamera(camera);
             
             if (IsKeyPressed(KeyboardKey.RIGHT)) currentShader++;
             else if (IsKeyPressed(KeyboardKey.LEFT)) currentShader--;

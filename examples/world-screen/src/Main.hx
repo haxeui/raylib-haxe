@@ -1,13 +1,12 @@
 package;
 
 import RayLib.*;
-import RayLib.Colors.*;
 import RayLib.Camera;
+import RayLib.CameraMode;
+import RayLib.CameraProjection;
+import RayLib.Colors.*;
 import RayLib.Vector2;
 import RayLib.Vector3;
-import RayLib.CameraProjection;
-import RayLib.CameraMode;
-import cpp.RawPointer;
 
 class Main {
     static function main() {
@@ -31,7 +30,7 @@ class Main {
         SetTargetFPS(60);
         
         while (!WindowShouldClose()) {
-            UpdateCamera(RawPointer.addressOf(camera));
+            UpdateCamera(camera);
             
             cubeScreenPosition = GetWorldToScreen(Vector3.create(cubePosition.x, cubePosition.y + 2.5, cubePosition.z), camera);
 

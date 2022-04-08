@@ -6,7 +6,6 @@ import RayLib.CameraMode;
 import RayLib.Colors.*;
 import RayLib.MaterialMapIndex;
 import RayLib.Vector3;
-import cpp.RawPointer;
 import RayLib.CameraProjection;
 import RayLib.Texture2D;
 import RayLib.Vector2;
@@ -36,7 +35,7 @@ class Main {
         SetTargetFPS(60); 
         
         while (!WindowShouldClose()) {
-            UpdateCamera(RawPointer.addressOf(camera));
+            UpdateCamera(camera);
             
             BeginDrawing();
                 ClearBackground(RAYWHITE);

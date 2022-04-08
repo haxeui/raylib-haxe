@@ -1,6 +1,7 @@
 package;
 
 import RayLib.*;
+import RayLib.BoundingBox;
 import RayLib.Camera;
 import RayLib.CameraMode;
 import RayLib.CameraProjection;
@@ -9,8 +10,6 @@ import RayLib.MouseButton;
 import RayLib.Ray;
 import RayLib.RayCollision;
 import RayLib.Vector3;
-import RayLib.BoundingBox;
-import cpp.RawPointer;
 import RayLib.Vector2;
 
 class Main {
@@ -38,7 +37,7 @@ class Main {
         SetTargetFPS(60);
         
         while (!WindowShouldClose()) {
-            UpdateCamera(RawPointer.addressOf(camera));
+            UpdateCamera(camera);
             
             if (IsMouseButtonPressed(MouseButton.LEFT)) {
                 if (!collision.hit) {

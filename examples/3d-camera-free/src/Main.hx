@@ -1,13 +1,12 @@
 package;
 
 import RayLib.*;
-import RayLib.Colors.*;
 import RayLib.Camera;
-import RayLib.Vector2;
-import RayLib.Vector3;
-import RayLib.CameraProjection;
 import RayLib.CameraMode;
-import cpp.RawPointer;
+import RayLib.CameraProjection;
+import RayLib.Colors.*;
+import RayLib.Vector3;
+import RayLib.Vector2;
 
 class Main {
     static function main() {
@@ -30,7 +29,7 @@ class Main {
         SetTargetFPS(60);
         
         while (!WindowShouldClose()) {
-            UpdateCamera(RawPointer.addressOf(camera));
+            UpdateCamera(camera);
             
             BeginDrawing();
                 ClearBackground(RAYWHITE);

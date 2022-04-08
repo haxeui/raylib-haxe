@@ -5,6 +5,7 @@ import RayLib.Color;
 import RayLib.Colors.*;
 import RayLib.Font;
 import RayLib.Vector2;
+import RayLib.Vector2Ref;
 
 @:unreflective
 @:structInit
@@ -12,7 +13,7 @@ class FontInfo {
     public var font:Font;
     public var message:String;
     public var spacing:Int;
-    public var position:Vector2;
+    public var position:Vector2Ref;
     public var color:Color;
     public var correction:Int;
 }
@@ -36,10 +37,8 @@ class Main {
         
         var i = 0;
         for (info in fonts) {
-            var position = Vector2.createEmpty();
-            position.x = (screenWidth / 2) - (MeasureTextEx(info.font, info.message, info.font.baseSize * 2, info.spacing).x / 2);
-            position.y = (60 + info.font.baseSize + 45 * i) + info.correction;
-            info.position = position;
+            info.position.x = (screenWidth / 2) - (MeasureTextEx(info.font, info.message, info.font.baseSize * 2, info.spacing).x / 2);
+            info.position.y = (60 + info.font.baseSize + 45 * i) + info.correction;
             i++;
         }
 
