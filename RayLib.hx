@@ -11,12 +11,7 @@ extern private class RayVector2 {
 
 @:include("raylib.h")
 @:native("cpp.Reference<Vector2>")
-extern private class Vector2Ref extends RayVector2 {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<Vector2>")
-extern class Vector2 extends Vector2Ref {
+extern class Vector2Ref extends RayVector2 {
     public var x(get, set):Float;
     private inline function get_x():Float { return  _x; }
     private inline function set_x(value:Float):Float { _x =  value; return value; }
@@ -25,12 +20,17 @@ extern class Vector2 extends Vector2Ref {
     private inline function get_y():Float { return  _y; }
     private inline function set_y(value:Float):Float { _y =  value; return value; }
 
-    public static inline function create(x:Float, y:Float):Vector2 {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<Vector2>")
+extern class Vector2 extends Vector2Ref {
+    public static inline function create(x:Float, y:Float):Vector2Ref {
         var t:RayVector2 = untyped __cpp__("{ (float){0}, (float){1} }", x, y);
         return cast t;
     }
 
-    public static inline function createEmpty():Vector2 {
+    public static inline function createEmpty():Vector2Ref {
         var t:RayVector2 = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -48,12 +48,7 @@ extern private class RayVector3 {
 
 @:include("raylib.h")
 @:native("cpp.Reference<Vector3>")
-extern private class Vector3Ref extends RayVector3 {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<Vector3>")
-extern class Vector3 extends Vector3Ref {
+extern class Vector3Ref extends RayVector3 {
     public var x(get, set):Float;
     private inline function get_x():Float { return  _x; }
     private inline function set_x(value:Float):Float { _x =  value; return value; }
@@ -66,12 +61,17 @@ extern class Vector3 extends Vector3Ref {
     private inline function get_z():Float { return  _z; }
     private inline function set_z(value:Float):Float { _z =  value; return value; }
 
-    public static inline function create(x:Float, y:Float, z:Float):Vector3 {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<Vector3>")
+extern class Vector3 extends Vector3Ref {
+    public static inline function create(x:Float, y:Float, z:Float):Vector3Ref {
         var t:RayVector3 = untyped __cpp__("{ (float){0}, (float){1}, (float){2} }", x, y, z);
         return cast t;
     }
 
-    public static inline function createEmpty():Vector3 {
+    public static inline function createEmpty():Vector3Ref {
         var t:RayVector3 = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -90,12 +90,7 @@ extern private class RayVector4 {
 
 @:include("raylib.h")
 @:native("cpp.Reference<Vector4>")
-extern private class Vector4Ref extends RayVector4 {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<Vector4>")
-extern class Vector4 extends Vector4Ref {
+extern class Vector4Ref extends RayVector4 {
     public var x(get, set):Float;
     private inline function get_x():Float { return  _x; }
     private inline function set_x(value:Float):Float { _x =  value; return value; }
@@ -112,12 +107,17 @@ extern class Vector4 extends Vector4Ref {
     private inline function get_w():Float { return  _w; }
     private inline function set_w(value:Float):Float { _w =  value; return value; }
 
-    public static inline function create(x:Float, y:Float, z:Float, w:Float):Vector4 {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<Vector4>")
+extern class Vector4 extends Vector4Ref {
+    public static inline function create(x:Float, y:Float, z:Float, w:Float):Vector4Ref {
         var t:RayVector4 = untyped __cpp__("{ (float){0}, (float){1}, (float){2}, (float){3} }", x, y, z, w);
         return cast t;
     }
 
-    public static inline function createEmpty():Vector4 {
+    public static inline function createEmpty():Vector4Ref {
         var t:RayVector4 = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -148,12 +148,7 @@ extern private class RayMatrix {
 
 @:include("raylib.h")
 @:native("cpp.Reference<Matrix>")
-extern private class MatrixRef extends RayMatrix {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<Matrix>")
-extern class Matrix extends MatrixRef {
+extern class MatrixRef extends RayMatrix {
     public var m0(get, set):Float;
     private inline function get_m0():Float { return  _m0; }
     private inline function set_m0(value:Float):Float { _m0 =  value; return value; }
@@ -218,12 +213,17 @@ extern class Matrix extends MatrixRef {
     private inline function get_m15():Float { return  _m15; }
     private inline function set_m15(value:Float):Float { _m15 =  value; return value; }
 
-    public static inline function create(m0:Float, m4:Float, m8:Float, m12:Float, m1:Float, m5:Float, m9:Float, m13:Float, m2:Float, m6:Float, m10:Float, m14:Float, m3:Float, m7:Float, m11:Float, m15:Float):Matrix {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<Matrix>")
+extern class Matrix extends MatrixRef {
+    public static inline function create(m0:Float, m4:Float, m8:Float, m12:Float, m1:Float, m5:Float, m9:Float, m13:Float, m2:Float, m6:Float, m10:Float, m14:Float, m3:Float, m7:Float, m11:Float, m15:Float):MatrixRef {
         var t:RayMatrix = untyped __cpp__("{ (float){0}, (float){1}, (float){2}, (float){3}, (float){4}, (float){5}, (float){6}, (float){7}, (float){8}, (float){9}, (float){10}, (float){11}, (float){12}, (float){13}, (float){14}, (float){15} }", m0, m4, m8, m12, m1, m5, m9, m13, m2, m6, m10, m14, m3, m7, m11, m15);
         return cast t;
     }
 
-    public static inline function createEmpty():Matrix {
+    public static inline function createEmpty():MatrixRef {
         var t:RayMatrix = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -242,12 +242,7 @@ extern private class RayColor {
 
 @:include("raylib.h")
 @:native("cpp.Reference<Color>")
-extern private class ColorRef extends RayColor {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<Color>")
-extern class Color extends ColorRef {
+extern class ColorRef extends RayColor {
     public var r(get, set):cpp.UInt8;
     private inline function get_r():cpp.UInt8 { return cast _r; }
     private inline function set_r(value:cpp.UInt8):cpp.UInt8 { _r = cast value; return value; }
@@ -264,12 +259,17 @@ extern class Color extends ColorRef {
     private inline function get_a():cpp.UInt8 { return cast _a; }
     private inline function set_a(value:cpp.UInt8):cpp.UInt8 { _a = cast value; return value; }
 
-    public static inline function create(r:cpp.UInt8, g:cpp.UInt8, b:cpp.UInt8, a:cpp.UInt8):Color {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<Color>")
+extern class Color extends ColorRef {
+    public static inline function create(r:cpp.UInt8, g:cpp.UInt8, b:cpp.UInt8, a:cpp.UInt8):ColorRef {
         var t:RayColor = untyped __cpp__("{ (unsigned char){0}, (unsigned char){1}, (unsigned char){2}, (unsigned char){3} }", r, g, b, a);
         return cast t;
     }
 
-    public static inline function createEmpty():Color {
+    public static inline function createEmpty():ColorRef {
         var t:RayColor = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -288,12 +288,7 @@ extern private class RayRectangle {
 
 @:include("raylib.h")
 @:native("cpp.Reference<Rectangle>")
-extern private class RectangleRef extends RayRectangle {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<Rectangle>")
-extern class Rectangle extends RectangleRef {
+extern class RectangleRef extends RayRectangle {
     public var x(get, set):Float;
     private inline function get_x():Float { return  _x; }
     private inline function set_x(value:Float):Float { _x =  value; return value; }
@@ -310,12 +305,17 @@ extern class Rectangle extends RectangleRef {
     private inline function get_height():Float { return  _height; }
     private inline function set_height(value:Float):Float { _height =  value; return value; }
 
-    public static inline function create(x:Float, y:Float, width:Float, height:Float):Rectangle {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<Rectangle>")
+extern class Rectangle extends RectangleRef {
+    public static inline function create(x:Float, y:Float, width:Float, height:Float):RectangleRef {
         var t:RayRectangle = untyped __cpp__("{ (float){0}, (float){1}, (float){2}, (float){3} }", x, y, width, height);
         return cast t;
     }
 
-    public static inline function createEmpty():Rectangle {
+    public static inline function createEmpty():RectangleRef {
         var t:RayRectangle = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -335,12 +335,7 @@ extern private class RayImage {
 
 @:include("raylib.h")
 @:native("cpp.Reference<Image>")
-extern private class ImageRef extends RayImage {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<Image>")
-extern class Image extends ImageRef {
+extern class ImageRef extends RayImage {
     public var data(get, set):cpp.RawPointer<cpp.Void>;
     private inline function get_data():cpp.RawPointer<cpp.Void> { return cast _data; }
     private inline function set_data(value:cpp.RawPointer<cpp.Void>):cpp.RawPointer<cpp.Void> { _data = cast value; return value; }
@@ -361,12 +356,17 @@ extern class Image extends ImageRef {
     private inline function get_format():Int { return  _format; }
     private inline function set_format(value:Int):Int { _format =  value; return value; }
 
-    public static inline function create(data:cpp.RawPointer<cpp.Void>, width:Int, height:Int, mipmaps:Int, format:Int):Image {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<Image>")
+extern class Image extends ImageRef {
+    public static inline function create(data:cpp.RawPointer<cpp.Void>, width:Int, height:Int, mipmaps:Int, format:Int):ImageRef {
         var t:RayImage = untyped __cpp__("{ (void *){0}, (int){1}, (int){2}, (int){3}, (int){4} }", data, width, height, mipmaps, format);
         return cast t;
     }
 
-    public static inline function createEmpty():Image {
+    public static inline function createEmpty():ImageRef {
         var t:RayImage = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -374,10 +374,12 @@ extern class Image extends ImageRef {
 
 // Texture alias
 typedef TextureCubemap = Texture;
+typedef TextureCubemapRef = TextureRef;
 typedef RayTextureCubemap = RayTexture;
 
 // Texture alias
 typedef Texture2D = Texture;
+typedef Texture2DRef = TextureRef;
 typedef RayTexture2D = RayTexture;
 
 // Texture, tex data stored in GPU memory (VRAM)
@@ -394,12 +396,7 @@ extern private class RayTexture {
 
 @:include("raylib.h")
 @:native("cpp.Reference<Texture>")
-extern private class TextureRef extends RayTexture {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<Texture>")
-extern class Texture extends TextureRef {
+extern class TextureRef extends RayTexture {
     public var id(get, set):Int;
     private inline function get_id():Int { return  _id; }
     private inline function set_id(value:Int):Int { _id =  value; return value; }
@@ -420,12 +417,17 @@ extern class Texture extends TextureRef {
     private inline function get_format():Int { return  _format; }
     private inline function set_format(value:Int):Int { _format =  value; return value; }
 
-    public static inline function create(id:Int, width:Int, height:Int, mipmaps:Int, format:Int):Texture {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<Texture>")
+extern class Texture extends TextureRef {
+    public static inline function create(id:Int, width:Int, height:Int, mipmaps:Int, format:Int):TextureRef {
         var t:RayTexture = untyped __cpp__("{ (unsigned int){0}, (int){1}, (int){2}, (int){3}, (int){4} }", id, width, height, mipmaps, format);
         return cast t;
     }
 
-    public static inline function createEmpty():Texture {
+    public static inline function createEmpty():TextureRef {
         var t:RayTexture = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -433,6 +435,7 @@ extern class Texture extends TextureRef {
 
 // RenderTexture alias
 typedef RenderTexture2D = RenderTexture;
+typedef RenderTexture2DRef = RenderTextureRef;
 typedef RayRenderTexture2D = RayRenderTexture;
 
 // RenderTexture, fbo for texture rendering
@@ -447,12 +450,7 @@ extern private class RayRenderTexture {
 
 @:include("raylib.h")
 @:native("cpp.Reference<RenderTexture>")
-extern private class RenderTextureRef extends RayRenderTexture {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<RenderTexture>")
-extern class RenderTexture extends RenderTextureRef {
+extern class RenderTextureRef extends RayRenderTexture {
     public var id(get, set):Int;
     private inline function get_id():Int { return  _id; }
     private inline function set_id(value:Int):Int { _id =  value; return value; }
@@ -465,12 +463,17 @@ extern class RenderTexture extends RenderTextureRef {
     private inline function get_depth():Texture { return cast _depth; }
     private inline function set_depth(value:Texture):Texture { _depth = cast value; return value; }
 
-    public static inline function create(id:Int, texture:RayTexture, depth:RayTexture):RenderTexture {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<RenderTexture>")
+extern class RenderTexture extends RenderTextureRef {
+    public static inline function create(id:Int, texture:RayTexture, depth:RayTexture):RenderTextureRef {
         var t:RayRenderTexture = untyped __cpp__("{ (unsigned int){0}, (Texture){1}, (Texture){2} }", id, texture, depth);
         return cast t;
     }
 
-    public static inline function createEmpty():RenderTexture {
+    public static inline function createEmpty():RenderTextureRef {
         var t:RayRenderTexture = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -491,12 +494,7 @@ extern private class RayNPatchInfo {
 
 @:include("raylib.h")
 @:native("cpp.Reference<NPatchInfo>")
-extern private class NPatchInfoRef extends RayNPatchInfo {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<NPatchInfo>")
-extern class NPatchInfo extends NPatchInfoRef {
+extern class NPatchInfoRef extends RayNPatchInfo {
     public var source(get, set):Rectangle;
     private inline function get_source():Rectangle { return cast _source; }
     private inline function set_source(value:Rectangle):Rectangle { _source = cast value; return value; }
@@ -521,12 +519,17 @@ extern class NPatchInfo extends NPatchInfoRef {
     private inline function get_layout():Int { return  _layout; }
     private inline function set_layout(value:Int):Int { _layout =  value; return value; }
 
-    public static inline function create(source:RayRectangle, left:Int, top:Int, right:Int, bottom:Int, layout:Int):NPatchInfo {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<NPatchInfo>")
+extern class NPatchInfo extends NPatchInfoRef {
+    public static inline function create(source:RayRectangle, left:Int, top:Int, right:Int, bottom:Int, layout:Int):NPatchInfoRef {
         var t:RayNPatchInfo = untyped __cpp__("{ (Rectangle){0}, (int){1}, (int){2}, (int){3}, (int){4}, (int){5} }", source, left, top, right, bottom, layout);
         return cast t;
     }
 
-    public static inline function createEmpty():NPatchInfo {
+    public static inline function createEmpty():NPatchInfoRef {
         var t:RayNPatchInfo = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -546,12 +549,7 @@ extern private class RayGlyphInfo {
 
 @:include("raylib.h")
 @:native("cpp.Reference<GlyphInfo>")
-extern private class GlyphInfoRef extends RayGlyphInfo {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<GlyphInfo>")
-extern class GlyphInfo extends GlyphInfoRef {
+extern class GlyphInfoRef extends RayGlyphInfo {
     public var value(get, set):Int;
     private inline function get_value():Int { return  _value; }
     private inline function set_value(value:Int):Int { _value =  value; return value; }
@@ -572,12 +570,17 @@ extern class GlyphInfo extends GlyphInfoRef {
     private inline function get_image():Image { return cast _image; }
     private inline function set_image(value:Image):Image { _image = cast value; return value; }
 
-    public static inline function create(value:Int, offsetX:Int, offsetY:Int, advanceX:Int, image:RayImage):GlyphInfo {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<GlyphInfo>")
+extern class GlyphInfo extends GlyphInfoRef {
+    public static inline function create(value:Int, offsetX:Int, offsetY:Int, advanceX:Int, image:RayImage):GlyphInfoRef {
         var t:RayGlyphInfo = untyped __cpp__("{ (int){0}, (int){1}, (int){2}, (int){3}, (Image){4} }", value, offsetX, offsetY, advanceX, image);
         return cast t;
     }
 
-    public static inline function createEmpty():GlyphInfo {
+    public static inline function createEmpty():GlyphInfoRef {
         var t:RayGlyphInfo = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -598,12 +601,7 @@ extern private class RayFont {
 
 @:include("raylib.h")
 @:native("cpp.Reference<Font>")
-extern private class FontRef extends RayFont {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<Font>")
-extern class Font extends FontRef {
+extern class FontRef extends RayFont {
     public var baseSize(get, set):Int;
     private inline function get_baseSize():Int { return  _baseSize; }
     private inline function set_baseSize(value:Int):Int { _baseSize =  value; return value; }
@@ -628,12 +626,17 @@ extern class Font extends FontRef {
     private inline function get_glyphs():cpp.RawPointer<GlyphInfo> { return cast _glyphs; }
     private inline function set_glyphs(value:cpp.RawPointer<GlyphInfo>):cpp.RawPointer<GlyphInfo> { _glyphs = cast value; return value; }
 
-    public static inline function create(baseSize:Int, glyphCount:Int, glyphPadding:Int, texture:RayTexture, recs:cpp.RawPointer<RayRectangle>, glyphs:cpp.RawPointer<RayGlyphInfo>):Font {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<Font>")
+extern class Font extends FontRef {
+    public static inline function create(baseSize:Int, glyphCount:Int, glyphPadding:Int, texture:RayTexture, recs:cpp.RawPointer<RayRectangle>, glyphs:cpp.RawPointer<RayGlyphInfo>):FontRef {
         var t:RayFont = untyped __cpp__("{ (int){0}, (int){1}, (int){2}, (Texture2D){3}, (Rectangle *){4}, (GlyphInfo *){5} }", baseSize, glyphCount, glyphPadding, texture, recs, glyphs);
         return cast t;
     }
 
-    public static inline function createEmpty():Font {
+    public static inline function createEmpty():FontRef {
         var t:RayFont = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -641,6 +644,7 @@ extern class Font extends FontRef {
 
 // Camera3D alias
 typedef Camera = Camera3D;
+typedef CameraRef = Camera3DRef;
 typedef RayCamera = RayCamera3D;
 
 // Camera, defines position/orientation in 3d space
@@ -657,12 +661,7 @@ extern private class RayCamera3D {
 
 @:include("raylib.h")
 @:native("cpp.Reference<Camera3D>")
-extern private class Camera3DRef extends RayCamera3D {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<Camera3D>")
-extern class Camera3D extends Camera3DRef {
+extern class Camera3DRef extends RayCamera3D {
     public var position(get, set):Vector3;
     private inline function get_position():Vector3 { return cast _position; }
     private inline function set_position(value:Vector3):Vector3 { _position = cast value; return value; }
@@ -683,12 +682,17 @@ extern class Camera3D extends Camera3DRef {
     private inline function get_projection():Int { return  _projection; }
     private inline function set_projection(value:Int):Int { _projection =  value; return value; }
 
-    public static inline function create(position:RayVector3, target:RayVector3, up:RayVector3, fovy:Float, projection:Int):Camera3D {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<Camera3D>")
+extern class Camera3D extends Camera3DRef {
+    public static inline function create(position:RayVector3, target:RayVector3, up:RayVector3, fovy:Float, projection:Int):Camera3DRef {
         var t:RayCamera3D = untyped __cpp__("{ (Vector3){0}, (Vector3){1}, (Vector3){2}, (float){3}, (int){4} }", position, target, up, fovy, projection);
         return cast t;
     }
 
-    public static inline function createEmpty():Camera3D {
+    public static inline function createEmpty():Camera3DRef {
         var t:RayCamera3D = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -707,12 +711,7 @@ extern private class RayCamera2D {
 
 @:include("raylib.h")
 @:native("cpp.Reference<Camera2D>")
-extern private class Camera2DRef extends RayCamera2D {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<Camera2D>")
-extern class Camera2D extends Camera2DRef {
+extern class Camera2DRef extends RayCamera2D {
     public var offset(get, set):Vector2;
     private inline function get_offset():Vector2 { return cast _offset; }
     private inline function set_offset(value:Vector2):Vector2 { _offset = cast value; return value; }
@@ -729,12 +728,17 @@ extern class Camera2D extends Camera2DRef {
     private inline function get_zoom():Float { return  _zoom; }
     private inline function set_zoom(value:Float):Float { _zoom =  value; return value; }
 
-    public static inline function create(offset:RayVector2, target:RayVector2, rotation:Float, zoom:Float):Camera2D {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<Camera2D>")
+extern class Camera2D extends Camera2DRef {
+    public static inline function create(offset:RayVector2, target:RayVector2, rotation:Float, zoom:Float):Camera2DRef {
         var t:RayCamera2D = untyped __cpp__("{ (Vector2){0}, (Vector2){1}, (float){2}, (float){3} }", offset, target, rotation, zoom);
         return cast t;
     }
 
-    public static inline function createEmpty():Camera2D {
+    public static inline function createEmpty():Camera2DRef {
         var t:RayCamera2D = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -764,12 +768,7 @@ extern private class RayMesh {
 
 @:include("raylib.h")
 @:native("cpp.Reference<Mesh>")
-extern private class MeshRef extends RayMesh {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<Mesh>")
-extern class Mesh extends MeshRef {
+extern class MeshRef extends RayMesh {
     public var vertexCount(get, set):Int;
     private inline function get_vertexCount():Int { return  _vertexCount; }
     private inline function set_vertexCount(value:Int):Int { _vertexCount =  value; return value; }
@@ -830,12 +829,17 @@ extern class Mesh extends MeshRef {
     private inline function get_vboId():cpp.RawPointer<Int> { return cast _vboId; }
     private inline function set_vboId(value:cpp.RawPointer<Int>):cpp.RawPointer<Int> { _vboId = cast value; return value; }
 
-    public static inline function create(vertexCount:Int, triangleCount:Int, vertices:cpp.RawPointer<Float>, texcoords:cpp.RawPointer<Float>, texcoords2:cpp.RawPointer<Float>, normals:cpp.RawPointer<Float>, tangents:cpp.RawPointer<Float>, colors:cpp.RawPointer<cpp.UInt8>, indices:cpp.RawPointer<Int>, animVertices:cpp.RawPointer<Float>, animNormals:cpp.RawPointer<Float>, boneIds:cpp.RawPointer<cpp.UInt8>, boneWeights:cpp.RawPointer<Float>, vaoId:Int, vboId:cpp.RawPointer<Int>):Mesh {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<Mesh>")
+extern class Mesh extends MeshRef {
+    public static inline function create(vertexCount:Int, triangleCount:Int, vertices:cpp.RawPointer<Float>, texcoords:cpp.RawPointer<Float>, texcoords2:cpp.RawPointer<Float>, normals:cpp.RawPointer<Float>, tangents:cpp.RawPointer<Float>, colors:cpp.RawPointer<cpp.UInt8>, indices:cpp.RawPointer<Int>, animVertices:cpp.RawPointer<Float>, animNormals:cpp.RawPointer<Float>, boneIds:cpp.RawPointer<cpp.UInt8>, boneWeights:cpp.RawPointer<Float>, vaoId:Int, vboId:cpp.RawPointer<Int>):MeshRef {
         var t:RayMesh = untyped __cpp__("{ (int){0}, (int){1}, (float *){2}, (float *){3}, (float *){4}, (float *){5}, (float *){6}, (unsigned char *){7}, (unsigned short *){8}, (float *){9}, (float *){10}, (unsigned char *){11}, (float *){12}, (unsigned int){13}, (unsigned int *){14} }", vertexCount, triangleCount, vertices, texcoords, texcoords2, normals, tangents, colors, indices, animVertices, animNormals, boneIds, boneWeights, vaoId, vboId);
         return cast t;
     }
 
-    public static inline function createEmpty():Mesh {
+    public static inline function createEmpty():MeshRef {
         var t:RayMesh = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -852,12 +856,7 @@ extern private class RayShader {
 
 @:include("raylib.h")
 @:native("cpp.Reference<Shader>")
-extern private class ShaderRef extends RayShader {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<Shader>")
-extern class Shader extends ShaderRef {
+extern class ShaderRef extends RayShader {
     public var id(get, set):Int;
     private inline function get_id():Int { return  _id; }
     private inline function set_id(value:Int):Int { _id =  value; return value; }
@@ -866,12 +865,17 @@ extern class Shader extends ShaderRef {
     private inline function get_locs():cpp.RawPointer<Int> { return cast _locs; }
     private inline function set_locs(value:cpp.RawPointer<Int>):cpp.RawPointer<Int> { _locs = cast value; return value; }
 
-    public static inline function create(id:Int, locs:cpp.RawPointer<Int>):Shader {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<Shader>")
+extern class Shader extends ShaderRef {
+    public static inline function create(id:Int, locs:cpp.RawPointer<Int>):ShaderRef {
         var t:RayShader = untyped __cpp__("{ (unsigned int){0}, (int *){1} }", id, locs);
         return cast t;
     }
 
-    public static inline function createEmpty():Shader {
+    public static inline function createEmpty():ShaderRef {
         var t:RayShader = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -889,12 +893,7 @@ extern private class RayMaterialMap {
 
 @:include("raylib.h")
 @:native("cpp.Reference<MaterialMap>")
-extern private class MaterialMapRef extends RayMaterialMap {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<MaterialMap>")
-extern class MaterialMap extends MaterialMapRef {
+extern class MaterialMapRef extends RayMaterialMap {
     public var texture(get, set):Texture2D;
     private inline function get_texture():Texture2D { return cast _texture; }
     private inline function set_texture(value:Texture2D):Texture2D { _texture = cast value; return value; }
@@ -907,12 +906,17 @@ extern class MaterialMap extends MaterialMapRef {
     private inline function get_value():Float { return  _value; }
     private inline function set_value(value:Float):Float { _value =  value; return value; }
 
-    public static inline function create(texture:RayTexture, color:RayColor, value:Float):MaterialMap {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<MaterialMap>")
+extern class MaterialMap extends MaterialMapRef {
+    public static inline function create(texture:RayTexture, color:RayColor, value:Float):MaterialMapRef {
         var t:RayMaterialMap = untyped __cpp__("{ (Texture2D){0}, (Color){1}, (float){2} }", texture, color, value);
         return cast t;
     }
 
-    public static inline function createEmpty():MaterialMap {
+    public static inline function createEmpty():MaterialMapRef {
         var t:RayMaterialMap = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -930,12 +934,7 @@ extern private class RayMaterial {
 
 @:include("raylib.h")
 @:native("cpp.Reference<Material>")
-extern private class MaterialRef extends RayMaterial {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<Material>")
-extern class Material extends MaterialRef {
+extern class MaterialRef extends RayMaterial {
     public var shader(get, set):Shader;
     private inline function get_shader():Shader { return cast _shader; }
     private inline function set_shader(value:Shader):Shader { _shader = cast value; return value; }
@@ -948,12 +947,17 @@ extern class Material extends MaterialRef {
     private inline function get_params():Float { return  _params; }
     private inline function set_params(value:Float):Float { _params =  value; return value; }
 
-    public static inline function create(shader:RayShader, maps:cpp.RawPointer<RayMaterialMap>, params:Float):Material {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<Material>")
+extern class Material extends MaterialRef {
+    public static inline function create(shader:RayShader, maps:cpp.RawPointer<RayMaterialMap>, params:Float):MaterialRef {
         var t:RayMaterial = untyped __cpp__("{ (Shader){0}, (MaterialMap *){1}, (float){2} }", shader, maps, params);
         return cast t;
     }
 
-    public static inline function createEmpty():Material {
+    public static inline function createEmpty():MaterialRef {
         var t:RayMaterial = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -971,12 +975,7 @@ extern private class RayTransform {
 
 @:include("raylib.h")
 @:native("cpp.Reference<Transform>")
-extern private class TransformRef extends RayTransform {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<Transform>")
-extern class Transform extends TransformRef {
+extern class TransformRef extends RayTransform {
     public var translation(get, set):Vector3;
     private inline function get_translation():Vector3 { return cast _translation; }
     private inline function set_translation(value:Vector3):Vector3 { _translation = cast value; return value; }
@@ -989,12 +988,17 @@ extern class Transform extends TransformRef {
     private inline function get_scale():Vector3 { return cast _scale; }
     private inline function set_scale(value:Vector3):Vector3 { _scale = cast value; return value; }
 
-    public static inline function create(translation:RayVector3, rotation:Quaternion, scale:RayVector3):Transform {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<Transform>")
+extern class Transform extends TransformRef {
+    public static inline function create(translation:RayVector3, rotation:Quaternion, scale:RayVector3):TransformRef {
         var t:RayTransform = untyped __cpp__("{ (Vector3){0}, (Quaternion){1}, (Vector3){2} }", translation, rotation, scale);
         return cast t;
     }
 
-    public static inline function createEmpty():Transform {
+    public static inline function createEmpty():TransformRef {
         var t:RayTransform = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -1011,12 +1015,7 @@ extern private class RayBoneInfo {
 
 @:include("raylib.h")
 @:native("cpp.Reference<BoneInfo>")
-extern private class BoneInfoRef extends RayBoneInfo {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<BoneInfo>")
-extern class BoneInfo extends BoneInfoRef {
+extern class BoneInfoRef extends RayBoneInfo {
     public var name(get, set):Int;
     private inline function get_name():Int { return  _name; }
     private inline function set_name(value:Int):Int { _name =  value; return value; }
@@ -1025,12 +1024,17 @@ extern class BoneInfo extends BoneInfoRef {
     private inline function get_parent():Int { return  _parent; }
     private inline function set_parent(value:Int):Int { _parent =  value; return value; }
 
-    public static inline function create(name:Int, parent:Int):BoneInfo {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<BoneInfo>")
+extern class BoneInfo extends BoneInfoRef {
+    public static inline function create(name:Int, parent:Int):BoneInfoRef {
         var t:RayBoneInfo = untyped __cpp__("{ (char){0}, (int){1} }", name, parent);
         return cast t;
     }
 
-    public static inline function createEmpty():BoneInfo {
+    public static inline function createEmpty():BoneInfoRef {
         var t:RayBoneInfo = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -1054,12 +1058,7 @@ extern private class RayModel {
 
 @:include("raylib.h")
 @:native("cpp.Reference<Model>")
-extern private class ModelRef extends RayModel {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<Model>")
-extern class Model extends ModelRef {
+extern class ModelRef extends RayModel {
     public var transform(get, set):Matrix;
     private inline function get_transform():Matrix { return cast _transform; }
     private inline function set_transform(value:Matrix):Matrix { _transform = cast value; return value; }
@@ -1096,12 +1095,17 @@ extern class Model extends ModelRef {
     private inline function get_bindPose():cpp.RawPointer<Transform> { return cast _bindPose; }
     private inline function set_bindPose(value:cpp.RawPointer<Transform>):cpp.RawPointer<Transform> { _bindPose = cast value; return value; }
 
-    public static inline function create(transform:RayMatrix, meshCount:Int, materialCount:Int, meshes:cpp.RawPointer<RayMesh>, materials:cpp.RawPointer<RayMaterial>, meshMaterial:cpp.RawPointer<Int>, boneCount:Int, bones:cpp.RawPointer<RayBoneInfo>, bindPose:cpp.RawPointer<RayTransform>):Model {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<Model>")
+extern class Model extends ModelRef {
+    public static inline function create(transform:RayMatrix, meshCount:Int, materialCount:Int, meshes:cpp.RawPointer<RayMesh>, materials:cpp.RawPointer<RayMaterial>, meshMaterial:cpp.RawPointer<Int>, boneCount:Int, bones:cpp.RawPointer<RayBoneInfo>, bindPose:cpp.RawPointer<RayTransform>):ModelRef {
         var t:RayModel = untyped __cpp__("{ (Matrix){0}, (int){1}, (int){2}, (Mesh *){3}, (Material *){4}, (int *){5}, (int){6}, (BoneInfo *){7}, (Transform *){8} }", transform, meshCount, materialCount, meshes, materials, meshMaterial, boneCount, bones, bindPose);
         return cast t;
     }
 
-    public static inline function createEmpty():Model {
+    public static inline function createEmpty():ModelRef {
         var t:RayModel = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -1120,12 +1124,7 @@ extern private class RayModelAnimation {
 
 @:include("raylib.h")
 @:native("cpp.Reference<ModelAnimation>")
-extern private class ModelAnimationRef extends RayModelAnimation {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<ModelAnimation>")
-extern class ModelAnimation extends ModelAnimationRef {
+extern class ModelAnimationRef extends RayModelAnimation {
     public var boneCount(get, set):Int;
     private inline function get_boneCount():Int { return  _boneCount; }
     private inline function set_boneCount(value:Int):Int { _boneCount =  value; return value; }
@@ -1142,12 +1141,17 @@ extern class ModelAnimation extends ModelAnimationRef {
     private inline function get_framePoses():cpp.RawPointer<cpp.RawPointer<Transform>> { return cast _framePoses; }
     private inline function set_framePoses(value:cpp.RawPointer<cpp.RawPointer<Transform>>):cpp.RawPointer<cpp.RawPointer<Transform>> { _framePoses = cast value; return value; }
 
-    public static inline function create(boneCount:Int, frameCount:Int, bones:cpp.RawPointer<RayBoneInfo>, framePoses:cpp.RawPointer<cpp.RawPointer<RayTransform>>):ModelAnimation {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<ModelAnimation>")
+extern class ModelAnimation extends ModelAnimationRef {
+    public static inline function create(boneCount:Int, frameCount:Int, bones:cpp.RawPointer<RayBoneInfo>, framePoses:cpp.RawPointer<cpp.RawPointer<RayTransform>>):ModelAnimationRef {
         var t:RayModelAnimation = untyped __cpp__("{ (int){0}, (int){1}, (BoneInfo *){2}, (Transform **){3} }", boneCount, frameCount, bones, framePoses);
         return cast t;
     }
 
-    public static inline function createEmpty():ModelAnimation {
+    public static inline function createEmpty():ModelAnimationRef {
         var t:RayModelAnimation = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -1164,12 +1168,7 @@ extern private class RayRay {
 
 @:include("raylib.h")
 @:native("cpp.Reference<Ray>")
-extern private class RayRef extends RayRay {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<Ray>")
-extern class Ray extends RayRef {
+extern class RayRef extends RayRay {
     public var position(get, set):Vector3;
     private inline function get_position():Vector3 { return cast _position; }
     private inline function set_position(value:Vector3):Vector3 { _position = cast value; return value; }
@@ -1178,12 +1177,17 @@ extern class Ray extends RayRef {
     private inline function get_direction():Vector3 { return cast _direction; }
     private inline function set_direction(value:Vector3):Vector3 { _direction = cast value; return value; }
 
-    public static inline function create(position:RayVector3, direction:RayVector3):Ray {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<Ray>")
+extern class Ray extends RayRef {
+    public static inline function create(position:RayVector3, direction:RayVector3):RayRef {
         var t:RayRay = untyped __cpp__("{ (Vector3){0}, (Vector3){1} }", position, direction);
         return cast t;
     }
 
-    public static inline function createEmpty():Ray {
+    public static inline function createEmpty():RayRef {
         var t:RayRay = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -1202,12 +1206,7 @@ extern private class RayRayCollision {
 
 @:include("raylib.h")
 @:native("cpp.Reference<RayCollision>")
-extern private class RayCollisionRef extends RayRayCollision {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<RayCollision>")
-extern class RayCollision extends RayCollisionRef {
+extern class RayCollisionRef extends RayRayCollision {
     public var hit(get, set):Bool;
     private inline function get_hit():Bool { return  _hit; }
     private inline function set_hit(value:Bool):Bool { _hit =  value; return value; }
@@ -1224,12 +1223,17 @@ extern class RayCollision extends RayCollisionRef {
     private inline function get_normal():Vector3 { return cast _normal; }
     private inline function set_normal(value:Vector3):Vector3 { _normal = cast value; return value; }
 
-    public static inline function create(hit:Bool, distance:Float, point:RayVector3, normal:RayVector3):RayCollision {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<RayCollision>")
+extern class RayCollision extends RayCollisionRef {
+    public static inline function create(hit:Bool, distance:Float, point:RayVector3, normal:RayVector3):RayCollisionRef {
         var t:RayRayCollision = untyped __cpp__("{ (bool){0}, (float){1}, (Vector3){2}, (Vector3){3} }", hit, distance, point, normal);
         return cast t;
     }
 
-    public static inline function createEmpty():RayCollision {
+    public static inline function createEmpty():RayCollisionRef {
         var t:RayRayCollision = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -1246,12 +1250,7 @@ extern private class RayBoundingBox {
 
 @:include("raylib.h")
 @:native("cpp.Reference<BoundingBox>")
-extern private class BoundingBoxRef extends RayBoundingBox {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<BoundingBox>")
-extern class BoundingBox extends BoundingBoxRef {
+extern class BoundingBoxRef extends RayBoundingBox {
     public var min(get, set):Vector3;
     private inline function get_min():Vector3 { return cast _min; }
     private inline function set_min(value:Vector3):Vector3 { _min = cast value; return value; }
@@ -1260,12 +1259,17 @@ extern class BoundingBox extends BoundingBoxRef {
     private inline function get_max():Vector3 { return cast _max; }
     private inline function set_max(value:Vector3):Vector3 { _max = cast value; return value; }
 
-    public static inline function create(min:RayVector3, max:RayVector3):BoundingBox {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<BoundingBox>")
+extern class BoundingBox extends BoundingBoxRef {
+    public static inline function create(min:RayVector3, max:RayVector3):BoundingBoxRef {
         var t:RayBoundingBox = untyped __cpp__("{ (Vector3){0}, (Vector3){1} }", min, max);
         return cast t;
     }
 
-    public static inline function createEmpty():BoundingBox {
+    public static inline function createEmpty():BoundingBoxRef {
         var t:RayBoundingBox = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -1285,12 +1289,7 @@ extern private class RayWave {
 
 @:include("raylib.h")
 @:native("cpp.Reference<Wave>")
-extern private class WaveRef extends RayWave {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<Wave>")
-extern class Wave extends WaveRef {
+extern class WaveRef extends RayWave {
     public var frameCount(get, set):Int;
     private inline function get_frameCount():Int { return  _frameCount; }
     private inline function set_frameCount(value:Int):Int { _frameCount =  value; return value; }
@@ -1311,12 +1310,17 @@ extern class Wave extends WaveRef {
     private inline function get_data():cpp.RawPointer<cpp.Void> { return cast _data; }
     private inline function set_data(value:cpp.RawPointer<cpp.Void>):cpp.RawPointer<cpp.Void> { _data = cast value; return value; }
 
-    public static inline function create(frameCount:Int, sampleRate:Int, sampleSize:Int, channels:Int, data:cpp.RawPointer<cpp.Void>):Wave {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<Wave>")
+extern class Wave extends WaveRef {
+    public static inline function create(frameCount:Int, sampleRate:Int, sampleSize:Int, channels:Int, data:cpp.RawPointer<cpp.Void>):WaveRef {
         var t:RayWave = untyped __cpp__("{ (unsigned int){0}, (unsigned int){1}, (unsigned int){2}, (unsigned int){3}, (void *){4} }", frameCount, sampleRate, sampleSize, channels, data);
         return cast t;
     }
 
-    public static inline function createEmpty():Wave {
+    public static inline function createEmpty():WaveRef {
         var t:RayWave = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -1336,12 +1340,7 @@ extern private class RayAudioStream {
 
 @:include("raylib.h")
 @:native("cpp.Reference<AudioStream>")
-extern private class AudioStreamRef extends RayAudioStream {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<AudioStream>")
-extern class AudioStream extends AudioStreamRef {
+extern class AudioStreamRef extends RayAudioStream {
     public var buffer(get, set):cpp.RawPointer<RAudioBuffer>;
     private inline function get_buffer():cpp.RawPointer<RAudioBuffer> { return cast _buffer; }
     private inline function set_buffer(value:cpp.RawPointer<RAudioBuffer>):cpp.RawPointer<RAudioBuffer> { _buffer = cast value; return value; }
@@ -1362,12 +1361,17 @@ extern class AudioStream extends AudioStreamRef {
     private inline function get_channels():Int { return  _channels; }
     private inline function set_channels(value:Int):Int { _channels =  value; return value; }
 
-    public static inline function create(buffer:cpp.RawPointer<RAudioBuffer>, processor:cpp.RawPointer<RAudioProcessor>, sampleRate:Int, sampleSize:Int, channels:Int):AudioStream {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<AudioStream>")
+extern class AudioStream extends AudioStreamRef {
+    public static inline function create(buffer:cpp.RawPointer<RAudioBuffer>, processor:cpp.RawPointer<RAudioProcessor>, sampleRate:Int, sampleSize:Int, channels:Int):AudioStreamRef {
         var t:RayAudioStream = untyped __cpp__("{ (rAudioBuffer *){0}, (rAudioProcessor *){1}, (unsigned int){2}, (unsigned int){3}, (unsigned int){4} }", buffer, processor, sampleRate, sampleSize, channels);
         return cast t;
     }
 
-    public static inline function createEmpty():AudioStream {
+    public static inline function createEmpty():AudioStreamRef {
         var t:RayAudioStream = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -1384,12 +1388,7 @@ extern private class RaySound {
 
 @:include("raylib.h")
 @:native("cpp.Reference<Sound>")
-extern private class SoundRef extends RaySound {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<Sound>")
-extern class Sound extends SoundRef {
+extern class SoundRef extends RaySound {
     public var stream(get, set):AudioStream;
     private inline function get_stream():AudioStream { return cast _stream; }
     private inline function set_stream(value:AudioStream):AudioStream { _stream = cast value; return value; }
@@ -1398,12 +1397,17 @@ extern class Sound extends SoundRef {
     private inline function get_frameCount():Int { return  _frameCount; }
     private inline function set_frameCount(value:Int):Int { _frameCount =  value; return value; }
 
-    public static inline function create(stream:RayAudioStream, frameCount:Int):Sound {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<Sound>")
+extern class Sound extends SoundRef {
+    public static inline function create(stream:RayAudioStream, frameCount:Int):SoundRef {
         var t:RaySound = untyped __cpp__("{ (AudioStream){0}, (unsigned int){1} }", stream, frameCount);
         return cast t;
     }
 
-    public static inline function createEmpty():Sound {
+    public static inline function createEmpty():SoundRef {
         var t:RaySound = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -1423,12 +1427,7 @@ extern private class RayMusic {
 
 @:include("raylib.h")
 @:native("cpp.Reference<Music>")
-extern private class MusicRef extends RayMusic {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<Music>")
-extern class Music extends MusicRef {
+extern class MusicRef extends RayMusic {
     public var stream(get, set):AudioStream;
     private inline function get_stream():AudioStream { return cast _stream; }
     private inline function set_stream(value:AudioStream):AudioStream { _stream = cast value; return value; }
@@ -1449,12 +1448,17 @@ extern class Music extends MusicRef {
     private inline function get_ctxData():cpp.RawPointer<cpp.Void> { return cast _ctxData; }
     private inline function set_ctxData(value:cpp.RawPointer<cpp.Void>):cpp.RawPointer<cpp.Void> { _ctxData = cast value; return value; }
 
-    public static inline function create(stream:RayAudioStream, frameCount:Int, looping:Bool, ctxType:Int, ctxData:cpp.RawPointer<cpp.Void>):Music {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<Music>")
+extern class Music extends MusicRef {
+    public static inline function create(stream:RayAudioStream, frameCount:Int, looping:Bool, ctxType:Int, ctxData:cpp.RawPointer<cpp.Void>):MusicRef {
         var t:RayMusic = untyped __cpp__("{ (AudioStream){0}, (unsigned int){1}, (bool){2}, (int){3}, (void *){4} }", stream, frameCount, looping, ctxType, ctxData);
         return cast t;
     }
 
-    public static inline function createEmpty():Music {
+    public static inline function createEmpty():MusicRef {
         var t:RayMusic = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -1479,12 +1483,7 @@ extern private class RayVrDeviceInfo {
 
 @:include("raylib.h")
 @:native("cpp.Reference<VrDeviceInfo>")
-extern private class VrDeviceInfoRef extends RayVrDeviceInfo {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<VrDeviceInfo>")
-extern class VrDeviceInfo extends VrDeviceInfoRef {
+extern class VrDeviceInfoRef extends RayVrDeviceInfo {
     public var hResolution(get, set):Int;
     private inline function get_hResolution():Int { return  _hResolution; }
     private inline function set_hResolution(value:Int):Int { _hResolution =  value; return value; }
@@ -1525,12 +1524,17 @@ extern class VrDeviceInfo extends VrDeviceInfoRef {
     private inline function get_chromaAbCorrection():Float { return  _chromaAbCorrection; }
     private inline function set_chromaAbCorrection(value:Float):Float { _chromaAbCorrection =  value; return value; }
 
-    public static inline function create(hResolution:Int, vResolution:Int, hScreenSize:Float, vScreenSize:Float, vScreenCenter:Float, eyeToScreenDistance:Float, lensSeparationDistance:Float, interpupillaryDistance:Float, lensDistortionValues:Float, chromaAbCorrection:Float):VrDeviceInfo {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<VrDeviceInfo>")
+extern class VrDeviceInfo extends VrDeviceInfoRef {
+    public static inline function create(hResolution:Int, vResolution:Int, hScreenSize:Float, vScreenSize:Float, vScreenCenter:Float, eyeToScreenDistance:Float, lensSeparationDistance:Float, interpupillaryDistance:Float, lensDistortionValues:Float, chromaAbCorrection:Float):VrDeviceInfoRef {
         var t:RayVrDeviceInfo = untyped __cpp__("{ (int){0}, (int){1}, (float){2}, (float){3}, (float){4}, (float){5}, (float){6}, (float){7}, (float){8}, (float){9} }", hResolution, vResolution, hScreenSize, vScreenSize, vScreenCenter, eyeToScreenDistance, lensSeparationDistance, interpupillaryDistance, lensDistortionValues, chromaAbCorrection);
         return cast t;
     }
 
-    public static inline function createEmpty():VrDeviceInfo {
+    public static inline function createEmpty():VrDeviceInfoRef {
         var t:RayVrDeviceInfo = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -1553,12 +1557,7 @@ extern private class RayVrStereoConfig {
 
 @:include("raylib.h")
 @:native("cpp.Reference<VrStereoConfig>")
-extern private class VrStereoConfigRef extends RayVrStereoConfig {
-}
-
-@:include("raylib.h")
-@:native("cpp.Struct<VrStereoConfig>")
-extern class VrStereoConfig extends VrStereoConfigRef {
+extern class VrStereoConfigRef extends RayVrStereoConfig {
     public var projection(get, set):Matrix;
     private inline function get_projection():Matrix { return cast _projection; }
     private inline function set_projection(value:Matrix):Matrix { _projection = cast value; return value; }
@@ -1591,12 +1590,17 @@ extern class VrStereoConfig extends VrStereoConfigRef {
     private inline function get_scaleIn():Float { return  _scaleIn; }
     private inline function set_scaleIn(value:Float):Float { _scaleIn =  value; return value; }
 
-    public static inline function create(projection:RayMatrix, viewOffset:RayMatrix, leftLensCenter:Float, rightLensCenter:Float, leftScreenCenter:Float, rightScreenCenter:Float, scale:Float, scaleIn:Float):VrStereoConfig {
+}
+
+@:include("raylib.h")
+@:native("cpp.Struct<VrStereoConfig>")
+extern class VrStereoConfig extends VrStereoConfigRef {
+    public static inline function create(projection:RayMatrix, viewOffset:RayMatrix, leftLensCenter:Float, rightLensCenter:Float, leftScreenCenter:Float, rightScreenCenter:Float, scale:Float, scaleIn:Float):VrStereoConfigRef {
         var t:RayVrStereoConfig = untyped __cpp__("{ (Matrix){0}, (Matrix){1}, (float){2}, (float){3}, (float){4}, (float){5}, (float){6}, (float){7} }", projection, viewOffset, leftLensCenter, rightLensCenter, leftScreenCenter, rightScreenCenter, scale, scaleIn);
         return cast t;
     }
 
-    public static inline function createEmpty():VrStereoConfig {
+    public static inline function createEmpty():VrStereoConfigRef {
         var t:RayVrStereoConfig = untyped __cpp__("{ 0 }");
         return cast t;
     }
@@ -1701,7 +1705,7 @@ extern class RayLib {
     @:native("RestoreWindow")                            private static function _RestoreWindow():Void;      // Set window state: not minimized/maximized (only PLATFORM_DESKTOP)
                                                          public static inline function RestoreWindow():Void {  _RestoreWindow(); }      // Set window state: not minimized/maximized (only PLATFORM_DESKTOP)
     @:native("SetWindowIcon")                            private static function _SetWindowIcon(image:RayImage):Void;      // Set icon for window (only PLATFORM_DESKTOP)
-                                                         public static inline function SetWindowIcon(image:Image):Void {  _SetWindowIcon(cast image); }      // Set icon for window (only PLATFORM_DESKTOP)
+                                                         public static inline function SetWindowIcon(image:ImageRef):Void {  _SetWindowIcon(cast image); }      // Set icon for window (only PLATFORM_DESKTOP)
     @:native("SetWindowTitle")                           private static function _SetWindowTitle(title:cpp.ConstCharStar):Void;      // Set title for window (only PLATFORM_DESKTOP)
                                                          public static inline function SetWindowTitle(title:cpp.ConstCharStar):Void {  _SetWindowTitle(cast title); }      // Set title for window (only PLATFORM_DESKTOP)
     @:native("SetWindowPosition")                        private static function _SetWindowPosition(x:Int, y:Int):Void;      // Set window position on screen (only PLATFORM_DESKTOP)
@@ -1769,25 +1773,25 @@ extern class RayLib {
     @:native("IsCursorOnScreen")                         private static function _IsCursorOnScreen():Bool;      // Check if cursor is on the screen
                                                          public static inline function IsCursorOnScreen():Bool { return _IsCursorOnScreen(); }      // Check if cursor is on the screen
     @:native("ClearBackground")                          private static function _ClearBackground(color:RayColor):Void;      // Set background color (framebuffer clear color)
-                                                         public static inline function ClearBackground(color:Color):Void {  _ClearBackground(cast color); }      // Set background color (framebuffer clear color)
+                                                         public static inline function ClearBackground(color:ColorRef):Void {  _ClearBackground(cast color); }      // Set background color (framebuffer clear color)
     @:native("BeginDrawing")                             private static function _BeginDrawing():Void;      // Setup canvas (framebuffer) to start drawing
                                                          public static inline function BeginDrawing():Void {  _BeginDrawing(); }      // Setup canvas (framebuffer) to start drawing
     @:native("EndDrawing")                               private static function _EndDrawing():Void;      // End canvas drawing and swap buffers (double buffering)
                                                          public static inline function EndDrawing():Void {  _EndDrawing(); }      // End canvas drawing and swap buffers (double buffering)
     @:native("BeginMode2D")                              private static function _BeginMode2D(camera:RayCamera2D):Void;      // Begin 2D mode with custom camera (2D)
-                                                         public static inline function BeginMode2D(camera:Camera2D):Void {  _BeginMode2D(cast camera); }      // Begin 2D mode with custom camera (2D)
+                                                         public static inline function BeginMode2D(camera:Camera2DRef):Void {  _BeginMode2D(cast camera); }      // Begin 2D mode with custom camera (2D)
     @:native("EndMode2D")                                private static function _EndMode2D():Void;      // Ends 2D mode with custom camera
                                                          public static inline function EndMode2D():Void {  _EndMode2D(); }      // Ends 2D mode with custom camera
     @:native("BeginMode3D")                              private static function _BeginMode3D(camera:RayCamera3D):Void;      // Begin 3D mode with custom camera (3D)
-                                                         public static inline function BeginMode3D(camera:Camera3D):Void {  _BeginMode3D(cast camera); }      // Begin 3D mode with custom camera (3D)
+                                                         public static inline function BeginMode3D(camera:Camera3DRef):Void {  _BeginMode3D(cast camera); }      // Begin 3D mode with custom camera (3D)
     @:native("EndMode3D")                                private static function _EndMode3D():Void;      // Ends 3D mode and returns to default 2D orthographic mode
                                                          public static inline function EndMode3D():Void {  _EndMode3D(); }      // Ends 3D mode and returns to default 2D orthographic mode
     @:native("BeginTextureMode")                         private static function _BeginTextureMode(target:RayRenderTexture):Void;      // Begin drawing to render texture
-                                                         public static inline function BeginTextureMode(target:RenderTexture2D):Void {  _BeginTextureMode(cast target); }      // Begin drawing to render texture
+                                                         public static inline function BeginTextureMode(target:RenderTexture2DRef):Void {  _BeginTextureMode(cast target); }      // Begin drawing to render texture
     @:native("EndTextureMode")                           private static function _EndTextureMode():Void;      // Ends drawing to render texture
                                                          public static inline function EndTextureMode():Void {  _EndTextureMode(); }      // Ends drawing to render texture
     @:native("BeginShaderMode")                          private static function _BeginShaderMode(shader:RayShader):Void;      // Begin custom shader drawing
-                                                         public static inline function BeginShaderMode(shader:Shader):Void {  _BeginShaderMode(cast shader); }      // Begin custom shader drawing
+                                                         public static inline function BeginShaderMode(shader:ShaderRef):Void {  _BeginShaderMode(cast shader); }      // Begin custom shader drawing
     @:native("EndShaderMode")                            private static function _EndShaderMode():Void;      // End custom shader drawing (use default shader)
                                                          public static inline function EndShaderMode():Void {  _EndShaderMode(); }      // End custom shader drawing (use default shader)
     @:native("BeginBlendMode")                           private static function _BeginBlendMode(mode:Int):Void;      // Begin blending mode (alpha, additive, multiplied, subtract, custom)
@@ -1799,45 +1803,45 @@ extern class RayLib {
     @:native("EndScissorMode")                           private static function _EndScissorMode():Void;      // End scissor mode
                                                          public static inline function EndScissorMode():Void {  _EndScissorMode(); }      // End scissor mode
     @:native("BeginVrStereoMode")                        private static function _BeginVrStereoMode(config:RayVrStereoConfig):Void;      // Begin stereo rendering (requires VR simulator)
-                                                         public static inline function BeginVrStereoMode(config:VrStereoConfig):Void {  _BeginVrStereoMode(cast config); }      // Begin stereo rendering (requires VR simulator)
+                                                         public static inline function BeginVrStereoMode(config:VrStereoConfigRef):Void {  _BeginVrStereoMode(cast config); }      // Begin stereo rendering (requires VR simulator)
     @:native("EndVrStereoMode")                          private static function _EndVrStereoMode():Void;      // End stereo rendering (requires VR simulator)
                                                          public static inline function EndVrStereoMode():Void {  _EndVrStereoMode(); }      // End stereo rendering (requires VR simulator)
     @:native("LoadVrStereoConfig")                       private static function _LoadVrStereoConfig(device:RayVrDeviceInfo):RayVrStereoConfig;      // Load VR stereo config for VR simulator device parameters
-                                                         public static inline function LoadVrStereoConfig(device:VrDeviceInfo):VrStereoConfig { return cast _LoadVrStereoConfig(cast device); }      // Load VR stereo config for VR simulator device parameters
+                                                         public static inline function LoadVrStereoConfig(device:VrDeviceInfoRef):VrStereoConfig { return cast _LoadVrStereoConfig(cast device); }      // Load VR stereo config for VR simulator device parameters
     @:native("UnloadVrStereoConfig")                     private static function _UnloadVrStereoConfig(config:RayVrStereoConfig):Void;      // Unload VR stereo config
-                                                         public static inline function UnloadVrStereoConfig(config:VrStereoConfig):Void {  _UnloadVrStereoConfig(cast config); }      // Unload VR stereo config
+                                                         public static inline function UnloadVrStereoConfig(config:VrStereoConfigRef):Void {  _UnloadVrStereoConfig(cast config); }      // Unload VR stereo config
     @:native("LoadShader")                               private static function _LoadShader(vsFileName:cpp.ConstCharStar, fsFileName:cpp.ConstCharStar):RayShader;      // Load shader from files and bind default locations
                                                          public static inline function LoadShader(vsFileName:cpp.ConstCharStar, fsFileName:cpp.ConstCharStar):Shader { return cast _LoadShader(cast vsFileName, cast fsFileName); }      // Load shader from files and bind default locations
     @:native("LoadShaderFromMemory")                     private static function _LoadShaderFromMemory(vsCode:cpp.ConstCharStar, fsCode:cpp.ConstCharStar):RayShader;      // Load shader from code strings and bind default locations
                                                          public static inline function LoadShaderFromMemory(vsCode:cpp.ConstCharStar, fsCode:cpp.ConstCharStar):Shader { return cast _LoadShaderFromMemory(cast vsCode, cast fsCode); }      // Load shader from code strings and bind default locations
     @:native("GetShaderLocation")                        private static function _GetShaderLocation(shader:RayShader, uniformName:cpp.ConstCharStar):Int;      // Get shader uniform location
-                                                         public static inline function GetShaderLocation(shader:Shader, uniformName:cpp.ConstCharStar):Int { return _GetShaderLocation(cast shader, cast uniformName); }      // Get shader uniform location
+                                                         public static inline function GetShaderLocation(shader:ShaderRef, uniformName:cpp.ConstCharStar):Int { return _GetShaderLocation(cast shader, cast uniformName); }      // Get shader uniform location
     @:native("GetShaderLocationAttrib")                  private static function _GetShaderLocationAttrib(shader:RayShader, attribName:cpp.ConstCharStar):Int;      // Get shader attribute location
-                                                         public static inline function GetShaderLocationAttrib(shader:Shader, attribName:cpp.ConstCharStar):Int { return _GetShaderLocationAttrib(cast shader, cast attribName); }      // Get shader attribute location
+                                                         public static inline function GetShaderLocationAttrib(shader:ShaderRef, attribName:cpp.ConstCharStar):Int { return _GetShaderLocationAttrib(cast shader, cast attribName); }      // Get shader attribute location
     @:native("SetShaderValue")                           private static function _SetShaderValue(shader:RayShader, locIndex:Int, value:cpp.RawConstPointer<cpp.Void>, uniformType:Int):Void;      // Set shader uniform value
-                                                         public static inline function SetShaderValue(shader:Shader, locIndex:Int, value:cpp.RawConstPointer<cpp.Void>, uniformType:Int):Void {  _SetShaderValue(cast shader, locIndex, cast value, uniformType); }      // Set shader uniform value
+                                                         public static inline function SetShaderValue(shader:ShaderRef, locIndex:Int, value:cpp.RawConstPointer<cpp.Void>, uniformType:Int):Void {  _SetShaderValue(cast shader, locIndex, cast value, uniformType); }      // Set shader uniform value
     @:native("SetShaderValueV")                          private static function _SetShaderValueV(shader:RayShader, locIndex:Int, value:cpp.RawConstPointer<cpp.Void>, uniformType:Int, count:Int):Void;      // Set shader uniform value vector
-                                                         public static inline function SetShaderValueV(shader:Shader, locIndex:Int, value:cpp.RawConstPointer<cpp.Void>, uniformType:Int, count:Int):Void {  _SetShaderValueV(cast shader, locIndex, cast value, uniformType, count); }      // Set shader uniform value vector
+                                                         public static inline function SetShaderValueV(shader:ShaderRef, locIndex:Int, value:cpp.RawConstPointer<cpp.Void>, uniformType:Int, count:Int):Void {  _SetShaderValueV(cast shader, locIndex, cast value, uniformType, count); }      // Set shader uniform value vector
     @:native("SetShaderValueMatrix")                     private static function _SetShaderValueMatrix(shader:RayShader, locIndex:Int, mat:RayMatrix):Void;      // Set shader uniform value (matrix 4x4)
-                                                         public static inline function SetShaderValueMatrix(shader:Shader, locIndex:Int, mat:Matrix):Void {  _SetShaderValueMatrix(cast shader, locIndex, cast mat); }      // Set shader uniform value (matrix 4x4)
+                                                         public static inline function SetShaderValueMatrix(shader:ShaderRef, locIndex:Int, mat:MatrixRef):Void {  _SetShaderValueMatrix(cast shader, locIndex, cast mat); }      // Set shader uniform value (matrix 4x4)
     @:native("SetShaderValueTexture")                    private static function _SetShaderValueTexture(shader:RayShader, locIndex:Int, texture:RayTexture):Void;      // Set shader uniform value for texture (sampler2d)
-                                                         public static inline function SetShaderValueTexture(shader:Shader, locIndex:Int, texture:Texture2D):Void {  _SetShaderValueTexture(cast shader, locIndex, cast texture); }      // Set shader uniform value for texture (sampler2d)
+                                                         public static inline function SetShaderValueTexture(shader:ShaderRef, locIndex:Int, texture:Texture2DRef):Void {  _SetShaderValueTexture(cast shader, locIndex, cast texture); }      // Set shader uniform value for texture (sampler2d)
     @:native("UnloadShader")                             private static function _UnloadShader(shader:RayShader):Void;      // Unload shader from GPU memory (VRAM)
-                                                         public static inline function UnloadShader(shader:Shader):Void {  _UnloadShader(cast shader); }      // Unload shader from GPU memory (VRAM)
+                                                         public static inline function UnloadShader(shader:ShaderRef):Void {  _UnloadShader(cast shader); }      // Unload shader from GPU memory (VRAM)
     @:native("GetMouseRay")                              private static function _GetMouseRay(mousePosition:RayVector2, camera:RayCamera3D):RayRay;      // Get a ray trace from mouse position
-                                                         public static inline function GetMouseRay(mousePosition:Vector2, camera:Camera):Ray { return cast _GetMouseRay(cast mousePosition, cast camera); }      // Get a ray trace from mouse position
+                                                         public static inline function GetMouseRay(mousePosition:Vector2Ref, camera:CameraRef):Ray { return cast _GetMouseRay(cast mousePosition, cast camera); }      // Get a ray trace from mouse position
     @:native("GetCameraMatrix")                          private static function _GetCameraMatrix(camera:RayCamera3D):RayMatrix;      // Get camera transform matrix (view matrix)
-                                                         public static inline function GetCameraMatrix(camera:Camera):Matrix { return cast _GetCameraMatrix(cast camera); }      // Get camera transform matrix (view matrix)
+                                                         public static inline function GetCameraMatrix(camera:CameraRef):Matrix { return cast _GetCameraMatrix(cast camera); }      // Get camera transform matrix (view matrix)
     @:native("GetCameraMatrix2D")                        private static function _GetCameraMatrix2D(camera:RayCamera2D):RayMatrix;      // Get camera 2d transform matrix
-                                                         public static inline function GetCameraMatrix2D(camera:Camera2D):Matrix { return cast _GetCameraMatrix2D(cast camera); }      // Get camera 2d transform matrix
+                                                         public static inline function GetCameraMatrix2D(camera:Camera2DRef):Matrix { return cast _GetCameraMatrix2D(cast camera); }      // Get camera 2d transform matrix
     @:native("GetWorldToScreen")                         private static function _GetWorldToScreen(position:RayVector3, camera:RayCamera3D):RayVector2;      // Get the screen space position for a 3d world space position
-                                                         public static inline function GetWorldToScreen(position:Vector3, camera:Camera):Vector2 { return cast _GetWorldToScreen(cast position, cast camera); }      // Get the screen space position for a 3d world space position
+                                                         public static inline function GetWorldToScreen(position:Vector3Ref, camera:CameraRef):Vector2 { return cast _GetWorldToScreen(cast position, cast camera); }      // Get the screen space position for a 3d world space position
     @:native("GetWorldToScreenEx")                       private static function _GetWorldToScreenEx(position:RayVector3, camera:RayCamera3D, width:Int, height:Int):RayVector2;      // Get size position for a 3d world space position
-                                                         public static inline function GetWorldToScreenEx(position:Vector3, camera:Camera, width:Int, height:Int):Vector2 { return cast _GetWorldToScreenEx(cast position, cast camera, width, height); }      // Get size position for a 3d world space position
+                                                         public static inline function GetWorldToScreenEx(position:Vector3Ref, camera:CameraRef, width:Int, height:Int):Vector2 { return cast _GetWorldToScreenEx(cast position, cast camera, width, height); }      // Get size position for a 3d world space position
     @:native("GetWorldToScreen2D")                       private static function _GetWorldToScreen2D(position:RayVector2, camera:RayCamera2D):RayVector2;      // Get the screen space position for a 2d camera world space position
-                                                         public static inline function GetWorldToScreen2D(position:Vector2, camera:Camera2D):Vector2 { return cast _GetWorldToScreen2D(cast position, cast camera); }      // Get the screen space position for a 2d camera world space position
+                                                         public static inline function GetWorldToScreen2D(position:Vector2Ref, camera:Camera2DRef):Vector2 { return cast _GetWorldToScreen2D(cast position, cast camera); }      // Get the screen space position for a 2d camera world space position
     @:native("GetScreenToWorld2D")                       private static function _GetScreenToWorld2D(position:RayVector2, camera:RayCamera2D):RayVector2;      // Get the world space position for a 2d camera screen space position
-                                                         public static inline function GetScreenToWorld2D(position:Vector2, camera:Camera2D):Vector2 { return cast _GetScreenToWorld2D(cast position, cast camera); }      // Get the world space position for a 2d camera screen space position
+                                                         public static inline function GetScreenToWorld2D(position:Vector2Ref, camera:Camera2DRef):Vector2 { return cast _GetScreenToWorld2D(cast position, cast camera); }      // Get the world space position for a 2d camera screen space position
     @:native("SetTargetFPS")                             private static function _SetTargetFPS(fps:Int):Void;      // Set target FPS (maximum)
                                                          public static inline function SetTargetFPS(fps:Int):Void {  _SetTargetFPS(fps); }      // Set target FPS (maximum)
     @:native("GetFPS")                                   private static function _GetFPS():Int;      // Get current FPS
@@ -2023,9 +2027,9 @@ extern class RayLib {
     @:native("GetGesturePinchAngle")                     private static function _GetGesturePinchAngle():Float;      // Get gesture pinch angle
                                                          public static inline function GetGesturePinchAngle():Float { return _GetGesturePinchAngle(); }      // Get gesture pinch angle
     @:native("SetCameraMode")                            private static function _SetCameraMode(camera:RayCamera3D, mode:Int):Void;      // Set camera mode (multiple camera modes available)
-                                                         public static inline function SetCameraMode(camera:Camera, mode:Int):Void {  _SetCameraMode(cast camera, mode); }      // Set camera mode (multiple camera modes available)
+                                                         public static inline function SetCameraMode(camera:CameraRef, mode:Int):Void {  _SetCameraMode(cast camera, mode); }      // Set camera mode (multiple camera modes available)
     @:native("UpdateCamera")                             private static function _UpdateCamera(camera:cpp.RawPointer<RayCamera3D>):Void;      // Update camera position for selected mode
-                                                         public static inline function UpdateCamera(camera:cpp.RawPointer<Camera>):Void {  _UpdateCamera(cast camera); }      // Update camera position for selected mode
+                                                         public static inline function UpdateCamera(camera:CameraRef):Void {  _UpdateCamera(cast camera); }      // Update camera position for selected mode
     @:native("SetCameraPanControl")                      private static function _SetCameraPanControl(keyPan:Int):Void;      // Set camera pan key to combine with mouse movement (free camera)
                                                          public static inline function SetCameraPanControl(keyPan:Int):Void {  _SetCameraPanControl(keyPan); }      // Set camera pan key to combine with mouse movement (free camera)
     @:native("SetCameraAltControl")                      private static function _SetCameraAltControl(keyAlt:Int):Void;      // Set camera alt key to combine with mouse movement (free camera)
@@ -2035,99 +2039,99 @@ extern class RayLib {
     @:native("SetCameraMoveControls")                    private static function _SetCameraMoveControls(keyFront:Int, keyBack:Int, keyRight:Int, keyLeft:Int, keyUp:Int, keyDown:Int):Void;      // Set camera move controls (1st person and 3rd person cameras)
                                                          public static inline function SetCameraMoveControls(keyFront:Int, keyBack:Int, keyRight:Int, keyLeft:Int, keyUp:Int, keyDown:Int):Void {  _SetCameraMoveControls(keyFront, keyBack, keyRight, keyLeft, keyUp, keyDown); }      // Set camera move controls (1st person and 3rd person cameras)
     @:native("SetShapesTexture")                         private static function _SetShapesTexture(texture:RayTexture, source:RayRectangle):Void;      // Set texture and rectangle to be used on shapes drawing
-                                                         public static inline function SetShapesTexture(texture:Texture2D, source:Rectangle):Void {  _SetShapesTexture(cast texture, cast source); }      // Set texture and rectangle to be used on shapes drawing
+                                                         public static inline function SetShapesTexture(texture:Texture2DRef, source:RectangleRef):Void {  _SetShapesTexture(cast texture, cast source); }      // Set texture and rectangle to be used on shapes drawing
     @:native("DrawPixel")                                private static function _DrawPixel(posX:Int, posY:Int, color:RayColor):Void;      // Draw a pixel
-                                                         public static inline function DrawPixel(posX:Int, posY:Int, color:Color):Void {  _DrawPixel(posX, posY, cast color); }      // Draw a pixel
+                                                         public static inline function DrawPixel(posX:Int, posY:Int, color:ColorRef):Void {  _DrawPixel(posX, posY, cast color); }      // Draw a pixel
     @:native("DrawPixelV")                               private static function _DrawPixelV(position:RayVector2, color:RayColor):Void;      // Draw a pixel (Vector version)
-                                                         public static inline function DrawPixelV(position:Vector2, color:Color):Void {  _DrawPixelV(cast position, cast color); }      // Draw a pixel (Vector version)
+                                                         public static inline function DrawPixelV(position:Vector2Ref, color:ColorRef):Void {  _DrawPixelV(cast position, cast color); }      // Draw a pixel (Vector version)
     @:native("DrawLine")                                 private static function _DrawLine(startPosX:Int, startPosY:Int, endPosX:Int, endPosY:Int, color:RayColor):Void;      // Draw a line
-                                                         public static inline function DrawLine(startPosX:Int, startPosY:Int, endPosX:Int, endPosY:Int, color:Color):Void {  _DrawLine(startPosX, startPosY, endPosX, endPosY, cast color); }      // Draw a line
+                                                         public static inline function DrawLine(startPosX:Int, startPosY:Int, endPosX:Int, endPosY:Int, color:ColorRef):Void {  _DrawLine(startPosX, startPosY, endPosX, endPosY, cast color); }      // Draw a line
     @:native("DrawLineV")                                private static function _DrawLineV(startPos:RayVector2, endPos:RayVector2, color:RayColor):Void;      // Draw a line (Vector version)
-                                                         public static inline function DrawLineV(startPos:Vector2, endPos:Vector2, color:Color):Void {  _DrawLineV(cast startPos, cast endPos, cast color); }      // Draw a line (Vector version)
+                                                         public static inline function DrawLineV(startPos:Vector2Ref, endPos:Vector2Ref, color:ColorRef):Void {  _DrawLineV(cast startPos, cast endPos, cast color); }      // Draw a line (Vector version)
     @:native("DrawLineEx")                               private static function _DrawLineEx(startPos:RayVector2, endPos:RayVector2, thick:Float, color:RayColor):Void;      // Draw a line defining thickness
-                                                         public static inline function DrawLineEx(startPos:Vector2, endPos:Vector2, thick:Float, color:Color):Void {  _DrawLineEx(cast startPos, cast endPos, thick, cast color); }      // Draw a line defining thickness
+                                                         public static inline function DrawLineEx(startPos:Vector2Ref, endPos:Vector2Ref, thick:Float, color:ColorRef):Void {  _DrawLineEx(cast startPos, cast endPos, thick, cast color); }      // Draw a line defining thickness
     @:native("DrawLineBezier")                           private static function _DrawLineBezier(startPos:RayVector2, endPos:RayVector2, thick:Float, color:RayColor):Void;      // Draw a line using cubic-bezier curves in-out
-                                                         public static inline function DrawLineBezier(startPos:Vector2, endPos:Vector2, thick:Float, color:Color):Void {  _DrawLineBezier(cast startPos, cast endPos, thick, cast color); }      // Draw a line using cubic-bezier curves in-out
+                                                         public static inline function DrawLineBezier(startPos:Vector2Ref, endPos:Vector2Ref, thick:Float, color:ColorRef):Void {  _DrawLineBezier(cast startPos, cast endPos, thick, cast color); }      // Draw a line using cubic-bezier curves in-out
     @:native("DrawLineBezierQuad")                       private static function _DrawLineBezierQuad(startPos:RayVector2, endPos:RayVector2, controlPos:RayVector2, thick:Float, color:RayColor):Void;      // Draw line using quadratic bezier curves with a control point
-                                                         public static inline function DrawLineBezierQuad(startPos:Vector2, endPos:Vector2, controlPos:Vector2, thick:Float, color:Color):Void {  _DrawLineBezierQuad(cast startPos, cast endPos, cast controlPos, thick, cast color); }      // Draw line using quadratic bezier curves with a control point
+                                                         public static inline function DrawLineBezierQuad(startPos:Vector2Ref, endPos:Vector2Ref, controlPos:Vector2Ref, thick:Float, color:ColorRef):Void {  _DrawLineBezierQuad(cast startPos, cast endPos, cast controlPos, thick, cast color); }      // Draw line using quadratic bezier curves with a control point
     @:native("DrawLineBezierCubic")                      private static function _DrawLineBezierCubic(startPos:RayVector2, endPos:RayVector2, startControlPos:RayVector2, endControlPos:RayVector2, thick:Float, color:RayColor):Void;      // Draw line using cubic bezier curves with 2 control points
-                                                         public static inline function DrawLineBezierCubic(startPos:Vector2, endPos:Vector2, startControlPos:Vector2, endControlPos:Vector2, thick:Float, color:Color):Void {  _DrawLineBezierCubic(cast startPos, cast endPos, cast startControlPos, cast endControlPos, thick, cast color); }      // Draw line using cubic bezier curves with 2 control points
+                                                         public static inline function DrawLineBezierCubic(startPos:Vector2Ref, endPos:Vector2Ref, startControlPos:Vector2Ref, endControlPos:Vector2Ref, thick:Float, color:ColorRef):Void {  _DrawLineBezierCubic(cast startPos, cast endPos, cast startControlPos, cast endControlPos, thick, cast color); }      // Draw line using cubic bezier curves with 2 control points
     @:native("DrawLineStrip")                            private static function _DrawLineStrip(points:cpp.RawPointer<RayVector2>, pointCount:Int, color:RayColor):Void;      // Draw lines sequence
-                                                         public static inline function DrawLineStrip(points:cpp.RawPointer<Vector2>, pointCount:Int, color:Color):Void {  _DrawLineStrip(cast points, pointCount, cast color); }      // Draw lines sequence
+                                                         public static inline function DrawLineStrip(points:Vector2Ref, pointCount:Int, color:ColorRef):Void {  _DrawLineStrip(cast points, pointCount, cast color); }      // Draw lines sequence
     @:native("DrawCircle")                               private static function _DrawCircle(centerX:Int, centerY:Int, radius:Float, color:RayColor):Void;      // Draw a color-filled circle
-                                                         public static inline function DrawCircle(centerX:Int, centerY:Int, radius:Float, color:Color):Void {  _DrawCircle(centerX, centerY, radius, cast color); }      // Draw a color-filled circle
+                                                         public static inline function DrawCircle(centerX:Int, centerY:Int, radius:Float, color:ColorRef):Void {  _DrawCircle(centerX, centerY, radius, cast color); }      // Draw a color-filled circle
     @:native("DrawCircleSector")                         private static function _DrawCircleSector(center:RayVector2, radius:Float, startAngle:Float, endAngle:Float, segments:Int, color:RayColor):Void;      // Draw a piece of a circle
-                                                         public static inline function DrawCircleSector(center:Vector2, radius:Float, startAngle:Float, endAngle:Float, segments:Int, color:Color):Void {  _DrawCircleSector(cast center, radius, startAngle, endAngle, segments, cast color); }      // Draw a piece of a circle
+                                                         public static inline function DrawCircleSector(center:Vector2Ref, radius:Float, startAngle:Float, endAngle:Float, segments:Int, color:ColorRef):Void {  _DrawCircleSector(cast center, radius, startAngle, endAngle, segments, cast color); }      // Draw a piece of a circle
     @:native("DrawCircleSectorLines")                    private static function _DrawCircleSectorLines(center:RayVector2, radius:Float, startAngle:Float, endAngle:Float, segments:Int, color:RayColor):Void;      // Draw circle sector outline
-                                                         public static inline function DrawCircleSectorLines(center:Vector2, radius:Float, startAngle:Float, endAngle:Float, segments:Int, color:Color):Void {  _DrawCircleSectorLines(cast center, radius, startAngle, endAngle, segments, cast color); }      // Draw circle sector outline
+                                                         public static inline function DrawCircleSectorLines(center:Vector2Ref, radius:Float, startAngle:Float, endAngle:Float, segments:Int, color:ColorRef):Void {  _DrawCircleSectorLines(cast center, radius, startAngle, endAngle, segments, cast color); }      // Draw circle sector outline
     @:native("DrawCircleGradient")                       private static function _DrawCircleGradient(centerX:Int, centerY:Int, radius:Float, color1:RayColor, color2:RayColor):Void;      // Draw a gradient-filled circle
-                                                         public static inline function DrawCircleGradient(centerX:Int, centerY:Int, radius:Float, color1:Color, color2:Color):Void {  _DrawCircleGradient(centerX, centerY, radius, cast color1, cast color2); }      // Draw a gradient-filled circle
+                                                         public static inline function DrawCircleGradient(centerX:Int, centerY:Int, radius:Float, color1:ColorRef, color2:ColorRef):Void {  _DrawCircleGradient(centerX, centerY, radius, cast color1, cast color2); }      // Draw a gradient-filled circle
     @:native("DrawCircleV")                              private static function _DrawCircleV(center:RayVector2, radius:Float, color:RayColor):Void;      // Draw a color-filled circle (Vector version)
-                                                         public static inline function DrawCircleV(center:Vector2, radius:Float, color:Color):Void {  _DrawCircleV(cast center, radius, cast color); }      // Draw a color-filled circle (Vector version)
+                                                         public static inline function DrawCircleV(center:Vector2Ref, radius:Float, color:ColorRef):Void {  _DrawCircleV(cast center, radius, cast color); }      // Draw a color-filled circle (Vector version)
     @:native("DrawCircleLines")                          private static function _DrawCircleLines(centerX:Int, centerY:Int, radius:Float, color:RayColor):Void;      // Draw circle outline
-                                                         public static inline function DrawCircleLines(centerX:Int, centerY:Int, radius:Float, color:Color):Void {  _DrawCircleLines(centerX, centerY, radius, cast color); }      // Draw circle outline
+                                                         public static inline function DrawCircleLines(centerX:Int, centerY:Int, radius:Float, color:ColorRef):Void {  _DrawCircleLines(centerX, centerY, radius, cast color); }      // Draw circle outline
     @:native("DrawEllipse")                              private static function _DrawEllipse(centerX:Int, centerY:Int, radiusH:Float, radiusV:Float, color:RayColor):Void;      // Draw ellipse
-                                                         public static inline function DrawEllipse(centerX:Int, centerY:Int, radiusH:Float, radiusV:Float, color:Color):Void {  _DrawEllipse(centerX, centerY, radiusH, radiusV, cast color); }      // Draw ellipse
+                                                         public static inline function DrawEllipse(centerX:Int, centerY:Int, radiusH:Float, radiusV:Float, color:ColorRef):Void {  _DrawEllipse(centerX, centerY, radiusH, radiusV, cast color); }      // Draw ellipse
     @:native("DrawEllipseLines")                         private static function _DrawEllipseLines(centerX:Int, centerY:Int, radiusH:Float, radiusV:Float, color:RayColor):Void;      // Draw ellipse outline
-                                                         public static inline function DrawEllipseLines(centerX:Int, centerY:Int, radiusH:Float, radiusV:Float, color:Color):Void {  _DrawEllipseLines(centerX, centerY, radiusH, radiusV, cast color); }      // Draw ellipse outline
+                                                         public static inline function DrawEllipseLines(centerX:Int, centerY:Int, radiusH:Float, radiusV:Float, color:ColorRef):Void {  _DrawEllipseLines(centerX, centerY, radiusH, radiusV, cast color); }      // Draw ellipse outline
     @:native("DrawRing")                                 private static function _DrawRing(center:RayVector2, innerRadius:Float, outerRadius:Float, startAngle:Float, endAngle:Float, segments:Int, color:RayColor):Void;      // Draw ring
-                                                         public static inline function DrawRing(center:Vector2, innerRadius:Float, outerRadius:Float, startAngle:Float, endAngle:Float, segments:Int, color:Color):Void {  _DrawRing(cast center, innerRadius, outerRadius, startAngle, endAngle, segments, cast color); }      // Draw ring
+                                                         public static inline function DrawRing(center:Vector2Ref, innerRadius:Float, outerRadius:Float, startAngle:Float, endAngle:Float, segments:Int, color:ColorRef):Void {  _DrawRing(cast center, innerRadius, outerRadius, startAngle, endAngle, segments, cast color); }      // Draw ring
     @:native("DrawRingLines")                            private static function _DrawRingLines(center:RayVector2, innerRadius:Float, outerRadius:Float, startAngle:Float, endAngle:Float, segments:Int, color:RayColor):Void;      // Draw ring outline
-                                                         public static inline function DrawRingLines(center:Vector2, innerRadius:Float, outerRadius:Float, startAngle:Float, endAngle:Float, segments:Int, color:Color):Void {  _DrawRingLines(cast center, innerRadius, outerRadius, startAngle, endAngle, segments, cast color); }      // Draw ring outline
+                                                         public static inline function DrawRingLines(center:Vector2Ref, innerRadius:Float, outerRadius:Float, startAngle:Float, endAngle:Float, segments:Int, color:ColorRef):Void {  _DrawRingLines(cast center, innerRadius, outerRadius, startAngle, endAngle, segments, cast color); }      // Draw ring outline
     @:native("DrawRectangle")                            private static function _DrawRectangle(posX:Int, posY:Int, width:Int, height:Int, color:RayColor):Void;      // Draw a color-filled rectangle
-                                                         public static inline function DrawRectangle(posX:Int, posY:Int, width:Int, height:Int, color:Color):Void {  _DrawRectangle(posX, posY, width, height, cast color); }      // Draw a color-filled rectangle
+                                                         public static inline function DrawRectangle(posX:Int, posY:Int, width:Int, height:Int, color:ColorRef):Void {  _DrawRectangle(posX, posY, width, height, cast color); }      // Draw a color-filled rectangle
     @:native("DrawRectangleV")                           private static function _DrawRectangleV(position:RayVector2, size:RayVector2, color:RayColor):Void;      // Draw a color-filled rectangle (Vector version)
-                                                         public static inline function DrawRectangleV(position:Vector2, size:Vector2, color:Color):Void {  _DrawRectangleV(cast position, cast size, cast color); }      // Draw a color-filled rectangle (Vector version)
+                                                         public static inline function DrawRectangleV(position:Vector2Ref, size:Vector2Ref, color:ColorRef):Void {  _DrawRectangleV(cast position, cast size, cast color); }      // Draw a color-filled rectangle (Vector version)
     @:native("DrawRectangleRec")                         private static function _DrawRectangleRec(rec:RayRectangle, color:RayColor):Void;      // Draw a color-filled rectangle
-                                                         public static inline function DrawRectangleRec(rec:Rectangle, color:Color):Void {  _DrawRectangleRec(cast rec, cast color); }      // Draw a color-filled rectangle
+                                                         public static inline function DrawRectangleRec(rec:RectangleRef, color:ColorRef):Void {  _DrawRectangleRec(cast rec, cast color); }      // Draw a color-filled rectangle
     @:native("DrawRectanglePro")                         private static function _DrawRectanglePro(rec:RayRectangle, origin:RayVector2, rotation:Float, color:RayColor):Void;      // Draw a color-filled rectangle with pro parameters
-                                                         public static inline function DrawRectanglePro(rec:Rectangle, origin:Vector2, rotation:Float, color:Color):Void {  _DrawRectanglePro(cast rec, cast origin, rotation, cast color); }      // Draw a color-filled rectangle with pro parameters
+                                                         public static inline function DrawRectanglePro(rec:RectangleRef, origin:Vector2Ref, rotation:Float, color:ColorRef):Void {  _DrawRectanglePro(cast rec, cast origin, rotation, cast color); }      // Draw a color-filled rectangle with pro parameters
     @:native("DrawRectangleGradientV")                   private static function _DrawRectangleGradientV(posX:Int, posY:Int, width:Int, height:Int, color1:RayColor, color2:RayColor):Void;      // Draw a vertical-gradient-filled rectangle
-                                                         public static inline function DrawRectangleGradientV(posX:Int, posY:Int, width:Int, height:Int, color1:Color, color2:Color):Void {  _DrawRectangleGradientV(posX, posY, width, height, cast color1, cast color2); }      // Draw a vertical-gradient-filled rectangle
+                                                         public static inline function DrawRectangleGradientV(posX:Int, posY:Int, width:Int, height:Int, color1:ColorRef, color2:ColorRef):Void {  _DrawRectangleGradientV(posX, posY, width, height, cast color1, cast color2); }      // Draw a vertical-gradient-filled rectangle
     @:native("DrawRectangleGradientH")                   private static function _DrawRectangleGradientH(posX:Int, posY:Int, width:Int, height:Int, color1:RayColor, color2:RayColor):Void;      // Draw a horizontal-gradient-filled rectangle
-                                                         public static inline function DrawRectangleGradientH(posX:Int, posY:Int, width:Int, height:Int, color1:Color, color2:Color):Void {  _DrawRectangleGradientH(posX, posY, width, height, cast color1, cast color2); }      // Draw a horizontal-gradient-filled rectangle
+                                                         public static inline function DrawRectangleGradientH(posX:Int, posY:Int, width:Int, height:Int, color1:ColorRef, color2:ColorRef):Void {  _DrawRectangleGradientH(posX, posY, width, height, cast color1, cast color2); }      // Draw a horizontal-gradient-filled rectangle
     @:native("DrawRectangleGradientEx")                  private static function _DrawRectangleGradientEx(rec:RayRectangle, col1:RayColor, col2:RayColor, col3:RayColor, col4:RayColor):Void;      // Draw a gradient-filled rectangle with custom vertex colors
-                                                         public static inline function DrawRectangleGradientEx(rec:Rectangle, col1:Color, col2:Color, col3:Color, col4:Color):Void {  _DrawRectangleGradientEx(cast rec, cast col1, cast col2, cast col3, cast col4); }      // Draw a gradient-filled rectangle with custom vertex colors
+                                                         public static inline function DrawRectangleGradientEx(rec:RectangleRef, col1:ColorRef, col2:ColorRef, col3:ColorRef, col4:ColorRef):Void {  _DrawRectangleGradientEx(cast rec, cast col1, cast col2, cast col3, cast col4); }      // Draw a gradient-filled rectangle with custom vertex colors
     @:native("DrawRectangleLines")                       private static function _DrawRectangleLines(posX:Int, posY:Int, width:Int, height:Int, color:RayColor):Void;      // Draw rectangle outline
-                                                         public static inline function DrawRectangleLines(posX:Int, posY:Int, width:Int, height:Int, color:Color):Void {  _DrawRectangleLines(posX, posY, width, height, cast color); }      // Draw rectangle outline
+                                                         public static inline function DrawRectangleLines(posX:Int, posY:Int, width:Int, height:Int, color:ColorRef):Void {  _DrawRectangleLines(posX, posY, width, height, cast color); }      // Draw rectangle outline
     @:native("DrawRectangleLinesEx")                     private static function _DrawRectangleLinesEx(rec:RayRectangle, lineThick:Float, color:RayColor):Void;      // Draw rectangle outline with extended parameters
-                                                         public static inline function DrawRectangleLinesEx(rec:Rectangle, lineThick:Float, color:Color):Void {  _DrawRectangleLinesEx(cast rec, lineThick, cast color); }      // Draw rectangle outline with extended parameters
+                                                         public static inline function DrawRectangleLinesEx(rec:RectangleRef, lineThick:Float, color:ColorRef):Void {  _DrawRectangleLinesEx(cast rec, lineThick, cast color); }      // Draw rectangle outline with extended parameters
     @:native("DrawRectangleRounded")                     private static function _DrawRectangleRounded(rec:RayRectangle, roundness:Float, segments:Int, color:RayColor):Void;      // Draw rectangle with rounded edges
-                                                         public static inline function DrawRectangleRounded(rec:Rectangle, roundness:Float, segments:Int, color:Color):Void {  _DrawRectangleRounded(cast rec, roundness, segments, cast color); }      // Draw rectangle with rounded edges
+                                                         public static inline function DrawRectangleRounded(rec:RectangleRef, roundness:Float, segments:Int, color:ColorRef):Void {  _DrawRectangleRounded(cast rec, roundness, segments, cast color); }      // Draw rectangle with rounded edges
     @:native("DrawRectangleRoundedLines")                private static function _DrawRectangleRoundedLines(rec:RayRectangle, roundness:Float, segments:Int, lineThick:Float, color:RayColor):Void;      // Draw rectangle with rounded edges outline
-                                                         public static inline function DrawRectangleRoundedLines(rec:Rectangle, roundness:Float, segments:Int, lineThick:Float, color:Color):Void {  _DrawRectangleRoundedLines(cast rec, roundness, segments, lineThick, cast color); }      // Draw rectangle with rounded edges outline
+                                                         public static inline function DrawRectangleRoundedLines(rec:RectangleRef, roundness:Float, segments:Int, lineThick:Float, color:ColorRef):Void {  _DrawRectangleRoundedLines(cast rec, roundness, segments, lineThick, cast color); }      // Draw rectangle with rounded edges outline
     @:native("DrawTriangle")                             private static function _DrawTriangle(v1:RayVector2, v2:RayVector2, v3:RayVector2, color:RayColor):Void;      // Draw a color-filled triangle (vertex in counter-clockwise order!)
-                                                         public static inline function DrawTriangle(v1:Vector2, v2:Vector2, v3:Vector2, color:Color):Void {  _DrawTriangle(cast v1, cast v2, cast v3, cast color); }      // Draw a color-filled triangle (vertex in counter-clockwise order!)
+                                                         public static inline function DrawTriangle(v1:Vector2Ref, v2:Vector2Ref, v3:Vector2Ref, color:ColorRef):Void {  _DrawTriangle(cast v1, cast v2, cast v3, cast color); }      // Draw a color-filled triangle (vertex in counter-clockwise order!)
     @:native("DrawTriangleLines")                        private static function _DrawTriangleLines(v1:RayVector2, v2:RayVector2, v3:RayVector2, color:RayColor):Void;      // Draw triangle outline (vertex in counter-clockwise order!)
-                                                         public static inline function DrawTriangleLines(v1:Vector2, v2:Vector2, v3:Vector2, color:Color):Void {  _DrawTriangleLines(cast v1, cast v2, cast v3, cast color); }      // Draw triangle outline (vertex in counter-clockwise order!)
+                                                         public static inline function DrawTriangleLines(v1:Vector2Ref, v2:Vector2Ref, v3:Vector2Ref, color:ColorRef):Void {  _DrawTriangleLines(cast v1, cast v2, cast v3, cast color); }      // Draw triangle outline (vertex in counter-clockwise order!)
     @:native("DrawTriangleFan")                          private static function _DrawTriangleFan(points:cpp.RawPointer<RayVector2>, pointCount:Int, color:RayColor):Void;      // Draw a triangle fan defined by points (first vertex is the center)
-                                                         public static inline function DrawTriangleFan(points:cpp.RawPointer<Vector2>, pointCount:Int, color:Color):Void {  _DrawTriangleFan(cast points, pointCount, cast color); }      // Draw a triangle fan defined by points (first vertex is the center)
+                                                         public static inline function DrawTriangleFan(points:Vector2Ref, pointCount:Int, color:ColorRef):Void {  _DrawTriangleFan(cast points, pointCount, cast color); }      // Draw a triangle fan defined by points (first vertex is the center)
     @:native("DrawTriangleStrip")                        private static function _DrawTriangleStrip(points:cpp.RawPointer<RayVector2>, pointCount:Int, color:RayColor):Void;      // Draw a triangle strip defined by points
-                                                         public static inline function DrawTriangleStrip(points:cpp.RawPointer<Vector2>, pointCount:Int, color:Color):Void {  _DrawTriangleStrip(cast points, pointCount, cast color); }      // Draw a triangle strip defined by points
+                                                         public static inline function DrawTriangleStrip(points:Vector2Ref, pointCount:Int, color:ColorRef):Void {  _DrawTriangleStrip(cast points, pointCount, cast color); }      // Draw a triangle strip defined by points
     @:native("DrawPoly")                                 private static function _DrawPoly(center:RayVector2, sides:Int, radius:Float, rotation:Float, color:RayColor):Void;      // Draw a regular polygon (Vector version)
-                                                         public static inline function DrawPoly(center:Vector2, sides:Int, radius:Float, rotation:Float, color:Color):Void {  _DrawPoly(cast center, sides, radius, rotation, cast color); }      // Draw a regular polygon (Vector version)
+                                                         public static inline function DrawPoly(center:Vector2Ref, sides:Int, radius:Float, rotation:Float, color:ColorRef):Void {  _DrawPoly(cast center, sides, radius, rotation, cast color); }      // Draw a regular polygon (Vector version)
     @:native("DrawPolyLines")                            private static function _DrawPolyLines(center:RayVector2, sides:Int, radius:Float, rotation:Float, color:RayColor):Void;      // Draw a polygon outline of n sides
-                                                         public static inline function DrawPolyLines(center:Vector2, sides:Int, radius:Float, rotation:Float, color:Color):Void {  _DrawPolyLines(cast center, sides, radius, rotation, cast color); }      // Draw a polygon outline of n sides
+                                                         public static inline function DrawPolyLines(center:Vector2Ref, sides:Int, radius:Float, rotation:Float, color:ColorRef):Void {  _DrawPolyLines(cast center, sides, radius, rotation, cast color); }      // Draw a polygon outline of n sides
     @:native("DrawPolyLinesEx")                          private static function _DrawPolyLinesEx(center:RayVector2, sides:Int, radius:Float, rotation:Float, lineThick:Float, color:RayColor):Void;      // Draw a polygon outline of n sides with extended parameters
-                                                         public static inline function DrawPolyLinesEx(center:Vector2, sides:Int, radius:Float, rotation:Float, lineThick:Float, color:Color):Void {  _DrawPolyLinesEx(cast center, sides, radius, rotation, lineThick, cast color); }      // Draw a polygon outline of n sides with extended parameters
+                                                         public static inline function DrawPolyLinesEx(center:Vector2Ref, sides:Int, radius:Float, rotation:Float, lineThick:Float, color:ColorRef):Void {  _DrawPolyLinesEx(cast center, sides, radius, rotation, lineThick, cast color); }      // Draw a polygon outline of n sides with extended parameters
     @:native("CheckCollisionRecs")                       private static function _CheckCollisionRecs(rec1:RayRectangle, rec2:RayRectangle):Bool;      // Check collision between two rectangles
-                                                         public static inline function CheckCollisionRecs(rec1:Rectangle, rec2:Rectangle):Bool { return _CheckCollisionRecs(cast rec1, cast rec2); }      // Check collision between two rectangles
+                                                         public static inline function CheckCollisionRecs(rec1:RectangleRef, rec2:RectangleRef):Bool { return _CheckCollisionRecs(cast rec1, cast rec2); }      // Check collision between two rectangles
     @:native("CheckCollisionCircles")                    private static function _CheckCollisionCircles(center1:RayVector2, radius1:Float, center2:RayVector2, radius2:Float):Bool;      // Check collision between two circles
-                                                         public static inline function CheckCollisionCircles(center1:Vector2, radius1:Float, center2:Vector2, radius2:Float):Bool { return _CheckCollisionCircles(cast center1, radius1, cast center2, radius2); }      // Check collision between two circles
+                                                         public static inline function CheckCollisionCircles(center1:Vector2Ref, radius1:Float, center2:Vector2Ref, radius2:Float):Bool { return _CheckCollisionCircles(cast center1, radius1, cast center2, radius2); }      // Check collision between two circles
     @:native("CheckCollisionCircleRec")                  private static function _CheckCollisionCircleRec(center:RayVector2, radius:Float, rec:RayRectangle):Bool;      // Check collision between circle and rectangle
-                                                         public static inline function CheckCollisionCircleRec(center:Vector2, radius:Float, rec:Rectangle):Bool { return _CheckCollisionCircleRec(cast center, radius, cast rec); }      // Check collision between circle and rectangle
+                                                         public static inline function CheckCollisionCircleRec(center:Vector2Ref, radius:Float, rec:RectangleRef):Bool { return _CheckCollisionCircleRec(cast center, radius, cast rec); }      // Check collision between circle and rectangle
     @:native("CheckCollisionPointRec")                   private static function _CheckCollisionPointRec(point:RayVector2, rec:RayRectangle):Bool;      // Check if point is inside rectangle
-                                                         public static inline function CheckCollisionPointRec(point:Vector2, rec:Rectangle):Bool { return _CheckCollisionPointRec(cast point, cast rec); }      // Check if point is inside rectangle
+                                                         public static inline function CheckCollisionPointRec(point:Vector2Ref, rec:RectangleRef):Bool { return _CheckCollisionPointRec(cast point, cast rec); }      // Check if point is inside rectangle
     @:native("CheckCollisionPointCircle")                private static function _CheckCollisionPointCircle(point:RayVector2, center:RayVector2, radius:Float):Bool;      // Check if point is inside circle
-                                                         public static inline function CheckCollisionPointCircle(point:Vector2, center:Vector2, radius:Float):Bool { return _CheckCollisionPointCircle(cast point, cast center, radius); }      // Check if point is inside circle
+                                                         public static inline function CheckCollisionPointCircle(point:Vector2Ref, center:Vector2Ref, radius:Float):Bool { return _CheckCollisionPointCircle(cast point, cast center, radius); }      // Check if point is inside circle
     @:native("CheckCollisionPointTriangle")              private static function _CheckCollisionPointTriangle(point:RayVector2, p1:RayVector2, p2:RayVector2, p3:RayVector2):Bool;      // Check if point is inside a triangle
-                                                         public static inline function CheckCollisionPointTriangle(point:Vector2, p1:Vector2, p2:Vector2, p3:Vector2):Bool { return _CheckCollisionPointTriangle(cast point, cast p1, cast p2, cast p3); }      // Check if point is inside a triangle
+                                                         public static inline function CheckCollisionPointTriangle(point:Vector2Ref, p1:Vector2Ref, p2:Vector2Ref, p3:Vector2Ref):Bool { return _CheckCollisionPointTriangle(cast point, cast p1, cast p2, cast p3); }      // Check if point is inside a triangle
     @:native("CheckCollisionLines")                      private static function _CheckCollisionLines(startPos1:RayVector2, endPos1:RayVector2, startPos2:RayVector2, endPos2:RayVector2, collisionPoint:cpp.RawPointer<RayVector2>):Bool;      // Check the collision between two lines defined by two points each, returns collision point by reference
-                                                         public static inline function CheckCollisionLines(startPos1:Vector2, endPos1:Vector2, startPos2:Vector2, endPos2:Vector2, collisionPoint:cpp.RawPointer<Vector2>):Bool { return _CheckCollisionLines(cast startPos1, cast endPos1, cast startPos2, cast endPos2, cast collisionPoint); }      // Check the collision between two lines defined by two points each, returns collision point by reference
+                                                         public static inline function CheckCollisionLines(startPos1:Vector2Ref, endPos1:Vector2Ref, startPos2:Vector2Ref, endPos2:Vector2Ref, collisionPoint:Vector2Ref):Bool { return _CheckCollisionLines(cast startPos1, cast endPos1, cast startPos2, cast endPos2, cast collisionPoint); }      // Check the collision between two lines defined by two points each, returns collision point by reference
     @:native("CheckCollisionPointLine")                  private static function _CheckCollisionPointLine(point:RayVector2, p1:RayVector2, p2:RayVector2, threshold:Int):Bool;      // Check if point belongs to line created between two points [p1] and [p2] with defined margin in pixels [threshold]
-                                                         public static inline function CheckCollisionPointLine(point:Vector2, p1:Vector2, p2:Vector2, threshold:Int):Bool { return _CheckCollisionPointLine(cast point, cast p1, cast p2, threshold); }      // Check if point belongs to line created between two points [p1] and [p2] with defined margin in pixels [threshold]
+                                                         public static inline function CheckCollisionPointLine(point:Vector2Ref, p1:Vector2Ref, p2:Vector2Ref, threshold:Int):Bool { return _CheckCollisionPointLine(cast point, cast p1, cast p2, threshold); }      // Check if point belongs to line created between two points [p1] and [p2] with defined margin in pixels [threshold]
     @:native("GetCollisionRec")                          private static function _GetCollisionRec(rec1:RayRectangle, rec2:RayRectangle):RayRectangle;      // Get collision rectangle for two rectangles collision
-                                                         public static inline function GetCollisionRec(rec1:Rectangle, rec2:Rectangle):Rectangle { return cast _GetCollisionRec(cast rec1, cast rec2); }      // Get collision rectangle for two rectangles collision
+                                                         public static inline function GetCollisionRec(rec1:RectangleRef, rec2:RectangleRef):Rectangle { return cast _GetCollisionRec(cast rec1, cast rec2); }      // Get collision rectangle for two rectangles collision
     @:native("LoadImage")                                private static function _LoadImage(fileName:cpp.ConstCharStar):RayImage;      // Load image from file into CPU memory (RAM)
                                                          public static inline function LoadImage(fileName:cpp.ConstCharStar):Image { return cast _LoadImage(cast fileName); }      // Load image from file into CPU memory (RAM)
     @:native("LoadImageRaw")                             private static function _LoadImageRaw(fileName:cpp.ConstCharStar, width:Int, height:Int, format:Int, headerSize:Int):RayImage;      // Load image from RAW file data
@@ -2137,183 +2141,183 @@ extern class RayLib {
     @:native("LoadImageFromMemory")                      private static function _LoadImageFromMemory(fileType:cpp.ConstCharStar, fileData:cpp.RawConstPointer<cpp.UInt8>, dataSize:Int):RayImage;      // Load image from memory buffer, fileType refers to extension: i.e. '.png'
                                                          public static inline function LoadImageFromMemory(fileType:cpp.ConstCharStar, fileData:cpp.RawConstPointer<cpp.UInt8>, dataSize:Int):Image { return cast _LoadImageFromMemory(cast fileType, cast fileData, dataSize); }      // Load image from memory buffer, fileType refers to extension: i.e. '.png'
     @:native("LoadImageFromTexture")                     private static function _LoadImageFromTexture(texture:RayTexture):RayImage;      // Load image from GPU texture data
-                                                         public static inline function LoadImageFromTexture(texture:Texture2D):Image { return cast _LoadImageFromTexture(cast texture); }      // Load image from GPU texture data
+                                                         public static inline function LoadImageFromTexture(texture:Texture2DRef):Image { return cast _LoadImageFromTexture(cast texture); }      // Load image from GPU texture data
     @:native("LoadImageFromScreen")                      private static function _LoadImageFromScreen():RayImage;      // Load image from screen buffer and (screenshot)
                                                          public static inline function LoadImageFromScreen():Image { return cast _LoadImageFromScreen(); }      // Load image from screen buffer and (screenshot)
     @:native("UnloadImage")                              private static function _UnloadImage(image:RayImage):Void;      // Unload image from CPU memory (RAM)
-                                                         public static inline function UnloadImage(image:Image):Void {  _UnloadImage(cast image); }      // Unload image from CPU memory (RAM)
+                                                         public static inline function UnloadImage(image:ImageRef):Void {  _UnloadImage(cast image); }      // Unload image from CPU memory (RAM)
     @:native("ExportImage")                              private static function _ExportImage(image:RayImage, fileName:cpp.ConstCharStar):Bool;      // Export image data to file, returns true on success
-                                                         public static inline function ExportImage(image:Image, fileName:cpp.ConstCharStar):Bool { return _ExportImage(cast image, cast fileName); }      // Export image data to file, returns true on success
+                                                         public static inline function ExportImage(image:ImageRef, fileName:cpp.ConstCharStar):Bool { return _ExportImage(cast image, cast fileName); }      // Export image data to file, returns true on success
     @:native("ExportImageAsCode")                        private static function _ExportImageAsCode(image:RayImage, fileName:cpp.ConstCharStar):Bool;      // Export image as code file defining an array of bytes, returns true on success
-                                                         public static inline function ExportImageAsCode(image:Image, fileName:cpp.ConstCharStar):Bool { return _ExportImageAsCode(cast image, cast fileName); }      // Export image as code file defining an array of bytes, returns true on success
+                                                         public static inline function ExportImageAsCode(image:ImageRef, fileName:cpp.ConstCharStar):Bool { return _ExportImageAsCode(cast image, cast fileName); }      // Export image as code file defining an array of bytes, returns true on success
     @:native("GenImageColor")                            private static function _GenImageColor(width:Int, height:Int, color:RayColor):RayImage;      // Generate image: plain color
-                                                         public static inline function GenImageColor(width:Int, height:Int, color:Color):Image { return cast _GenImageColor(width, height, cast color); }      // Generate image: plain color
+                                                         public static inline function GenImageColor(width:Int, height:Int, color:ColorRef):Image { return cast _GenImageColor(width, height, cast color); }      // Generate image: plain color
     @:native("GenImageGradientV")                        private static function _GenImageGradientV(width:Int, height:Int, top:RayColor, bottom:RayColor):RayImage;      // Generate image: vertical gradient
-                                                         public static inline function GenImageGradientV(width:Int, height:Int, top:Color, bottom:Color):Image { return cast _GenImageGradientV(width, height, cast top, cast bottom); }      // Generate image: vertical gradient
+                                                         public static inline function GenImageGradientV(width:Int, height:Int, top:ColorRef, bottom:ColorRef):Image { return cast _GenImageGradientV(width, height, cast top, cast bottom); }      // Generate image: vertical gradient
     @:native("GenImageGradientH")                        private static function _GenImageGradientH(width:Int, height:Int, left:RayColor, right:RayColor):RayImage;      // Generate image: horizontal gradient
-                                                         public static inline function GenImageGradientH(width:Int, height:Int, left:Color, right:Color):Image { return cast _GenImageGradientH(width, height, cast left, cast right); }      // Generate image: horizontal gradient
+                                                         public static inline function GenImageGradientH(width:Int, height:Int, left:ColorRef, right:ColorRef):Image { return cast _GenImageGradientH(width, height, cast left, cast right); }      // Generate image: horizontal gradient
     @:native("GenImageGradientRadial")                   private static function _GenImageGradientRadial(width:Int, height:Int, density:Float, inner:RayColor, outer:RayColor):RayImage;      // Generate image: radial gradient
-                                                         public static inline function GenImageGradientRadial(width:Int, height:Int, density:Float, inner:Color, outer:Color):Image { return cast _GenImageGradientRadial(width, height, density, cast inner, cast outer); }      // Generate image: radial gradient
+                                                         public static inline function GenImageGradientRadial(width:Int, height:Int, density:Float, inner:ColorRef, outer:ColorRef):Image { return cast _GenImageGradientRadial(width, height, density, cast inner, cast outer); }      // Generate image: radial gradient
     @:native("GenImageChecked")                          private static function _GenImageChecked(width:Int, height:Int, checksX:Int, checksY:Int, col1:RayColor, col2:RayColor):RayImage;      // Generate image: checked
-                                                         public static inline function GenImageChecked(width:Int, height:Int, checksX:Int, checksY:Int, col1:Color, col2:Color):Image { return cast _GenImageChecked(width, height, checksX, checksY, cast col1, cast col2); }      // Generate image: checked
+                                                         public static inline function GenImageChecked(width:Int, height:Int, checksX:Int, checksY:Int, col1:ColorRef, col2:ColorRef):Image { return cast _GenImageChecked(width, height, checksX, checksY, cast col1, cast col2); }      // Generate image: checked
     @:native("GenImageWhiteNoise")                       private static function _GenImageWhiteNoise(width:Int, height:Int, factor:Float):RayImage;      // Generate image: white noise
                                                          public static inline function GenImageWhiteNoise(width:Int, height:Int, factor:Float):Image { return cast _GenImageWhiteNoise(width, height, factor); }      // Generate image: white noise
     @:native("GenImageCellular")                         private static function _GenImageCellular(width:Int, height:Int, tileSize:Int):RayImage;      // Generate image: cellular algorithm, bigger tileSize means bigger cells
                                                          public static inline function GenImageCellular(width:Int, height:Int, tileSize:Int):Image { return cast _GenImageCellular(width, height, tileSize); }      // Generate image: cellular algorithm, bigger tileSize means bigger cells
     @:native("ImageCopy")                                private static function _ImageCopy(image:RayImage):RayImage;      // Create an image duplicate (useful for transformations)
-                                                         public static inline function ImageCopy(image:Image):Image { return cast _ImageCopy(cast image); }      // Create an image duplicate (useful for transformations)
+                                                         public static inline function ImageCopy(image:ImageRef):Image { return cast _ImageCopy(cast image); }      // Create an image duplicate (useful for transformations)
     @:native("ImageFromImage")                           private static function _ImageFromImage(image:RayImage, rec:RayRectangle):RayImage;      // Create an image from another image piece
-                                                         public static inline function ImageFromImage(image:Image, rec:Rectangle):Image { return cast _ImageFromImage(cast image, cast rec); }      // Create an image from another image piece
+                                                         public static inline function ImageFromImage(image:ImageRef, rec:RectangleRef):Image { return cast _ImageFromImage(cast image, cast rec); }      // Create an image from another image piece
     @:native("ImageText")                                private static function _ImageText(text:cpp.ConstCharStar, fontSize:Int, color:RayColor):RayImage;      // Create an image from text (default font)
-                                                         public static inline function ImageText(text:cpp.ConstCharStar, fontSize:Int, color:Color):Image { return cast _ImageText(cast text, fontSize, cast color); }      // Create an image from text (default font)
+                                                         public static inline function ImageText(text:cpp.ConstCharStar, fontSize:Int, color:ColorRef):Image { return cast _ImageText(cast text, fontSize, cast color); }      // Create an image from text (default font)
     @:native("ImageTextEx")                              private static function _ImageTextEx(font:RayFont, text:cpp.ConstCharStar, fontSize:Float, spacing:Float, tint:RayColor):RayImage;      // Create an image from text (custom sprite font)
-                                                         public static inline function ImageTextEx(font:Font, text:cpp.ConstCharStar, fontSize:Float, spacing:Float, tint:Color):Image { return cast _ImageTextEx(cast font, cast text, fontSize, spacing, cast tint); }      // Create an image from text (custom sprite font)
+                                                         public static inline function ImageTextEx(font:FontRef, text:cpp.ConstCharStar, fontSize:Float, spacing:Float, tint:ColorRef):Image { return cast _ImageTextEx(cast font, cast text, fontSize, spacing, cast tint); }      // Create an image from text (custom sprite font)
     @:native("ImageFormat")                              private static function _ImageFormat(image:cpp.RawPointer<RayImage>, newFormat:Int):Void;      // Convert image data to desired format
-                                                         public static inline function ImageFormat(image:cpp.RawPointer<Image>, newFormat:Int):Void {  _ImageFormat(cast image, newFormat); }      // Convert image data to desired format
+                                                         public static inline function ImageFormat(image:ImageRef, newFormat:Int):Void {  _ImageFormat(cast image, newFormat); }      // Convert image data to desired format
     @:native("ImageToPOT")                               private static function _ImageToPOT(image:cpp.RawPointer<RayImage>, fill:RayColor):Void;      // Convert image to POT (power-of-two)
-                                                         public static inline function ImageToPOT(image:cpp.RawPointer<Image>, fill:Color):Void {  _ImageToPOT(cast image, cast fill); }      // Convert image to POT (power-of-two)
+                                                         public static inline function ImageToPOT(image:ImageRef, fill:ColorRef):Void {  _ImageToPOT(cast image, cast fill); }      // Convert image to POT (power-of-two)
     @:native("ImageCrop")                                private static function _ImageCrop(image:cpp.RawPointer<RayImage>, crop:RayRectangle):Void;      // Crop an image to a defined rectangle
-                                                         public static inline function ImageCrop(image:cpp.RawPointer<Image>, crop:Rectangle):Void {  _ImageCrop(cast image, cast crop); }      // Crop an image to a defined rectangle
+                                                         public static inline function ImageCrop(image:ImageRef, crop:RectangleRef):Void {  _ImageCrop(cast image, cast crop); }      // Crop an image to a defined rectangle
     @:native("ImageAlphaCrop")                           private static function _ImageAlphaCrop(image:cpp.RawPointer<RayImage>, threshold:Float):Void;      // Crop image depending on alpha value
-                                                         public static inline function ImageAlphaCrop(image:cpp.RawPointer<Image>, threshold:Float):Void {  _ImageAlphaCrop(cast image, threshold); }      // Crop image depending on alpha value
+                                                         public static inline function ImageAlphaCrop(image:ImageRef, threshold:Float):Void {  _ImageAlphaCrop(cast image, threshold); }      // Crop image depending on alpha value
     @:native("ImageAlphaClear")                          private static function _ImageAlphaClear(image:cpp.RawPointer<RayImage>, color:RayColor, threshold:Float):Void;      // Clear alpha channel to desired color
-                                                         public static inline function ImageAlphaClear(image:cpp.RawPointer<Image>, color:Color, threshold:Float):Void {  _ImageAlphaClear(cast image, cast color, threshold); }      // Clear alpha channel to desired color
+                                                         public static inline function ImageAlphaClear(image:ImageRef, color:ColorRef, threshold:Float):Void {  _ImageAlphaClear(cast image, cast color, threshold); }      // Clear alpha channel to desired color
     @:native("ImageAlphaMask")                           private static function _ImageAlphaMask(image:cpp.RawPointer<RayImage>, alphaMask:RayImage):Void;      // Apply alpha mask to image
-                                                         public static inline function ImageAlphaMask(image:cpp.RawPointer<Image>, alphaMask:Image):Void {  _ImageAlphaMask(cast image, cast alphaMask); }      // Apply alpha mask to image
+                                                         public static inline function ImageAlphaMask(image:ImageRef, alphaMask:ImageRef):Void {  _ImageAlphaMask(cast image, cast alphaMask); }      // Apply alpha mask to image
     @:native("ImageAlphaPremultiply")                    private static function _ImageAlphaPremultiply(image:cpp.RawPointer<RayImage>):Void;      // Premultiply alpha channel
-                                                         public static inline function ImageAlphaPremultiply(image:cpp.RawPointer<Image>):Void {  _ImageAlphaPremultiply(cast image); }      // Premultiply alpha channel
+                                                         public static inline function ImageAlphaPremultiply(image:ImageRef):Void {  _ImageAlphaPremultiply(cast image); }      // Premultiply alpha channel
     @:native("ImageResize")                              private static function _ImageResize(image:cpp.RawPointer<RayImage>, newWidth:Int, newHeight:Int):Void;      // Resize image (Bicubic scaling algorithm)
-                                                         public static inline function ImageResize(image:cpp.RawPointer<Image>, newWidth:Int, newHeight:Int):Void {  _ImageResize(cast image, newWidth, newHeight); }      // Resize image (Bicubic scaling algorithm)
+                                                         public static inline function ImageResize(image:ImageRef, newWidth:Int, newHeight:Int):Void {  _ImageResize(cast image, newWidth, newHeight); }      // Resize image (Bicubic scaling algorithm)
     @:native("ImageResizeNN")                            private static function _ImageResizeNN(image:cpp.RawPointer<RayImage>, newWidth:Int, newHeight:Int):Void;      // Resize image (Nearest-Neighbor scaling algorithm)
-                                                         public static inline function ImageResizeNN(image:cpp.RawPointer<Image>, newWidth:Int, newHeight:Int):Void {  _ImageResizeNN(cast image, newWidth, newHeight); }      // Resize image (Nearest-Neighbor scaling algorithm)
+                                                         public static inline function ImageResizeNN(image:ImageRef, newWidth:Int, newHeight:Int):Void {  _ImageResizeNN(cast image, newWidth, newHeight); }      // Resize image (Nearest-Neighbor scaling algorithm)
     @:native("ImageResizeCanvas")                        private static function _ImageResizeCanvas(image:cpp.RawPointer<RayImage>, newWidth:Int, newHeight:Int, offsetX:Int, offsetY:Int, fill:RayColor):Void;      // Resize canvas and fill with color
-                                                         public static inline function ImageResizeCanvas(image:cpp.RawPointer<Image>, newWidth:Int, newHeight:Int, offsetX:Int, offsetY:Int, fill:Color):Void {  _ImageResizeCanvas(cast image, newWidth, newHeight, offsetX, offsetY, cast fill); }      // Resize canvas and fill with color
+                                                         public static inline function ImageResizeCanvas(image:ImageRef, newWidth:Int, newHeight:Int, offsetX:Int, offsetY:Int, fill:ColorRef):Void {  _ImageResizeCanvas(cast image, newWidth, newHeight, offsetX, offsetY, cast fill); }      // Resize canvas and fill with color
     @:native("ImageMipmaps")                             private static function _ImageMipmaps(image:cpp.RawPointer<RayImage>):Void;      // Compute all mipmap levels for a provided image
-                                                         public static inline function ImageMipmaps(image:cpp.RawPointer<Image>):Void {  _ImageMipmaps(cast image); }      // Compute all mipmap levels for a provided image
+                                                         public static inline function ImageMipmaps(image:ImageRef):Void {  _ImageMipmaps(cast image); }      // Compute all mipmap levels for a provided image
     @:native("ImageDither")                              private static function _ImageDither(image:cpp.RawPointer<RayImage>, rBpp:Int, gBpp:Int, bBpp:Int, aBpp:Int):Void;      // Dither image data to 16bpp or lower (Floyd-Steinberg dithering)
-                                                         public static inline function ImageDither(image:cpp.RawPointer<Image>, rBpp:Int, gBpp:Int, bBpp:Int, aBpp:Int):Void {  _ImageDither(cast image, rBpp, gBpp, bBpp, aBpp); }      // Dither image data to 16bpp or lower (Floyd-Steinberg dithering)
+                                                         public static inline function ImageDither(image:ImageRef, rBpp:Int, gBpp:Int, bBpp:Int, aBpp:Int):Void {  _ImageDither(cast image, rBpp, gBpp, bBpp, aBpp); }      // Dither image data to 16bpp or lower (Floyd-Steinberg dithering)
     @:native("ImageFlipVertical")                        private static function _ImageFlipVertical(image:cpp.RawPointer<RayImage>):Void;      // Flip image vertically
-                                                         public static inline function ImageFlipVertical(image:cpp.RawPointer<Image>):Void {  _ImageFlipVertical(cast image); }      // Flip image vertically
+                                                         public static inline function ImageFlipVertical(image:ImageRef):Void {  _ImageFlipVertical(cast image); }      // Flip image vertically
     @:native("ImageFlipHorizontal")                      private static function _ImageFlipHorizontal(image:cpp.RawPointer<RayImage>):Void;      // Flip image horizontally
-                                                         public static inline function ImageFlipHorizontal(image:cpp.RawPointer<Image>):Void {  _ImageFlipHorizontal(cast image); }      // Flip image horizontally
+                                                         public static inline function ImageFlipHorizontal(image:ImageRef):Void {  _ImageFlipHorizontal(cast image); }      // Flip image horizontally
     @:native("ImageRotateCW")                            private static function _ImageRotateCW(image:cpp.RawPointer<RayImage>):Void;      // Rotate image clockwise 90deg
-                                                         public static inline function ImageRotateCW(image:cpp.RawPointer<Image>):Void {  _ImageRotateCW(cast image); }      // Rotate image clockwise 90deg
+                                                         public static inline function ImageRotateCW(image:ImageRef):Void {  _ImageRotateCW(cast image); }      // Rotate image clockwise 90deg
     @:native("ImageRotateCCW")                           private static function _ImageRotateCCW(image:cpp.RawPointer<RayImage>):Void;      // Rotate image counter-clockwise 90deg
-                                                         public static inline function ImageRotateCCW(image:cpp.RawPointer<Image>):Void {  _ImageRotateCCW(cast image); }      // Rotate image counter-clockwise 90deg
+                                                         public static inline function ImageRotateCCW(image:ImageRef):Void {  _ImageRotateCCW(cast image); }      // Rotate image counter-clockwise 90deg
     @:native("ImageColorTint")                           private static function _ImageColorTint(image:cpp.RawPointer<RayImage>, color:RayColor):Void;      // Modify image color: tint
-                                                         public static inline function ImageColorTint(image:cpp.RawPointer<Image>, color:Color):Void {  _ImageColorTint(cast image, cast color); }      // Modify image color: tint
+                                                         public static inline function ImageColorTint(image:ImageRef, color:ColorRef):Void {  _ImageColorTint(cast image, cast color); }      // Modify image color: tint
     @:native("ImageColorInvert")                         private static function _ImageColorInvert(image:cpp.RawPointer<RayImage>):Void;      // Modify image color: invert
-                                                         public static inline function ImageColorInvert(image:cpp.RawPointer<Image>):Void {  _ImageColorInvert(cast image); }      // Modify image color: invert
+                                                         public static inline function ImageColorInvert(image:ImageRef):Void {  _ImageColorInvert(cast image); }      // Modify image color: invert
     @:native("ImageColorGrayscale")                      private static function _ImageColorGrayscale(image:cpp.RawPointer<RayImage>):Void;      // Modify image color: grayscale
-                                                         public static inline function ImageColorGrayscale(image:cpp.RawPointer<Image>):Void {  _ImageColorGrayscale(cast image); }      // Modify image color: grayscale
+                                                         public static inline function ImageColorGrayscale(image:ImageRef):Void {  _ImageColorGrayscale(cast image); }      // Modify image color: grayscale
     @:native("ImageColorContrast")                       private static function _ImageColorContrast(image:cpp.RawPointer<RayImage>, contrast:Float):Void;      // Modify image color: contrast (-100 to 100)
-                                                         public static inline function ImageColorContrast(image:cpp.RawPointer<Image>, contrast:Float):Void {  _ImageColorContrast(cast image, contrast); }      // Modify image color: contrast (-100 to 100)
+                                                         public static inline function ImageColorContrast(image:ImageRef, contrast:Float):Void {  _ImageColorContrast(cast image, contrast); }      // Modify image color: contrast (-100 to 100)
     @:native("ImageColorBrightness")                     private static function _ImageColorBrightness(image:cpp.RawPointer<RayImage>, brightness:Int):Void;      // Modify image color: brightness (-255 to 255)
-                                                         public static inline function ImageColorBrightness(image:cpp.RawPointer<Image>, brightness:Int):Void {  _ImageColorBrightness(cast image, brightness); }      // Modify image color: brightness (-255 to 255)
+                                                         public static inline function ImageColorBrightness(image:ImageRef, brightness:Int):Void {  _ImageColorBrightness(cast image, brightness); }      // Modify image color: brightness (-255 to 255)
     @:native("ImageColorReplace")                        private static function _ImageColorReplace(image:cpp.RawPointer<RayImage>, color:RayColor, replace:RayColor):Void;      // Modify image color: replace color
-                                                         public static inline function ImageColorReplace(image:cpp.RawPointer<Image>, color:Color, replace:Color):Void {  _ImageColorReplace(cast image, cast color, cast replace); }      // Modify image color: replace color
+                                                         public static inline function ImageColorReplace(image:ImageRef, color:ColorRef, replace:ColorRef):Void {  _ImageColorReplace(cast image, cast color, cast replace); }      // Modify image color: replace color
     @:native("LoadImageColors")                          private static function _LoadImageColors(image:RayImage):cpp.RawPointer<RayColor>;      // Load color data from image as a Color array (RGBA - 32bit)
-                                                         public static inline function LoadImageColors(image:Image):cpp.RawPointer<Color> { return cast _LoadImageColors(cast image); }      // Load color data from image as a Color array (RGBA - 32bit)
+                                                         public static inline function LoadImageColors(image:ImageRef):cpp.RawPointer<Color> { return cast _LoadImageColors(cast image); }      // Load color data from image as a Color array (RGBA - 32bit)
     @:native("LoadImagePalette")                         private static function _LoadImagePalette(image:RayImage, maxPaletteSize:Int, colorCount:cpp.RawPointer<Int>):cpp.RawPointer<RayColor>;      // Load colors palette from image as a Color array (RGBA - 32bit)
-                                                         public static inline function LoadImagePalette(image:Image, maxPaletteSize:Int, colorCount:cpp.RawPointer<Int>):cpp.RawPointer<Color> { return cast _LoadImagePalette(cast image, maxPaletteSize, cast colorCount); }      // Load colors palette from image as a Color array (RGBA - 32bit)
+                                                         public static inline function LoadImagePalette(image:ImageRef, maxPaletteSize:Int, colorCount:cpp.RawPointer<Int>):cpp.RawPointer<Color> { return cast _LoadImagePalette(cast image, maxPaletteSize, cast colorCount); }      // Load colors palette from image as a Color array (RGBA - 32bit)
     @:native("UnloadImageColors")                        private static function _UnloadImageColors(colors:cpp.RawPointer<RayColor>):Void;      // Unload color data loaded with LoadImageColors()
-                                                         public static inline function UnloadImageColors(colors:cpp.RawPointer<Color>):Void {  _UnloadImageColors(cast colors); }      // Unload color data loaded with LoadImageColors()
+                                                         public static inline function UnloadImageColors(colors:ColorRef):Void {  _UnloadImageColors(cast colors); }      // Unload color data loaded with LoadImageColors()
     @:native("UnloadImagePalette")                       private static function _UnloadImagePalette(colors:cpp.RawPointer<RayColor>):Void;      // Unload colors palette loaded with LoadImagePalette()
-                                                         public static inline function UnloadImagePalette(colors:cpp.RawPointer<Color>):Void {  _UnloadImagePalette(cast colors); }      // Unload colors palette loaded with LoadImagePalette()
+                                                         public static inline function UnloadImagePalette(colors:ColorRef):Void {  _UnloadImagePalette(cast colors); }      // Unload colors palette loaded with LoadImagePalette()
     @:native("GetImageAlphaBorder")                      private static function _GetImageAlphaBorder(image:RayImage, threshold:Float):RayRectangle;      // Get image alpha border rectangle
-                                                         public static inline function GetImageAlphaBorder(image:Image, threshold:Float):Rectangle { return cast _GetImageAlphaBorder(cast image, threshold); }      // Get image alpha border rectangle
+                                                         public static inline function GetImageAlphaBorder(image:ImageRef, threshold:Float):Rectangle { return cast _GetImageAlphaBorder(cast image, threshold); }      // Get image alpha border rectangle
     @:native("GetImageColor")                            private static function _GetImageColor(image:RayImage, x:Int, y:Int):RayColor;      // Get image pixel color at (x, y) position
-                                                         public static inline function GetImageColor(image:Image, x:Int, y:Int):Color { return cast _GetImageColor(cast image, x, y); }      // Get image pixel color at (x, y) position
+                                                         public static inline function GetImageColor(image:ImageRef, x:Int, y:Int):Color { return cast _GetImageColor(cast image, x, y); }      // Get image pixel color at (x, y) position
     @:native("ImageClearBackground")                     private static function _ImageClearBackground(dst:cpp.RawPointer<RayImage>, color:RayColor):Void;      // Clear image background with given color
-                                                         public static inline function ImageClearBackground(dst:cpp.RawPointer<Image>, color:Color):Void {  _ImageClearBackground(cast dst, cast color); }      // Clear image background with given color
+                                                         public static inline function ImageClearBackground(dst:ImageRef, color:ColorRef):Void {  _ImageClearBackground(cast dst, cast color); }      // Clear image background with given color
     @:native("ImageDrawPixel")                           private static function _ImageDrawPixel(dst:cpp.RawPointer<RayImage>, posX:Int, posY:Int, color:RayColor):Void;      // Draw pixel within an image
-                                                         public static inline function ImageDrawPixel(dst:cpp.RawPointer<Image>, posX:Int, posY:Int, color:Color):Void {  _ImageDrawPixel(cast dst, posX, posY, cast color); }      // Draw pixel within an image
+                                                         public static inline function ImageDrawPixel(dst:ImageRef, posX:Int, posY:Int, color:ColorRef):Void {  _ImageDrawPixel(cast dst, posX, posY, cast color); }      // Draw pixel within an image
     @:native("ImageDrawPixelV")                          private static function _ImageDrawPixelV(dst:cpp.RawPointer<RayImage>, position:RayVector2, color:RayColor):Void;      // Draw pixel within an image (Vector version)
-                                                         public static inline function ImageDrawPixelV(dst:cpp.RawPointer<Image>, position:Vector2, color:Color):Void {  _ImageDrawPixelV(cast dst, cast position, cast color); }      // Draw pixel within an image (Vector version)
+                                                         public static inline function ImageDrawPixelV(dst:ImageRef, position:Vector2Ref, color:ColorRef):Void {  _ImageDrawPixelV(cast dst, cast position, cast color); }      // Draw pixel within an image (Vector version)
     @:native("ImageDrawLine")                            private static function _ImageDrawLine(dst:cpp.RawPointer<RayImage>, startPosX:Int, startPosY:Int, endPosX:Int, endPosY:Int, color:RayColor):Void;      // Draw line within an image
-                                                         public static inline function ImageDrawLine(dst:cpp.RawPointer<Image>, startPosX:Int, startPosY:Int, endPosX:Int, endPosY:Int, color:Color):Void {  _ImageDrawLine(cast dst, startPosX, startPosY, endPosX, endPosY, cast color); }      // Draw line within an image
+                                                         public static inline function ImageDrawLine(dst:ImageRef, startPosX:Int, startPosY:Int, endPosX:Int, endPosY:Int, color:ColorRef):Void {  _ImageDrawLine(cast dst, startPosX, startPosY, endPosX, endPosY, cast color); }      // Draw line within an image
     @:native("ImageDrawLineV")                           private static function _ImageDrawLineV(dst:cpp.RawPointer<RayImage>, start:RayVector2, end:RayVector2, color:RayColor):Void;      // Draw line within an image (Vector version)
-                                                         public static inline function ImageDrawLineV(dst:cpp.RawPointer<Image>, start:Vector2, end:Vector2, color:Color):Void {  _ImageDrawLineV(cast dst, cast start, cast end, cast color); }      // Draw line within an image (Vector version)
+                                                         public static inline function ImageDrawLineV(dst:ImageRef, start:Vector2Ref, end:Vector2Ref, color:ColorRef):Void {  _ImageDrawLineV(cast dst, cast start, cast end, cast color); }      // Draw line within an image (Vector version)
     @:native("ImageDrawCircle")                          private static function _ImageDrawCircle(dst:cpp.RawPointer<RayImage>, centerX:Int, centerY:Int, radius:Int, color:RayColor):Void;      // Draw circle within an image
-                                                         public static inline function ImageDrawCircle(dst:cpp.RawPointer<Image>, centerX:Int, centerY:Int, radius:Int, color:Color):Void {  _ImageDrawCircle(cast dst, centerX, centerY, radius, cast color); }      // Draw circle within an image
+                                                         public static inline function ImageDrawCircle(dst:ImageRef, centerX:Int, centerY:Int, radius:Int, color:ColorRef):Void {  _ImageDrawCircle(cast dst, centerX, centerY, radius, cast color); }      // Draw circle within an image
     @:native("ImageDrawCircleV")                         private static function _ImageDrawCircleV(dst:cpp.RawPointer<RayImage>, center:RayVector2, radius:Int, color:RayColor):Void;      // Draw circle within an image (Vector version)
-                                                         public static inline function ImageDrawCircleV(dst:cpp.RawPointer<Image>, center:Vector2, radius:Int, color:Color):Void {  _ImageDrawCircleV(cast dst, cast center, radius, cast color); }      // Draw circle within an image (Vector version)
+                                                         public static inline function ImageDrawCircleV(dst:ImageRef, center:Vector2Ref, radius:Int, color:ColorRef):Void {  _ImageDrawCircleV(cast dst, cast center, radius, cast color); }      // Draw circle within an image (Vector version)
     @:native("ImageDrawRectangle")                       private static function _ImageDrawRectangle(dst:cpp.RawPointer<RayImage>, posX:Int, posY:Int, width:Int, height:Int, color:RayColor):Void;      // Draw rectangle within an image
-                                                         public static inline function ImageDrawRectangle(dst:cpp.RawPointer<Image>, posX:Int, posY:Int, width:Int, height:Int, color:Color):Void {  _ImageDrawRectangle(cast dst, posX, posY, width, height, cast color); }      // Draw rectangle within an image
+                                                         public static inline function ImageDrawRectangle(dst:ImageRef, posX:Int, posY:Int, width:Int, height:Int, color:ColorRef):Void {  _ImageDrawRectangle(cast dst, posX, posY, width, height, cast color); }      // Draw rectangle within an image
     @:native("ImageDrawRectangleV")                      private static function _ImageDrawRectangleV(dst:cpp.RawPointer<RayImage>, position:RayVector2, size:RayVector2, color:RayColor):Void;      // Draw rectangle within an image (Vector version)
-                                                         public static inline function ImageDrawRectangleV(dst:cpp.RawPointer<Image>, position:Vector2, size:Vector2, color:Color):Void {  _ImageDrawRectangleV(cast dst, cast position, cast size, cast color); }      // Draw rectangle within an image (Vector version)
+                                                         public static inline function ImageDrawRectangleV(dst:ImageRef, position:Vector2Ref, size:Vector2Ref, color:ColorRef):Void {  _ImageDrawRectangleV(cast dst, cast position, cast size, cast color); }      // Draw rectangle within an image (Vector version)
     @:native("ImageDrawRectangleRec")                    private static function _ImageDrawRectangleRec(dst:cpp.RawPointer<RayImage>, rec:RayRectangle, color:RayColor):Void;      // Draw rectangle within an image
-                                                         public static inline function ImageDrawRectangleRec(dst:cpp.RawPointer<Image>, rec:Rectangle, color:Color):Void {  _ImageDrawRectangleRec(cast dst, cast rec, cast color); }      // Draw rectangle within an image
+                                                         public static inline function ImageDrawRectangleRec(dst:ImageRef, rec:RectangleRef, color:ColorRef):Void {  _ImageDrawRectangleRec(cast dst, cast rec, cast color); }      // Draw rectangle within an image
     @:native("ImageDrawRectangleLines")                  private static function _ImageDrawRectangleLines(dst:cpp.RawPointer<RayImage>, rec:RayRectangle, thick:Int, color:RayColor):Void;      // Draw rectangle lines within an image
-                                                         public static inline function ImageDrawRectangleLines(dst:cpp.RawPointer<Image>, rec:Rectangle, thick:Int, color:Color):Void {  _ImageDrawRectangleLines(cast dst, cast rec, thick, cast color); }      // Draw rectangle lines within an image
+                                                         public static inline function ImageDrawRectangleLines(dst:ImageRef, rec:RectangleRef, thick:Int, color:ColorRef):Void {  _ImageDrawRectangleLines(cast dst, cast rec, thick, cast color); }      // Draw rectangle lines within an image
     @:native("ImageDraw")                                private static function _ImageDraw(dst:cpp.RawPointer<RayImage>, src:RayImage, srcRec:RayRectangle, dstRec:RayRectangle, tint:RayColor):Void;      // Draw a source image within a destination image (tint applied to source)
-                                                         public static inline function ImageDraw(dst:cpp.RawPointer<Image>, src:Image, srcRec:Rectangle, dstRec:Rectangle, tint:Color):Void {  _ImageDraw(cast dst, cast src, cast srcRec, cast dstRec, cast tint); }      // Draw a source image within a destination image (tint applied to source)
+                                                         public static inline function ImageDraw(dst:ImageRef, src:ImageRef, srcRec:RectangleRef, dstRec:RectangleRef, tint:ColorRef):Void {  _ImageDraw(cast dst, cast src, cast srcRec, cast dstRec, cast tint); }      // Draw a source image within a destination image (tint applied to source)
     @:native("ImageDrawText")                            private static function _ImageDrawText(dst:cpp.RawPointer<RayImage>, text:cpp.ConstCharStar, posX:Int, posY:Int, fontSize:Int, color:RayColor):Void;      // Draw text (using default font) within an image (destination)
-                                                         public static inline function ImageDrawText(dst:cpp.RawPointer<Image>, text:cpp.ConstCharStar, posX:Int, posY:Int, fontSize:Int, color:Color):Void {  _ImageDrawText(cast dst, cast text, posX, posY, fontSize, cast color); }      // Draw text (using default font) within an image (destination)
+                                                         public static inline function ImageDrawText(dst:ImageRef, text:cpp.ConstCharStar, posX:Int, posY:Int, fontSize:Int, color:ColorRef):Void {  _ImageDrawText(cast dst, cast text, posX, posY, fontSize, cast color); }      // Draw text (using default font) within an image (destination)
     @:native("ImageDrawTextEx")                          private static function _ImageDrawTextEx(dst:cpp.RawPointer<RayImage>, font:RayFont, text:cpp.ConstCharStar, position:RayVector2, fontSize:Float, spacing:Float, tint:RayColor):Void;      // Draw text (custom sprite font) within an image (destination)
-                                                         public static inline function ImageDrawTextEx(dst:cpp.RawPointer<Image>, font:Font, text:cpp.ConstCharStar, position:Vector2, fontSize:Float, spacing:Float, tint:Color):Void {  _ImageDrawTextEx(cast dst, cast font, cast text, cast position, fontSize, spacing, cast tint); }      // Draw text (custom sprite font) within an image (destination)
+                                                         public static inline function ImageDrawTextEx(dst:ImageRef, font:FontRef, text:cpp.ConstCharStar, position:Vector2Ref, fontSize:Float, spacing:Float, tint:ColorRef):Void {  _ImageDrawTextEx(cast dst, cast font, cast text, cast position, fontSize, spacing, cast tint); }      // Draw text (custom sprite font) within an image (destination)
     @:native("LoadTexture")                              private static function _LoadTexture(fileName:cpp.ConstCharStar):RayTexture;      // Load texture from file into GPU memory (VRAM)
                                                          public static inline function LoadTexture(fileName:cpp.ConstCharStar):Texture2D { return cast _LoadTexture(cast fileName); }      // Load texture from file into GPU memory (VRAM)
     @:native("LoadTextureFromImage")                     private static function _LoadTextureFromImage(image:RayImage):RayTexture;      // Load texture from image data
-                                                         public static inline function LoadTextureFromImage(image:Image):Texture2D { return cast _LoadTextureFromImage(cast image); }      // Load texture from image data
+                                                         public static inline function LoadTextureFromImage(image:ImageRef):Texture2D { return cast _LoadTextureFromImage(cast image); }      // Load texture from image data
     @:native("LoadTextureCubemap")                       private static function _LoadTextureCubemap(image:RayImage, layout:Int):RayTexture;      // Load cubemap from image, multiple image cubemap layouts supported
-                                                         public static inline function LoadTextureCubemap(image:Image, layout:Int):TextureCubemap { return cast _LoadTextureCubemap(cast image, layout); }      // Load cubemap from image, multiple image cubemap layouts supported
+                                                         public static inline function LoadTextureCubemap(image:ImageRef, layout:Int):TextureCubemap { return cast _LoadTextureCubemap(cast image, layout); }      // Load cubemap from image, multiple image cubemap layouts supported
     @:native("LoadRenderTexture")                        private static function _LoadRenderTexture(width:Int, height:Int):RayRenderTexture;      // Load texture for rendering (framebuffer)
                                                          public static inline function LoadRenderTexture(width:Int, height:Int):RenderTexture2D { return cast _LoadRenderTexture(width, height); }      // Load texture for rendering (framebuffer)
     @:native("UnloadTexture")                            private static function _UnloadTexture(texture:RayTexture):Void;      // Unload texture from GPU memory (VRAM)
-                                                         public static inline function UnloadTexture(texture:Texture2D):Void {  _UnloadTexture(cast texture); }      // Unload texture from GPU memory (VRAM)
+                                                         public static inline function UnloadTexture(texture:Texture2DRef):Void {  _UnloadTexture(cast texture); }      // Unload texture from GPU memory (VRAM)
     @:native("UnloadRenderTexture")                      private static function _UnloadRenderTexture(target:RayRenderTexture):Void;      // Unload render texture from GPU memory (VRAM)
-                                                         public static inline function UnloadRenderTexture(target:RenderTexture2D):Void {  _UnloadRenderTexture(cast target); }      // Unload render texture from GPU memory (VRAM)
+                                                         public static inline function UnloadRenderTexture(target:RenderTexture2DRef):Void {  _UnloadRenderTexture(cast target); }      // Unload render texture from GPU memory (VRAM)
     @:native("UpdateTexture")                            private static function _UpdateTexture(texture:RayTexture, pixels:cpp.RawConstPointer<cpp.Void>):Void;      // Update GPU texture with new data
-                                                         public static inline function UpdateTexture(texture:Texture2D, pixels:cpp.RawConstPointer<cpp.Void>):Void {  _UpdateTexture(cast texture, cast pixels); }      // Update GPU texture with new data
+                                                         public static inline function UpdateTexture(texture:Texture2DRef, pixels:cpp.RawConstPointer<cpp.Void>):Void {  _UpdateTexture(cast texture, cast pixels); }      // Update GPU texture with new data
     @:native("UpdateTextureRec")                         private static function _UpdateTextureRec(texture:RayTexture, rec:RayRectangle, pixels:cpp.RawConstPointer<cpp.Void>):Void;      // Update GPU texture rectangle with new data
-                                                         public static inline function UpdateTextureRec(texture:Texture2D, rec:Rectangle, pixels:cpp.RawConstPointer<cpp.Void>):Void {  _UpdateTextureRec(cast texture, cast rec, cast pixels); }      // Update GPU texture rectangle with new data
+                                                         public static inline function UpdateTextureRec(texture:Texture2DRef, rec:RectangleRef, pixels:cpp.RawConstPointer<cpp.Void>):Void {  _UpdateTextureRec(cast texture, cast rec, cast pixels); }      // Update GPU texture rectangle with new data
     @:native("GenTextureMipmaps")                        private static function _GenTextureMipmaps(texture:cpp.RawPointer<RayTexture>):Void;      // Generate GPU mipmaps for a texture
-                                                         public static inline function GenTextureMipmaps(texture:cpp.RawPointer<Texture2D>):Void {  _GenTextureMipmaps(cast texture); }      // Generate GPU mipmaps for a texture
+                                                         public static inline function GenTextureMipmaps(texture:Texture2DRef):Void {  _GenTextureMipmaps(cast texture); }      // Generate GPU mipmaps for a texture
     @:native("SetTextureFilter")                         private static function _SetTextureFilter(texture:RayTexture, filter:Int):Void;      // Set texture scaling filter mode
-                                                         public static inline function SetTextureFilter(texture:Texture2D, filter:Int):Void {  _SetTextureFilter(cast texture, filter); }      // Set texture scaling filter mode
+                                                         public static inline function SetTextureFilter(texture:Texture2DRef, filter:Int):Void {  _SetTextureFilter(cast texture, filter); }      // Set texture scaling filter mode
     @:native("SetTextureWrap")                           private static function _SetTextureWrap(texture:RayTexture, wrap:Int):Void;      // Set texture wrapping mode
-                                                         public static inline function SetTextureWrap(texture:Texture2D, wrap:Int):Void {  _SetTextureWrap(cast texture, wrap); }      // Set texture wrapping mode
+                                                         public static inline function SetTextureWrap(texture:Texture2DRef, wrap:Int):Void {  _SetTextureWrap(cast texture, wrap); }      // Set texture wrapping mode
     @:native("DrawTexture")                              private static function _DrawTexture(texture:RayTexture, posX:Int, posY:Int, tint:RayColor):Void;      // Draw a Texture2D
-                                                         public static inline function DrawTexture(texture:Texture2D, posX:Int, posY:Int, tint:Color):Void {  _DrawTexture(cast texture, posX, posY, cast tint); }      // Draw a Texture2D
+                                                         public static inline function DrawTexture(texture:Texture2DRef, posX:Int, posY:Int, tint:ColorRef):Void {  _DrawTexture(cast texture, posX, posY, cast tint); }      // Draw a Texture2D
     @:native("DrawTextureV")                             private static function _DrawTextureV(texture:RayTexture, position:RayVector2, tint:RayColor):Void;      // Draw a Texture2D with position defined as Vector2
-                                                         public static inline function DrawTextureV(texture:Texture2D, position:Vector2, tint:Color):Void {  _DrawTextureV(cast texture, cast position, cast tint); }      // Draw a Texture2D with position defined as Vector2
+                                                         public static inline function DrawTextureV(texture:Texture2DRef, position:Vector2Ref, tint:ColorRef):Void {  _DrawTextureV(cast texture, cast position, cast tint); }      // Draw a Texture2D with position defined as Vector2
     @:native("DrawTextureEx")                            private static function _DrawTextureEx(texture:RayTexture, position:RayVector2, rotation:Float, scale:Float, tint:RayColor):Void;      // Draw a Texture2D with extended parameters
-                                                         public static inline function DrawTextureEx(texture:Texture2D, position:Vector2, rotation:Float, scale:Float, tint:Color):Void {  _DrawTextureEx(cast texture, cast position, rotation, scale, cast tint); }      // Draw a Texture2D with extended parameters
+                                                         public static inline function DrawTextureEx(texture:Texture2DRef, position:Vector2Ref, rotation:Float, scale:Float, tint:ColorRef):Void {  _DrawTextureEx(cast texture, cast position, rotation, scale, cast tint); }      // Draw a Texture2D with extended parameters
     @:native("DrawTextureRec")                           private static function _DrawTextureRec(texture:RayTexture, source:RayRectangle, position:RayVector2, tint:RayColor):Void;      // Draw a part of a texture defined by a rectangle
-                                                         public static inline function DrawTextureRec(texture:Texture2D, source:Rectangle, position:Vector2, tint:Color):Void {  _DrawTextureRec(cast texture, cast source, cast position, cast tint); }      // Draw a part of a texture defined by a rectangle
+                                                         public static inline function DrawTextureRec(texture:Texture2DRef, source:RectangleRef, position:Vector2Ref, tint:ColorRef):Void {  _DrawTextureRec(cast texture, cast source, cast position, cast tint); }      // Draw a part of a texture defined by a rectangle
     @:native("DrawTextureQuad")                          private static function _DrawTextureQuad(texture:RayTexture, tiling:RayVector2, offset:RayVector2, quad:RayRectangle, tint:RayColor):Void;      // Draw texture quad with tiling and offset parameters
-                                                         public static inline function DrawTextureQuad(texture:Texture2D, tiling:Vector2, offset:Vector2, quad:Rectangle, tint:Color):Void {  _DrawTextureQuad(cast texture, cast tiling, cast offset, cast quad, cast tint); }      // Draw texture quad with tiling and offset parameters
+                                                         public static inline function DrawTextureQuad(texture:Texture2DRef, tiling:Vector2Ref, offset:Vector2Ref, quad:RectangleRef, tint:ColorRef):Void {  _DrawTextureQuad(cast texture, cast tiling, cast offset, cast quad, cast tint); }      // Draw texture quad with tiling and offset parameters
     @:native("DrawTextureTiled")                         private static function _DrawTextureTiled(texture:RayTexture, source:RayRectangle, dest:RayRectangle, origin:RayVector2, rotation:Float, scale:Float, tint:RayColor):Void;      // Draw part of a texture (defined by a rectangle) with rotation and scale tiled into dest.
-                                                         public static inline function DrawTextureTiled(texture:Texture2D, source:Rectangle, dest:Rectangle, origin:Vector2, rotation:Float, scale:Float, tint:Color):Void {  _DrawTextureTiled(cast texture, cast source, cast dest, cast origin, rotation, scale, cast tint); }      // Draw part of a texture (defined by a rectangle) with rotation and scale tiled into dest.
+                                                         public static inline function DrawTextureTiled(texture:Texture2DRef, source:RectangleRef, dest:RectangleRef, origin:Vector2Ref, rotation:Float, scale:Float, tint:ColorRef):Void {  _DrawTextureTiled(cast texture, cast source, cast dest, cast origin, rotation, scale, cast tint); }      // Draw part of a texture (defined by a rectangle) with rotation and scale tiled into dest.
     @:native("DrawTexturePro")                           private static function _DrawTexturePro(texture:RayTexture, source:RayRectangle, dest:RayRectangle, origin:RayVector2, rotation:Float, tint:RayColor):Void;      // Draw a part of a texture defined by a rectangle with 'pro' parameters
-                                                         public static inline function DrawTexturePro(texture:Texture2D, source:Rectangle, dest:Rectangle, origin:Vector2, rotation:Float, tint:Color):Void {  _DrawTexturePro(cast texture, cast source, cast dest, cast origin, rotation, cast tint); }      // Draw a part of a texture defined by a rectangle with 'pro' parameters
+                                                         public static inline function DrawTexturePro(texture:Texture2DRef, source:RectangleRef, dest:RectangleRef, origin:Vector2Ref, rotation:Float, tint:ColorRef):Void {  _DrawTexturePro(cast texture, cast source, cast dest, cast origin, rotation, cast tint); }      // Draw a part of a texture defined by a rectangle with 'pro' parameters
     @:native("DrawTextureNPatch")                        private static function _DrawTextureNPatch(texture:RayTexture, nPatchInfo:RayNPatchInfo, dest:RayRectangle, origin:RayVector2, rotation:Float, tint:RayColor):Void;      // Draws a texture (or part of it) that stretches or shrinks nicely
-                                                         public static inline function DrawTextureNPatch(texture:Texture2D, nPatchInfo:NPatchInfo, dest:Rectangle, origin:Vector2, rotation:Float, tint:Color):Void {  _DrawTextureNPatch(cast texture, cast nPatchInfo, cast dest, cast origin, rotation, cast tint); }      // Draws a texture (or part of it) that stretches or shrinks nicely
+                                                         public static inline function DrawTextureNPatch(texture:Texture2DRef, nPatchInfo:NPatchInfoRef, dest:RectangleRef, origin:Vector2Ref, rotation:Float, tint:ColorRef):Void {  _DrawTextureNPatch(cast texture, cast nPatchInfo, cast dest, cast origin, rotation, cast tint); }      // Draws a texture (or part of it) that stretches or shrinks nicely
     @:native("DrawTexturePoly")                          private static function _DrawTexturePoly(texture:RayTexture, center:RayVector2, points:cpp.RawPointer<RayVector2>, texcoords:cpp.RawPointer<RayVector2>, pointCount:Int, tint:RayColor):Void;      // Draw a textured polygon
-                                                         public static inline function DrawTexturePoly(texture:Texture2D, center:Vector2, points:cpp.RawPointer<Vector2>, texcoords:cpp.RawPointer<Vector2>, pointCount:Int, tint:Color):Void {  _DrawTexturePoly(cast texture, cast center, cast points, cast texcoords, pointCount, cast tint); }      // Draw a textured polygon
+                                                         public static inline function DrawTexturePoly(texture:Texture2DRef, center:Vector2Ref, points:Vector2Ref, texcoords:Vector2Ref, pointCount:Int, tint:ColorRef):Void {  _DrawTexturePoly(cast texture, cast center, cast points, cast texcoords, pointCount, cast tint); }      // Draw a textured polygon
     @:native("Fade")                                     private static function _Fade(color:RayColor, alpha:Float):RayColor;      // Get color with alpha applied, alpha goes from 0.0f to 1.0f
-                                                         public static inline function Fade(color:Color, alpha:Float):Color { return cast _Fade(cast color, alpha); }      // Get color with alpha applied, alpha goes from 0.0f to 1.0f
+                                                         public static inline function Fade(color:ColorRef, alpha:Float):Color { return cast _Fade(cast color, alpha); }      // Get color with alpha applied, alpha goes from 0.0f to 1.0f
     @:native("ColorToInt")                               private static function _ColorToInt(color:RayColor):Int;      // Get hexadecimal value for a Color
-                                                         public static inline function ColorToInt(color:Color):Int { return _ColorToInt(cast color); }      // Get hexadecimal value for a Color
+                                                         public static inline function ColorToInt(color:ColorRef):Int { return _ColorToInt(cast color); }      // Get hexadecimal value for a Color
     @:native("ColorNormalize")                           private static function _ColorNormalize(color:RayColor):RayVector4;      // Get Color normalized as float [0..1]
-                                                         public static inline function ColorNormalize(color:Color):Vector4 { return cast _ColorNormalize(cast color); }      // Get Color normalized as float [0..1]
+                                                         public static inline function ColorNormalize(color:ColorRef):Vector4 { return cast _ColorNormalize(cast color); }      // Get Color normalized as float [0..1]
     @:native("ColorFromNormalized")                      private static function _ColorFromNormalized(normalized:RayVector4):RayColor;      // Get Color from normalized values [0..1]
-                                                         public static inline function ColorFromNormalized(normalized:Vector4):Color { return cast _ColorFromNormalized(cast normalized); }      // Get Color from normalized values [0..1]
+                                                         public static inline function ColorFromNormalized(normalized:Vector4Ref):Color { return cast _ColorFromNormalized(cast normalized); }      // Get Color from normalized values [0..1]
     @:native("ColorToHSV")                               private static function _ColorToHSV(color:RayColor):RayVector3;      // Get HSV values for a Color, hue [0..360], saturation/value [0..1]
-                                                         public static inline function ColorToHSV(color:Color):Vector3 { return cast _ColorToHSV(cast color); }      // Get HSV values for a Color, hue [0..360], saturation/value [0..1]
+                                                         public static inline function ColorToHSV(color:ColorRef):Vector3 { return cast _ColorToHSV(cast color); }      // Get HSV values for a Color, hue [0..360], saturation/value [0..1]
     @:native("ColorFromHSV")                             private static function _ColorFromHSV(hue:Float, saturation:Float, value:Float):RayColor;      // Get a Color from HSV values, hue [0..360], saturation/value [0..1]
                                                          public static inline function ColorFromHSV(hue:Float, saturation:Float, value:Float):Color { return cast _ColorFromHSV(hue, saturation, value); }      // Get a Color from HSV values, hue [0..360], saturation/value [0..1]
     @:native("ColorAlpha")                               private static function _ColorAlpha(color:RayColor, alpha:Float):RayColor;      // Get color with alpha applied, alpha goes from 0.0f to 1.0f
-                                                         public static inline function ColorAlpha(color:Color, alpha:Float):Color { return cast _ColorAlpha(cast color, alpha); }      // Get color with alpha applied, alpha goes from 0.0f to 1.0f
+                                                         public static inline function ColorAlpha(color:ColorRef, alpha:Float):Color { return cast _ColorAlpha(cast color, alpha); }      // Get color with alpha applied, alpha goes from 0.0f to 1.0f
     @:native("ColorAlphaBlend")                          private static function _ColorAlphaBlend(dst:RayColor, src:RayColor, tint:RayColor):RayColor;      // Get src alpha-blended into dst color with tint
-                                                         public static inline function ColorAlphaBlend(dst:Color, src:Color, tint:Color):Color { return cast _ColorAlphaBlend(cast dst, cast src, cast tint); }      // Get src alpha-blended into dst color with tint
+                                                         public static inline function ColorAlphaBlend(dst:ColorRef, src:ColorRef, tint:ColorRef):Color { return cast _ColorAlphaBlend(cast dst, cast src, cast tint); }      // Get src alpha-blended into dst color with tint
     @:native("GetColor")                                 private static function _GetColor(hexValue:Int):RayColor;      // Get Color structure from hexadecimal value
                                                          public static inline function GetColor(hexValue:Int):Color { return cast _GetColor(hexValue); }      // Get Color structure from hexadecimal value
     @:native("GetPixelColor")                            private static function _GetPixelColor(srcPtr:cpp.RawPointer<cpp.Void>, format:Int):RayColor;      // Get Color from a source pixel pointer of certain format
                                                          public static inline function GetPixelColor(srcPtr:cpp.RawPointer<cpp.Void>, format:Int):Color { return cast _GetPixelColor(cast srcPtr, format); }      // Get Color from a source pixel pointer of certain format
     @:native("SetPixelColor")                            private static function _SetPixelColor(dstPtr:cpp.RawPointer<cpp.Void>, color:RayColor, format:Int):Void;      // Set color formatted into destination pixel pointer
-                                                         public static inline function SetPixelColor(dstPtr:cpp.RawPointer<cpp.Void>, color:Color, format:Int):Void {  _SetPixelColor(cast dstPtr, cast color, format); }      // Set color formatted into destination pixel pointer
+                                                         public static inline function SetPixelColor(dstPtr:cpp.RawPointer<cpp.Void>, color:ColorRef, format:Int):Void {  _SetPixelColor(cast dstPtr, cast color, format); }      // Set color formatted into destination pixel pointer
     @:native("GetPixelDataSize")                         private static function _GetPixelDataSize(width:Int, height:Int, format:Int):Int;      // Get pixel data size in bytes for certain format
                                                          public static inline function GetPixelDataSize(width:Int, height:Int, format:Int):Int { return _GetPixelDataSize(width, height, format); }      // Get pixel data size in bytes for certain format
     @:native("GetFontDefault")                           private static function _GetFontDefault():RayFont;      // Get the default Font
@@ -2323,41 +2327,41 @@ extern class RayLib {
     @:native("LoadFontEx")                               private static function _LoadFontEx(fileName:cpp.ConstCharStar, fontSize:Int, fontChars:cpp.RawPointer<Int>, glyphCount:Int):RayFont;      // Load font from file with extended parameters, use NULL for fontChars and 0 for glyphCount to load the default character set
                                                          public static inline function LoadFontEx(fileName:cpp.ConstCharStar, fontSize:Int, fontChars:cpp.RawPointer<Int>, glyphCount:Int):Font { return cast _LoadFontEx(cast fileName, fontSize, cast fontChars, glyphCount); }      // Load font from file with extended parameters, use NULL for fontChars and 0 for glyphCount to load the default character set
     @:native("LoadFontFromImage")                        private static function _LoadFontFromImage(image:RayImage, key:RayColor, firstChar:Int):RayFont;      // Load font from Image (XNA style)
-                                                         public static inline function LoadFontFromImage(image:Image, key:Color, firstChar:Int):Font { return cast _LoadFontFromImage(cast image, cast key, firstChar); }      // Load font from Image (XNA style)
+                                                         public static inline function LoadFontFromImage(image:ImageRef, key:ColorRef, firstChar:Int):Font { return cast _LoadFontFromImage(cast image, cast key, firstChar); }      // Load font from Image (XNA style)
     @:native("LoadFontFromMemory")                       private static function _LoadFontFromMemory(fileType:cpp.ConstCharStar, fileData:cpp.RawConstPointer<cpp.UInt8>, dataSize:Int, fontSize:Int, fontChars:cpp.RawPointer<Int>, glyphCount:Int):RayFont;      // Load font from memory buffer, fileType refers to extension: i.e. '.ttf'
                                                          public static inline function LoadFontFromMemory(fileType:cpp.ConstCharStar, fileData:cpp.RawConstPointer<cpp.UInt8>, dataSize:Int, fontSize:Int, fontChars:cpp.RawPointer<Int>, glyphCount:Int):Font { return cast _LoadFontFromMemory(cast fileType, cast fileData, dataSize, fontSize, cast fontChars, glyphCount); }      // Load font from memory buffer, fileType refers to extension: i.e. '.ttf'
     @:native("LoadFontData")                             private static function _LoadFontData(fileData:cpp.RawConstPointer<cpp.UInt8>, dataSize:Int, fontSize:Int, fontChars:cpp.RawPointer<Int>, glyphCount:Int, type:Int):cpp.RawPointer<RayGlyphInfo>;      // Load font data for further use
                                                          public static inline function LoadFontData(fileData:cpp.RawConstPointer<cpp.UInt8>, dataSize:Int, fontSize:Int, fontChars:cpp.RawPointer<Int>, glyphCount:Int, type:Int):cpp.RawPointer<GlyphInfo> { return cast _LoadFontData(cast fileData, dataSize, fontSize, cast fontChars, glyphCount, type); }      // Load font data for further use
     @:native("GenImageFontAtlas")                        private static function _GenImageFontAtlas(chars:cpp.RawConstPointer<RayGlyphInfo>, recs:cpp.RawPointer<cpp.RawPointer<RayRectangle>>, glyphCount:Int, fontSize:Int, padding:Int, packMethod:Int):RayImage;      // Generate image font atlas using chars info
-                                                         public static inline function GenImageFontAtlas(chars:cpp.RawConstPointer<GlyphInfo>, recs:cpp.RawPointer<cpp.RawPointer<Rectangle>>, glyphCount:Int, fontSize:Int, padding:Int, packMethod:Int):Image { return cast _GenImageFontAtlas(cast chars, cast recs, glyphCount, fontSize, padding, packMethod); }      // Generate image font atlas using chars info
+                                                         public static inline function GenImageFontAtlas(chars:GlyphInfoRef, recs:cpp.RawPointer<cpp.RawPointer<Rectangle>>, glyphCount:Int, fontSize:Int, padding:Int, packMethod:Int):Image { return cast _GenImageFontAtlas(cast chars, cast recs, glyphCount, fontSize, padding, packMethod); }      // Generate image font atlas using chars info
     @:native("UnloadFontData")                           private static function _UnloadFontData(chars:cpp.RawPointer<RayGlyphInfo>, glyphCount:Int):Void;      // Unload font chars info data (RAM)
-                                                         public static inline function UnloadFontData(chars:cpp.RawPointer<GlyphInfo>, glyphCount:Int):Void {  _UnloadFontData(cast chars, glyphCount); }      // Unload font chars info data (RAM)
+                                                         public static inline function UnloadFontData(chars:GlyphInfoRef, glyphCount:Int):Void {  _UnloadFontData(cast chars, glyphCount); }      // Unload font chars info data (RAM)
     @:native("UnloadFont")                               private static function _UnloadFont(font:RayFont):Void;      // Unload font from GPU memory (VRAM)
-                                                         public static inline function UnloadFont(font:Font):Void {  _UnloadFont(cast font); }      // Unload font from GPU memory (VRAM)
+                                                         public static inline function UnloadFont(font:FontRef):Void {  _UnloadFont(cast font); }      // Unload font from GPU memory (VRAM)
     @:native("ExportFontAsCode")                         private static function _ExportFontAsCode(font:RayFont, fileName:cpp.ConstCharStar):Bool;      // Export font as code file, returns true on success
-                                                         public static inline function ExportFontAsCode(font:Font, fileName:cpp.ConstCharStar):Bool { return _ExportFontAsCode(cast font, cast fileName); }      // Export font as code file, returns true on success
+                                                         public static inline function ExportFontAsCode(font:FontRef, fileName:cpp.ConstCharStar):Bool { return _ExportFontAsCode(cast font, cast fileName); }      // Export font as code file, returns true on success
     @:native("DrawFPS")                                  private static function _DrawFPS(posX:Int, posY:Int):Void;      // Draw current FPS
                                                          public static inline function DrawFPS(posX:Int, posY:Int):Void {  _DrawFPS(posX, posY); }      // Draw current FPS
     @:native("DrawText")                                 private static function _DrawText(text:cpp.ConstCharStar, posX:Int, posY:Int, fontSize:Int, color:RayColor):Void;      // Draw text (using default font)
-                                                         public static inline function DrawText(text:cpp.ConstCharStar, posX:Int, posY:Int, fontSize:Int, color:Color):Void {  _DrawText(cast text, posX, posY, fontSize, cast color); }      // Draw text (using default font)
+                                                         public static inline function DrawText(text:cpp.ConstCharStar, posX:Int, posY:Int, fontSize:Int, color:ColorRef):Void {  _DrawText(cast text, posX, posY, fontSize, cast color); }      // Draw text (using default font)
     @:native("DrawTextEx")                               private static function _DrawTextEx(font:RayFont, text:cpp.ConstCharStar, position:RayVector2, fontSize:Float, spacing:Float, tint:RayColor):Void;      // Draw text using font and additional parameters
-                                                         public static inline function DrawTextEx(font:Font, text:cpp.ConstCharStar, position:Vector2, fontSize:Float, spacing:Float, tint:Color):Void {  _DrawTextEx(cast font, cast text, cast position, fontSize, spacing, cast tint); }      // Draw text using font and additional parameters
+                                                         public static inline function DrawTextEx(font:FontRef, text:cpp.ConstCharStar, position:Vector2Ref, fontSize:Float, spacing:Float, tint:ColorRef):Void {  _DrawTextEx(cast font, cast text, cast position, fontSize, spacing, cast tint); }      // Draw text using font and additional parameters
     @:native("DrawTextPro")                              private static function _DrawTextPro(font:RayFont, text:cpp.ConstCharStar, position:RayVector2, origin:RayVector2, rotation:Float, fontSize:Float, spacing:Float, tint:RayColor):Void;      // Draw text using Font and pro parameters (rotation)
-                                                         public static inline function DrawTextPro(font:Font, text:cpp.ConstCharStar, position:Vector2, origin:Vector2, rotation:Float, fontSize:Float, spacing:Float, tint:Color):Void {  _DrawTextPro(cast font, cast text, cast position, cast origin, rotation, fontSize, spacing, cast tint); }      // Draw text using Font and pro parameters (rotation)
+                                                         public static inline function DrawTextPro(font:FontRef, text:cpp.ConstCharStar, position:Vector2Ref, origin:Vector2Ref, rotation:Float, fontSize:Float, spacing:Float, tint:ColorRef):Void {  _DrawTextPro(cast font, cast text, cast position, cast origin, rotation, fontSize, spacing, cast tint); }      // Draw text using Font and pro parameters (rotation)
     @:native("DrawTextCodepoint")                        private static function _DrawTextCodepoint(font:RayFont, codepoint:Int, position:RayVector2, fontSize:Float, tint:RayColor):Void;      // Draw one character (codepoint)
-                                                         public static inline function DrawTextCodepoint(font:Font, codepoint:Int, position:Vector2, fontSize:Float, tint:Color):Void {  _DrawTextCodepoint(cast font, codepoint, cast position, fontSize, cast tint); }      // Draw one character (codepoint)
+                                                         public static inline function DrawTextCodepoint(font:FontRef, codepoint:Int, position:Vector2Ref, fontSize:Float, tint:ColorRef):Void {  _DrawTextCodepoint(cast font, codepoint, cast position, fontSize, cast tint); }      // Draw one character (codepoint)
     @:native("DrawTextCodepoints")                       private static function _DrawTextCodepoints(font:RayFont, codepoints:cpp.RawConstPointer<Int>, count:Int, position:RayVector2, fontSize:Float, spacing:Float, tint:RayColor):Void;      // Draw multiple character (codepoint)
-                                                         public static inline function DrawTextCodepoints(font:Font, codepoints:cpp.RawConstPointer<Int>, count:Int, position:Vector2, fontSize:Float, spacing:Float, tint:Color):Void {  _DrawTextCodepoints(cast font, cast codepoints, count, cast position, fontSize, spacing, cast tint); }      // Draw multiple character (codepoint)
+                                                         public static inline function DrawTextCodepoints(font:FontRef, codepoints:cpp.RawConstPointer<Int>, count:Int, position:Vector2Ref, fontSize:Float, spacing:Float, tint:ColorRef):Void {  _DrawTextCodepoints(cast font, cast codepoints, count, cast position, fontSize, spacing, cast tint); }      // Draw multiple character (codepoint)
     @:native("MeasureText")                              private static function _MeasureText(text:cpp.ConstCharStar, fontSize:Int):Int;      // Measure string width for default font
                                                          public static inline function MeasureText(text:cpp.ConstCharStar, fontSize:Int):Int { return _MeasureText(cast text, fontSize); }      // Measure string width for default font
     @:native("MeasureTextEx")                            private static function _MeasureTextEx(font:RayFont, text:cpp.ConstCharStar, fontSize:Float, spacing:Float):RayVector2;      // Measure string size for Font
-                                                         public static inline function MeasureTextEx(font:Font, text:cpp.ConstCharStar, fontSize:Float, spacing:Float):Vector2 { return cast _MeasureTextEx(cast font, cast text, fontSize, spacing); }      // Measure string size for Font
+                                                         public static inline function MeasureTextEx(font:FontRef, text:cpp.ConstCharStar, fontSize:Float, spacing:Float):Vector2 { return cast _MeasureTextEx(cast font, cast text, fontSize, spacing); }      // Measure string size for Font
     @:native("GetGlyphIndex")                            private static function _GetGlyphIndex(font:RayFont, codepoint:Int):Int;      // Get glyph index position in font for a codepoint (unicode character), fallback to '?' if not found
-                                                         public static inline function GetGlyphIndex(font:Font, codepoint:Int):Int { return _GetGlyphIndex(cast font, codepoint); }      // Get glyph index position in font for a codepoint (unicode character), fallback to '?' if not found
+                                                         public static inline function GetGlyphIndex(font:FontRef, codepoint:Int):Int { return _GetGlyphIndex(cast font, codepoint); }      // Get glyph index position in font for a codepoint (unicode character), fallback to '?' if not found
     @:native("GetGlyphInfo")                             private static function _GetGlyphInfo(font:RayFont, codepoint:Int):RayGlyphInfo;      // Get glyph font info data for a codepoint (unicode character), fallback to '?' if not found
-                                                         public static inline function GetGlyphInfo(font:Font, codepoint:Int):GlyphInfo { return cast _GetGlyphInfo(cast font, codepoint); }      // Get glyph font info data for a codepoint (unicode character), fallback to '?' if not found
+                                                         public static inline function GetGlyphInfo(font:FontRef, codepoint:Int):GlyphInfo { return cast _GetGlyphInfo(cast font, codepoint); }      // Get glyph font info data for a codepoint (unicode character), fallback to '?' if not found
     @:native("GetGlyphAtlasRec")                         private static function _GetGlyphAtlasRec(font:RayFont, codepoint:Int):RayRectangle;      // Get glyph rectangle in font atlas for a codepoint (unicode character), fallback to '?' if not found
-                                                         public static inline function GetGlyphAtlasRec(font:Font, codepoint:Int):Rectangle { return cast _GetGlyphAtlasRec(cast font, codepoint); }      // Get glyph rectangle in font atlas for a codepoint (unicode character), fallback to '?' if not found
+                                                         public static inline function GetGlyphAtlasRec(font:FontRef, codepoint:Int):Rectangle { return cast _GetGlyphAtlasRec(cast font, codepoint); }      // Get glyph rectangle in font atlas for a codepoint (unicode character), fallback to '?' if not found
     @:native("LoadCodepoints")                           private static function _LoadCodepoints(text:cpp.ConstCharStar, count:cpp.RawPointer<Int>):cpp.RawPointer<Int>;      // Load all codepoints from a UTF-8 text string, codepoints count returned by parameter
                                                          public static inline function LoadCodepoints(text:cpp.ConstCharStar, count:cpp.RawPointer<Int>):cpp.RawPointer<Int> { return cast _LoadCodepoints(cast text, cast count); }      // Load all codepoints from a UTF-8 text string, codepoints count returned by parameter
     @:native("UnloadCodepoints")                         private static function _UnloadCodepoints(codepoints:cpp.RawPointer<Int>):Void;      // Unload codepoints data from memory
@@ -2401,91 +2405,91 @@ extern class RayLib {
     @:native("TextToInteger")                            private static function _TextToInteger(text:cpp.ConstCharStar):Int;      // Get integer value from text (negative values not supported)
                                                          public static inline function TextToInteger(text:cpp.ConstCharStar):Int { return _TextToInteger(cast text); }      // Get integer value from text (negative values not supported)
     @:native("DrawLine3D")                               private static function _DrawLine3D(startPos:RayVector3, endPos:RayVector3, color:RayColor):Void;      // Draw a line in 3D world space
-                                                         public static inline function DrawLine3D(startPos:Vector3, endPos:Vector3, color:Color):Void {  _DrawLine3D(cast startPos, cast endPos, cast color); }      // Draw a line in 3D world space
+                                                         public static inline function DrawLine3D(startPos:Vector3Ref, endPos:Vector3Ref, color:ColorRef):Void {  _DrawLine3D(cast startPos, cast endPos, cast color); }      // Draw a line in 3D world space
     @:native("DrawPoint3D")                              private static function _DrawPoint3D(position:RayVector3, color:RayColor):Void;      // Draw a point in 3D space, actually a small line
-                                                         public static inline function DrawPoint3D(position:Vector3, color:Color):Void {  _DrawPoint3D(cast position, cast color); }      // Draw a point in 3D space, actually a small line
+                                                         public static inline function DrawPoint3D(position:Vector3Ref, color:ColorRef):Void {  _DrawPoint3D(cast position, cast color); }      // Draw a point in 3D space, actually a small line
     @:native("DrawCircle3D")                             private static function _DrawCircle3D(center:RayVector3, radius:Float, rotationAxis:RayVector3, rotationAngle:Float, color:RayColor):Void;      // Draw a circle in 3D world space
-                                                         public static inline function DrawCircle3D(center:Vector3, radius:Float, rotationAxis:Vector3, rotationAngle:Float, color:Color):Void {  _DrawCircle3D(cast center, radius, cast rotationAxis, rotationAngle, cast color); }      // Draw a circle in 3D world space
+                                                         public static inline function DrawCircle3D(center:Vector3Ref, radius:Float, rotationAxis:Vector3Ref, rotationAngle:Float, color:ColorRef):Void {  _DrawCircle3D(cast center, radius, cast rotationAxis, rotationAngle, cast color); }      // Draw a circle in 3D world space
     @:native("DrawTriangle3D")                           private static function _DrawTriangle3D(v1:RayVector3, v2:RayVector3, v3:RayVector3, color:RayColor):Void;      // Draw a color-filled triangle (vertex in counter-clockwise order!)
-                                                         public static inline function DrawTriangle3D(v1:Vector3, v2:Vector3, v3:Vector3, color:Color):Void {  _DrawTriangle3D(cast v1, cast v2, cast v3, cast color); }      // Draw a color-filled triangle (vertex in counter-clockwise order!)
+                                                         public static inline function DrawTriangle3D(v1:Vector3Ref, v2:Vector3Ref, v3:Vector3Ref, color:ColorRef):Void {  _DrawTriangle3D(cast v1, cast v2, cast v3, cast color); }      // Draw a color-filled triangle (vertex in counter-clockwise order!)
     @:native("DrawTriangleStrip3D")                      private static function _DrawTriangleStrip3D(points:cpp.RawPointer<RayVector3>, pointCount:Int, color:RayColor):Void;      // Draw a triangle strip defined by points
-                                                         public static inline function DrawTriangleStrip3D(points:cpp.RawPointer<Vector3>, pointCount:Int, color:Color):Void {  _DrawTriangleStrip3D(cast points, pointCount, cast color); }      // Draw a triangle strip defined by points
+                                                         public static inline function DrawTriangleStrip3D(points:Vector3Ref, pointCount:Int, color:ColorRef):Void {  _DrawTriangleStrip3D(cast points, pointCount, cast color); }      // Draw a triangle strip defined by points
     @:native("DrawCube")                                 private static function _DrawCube(position:RayVector3, width:Float, height:Float, length:Float, color:RayColor):Void;      // Draw cube
-                                                         public static inline function DrawCube(position:Vector3, width:Float, height:Float, length:Float, color:Color):Void {  _DrawCube(cast position, width, height, length, cast color); }      // Draw cube
+                                                         public static inline function DrawCube(position:Vector3Ref, width:Float, height:Float, length:Float, color:ColorRef):Void {  _DrawCube(cast position, width, height, length, cast color); }      // Draw cube
     @:native("DrawCubeV")                                private static function _DrawCubeV(position:RayVector3, size:RayVector3, color:RayColor):Void;      // Draw cube (Vector version)
-                                                         public static inline function DrawCubeV(position:Vector3, size:Vector3, color:Color):Void {  _DrawCubeV(cast position, cast size, cast color); }      // Draw cube (Vector version)
+                                                         public static inline function DrawCubeV(position:Vector3Ref, size:Vector3Ref, color:ColorRef):Void {  _DrawCubeV(cast position, cast size, cast color); }      // Draw cube (Vector version)
     @:native("DrawCubeWires")                            private static function _DrawCubeWires(position:RayVector3, width:Float, height:Float, length:Float, color:RayColor):Void;      // Draw cube wires
-                                                         public static inline function DrawCubeWires(position:Vector3, width:Float, height:Float, length:Float, color:Color):Void {  _DrawCubeWires(cast position, width, height, length, cast color); }      // Draw cube wires
+                                                         public static inline function DrawCubeWires(position:Vector3Ref, width:Float, height:Float, length:Float, color:ColorRef):Void {  _DrawCubeWires(cast position, width, height, length, cast color); }      // Draw cube wires
     @:native("DrawCubeWiresV")                           private static function _DrawCubeWiresV(position:RayVector3, size:RayVector3, color:RayColor):Void;      // Draw cube wires (Vector version)
-                                                         public static inline function DrawCubeWiresV(position:Vector3, size:Vector3, color:Color):Void {  _DrawCubeWiresV(cast position, cast size, cast color); }      // Draw cube wires (Vector version)
+                                                         public static inline function DrawCubeWiresV(position:Vector3Ref, size:Vector3Ref, color:ColorRef):Void {  _DrawCubeWiresV(cast position, cast size, cast color); }      // Draw cube wires (Vector version)
     @:native("DrawCubeTexture")                          private static function _DrawCubeTexture(texture:RayTexture, position:RayVector3, width:Float, height:Float, length:Float, color:RayColor):Void;      // Draw cube textured
-                                                         public static inline function DrawCubeTexture(texture:Texture2D, position:Vector3, width:Float, height:Float, length:Float, color:Color):Void {  _DrawCubeTexture(cast texture, cast position, width, height, length, cast color); }      // Draw cube textured
+                                                         public static inline function DrawCubeTexture(texture:Texture2DRef, position:Vector3Ref, width:Float, height:Float, length:Float, color:ColorRef):Void {  _DrawCubeTexture(cast texture, cast position, width, height, length, cast color); }      // Draw cube textured
     @:native("DrawCubeTextureRec")                       private static function _DrawCubeTextureRec(texture:RayTexture, source:RayRectangle, position:RayVector3, width:Float, height:Float, length:Float, color:RayColor):Void;      // Draw cube with a region of a texture
-                                                         public static inline function DrawCubeTextureRec(texture:Texture2D, source:Rectangle, position:Vector3, width:Float, height:Float, length:Float, color:Color):Void {  _DrawCubeTextureRec(cast texture, cast source, cast position, width, height, length, cast color); }      // Draw cube with a region of a texture
+                                                         public static inline function DrawCubeTextureRec(texture:Texture2DRef, source:RectangleRef, position:Vector3Ref, width:Float, height:Float, length:Float, color:ColorRef):Void {  _DrawCubeTextureRec(cast texture, cast source, cast position, width, height, length, cast color); }      // Draw cube with a region of a texture
     @:native("DrawSphere")                               private static function _DrawSphere(centerPos:RayVector3, radius:Float, color:RayColor):Void;      // Draw sphere
-                                                         public static inline function DrawSphere(centerPos:Vector3, radius:Float, color:Color):Void {  _DrawSphere(cast centerPos, radius, cast color); }      // Draw sphere
+                                                         public static inline function DrawSphere(centerPos:Vector3Ref, radius:Float, color:ColorRef):Void {  _DrawSphere(cast centerPos, radius, cast color); }      // Draw sphere
     @:native("DrawSphereEx")                             private static function _DrawSphereEx(centerPos:RayVector3, radius:Float, rings:Int, slices:Int, color:RayColor):Void;      // Draw sphere with extended parameters
-                                                         public static inline function DrawSphereEx(centerPos:Vector3, radius:Float, rings:Int, slices:Int, color:Color):Void {  _DrawSphereEx(cast centerPos, radius, rings, slices, cast color); }      // Draw sphere with extended parameters
+                                                         public static inline function DrawSphereEx(centerPos:Vector3Ref, radius:Float, rings:Int, slices:Int, color:ColorRef):Void {  _DrawSphereEx(cast centerPos, radius, rings, slices, cast color); }      // Draw sphere with extended parameters
     @:native("DrawSphereWires")                          private static function _DrawSphereWires(centerPos:RayVector3, radius:Float, rings:Int, slices:Int, color:RayColor):Void;      // Draw sphere wires
-                                                         public static inline function DrawSphereWires(centerPos:Vector3, radius:Float, rings:Int, slices:Int, color:Color):Void {  _DrawSphereWires(cast centerPos, radius, rings, slices, cast color); }      // Draw sphere wires
+                                                         public static inline function DrawSphereWires(centerPos:Vector3Ref, radius:Float, rings:Int, slices:Int, color:ColorRef):Void {  _DrawSphereWires(cast centerPos, radius, rings, slices, cast color); }      // Draw sphere wires
     @:native("DrawCylinder")                             private static function _DrawCylinder(position:RayVector3, radiusTop:Float, radiusBottom:Float, height:Float, slices:Int, color:RayColor):Void;      // Draw a cylinder/cone
-                                                         public static inline function DrawCylinder(position:Vector3, radiusTop:Float, radiusBottom:Float, height:Float, slices:Int, color:Color):Void {  _DrawCylinder(cast position, radiusTop, radiusBottom, height, slices, cast color); }      // Draw a cylinder/cone
+                                                         public static inline function DrawCylinder(position:Vector3Ref, radiusTop:Float, radiusBottom:Float, height:Float, slices:Int, color:ColorRef):Void {  _DrawCylinder(cast position, radiusTop, radiusBottom, height, slices, cast color); }      // Draw a cylinder/cone
     @:native("DrawCylinderEx")                           private static function _DrawCylinderEx(startPos:RayVector3, endPos:RayVector3, startRadius:Float, endRadius:Float, sides:Int, color:RayColor):Void;      // Draw a cylinder with base at startPos and top at endPos
-                                                         public static inline function DrawCylinderEx(startPos:Vector3, endPos:Vector3, startRadius:Float, endRadius:Float, sides:Int, color:Color):Void {  _DrawCylinderEx(cast startPos, cast endPos, startRadius, endRadius, sides, cast color); }      // Draw a cylinder with base at startPos and top at endPos
+                                                         public static inline function DrawCylinderEx(startPos:Vector3Ref, endPos:Vector3Ref, startRadius:Float, endRadius:Float, sides:Int, color:ColorRef):Void {  _DrawCylinderEx(cast startPos, cast endPos, startRadius, endRadius, sides, cast color); }      // Draw a cylinder with base at startPos and top at endPos
     @:native("DrawCylinderWires")                        private static function _DrawCylinderWires(position:RayVector3, radiusTop:Float, radiusBottom:Float, height:Float, slices:Int, color:RayColor):Void;      // Draw a cylinder/cone wires
-                                                         public static inline function DrawCylinderWires(position:Vector3, radiusTop:Float, radiusBottom:Float, height:Float, slices:Int, color:Color):Void {  _DrawCylinderWires(cast position, radiusTop, radiusBottom, height, slices, cast color); }      // Draw a cylinder/cone wires
+                                                         public static inline function DrawCylinderWires(position:Vector3Ref, radiusTop:Float, radiusBottom:Float, height:Float, slices:Int, color:ColorRef):Void {  _DrawCylinderWires(cast position, radiusTop, radiusBottom, height, slices, cast color); }      // Draw a cylinder/cone wires
     @:native("DrawCylinderWiresEx")                      private static function _DrawCylinderWiresEx(startPos:RayVector3, endPos:RayVector3, startRadius:Float, endRadius:Float, sides:Int, color:RayColor):Void;      // Draw a cylinder wires with base at startPos and top at endPos
-                                                         public static inline function DrawCylinderWiresEx(startPos:Vector3, endPos:Vector3, startRadius:Float, endRadius:Float, sides:Int, color:Color):Void {  _DrawCylinderWiresEx(cast startPos, cast endPos, startRadius, endRadius, sides, cast color); }      // Draw a cylinder wires with base at startPos and top at endPos
+                                                         public static inline function DrawCylinderWiresEx(startPos:Vector3Ref, endPos:Vector3Ref, startRadius:Float, endRadius:Float, sides:Int, color:ColorRef):Void {  _DrawCylinderWiresEx(cast startPos, cast endPos, startRadius, endRadius, sides, cast color); }      // Draw a cylinder wires with base at startPos and top at endPos
     @:native("DrawPlane")                                private static function _DrawPlane(centerPos:RayVector3, size:RayVector2, color:RayColor):Void;      // Draw a plane XZ
-                                                         public static inline function DrawPlane(centerPos:Vector3, size:Vector2, color:Color):Void {  _DrawPlane(cast centerPos, cast size, cast color); }      // Draw a plane XZ
+                                                         public static inline function DrawPlane(centerPos:Vector3Ref, size:Vector2Ref, color:ColorRef):Void {  _DrawPlane(cast centerPos, cast size, cast color); }      // Draw a plane XZ
     @:native("DrawRay")                                  private static function _DrawRay(ray:RayRay, color:RayColor):Void;      // Draw a ray line
-                                                         public static inline function DrawRay(ray:Ray, color:Color):Void {  _DrawRay(cast ray, cast color); }      // Draw a ray line
+                                                         public static inline function DrawRay(ray:RayRef, color:ColorRef):Void {  _DrawRay(cast ray, cast color); }      // Draw a ray line
     @:native("DrawGrid")                                 private static function _DrawGrid(slices:Int, spacing:Float):Void;      // Draw a grid (centered at (0, 0, 0))
                                                          public static inline function DrawGrid(slices:Int, spacing:Float):Void {  _DrawGrid(slices, spacing); }      // Draw a grid (centered at (0, 0, 0))
     @:native("LoadModel")                                private static function _LoadModel(fileName:cpp.ConstCharStar):RayModel;      // Load model from files (meshes and materials)
                                                          public static inline function LoadModel(fileName:cpp.ConstCharStar):Model { return cast _LoadModel(cast fileName); }      // Load model from files (meshes and materials)
     @:native("LoadModelFromMesh")                        private static function _LoadModelFromMesh(mesh:RayMesh):RayModel;      // Load model from generated mesh (default material)
-                                                         public static inline function LoadModelFromMesh(mesh:Mesh):Model { return cast _LoadModelFromMesh(cast mesh); }      // Load model from generated mesh (default material)
+                                                         public static inline function LoadModelFromMesh(mesh:MeshRef):Model { return cast _LoadModelFromMesh(cast mesh); }      // Load model from generated mesh (default material)
     @:native("UnloadModel")                              private static function _UnloadModel(model:RayModel):Void;      // Unload model (including meshes) from memory (RAM and/or VRAM)
-                                                         public static inline function UnloadModel(model:Model):Void {  _UnloadModel(cast model); }      // Unload model (including meshes) from memory (RAM and/or VRAM)
+                                                         public static inline function UnloadModel(model:ModelRef):Void {  _UnloadModel(cast model); }      // Unload model (including meshes) from memory (RAM and/or VRAM)
     @:native("UnloadModelKeepMeshes")                    private static function _UnloadModelKeepMeshes(model:RayModel):Void;      // Unload model (but not meshes) from memory (RAM and/or VRAM)
-                                                         public static inline function UnloadModelKeepMeshes(model:Model):Void {  _UnloadModelKeepMeshes(cast model); }      // Unload model (but not meshes) from memory (RAM and/or VRAM)
+                                                         public static inline function UnloadModelKeepMeshes(model:ModelRef):Void {  _UnloadModelKeepMeshes(cast model); }      // Unload model (but not meshes) from memory (RAM and/or VRAM)
     @:native("GetModelBoundingBox")                      private static function _GetModelBoundingBox(model:RayModel):RayBoundingBox;      // Compute model bounding box limits (considers all meshes)
-                                                         public static inline function GetModelBoundingBox(model:Model):BoundingBox { return cast _GetModelBoundingBox(cast model); }      // Compute model bounding box limits (considers all meshes)
+                                                         public static inline function GetModelBoundingBox(model:ModelRef):BoundingBox { return cast _GetModelBoundingBox(cast model); }      // Compute model bounding box limits (considers all meshes)
     @:native("DrawModel")                                private static function _DrawModel(model:RayModel, position:RayVector3, scale:Float, tint:RayColor):Void;      // Draw a model (with texture if set)
-                                                         public static inline function DrawModel(model:Model, position:Vector3, scale:Float, tint:Color):Void {  _DrawModel(cast model, cast position, scale, cast tint); }      // Draw a model (with texture if set)
+                                                         public static inline function DrawModel(model:ModelRef, position:Vector3Ref, scale:Float, tint:ColorRef):Void {  _DrawModel(cast model, cast position, scale, cast tint); }      // Draw a model (with texture if set)
     @:native("DrawModelEx")                              private static function _DrawModelEx(model:RayModel, position:RayVector3, rotationAxis:RayVector3, rotationAngle:Float, scale:RayVector3, tint:RayColor):Void;      // Draw a model with extended parameters
-                                                         public static inline function DrawModelEx(model:Model, position:Vector3, rotationAxis:Vector3, rotationAngle:Float, scale:Vector3, tint:Color):Void {  _DrawModelEx(cast model, cast position, cast rotationAxis, rotationAngle, cast scale, cast tint); }      // Draw a model with extended parameters
+                                                         public static inline function DrawModelEx(model:ModelRef, position:Vector3Ref, rotationAxis:Vector3Ref, rotationAngle:Float, scale:Vector3Ref, tint:ColorRef):Void {  _DrawModelEx(cast model, cast position, cast rotationAxis, rotationAngle, cast scale, cast tint); }      // Draw a model with extended parameters
     @:native("DrawModelWires")                           private static function _DrawModelWires(model:RayModel, position:RayVector3, scale:Float, tint:RayColor):Void;      // Draw a model wires (with texture if set)
-                                                         public static inline function DrawModelWires(model:Model, position:Vector3, scale:Float, tint:Color):Void {  _DrawModelWires(cast model, cast position, scale, cast tint); }      // Draw a model wires (with texture if set)
+                                                         public static inline function DrawModelWires(model:ModelRef, position:Vector3Ref, scale:Float, tint:ColorRef):Void {  _DrawModelWires(cast model, cast position, scale, cast tint); }      // Draw a model wires (with texture if set)
     @:native("DrawModelWiresEx")                         private static function _DrawModelWiresEx(model:RayModel, position:RayVector3, rotationAxis:RayVector3, rotationAngle:Float, scale:RayVector3, tint:RayColor):Void;      // Draw a model wires (with texture if set) with extended parameters
-                                                         public static inline function DrawModelWiresEx(model:Model, position:Vector3, rotationAxis:Vector3, rotationAngle:Float, scale:Vector3, tint:Color):Void {  _DrawModelWiresEx(cast model, cast position, cast rotationAxis, rotationAngle, cast scale, cast tint); }      // Draw a model wires (with texture if set) with extended parameters
+                                                         public static inline function DrawModelWiresEx(model:ModelRef, position:Vector3Ref, rotationAxis:Vector3Ref, rotationAngle:Float, scale:Vector3Ref, tint:ColorRef):Void {  _DrawModelWiresEx(cast model, cast position, cast rotationAxis, rotationAngle, cast scale, cast tint); }      // Draw a model wires (with texture if set) with extended parameters
     @:native("DrawBoundingBox")                          private static function _DrawBoundingBox(box:RayBoundingBox, color:RayColor):Void;      // Draw bounding box (wires)
-                                                         public static inline function DrawBoundingBox(box:BoundingBox, color:Color):Void {  _DrawBoundingBox(cast box, cast color); }      // Draw bounding box (wires)
+                                                         public static inline function DrawBoundingBox(box:BoundingBoxRef, color:ColorRef):Void {  _DrawBoundingBox(cast box, cast color); }      // Draw bounding box (wires)
     @:native("DrawBillboard")                            private static function _DrawBillboard(camera:RayCamera3D, texture:RayTexture, position:RayVector3, size:Float, tint:RayColor):Void;      // Draw a billboard texture
-                                                         public static inline function DrawBillboard(camera:Camera, texture:Texture2D, position:Vector3, size:Float, tint:Color):Void {  _DrawBillboard(cast camera, cast texture, cast position, size, cast tint); }      // Draw a billboard texture
+                                                         public static inline function DrawBillboard(camera:CameraRef, texture:Texture2DRef, position:Vector3Ref, size:Float, tint:ColorRef):Void {  _DrawBillboard(cast camera, cast texture, cast position, size, cast tint); }      // Draw a billboard texture
     @:native("DrawBillboardRec")                         private static function _DrawBillboardRec(camera:RayCamera3D, texture:RayTexture, source:RayRectangle, position:RayVector3, size:RayVector2, tint:RayColor):Void;      // Draw a billboard texture defined by source
-                                                         public static inline function DrawBillboardRec(camera:Camera, texture:Texture2D, source:Rectangle, position:Vector3, size:Vector2, tint:Color):Void {  _DrawBillboardRec(cast camera, cast texture, cast source, cast position, cast size, cast tint); }      // Draw a billboard texture defined by source
+                                                         public static inline function DrawBillboardRec(camera:CameraRef, texture:Texture2DRef, source:RectangleRef, position:Vector3Ref, size:Vector2Ref, tint:ColorRef):Void {  _DrawBillboardRec(cast camera, cast texture, cast source, cast position, cast size, cast tint); }      // Draw a billboard texture defined by source
     @:native("DrawBillboardPro")                         private static function _DrawBillboardPro(camera:RayCamera3D, texture:RayTexture, source:RayRectangle, position:RayVector3, up:RayVector3, size:RayVector2, origin:RayVector2, rotation:Float, tint:RayColor):Void;      // Draw a billboard texture defined by source and rotation
-                                                         public static inline function DrawBillboardPro(camera:Camera, texture:Texture2D, source:Rectangle, position:Vector3, up:Vector3, size:Vector2, origin:Vector2, rotation:Float, tint:Color):Void {  _DrawBillboardPro(cast camera, cast texture, cast source, cast position, cast up, cast size, cast origin, rotation, cast tint); }      // Draw a billboard texture defined by source and rotation
+                                                         public static inline function DrawBillboardPro(camera:CameraRef, texture:Texture2DRef, source:RectangleRef, position:Vector3Ref, up:Vector3Ref, size:Vector2Ref, origin:Vector2Ref, rotation:Float, tint:ColorRef):Void {  _DrawBillboardPro(cast camera, cast texture, cast source, cast position, cast up, cast size, cast origin, rotation, cast tint); }      // Draw a billboard texture defined by source and rotation
     @:native("UploadMesh")                               private static function _UploadMesh(mesh:cpp.RawPointer<RayMesh>, dyn:Bool):Void;      // Upload mesh vertex data in GPU and provide VAO/VBO ids
-                                                         public static inline function UploadMesh(mesh:cpp.RawPointer<Mesh>, dyn:Bool):Void {  _UploadMesh(cast mesh, dyn); }      // Upload mesh vertex data in GPU and provide VAO/VBO ids
+                                                         public static inline function UploadMesh(mesh:MeshRef, dyn:Bool):Void {  _UploadMesh(cast mesh, dyn); }      // Upload mesh vertex data in GPU and provide VAO/VBO ids
     @:native("UpdateMeshBuffer")                         private static function _UpdateMeshBuffer(mesh:RayMesh, index:Int, data:cpp.RawConstPointer<cpp.Void>, dataSize:Int, offset:Int):Void;      // Update mesh vertex data in GPU for a specific buffer index
-                                                         public static inline function UpdateMeshBuffer(mesh:Mesh, index:Int, data:cpp.RawConstPointer<cpp.Void>, dataSize:Int, offset:Int):Void {  _UpdateMeshBuffer(cast mesh, index, cast data, dataSize, offset); }      // Update mesh vertex data in GPU for a specific buffer index
+                                                         public static inline function UpdateMeshBuffer(mesh:MeshRef, index:Int, data:cpp.RawConstPointer<cpp.Void>, dataSize:Int, offset:Int):Void {  _UpdateMeshBuffer(cast mesh, index, cast data, dataSize, offset); }      // Update mesh vertex data in GPU for a specific buffer index
     @:native("UnloadMesh")                               private static function _UnloadMesh(mesh:RayMesh):Void;      // Unload mesh data from CPU and GPU
-                                                         public static inline function UnloadMesh(mesh:Mesh):Void {  _UnloadMesh(cast mesh); }      // Unload mesh data from CPU and GPU
+                                                         public static inline function UnloadMesh(mesh:MeshRef):Void {  _UnloadMesh(cast mesh); }      // Unload mesh data from CPU and GPU
     @:native("DrawMesh")                                 private static function _DrawMesh(mesh:RayMesh, material:RayMaterial, transform:RayMatrix):Void;      // Draw a 3d mesh with material and transform
-                                                         public static inline function DrawMesh(mesh:Mesh, material:Material, transform:Matrix):Void {  _DrawMesh(cast mesh, cast material, cast transform); }      // Draw a 3d mesh with material and transform
+                                                         public static inline function DrawMesh(mesh:MeshRef, material:MaterialRef, transform:MatrixRef):Void {  _DrawMesh(cast mesh, cast material, cast transform); }      // Draw a 3d mesh with material and transform
     @:native("DrawMeshInstanced")                        private static function _DrawMeshInstanced(mesh:RayMesh, material:RayMaterial, transforms:cpp.RawConstPointer<RayMatrix>, instances:Int):Void;      // Draw multiple mesh instances with material and different transforms
-                                                         public static inline function DrawMeshInstanced(mesh:Mesh, material:Material, transforms:cpp.RawConstPointer<Matrix>, instances:Int):Void {  _DrawMeshInstanced(cast mesh, cast material, cast transforms, instances); }      // Draw multiple mesh instances with material and different transforms
+                                                         public static inline function DrawMeshInstanced(mesh:MeshRef, material:MaterialRef, transforms:MatrixRef, instances:Int):Void {  _DrawMeshInstanced(cast mesh, cast material, cast transforms, instances); }      // Draw multiple mesh instances with material and different transforms
     @:native("ExportMesh")                               private static function _ExportMesh(mesh:RayMesh, fileName:cpp.ConstCharStar):Bool;      // Export mesh data to file, returns true on success
-                                                         public static inline function ExportMesh(mesh:Mesh, fileName:cpp.ConstCharStar):Bool { return _ExportMesh(cast mesh, cast fileName); }      // Export mesh data to file, returns true on success
+                                                         public static inline function ExportMesh(mesh:MeshRef, fileName:cpp.ConstCharStar):Bool { return _ExportMesh(cast mesh, cast fileName); }      // Export mesh data to file, returns true on success
     @:native("GetMeshBoundingBox")                       private static function _GetMeshBoundingBox(mesh:RayMesh):RayBoundingBox;      // Compute mesh bounding box limits
-                                                         public static inline function GetMeshBoundingBox(mesh:Mesh):BoundingBox { return cast _GetMeshBoundingBox(cast mesh); }      // Compute mesh bounding box limits
+                                                         public static inline function GetMeshBoundingBox(mesh:MeshRef):BoundingBox { return cast _GetMeshBoundingBox(cast mesh); }      // Compute mesh bounding box limits
     @:native("GenMeshTangents")                          private static function _GenMeshTangents(mesh:cpp.RawPointer<RayMesh>):Void;      // Compute mesh tangents
-                                                         public static inline function GenMeshTangents(mesh:cpp.RawPointer<Mesh>):Void {  _GenMeshTangents(cast mesh); }      // Compute mesh tangents
+                                                         public static inline function GenMeshTangents(mesh:MeshRef):Void {  _GenMeshTangents(cast mesh); }      // Compute mesh tangents
     @:native("GenMeshBinormals")                         private static function _GenMeshBinormals(mesh:cpp.RawPointer<RayMesh>):Void;      // Compute mesh binormals
-                                                         public static inline function GenMeshBinormals(mesh:cpp.RawPointer<Mesh>):Void {  _GenMeshBinormals(cast mesh); }      // Compute mesh binormals
+                                                         public static inline function GenMeshBinormals(mesh:MeshRef):Void {  _GenMeshBinormals(cast mesh); }      // Compute mesh binormals
     @:native("GenMeshPoly")                              private static function _GenMeshPoly(sides:Int, radius:Float):RayMesh;      // Generate polygonal mesh
                                                          public static inline function GenMeshPoly(sides:Int, radius:Float):Mesh { return cast _GenMeshPoly(sides, radius); }      // Generate polygonal mesh
     @:native("GenMeshPlane")                             private static function _GenMeshPlane(width:Float, length:Float, resX:Int, resZ:Int):RayMesh;      // Generate plane mesh (with subdivisions)
@@ -2505,45 +2509,45 @@ extern class RayLib {
     @:native("GenMeshKnot")                              private static function _GenMeshKnot(radius:Float, size:Float, radSeg:Int, sides:Int):RayMesh;      // Generate trefoil knot mesh
                                                          public static inline function GenMeshKnot(radius:Float, size:Float, radSeg:Int, sides:Int):Mesh { return cast _GenMeshKnot(radius, size, radSeg, sides); }      // Generate trefoil knot mesh
     @:native("GenMeshHeightmap")                         private static function _GenMeshHeightmap(heightmap:RayImage, size:RayVector3):RayMesh;      // Generate heightmap mesh from image data
-                                                         public static inline function GenMeshHeightmap(heightmap:Image, size:Vector3):Mesh { return cast _GenMeshHeightmap(cast heightmap, cast size); }      // Generate heightmap mesh from image data
+                                                         public static inline function GenMeshHeightmap(heightmap:ImageRef, size:Vector3Ref):Mesh { return cast _GenMeshHeightmap(cast heightmap, cast size); }      // Generate heightmap mesh from image data
     @:native("GenMeshCubicmap")                          private static function _GenMeshCubicmap(cubicmap:RayImage, cubeSize:RayVector3):RayMesh;      // Generate cubes-based map mesh from image data
-                                                         public static inline function GenMeshCubicmap(cubicmap:Image, cubeSize:Vector3):Mesh { return cast _GenMeshCubicmap(cast cubicmap, cast cubeSize); }      // Generate cubes-based map mesh from image data
+                                                         public static inline function GenMeshCubicmap(cubicmap:ImageRef, cubeSize:Vector3Ref):Mesh { return cast _GenMeshCubicmap(cast cubicmap, cast cubeSize); }      // Generate cubes-based map mesh from image data
     @:native("LoadMaterials")                            private static function _LoadMaterials(fileName:cpp.ConstCharStar, materialCount:cpp.RawPointer<Int>):cpp.RawPointer<RayMaterial>;      // Load materials from model file
                                                          public static inline function LoadMaterials(fileName:cpp.ConstCharStar, materialCount:cpp.RawPointer<Int>):cpp.RawPointer<Material> { return cast _LoadMaterials(cast fileName, cast materialCount); }      // Load materials from model file
     @:native("LoadMaterialDefault")                      private static function _LoadMaterialDefault():RayMaterial;      // Load default material (Supports: DIFFUSE, SPECULAR, NORMAL maps)
                                                          public static inline function LoadMaterialDefault():Material { return cast _LoadMaterialDefault(); }      // Load default material (Supports: DIFFUSE, SPECULAR, NORMAL maps)
     @:native("UnloadMaterial")                           private static function _UnloadMaterial(material:RayMaterial):Void;      // Unload material from GPU memory (VRAM)
-                                                         public static inline function UnloadMaterial(material:Material):Void {  _UnloadMaterial(cast material); }      // Unload material from GPU memory (VRAM)
+                                                         public static inline function UnloadMaterial(material:MaterialRef):Void {  _UnloadMaterial(cast material); }      // Unload material from GPU memory (VRAM)
     @:native("SetMaterialTexture")                       private static function _SetMaterialTexture(material:cpp.RawPointer<RayMaterial>, mapType:Int, texture:RayTexture):Void;      // Set texture for a material map type (MATERIAL_MAP_DIFFUSE, MATERIAL_MAP_SPECULAR...)
-                                                         public static inline function SetMaterialTexture(material:cpp.RawPointer<Material>, mapType:Int, texture:Texture2D):Void {  _SetMaterialTexture(cast material, mapType, cast texture); }      // Set texture for a material map type (MATERIAL_MAP_DIFFUSE, MATERIAL_MAP_SPECULAR...)
+                                                         public static inline function SetMaterialTexture(material:MaterialRef, mapType:Int, texture:Texture2DRef):Void {  _SetMaterialTexture(cast material, mapType, cast texture); }      // Set texture for a material map type (MATERIAL_MAP_DIFFUSE, MATERIAL_MAP_SPECULAR...)
     @:native("SetModelMeshMaterial")                     private static function _SetModelMeshMaterial(model:cpp.RawPointer<RayModel>, meshId:Int, materialId:Int):Void;      // Set material for a mesh
-                                                         public static inline function SetModelMeshMaterial(model:cpp.RawPointer<Model>, meshId:Int, materialId:Int):Void {  _SetModelMeshMaterial(cast model, meshId, materialId); }      // Set material for a mesh
+                                                         public static inline function SetModelMeshMaterial(model:ModelRef, meshId:Int, materialId:Int):Void {  _SetModelMeshMaterial(cast model, meshId, materialId); }      // Set material for a mesh
     @:native("LoadModelAnimations")                      private static function _LoadModelAnimations(fileName:cpp.ConstCharStar, animCount:cpp.RawPointer<Int>):cpp.RawPointer<RayModelAnimation>;      // Load model animations from file
                                                          public static inline function LoadModelAnimations(fileName:cpp.ConstCharStar, animCount:cpp.RawPointer<Int>):cpp.RawPointer<ModelAnimation> { return cast _LoadModelAnimations(cast fileName, cast animCount); }      // Load model animations from file
     @:native("UpdateModelAnimation")                     private static function _UpdateModelAnimation(model:RayModel, anim:RayModelAnimation, frame:Int):Void;      // Update model animation pose
-                                                         public static inline function UpdateModelAnimation(model:Model, anim:ModelAnimation, frame:Int):Void {  _UpdateModelAnimation(cast model, cast anim, frame); }      // Update model animation pose
+                                                         public static inline function UpdateModelAnimation(model:ModelRef, anim:ModelAnimationRef, frame:Int):Void {  _UpdateModelAnimation(cast model, cast anim, frame); }      // Update model animation pose
     @:native("UnloadModelAnimation")                     private static function _UnloadModelAnimation(anim:RayModelAnimation):Void;      // Unload animation data
-                                                         public static inline function UnloadModelAnimation(anim:ModelAnimation):Void {  _UnloadModelAnimation(cast anim); }      // Unload animation data
+                                                         public static inline function UnloadModelAnimation(anim:ModelAnimationRef):Void {  _UnloadModelAnimation(cast anim); }      // Unload animation data
     @:native("UnloadModelAnimations")                    private static function _UnloadModelAnimations(animations:cpp.RawPointer<RayModelAnimation>, count:Int):Void;      // Unload animation array data
-                                                         public static inline function UnloadModelAnimations(animations:cpp.RawPointer<ModelAnimation>, count:Int):Void {  _UnloadModelAnimations(cast animations, count); }      // Unload animation array data
+                                                         public static inline function UnloadModelAnimations(animations:ModelAnimationRef, count:Int):Void {  _UnloadModelAnimations(cast animations, count); }      // Unload animation array data
     @:native("IsModelAnimationValid")                    private static function _IsModelAnimationValid(model:RayModel, anim:RayModelAnimation):Bool;      // Check model animation skeleton match
-                                                         public static inline function IsModelAnimationValid(model:Model, anim:ModelAnimation):Bool { return _IsModelAnimationValid(cast model, cast anim); }      // Check model animation skeleton match
+                                                         public static inline function IsModelAnimationValid(model:ModelRef, anim:ModelAnimationRef):Bool { return _IsModelAnimationValid(cast model, cast anim); }      // Check model animation skeleton match
     @:native("CheckCollisionSpheres")                    private static function _CheckCollisionSpheres(center1:RayVector3, radius1:Float, center2:RayVector3, radius2:Float):Bool;      // Check collision between two spheres
-                                                         public static inline function CheckCollisionSpheres(center1:Vector3, radius1:Float, center2:Vector3, radius2:Float):Bool { return _CheckCollisionSpheres(cast center1, radius1, cast center2, radius2); }      // Check collision between two spheres
+                                                         public static inline function CheckCollisionSpheres(center1:Vector3Ref, radius1:Float, center2:Vector3Ref, radius2:Float):Bool { return _CheckCollisionSpheres(cast center1, radius1, cast center2, radius2); }      // Check collision between two spheres
     @:native("CheckCollisionBoxes")                      private static function _CheckCollisionBoxes(box1:RayBoundingBox, box2:RayBoundingBox):Bool;      // Check collision between two bounding boxes
-                                                         public static inline function CheckCollisionBoxes(box1:BoundingBox, box2:BoundingBox):Bool { return _CheckCollisionBoxes(cast box1, cast box2); }      // Check collision between two bounding boxes
+                                                         public static inline function CheckCollisionBoxes(box1:BoundingBoxRef, box2:BoundingBoxRef):Bool { return _CheckCollisionBoxes(cast box1, cast box2); }      // Check collision between two bounding boxes
     @:native("CheckCollisionBoxSphere")                  private static function _CheckCollisionBoxSphere(box:RayBoundingBox, center:RayVector3, radius:Float):Bool;      // Check collision between box and sphere
-                                                         public static inline function CheckCollisionBoxSphere(box:BoundingBox, center:Vector3, radius:Float):Bool { return _CheckCollisionBoxSphere(cast box, cast center, radius); }      // Check collision between box and sphere
+                                                         public static inline function CheckCollisionBoxSphere(box:BoundingBoxRef, center:Vector3Ref, radius:Float):Bool { return _CheckCollisionBoxSphere(cast box, cast center, radius); }      // Check collision between box and sphere
     @:native("GetRayCollisionSphere")                    private static function _GetRayCollisionSphere(ray:RayRay, center:RayVector3, radius:Float):RayRayCollision;      // Get collision info between ray and sphere
-                                                         public static inline function GetRayCollisionSphere(ray:Ray, center:Vector3, radius:Float):RayCollision { return cast _GetRayCollisionSphere(cast ray, cast center, radius); }      // Get collision info between ray and sphere
+                                                         public static inline function GetRayCollisionSphere(ray:RayRef, center:Vector3Ref, radius:Float):RayCollision { return cast _GetRayCollisionSphere(cast ray, cast center, radius); }      // Get collision info between ray and sphere
     @:native("GetRayCollisionBox")                       private static function _GetRayCollisionBox(ray:RayRay, box:RayBoundingBox):RayRayCollision;      // Get collision info between ray and box
-                                                         public static inline function GetRayCollisionBox(ray:Ray, box:BoundingBox):RayCollision { return cast _GetRayCollisionBox(cast ray, cast box); }      // Get collision info between ray and box
+                                                         public static inline function GetRayCollisionBox(ray:RayRef, box:BoundingBoxRef):RayCollision { return cast _GetRayCollisionBox(cast ray, cast box); }      // Get collision info between ray and box
     @:native("GetRayCollisionMesh")                      private static function _GetRayCollisionMesh(ray:RayRay, mesh:RayMesh, transform:RayMatrix):RayRayCollision;      // Get collision info between ray and mesh
-                                                         public static inline function GetRayCollisionMesh(ray:Ray, mesh:Mesh, transform:Matrix):RayCollision { return cast _GetRayCollisionMesh(cast ray, cast mesh, cast transform); }      // Get collision info between ray and mesh
+                                                         public static inline function GetRayCollisionMesh(ray:RayRef, mesh:MeshRef, transform:MatrixRef):RayCollision { return cast _GetRayCollisionMesh(cast ray, cast mesh, cast transform); }      // Get collision info between ray and mesh
     @:native("GetRayCollisionTriangle")                  private static function _GetRayCollisionTriangle(ray:RayRay, p1:RayVector3, p2:RayVector3, p3:RayVector3):RayRayCollision;      // Get collision info between ray and triangle
-                                                         public static inline function GetRayCollisionTriangle(ray:Ray, p1:Vector3, p2:Vector3, p3:Vector3):RayCollision { return cast _GetRayCollisionTriangle(cast ray, cast p1, cast p2, cast p3); }      // Get collision info between ray and triangle
+                                                         public static inline function GetRayCollisionTriangle(ray:RayRef, p1:Vector3Ref, p2:Vector3Ref, p3:Vector3Ref):RayCollision { return cast _GetRayCollisionTriangle(cast ray, cast p1, cast p2, cast p3); }      // Get collision info between ray and triangle
     @:native("GetRayCollisionQuad")                      private static function _GetRayCollisionQuad(ray:RayRay, p1:RayVector3, p2:RayVector3, p3:RayVector3, p4:RayVector3):RayRayCollision;      // Get collision info between ray and quad
-                                                         public static inline function GetRayCollisionQuad(ray:Ray, p1:Vector3, p2:Vector3, p3:Vector3, p4:Vector3):RayCollision { return cast _GetRayCollisionQuad(cast ray, cast p1, cast p2, cast p3, cast p4); }      // Get collision info between ray and quad
+                                                         public static inline function GetRayCollisionQuad(ray:RayRef, p1:Vector3Ref, p2:Vector3Ref, p3:Vector3Ref, p4:Vector3Ref):RayCollision { return cast _GetRayCollisionQuad(cast ray, cast p1, cast p2, cast p3, cast p4); }      // Get collision info between ray and quad
     @:native("InitAudioDevice")                          private static function _InitAudioDevice():Void;      // Initialize audio device and context
                                                          public static inline function InitAudioDevice():Void {  _InitAudioDevice(); }      // Initialize audio device and context
     @:native("CloseAudioDevice")                         private static function _CloseAudioDevice():Void;      // Close the audio device and context
@@ -2559,47 +2563,47 @@ extern class RayLib {
     @:native("LoadSound")                                private static function _LoadSound(fileName:cpp.ConstCharStar):RaySound;      // Load sound from file
                                                          public static inline function LoadSound(fileName:cpp.ConstCharStar):Sound { return cast _LoadSound(cast fileName); }      // Load sound from file
     @:native("LoadSoundFromWave")                        private static function _LoadSoundFromWave(wave:RayWave):RaySound;      // Load sound from wave data
-                                                         public static inline function LoadSoundFromWave(wave:Wave):Sound { return cast _LoadSoundFromWave(cast wave); }      // Load sound from wave data
+                                                         public static inline function LoadSoundFromWave(wave:WaveRef):Sound { return cast _LoadSoundFromWave(cast wave); }      // Load sound from wave data
     @:native("UpdateSound")                              private static function _UpdateSound(sound:RaySound, data:cpp.RawConstPointer<cpp.Void>, sampleCount:Int):Void;      // Update sound buffer with new data
-                                                         public static inline function UpdateSound(sound:Sound, data:cpp.RawConstPointer<cpp.Void>, sampleCount:Int):Void {  _UpdateSound(cast sound, cast data, sampleCount); }      // Update sound buffer with new data
+                                                         public static inline function UpdateSound(sound:SoundRef, data:cpp.RawConstPointer<cpp.Void>, sampleCount:Int):Void {  _UpdateSound(cast sound, cast data, sampleCount); }      // Update sound buffer with new data
     @:native("UnloadWave")                               private static function _UnloadWave(wave:RayWave):Void;      // Unload wave data
-                                                         public static inline function UnloadWave(wave:Wave):Void {  _UnloadWave(cast wave); }      // Unload wave data
+                                                         public static inline function UnloadWave(wave:WaveRef):Void {  _UnloadWave(cast wave); }      // Unload wave data
     @:native("UnloadSound")                              private static function _UnloadSound(sound:RaySound):Void;      // Unload sound
-                                                         public static inline function UnloadSound(sound:Sound):Void {  _UnloadSound(cast sound); }      // Unload sound
+                                                         public static inline function UnloadSound(sound:SoundRef):Void {  _UnloadSound(cast sound); }      // Unload sound
     @:native("ExportWave")                               private static function _ExportWave(wave:RayWave, fileName:cpp.ConstCharStar):Bool;      // Export wave data to file, returns true on success
-                                                         public static inline function ExportWave(wave:Wave, fileName:cpp.ConstCharStar):Bool { return _ExportWave(cast wave, cast fileName); }      // Export wave data to file, returns true on success
+                                                         public static inline function ExportWave(wave:WaveRef, fileName:cpp.ConstCharStar):Bool { return _ExportWave(cast wave, cast fileName); }      // Export wave data to file, returns true on success
     @:native("ExportWaveAsCode")                         private static function _ExportWaveAsCode(wave:RayWave, fileName:cpp.ConstCharStar):Bool;      // Export wave sample data to code (.h), returns true on success
-                                                         public static inline function ExportWaveAsCode(wave:Wave, fileName:cpp.ConstCharStar):Bool { return _ExportWaveAsCode(cast wave, cast fileName); }      // Export wave sample data to code (.h), returns true on success
+                                                         public static inline function ExportWaveAsCode(wave:WaveRef, fileName:cpp.ConstCharStar):Bool { return _ExportWaveAsCode(cast wave, cast fileName); }      // Export wave sample data to code (.h), returns true on success
     @:native("PlaySound")                                private static function _PlaySound(sound:RaySound):Void;      // Play a sound
-                                                         public static inline function PlaySound(sound:Sound):Void {  _PlaySound(cast sound); }      // Play a sound
+                                                         public static inline function PlaySound(sound:SoundRef):Void {  _PlaySound(cast sound); }      // Play a sound
     @:native("StopSound")                                private static function _StopSound(sound:RaySound):Void;      // Stop playing a sound
-                                                         public static inline function StopSound(sound:Sound):Void {  _StopSound(cast sound); }      // Stop playing a sound
+                                                         public static inline function StopSound(sound:SoundRef):Void {  _StopSound(cast sound); }      // Stop playing a sound
     @:native("PauseSound")                               private static function _PauseSound(sound:RaySound):Void;      // Pause a sound
-                                                         public static inline function PauseSound(sound:Sound):Void {  _PauseSound(cast sound); }      // Pause a sound
+                                                         public static inline function PauseSound(sound:SoundRef):Void {  _PauseSound(cast sound); }      // Pause a sound
     @:native("ResumeSound")                              private static function _ResumeSound(sound:RaySound):Void;      // Resume a paused sound
-                                                         public static inline function ResumeSound(sound:Sound):Void {  _ResumeSound(cast sound); }      // Resume a paused sound
+                                                         public static inline function ResumeSound(sound:SoundRef):Void {  _ResumeSound(cast sound); }      // Resume a paused sound
     @:native("PlaySoundMulti")                           private static function _PlaySoundMulti(sound:RaySound):Void;      // Play a sound (using multichannel buffer pool)
-                                                         public static inline function PlaySoundMulti(sound:Sound):Void {  _PlaySoundMulti(cast sound); }      // Play a sound (using multichannel buffer pool)
+                                                         public static inline function PlaySoundMulti(sound:SoundRef):Void {  _PlaySoundMulti(cast sound); }      // Play a sound (using multichannel buffer pool)
     @:native("StopSoundMulti")                           private static function _StopSoundMulti():Void;      // Stop any sound playing (using multichannel buffer pool)
                                                          public static inline function StopSoundMulti():Void {  _StopSoundMulti(); }      // Stop any sound playing (using multichannel buffer pool)
     @:native("GetSoundsPlaying")                         private static function _GetSoundsPlaying():Int;      // Get number of sounds playing in the multichannel
                                                          public static inline function GetSoundsPlaying():Int { return _GetSoundsPlaying(); }      // Get number of sounds playing in the multichannel
     @:native("IsSoundPlaying")                           private static function _IsSoundPlaying(sound:RaySound):Bool;      // Check if a sound is currently playing
-                                                         public static inline function IsSoundPlaying(sound:Sound):Bool { return _IsSoundPlaying(cast sound); }      // Check if a sound is currently playing
+                                                         public static inline function IsSoundPlaying(sound:SoundRef):Bool { return _IsSoundPlaying(cast sound); }      // Check if a sound is currently playing
     @:native("SetSoundVolume")                           private static function _SetSoundVolume(sound:RaySound, volume:Float):Void;      // Set volume for a sound (1.0 is max level)
-                                                         public static inline function SetSoundVolume(sound:Sound, volume:Float):Void {  _SetSoundVolume(cast sound, volume); }      // Set volume for a sound (1.0 is max level)
+                                                         public static inline function SetSoundVolume(sound:SoundRef, volume:Float):Void {  _SetSoundVolume(cast sound, volume); }      // Set volume for a sound (1.0 is max level)
     @:native("SetSoundPitch")                            private static function _SetSoundPitch(sound:RaySound, pitch:Float):Void;      // Set pitch for a sound (1.0 is base level)
-                                                         public static inline function SetSoundPitch(sound:Sound, pitch:Float):Void {  _SetSoundPitch(cast sound, pitch); }      // Set pitch for a sound (1.0 is base level)
+                                                         public static inline function SetSoundPitch(sound:SoundRef, pitch:Float):Void {  _SetSoundPitch(cast sound, pitch); }      // Set pitch for a sound (1.0 is base level)
     @:native("SetSoundPan")                              private static function _SetSoundPan(sound:RaySound, pan:Float):Void;      // Set pan for a sound (0.5 is center)
-                                                         public static inline function SetSoundPan(sound:Sound, pan:Float):Void {  _SetSoundPan(cast sound, pan); }      // Set pan for a sound (0.5 is center)
+                                                         public static inline function SetSoundPan(sound:SoundRef, pan:Float):Void {  _SetSoundPan(cast sound, pan); }      // Set pan for a sound (0.5 is center)
     @:native("WaveCopy")                                 private static function _WaveCopy(wave:RayWave):RayWave;      // Copy a wave to a new wave
-                                                         public static inline function WaveCopy(wave:Wave):Wave { return cast _WaveCopy(cast wave); }      // Copy a wave to a new wave
+                                                         public static inline function WaveCopy(wave:WaveRef):Wave { return cast _WaveCopy(cast wave); }      // Copy a wave to a new wave
     @:native("WaveCrop")                                 private static function _WaveCrop(wave:cpp.RawPointer<RayWave>, initSample:Int, finalSample:Int):Void;      // Crop a wave to defined samples range
-                                                         public static inline function WaveCrop(wave:cpp.RawPointer<Wave>, initSample:Int, finalSample:Int):Void {  _WaveCrop(cast wave, initSample, finalSample); }      // Crop a wave to defined samples range
+                                                         public static inline function WaveCrop(wave:WaveRef, initSample:Int, finalSample:Int):Void {  _WaveCrop(cast wave, initSample, finalSample); }      // Crop a wave to defined samples range
     @:native("WaveFormat")                               private static function _WaveFormat(wave:cpp.RawPointer<RayWave>, sampleRate:Int, sampleSize:Int, channels:Int):Void;      // Convert wave data to desired format
-                                                         public static inline function WaveFormat(wave:cpp.RawPointer<Wave>, sampleRate:Int, sampleSize:Int, channels:Int):Void {  _WaveFormat(cast wave, sampleRate, sampleSize, channels); }      // Convert wave data to desired format
+                                                         public static inline function WaveFormat(wave:WaveRef, sampleRate:Int, sampleSize:Int, channels:Int):Void {  _WaveFormat(cast wave, sampleRate, sampleSize, channels); }      // Convert wave data to desired format
     @:native("LoadWaveSamples")                          private static function _LoadWaveSamples(wave:RayWave):cpp.RawPointer<Float>;      // Load samples data from wave as a 32bit float data array
-                                                         public static inline function LoadWaveSamples(wave:Wave):cpp.RawPointer<Float> { return cast _LoadWaveSamples(cast wave); }      // Load samples data from wave as a 32bit float data array
+                                                         public static inline function LoadWaveSamples(wave:WaveRef):cpp.RawPointer<Float> { return cast _LoadWaveSamples(cast wave); }      // Load samples data from wave as a 32bit float data array
     @:native("UnloadWaveSamples")                        private static function _UnloadWaveSamples(samples:cpp.RawPointer<Float>):Void;      // Unload samples data loaded with LoadWaveSamples()
                                                          public static inline function UnloadWaveSamples(samples:cpp.RawPointer<Float>):Void {  _UnloadWaveSamples(cast samples); }      // Unload samples data loaded with LoadWaveSamples()
     @:native("LoadMusicStream")                          private static function _LoadMusicStream(fileName:cpp.ConstCharStar):RayMusic;      // Load music stream from file
@@ -2607,63 +2611,63 @@ extern class RayLib {
     @:native("LoadMusicStreamFromMemory")                private static function _LoadMusicStreamFromMemory(fileType:cpp.ConstCharStar, data:cpp.RawConstPointer<cpp.UInt8>, dataSize:Int):RayMusic;      // Load music stream from data
                                                          public static inline function LoadMusicStreamFromMemory(fileType:cpp.ConstCharStar, data:cpp.RawConstPointer<cpp.UInt8>, dataSize:Int):Music { return cast _LoadMusicStreamFromMemory(cast fileType, cast data, dataSize); }      // Load music stream from data
     @:native("UnloadMusicStream")                        private static function _UnloadMusicStream(music:RayMusic):Void;      // Unload music stream
-                                                         public static inline function UnloadMusicStream(music:Music):Void {  _UnloadMusicStream(cast music); }      // Unload music stream
+                                                         public static inline function UnloadMusicStream(music:MusicRef):Void {  _UnloadMusicStream(cast music); }      // Unload music stream
     @:native("PlayMusicStream")                          private static function _PlayMusicStream(music:RayMusic):Void;      // Start music playing
-                                                         public static inline function PlayMusicStream(music:Music):Void {  _PlayMusicStream(cast music); }      // Start music playing
+                                                         public static inline function PlayMusicStream(music:MusicRef):Void {  _PlayMusicStream(cast music); }      // Start music playing
     @:native("IsMusicStreamPlaying")                     private static function _IsMusicStreamPlaying(music:RayMusic):Bool;      // Check if music is playing
-                                                         public static inline function IsMusicStreamPlaying(music:Music):Bool { return _IsMusicStreamPlaying(cast music); }      // Check if music is playing
+                                                         public static inline function IsMusicStreamPlaying(music:MusicRef):Bool { return _IsMusicStreamPlaying(cast music); }      // Check if music is playing
     @:native("UpdateMusicStream")                        private static function _UpdateMusicStream(music:RayMusic):Void;      // Updates buffers for music streaming
-                                                         public static inline function UpdateMusicStream(music:Music):Void {  _UpdateMusicStream(cast music); }      // Updates buffers for music streaming
+                                                         public static inline function UpdateMusicStream(music:MusicRef):Void {  _UpdateMusicStream(cast music); }      // Updates buffers for music streaming
     @:native("StopMusicStream")                          private static function _StopMusicStream(music:RayMusic):Void;      // Stop music playing
-                                                         public static inline function StopMusicStream(music:Music):Void {  _StopMusicStream(cast music); }      // Stop music playing
+                                                         public static inline function StopMusicStream(music:MusicRef):Void {  _StopMusicStream(cast music); }      // Stop music playing
     @:native("PauseMusicStream")                         private static function _PauseMusicStream(music:RayMusic):Void;      // Pause music playing
-                                                         public static inline function PauseMusicStream(music:Music):Void {  _PauseMusicStream(cast music); }      // Pause music playing
+                                                         public static inline function PauseMusicStream(music:MusicRef):Void {  _PauseMusicStream(cast music); }      // Pause music playing
     @:native("ResumeMusicStream")                        private static function _ResumeMusicStream(music:RayMusic):Void;      // Resume playing paused music
-                                                         public static inline function ResumeMusicStream(music:Music):Void {  _ResumeMusicStream(cast music); }      // Resume playing paused music
+                                                         public static inline function ResumeMusicStream(music:MusicRef):Void {  _ResumeMusicStream(cast music); }      // Resume playing paused music
     @:native("SeekMusicStream")                          private static function _SeekMusicStream(music:RayMusic, position:Float):Void;      // Seek music to a position (in seconds)
-                                                         public static inline function SeekMusicStream(music:Music, position:Float):Void {  _SeekMusicStream(cast music, position); }      // Seek music to a position (in seconds)
+                                                         public static inline function SeekMusicStream(music:MusicRef, position:Float):Void {  _SeekMusicStream(cast music, position); }      // Seek music to a position (in seconds)
     @:native("SetMusicVolume")                           private static function _SetMusicVolume(music:RayMusic, volume:Float):Void;      // Set volume for music (1.0 is max level)
-                                                         public static inline function SetMusicVolume(music:Music, volume:Float):Void {  _SetMusicVolume(cast music, volume); }      // Set volume for music (1.0 is max level)
+                                                         public static inline function SetMusicVolume(music:MusicRef, volume:Float):Void {  _SetMusicVolume(cast music, volume); }      // Set volume for music (1.0 is max level)
     @:native("SetMusicPitch")                            private static function _SetMusicPitch(music:RayMusic, pitch:Float):Void;      // Set pitch for a music (1.0 is base level)
-                                                         public static inline function SetMusicPitch(music:Music, pitch:Float):Void {  _SetMusicPitch(cast music, pitch); }      // Set pitch for a music (1.0 is base level)
+                                                         public static inline function SetMusicPitch(music:MusicRef, pitch:Float):Void {  _SetMusicPitch(cast music, pitch); }      // Set pitch for a music (1.0 is base level)
     @:native("SetMusicPan")                              private static function _SetMusicPan(music:RayMusic, pan:Float):Void;      // Set pan for a music (0.5 is center)
-                                                         public static inline function SetMusicPan(music:Music, pan:Float):Void {  _SetMusicPan(cast music, pan); }      // Set pan for a music (0.5 is center)
+                                                         public static inline function SetMusicPan(music:MusicRef, pan:Float):Void {  _SetMusicPan(cast music, pan); }      // Set pan for a music (0.5 is center)
     @:native("GetMusicTimeLength")                       private static function _GetMusicTimeLength(music:RayMusic):Float;      // Get music time length (in seconds)
-                                                         public static inline function GetMusicTimeLength(music:Music):Float { return _GetMusicTimeLength(cast music); }      // Get music time length (in seconds)
+                                                         public static inline function GetMusicTimeLength(music:MusicRef):Float { return _GetMusicTimeLength(cast music); }      // Get music time length (in seconds)
     @:native("GetMusicTimePlayed")                       private static function _GetMusicTimePlayed(music:RayMusic):Float;      // Get current music time played (in seconds)
-                                                         public static inline function GetMusicTimePlayed(music:Music):Float { return _GetMusicTimePlayed(cast music); }      // Get current music time played (in seconds)
+                                                         public static inline function GetMusicTimePlayed(music:MusicRef):Float { return _GetMusicTimePlayed(cast music); }      // Get current music time played (in seconds)
     @:native("LoadAudioStream")                          private static function _LoadAudioStream(sampleRate:Int, sampleSize:Int, channels:Int):RayAudioStream;      // Load audio stream (to stream raw audio pcm data)
                                                          public static inline function LoadAudioStream(sampleRate:Int, sampleSize:Int, channels:Int):AudioStream { return cast _LoadAudioStream(sampleRate, sampleSize, channels); }      // Load audio stream (to stream raw audio pcm data)
     @:native("UnloadAudioStream")                        private static function _UnloadAudioStream(stream:RayAudioStream):Void;      // Unload audio stream and free memory
-                                                         public static inline function UnloadAudioStream(stream:AudioStream):Void {  _UnloadAudioStream(cast stream); }      // Unload audio stream and free memory
+                                                         public static inline function UnloadAudioStream(stream:AudioStreamRef):Void {  _UnloadAudioStream(cast stream); }      // Unload audio stream and free memory
     @:native("UpdateAudioStream")                        private static function _UpdateAudioStream(stream:RayAudioStream, data:cpp.RawConstPointer<cpp.Void>, frameCount:Int):Void;      // Update audio stream buffers with data
-                                                         public static inline function UpdateAudioStream(stream:AudioStream, data:cpp.RawConstPointer<cpp.Void>, frameCount:Int):Void {  _UpdateAudioStream(cast stream, cast data, frameCount); }      // Update audio stream buffers with data
+                                                         public static inline function UpdateAudioStream(stream:AudioStreamRef, data:cpp.RawConstPointer<cpp.Void>, frameCount:Int):Void {  _UpdateAudioStream(cast stream, cast data, frameCount); }      // Update audio stream buffers with data
     @:native("IsAudioStreamProcessed")                   private static function _IsAudioStreamProcessed(stream:RayAudioStream):Bool;      // Check if any audio stream buffers requires refill
-                                                         public static inline function IsAudioStreamProcessed(stream:AudioStream):Bool { return _IsAudioStreamProcessed(cast stream); }      // Check if any audio stream buffers requires refill
+                                                         public static inline function IsAudioStreamProcessed(stream:AudioStreamRef):Bool { return _IsAudioStreamProcessed(cast stream); }      // Check if any audio stream buffers requires refill
     @:native("PlayAudioStream")                          private static function _PlayAudioStream(stream:RayAudioStream):Void;      // Play audio stream
-                                                         public static inline function PlayAudioStream(stream:AudioStream):Void {  _PlayAudioStream(cast stream); }      // Play audio stream
+                                                         public static inline function PlayAudioStream(stream:AudioStreamRef):Void {  _PlayAudioStream(cast stream); }      // Play audio stream
     @:native("PauseAudioStream")                         private static function _PauseAudioStream(stream:RayAudioStream):Void;      // Pause audio stream
-                                                         public static inline function PauseAudioStream(stream:AudioStream):Void {  _PauseAudioStream(cast stream); }      // Pause audio stream
+                                                         public static inline function PauseAudioStream(stream:AudioStreamRef):Void {  _PauseAudioStream(cast stream); }      // Pause audio stream
     @:native("ResumeAudioStream")                        private static function _ResumeAudioStream(stream:RayAudioStream):Void;      // Resume audio stream
-                                                         public static inline function ResumeAudioStream(stream:AudioStream):Void {  _ResumeAudioStream(cast stream); }      // Resume audio stream
+                                                         public static inline function ResumeAudioStream(stream:AudioStreamRef):Void {  _ResumeAudioStream(cast stream); }      // Resume audio stream
     @:native("IsAudioStreamPlaying")                     private static function _IsAudioStreamPlaying(stream:RayAudioStream):Bool;      // Check if audio stream is playing
-                                                         public static inline function IsAudioStreamPlaying(stream:AudioStream):Bool { return _IsAudioStreamPlaying(cast stream); }      // Check if audio stream is playing
+                                                         public static inline function IsAudioStreamPlaying(stream:AudioStreamRef):Bool { return _IsAudioStreamPlaying(cast stream); }      // Check if audio stream is playing
     @:native("StopAudioStream")                          private static function _StopAudioStream(stream:RayAudioStream):Void;      // Stop audio stream
-                                                         public static inline function StopAudioStream(stream:AudioStream):Void {  _StopAudioStream(cast stream); }      // Stop audio stream
+                                                         public static inline function StopAudioStream(stream:AudioStreamRef):Void {  _StopAudioStream(cast stream); }      // Stop audio stream
     @:native("SetAudioStreamVolume")                     private static function _SetAudioStreamVolume(stream:RayAudioStream, volume:Float):Void;      // Set volume for audio stream (1.0 is max level)
-                                                         public static inline function SetAudioStreamVolume(stream:AudioStream, volume:Float):Void {  _SetAudioStreamVolume(cast stream, volume); }      // Set volume for audio stream (1.0 is max level)
+                                                         public static inline function SetAudioStreamVolume(stream:AudioStreamRef, volume:Float):Void {  _SetAudioStreamVolume(cast stream, volume); }      // Set volume for audio stream (1.0 is max level)
     @:native("SetAudioStreamPitch")                      private static function _SetAudioStreamPitch(stream:RayAudioStream, pitch:Float):Void;      // Set pitch for audio stream (1.0 is base level)
-                                                         public static inline function SetAudioStreamPitch(stream:AudioStream, pitch:Float):Void {  _SetAudioStreamPitch(cast stream, pitch); }      // Set pitch for audio stream (1.0 is base level)
+                                                         public static inline function SetAudioStreamPitch(stream:AudioStreamRef, pitch:Float):Void {  _SetAudioStreamPitch(cast stream, pitch); }      // Set pitch for audio stream (1.0 is base level)
     @:native("SetAudioStreamPan")                        private static function _SetAudioStreamPan(stream:RayAudioStream, pan:Float):Void;      // Set pan for audio stream (0.5 is centered)
-                                                         public static inline function SetAudioStreamPan(stream:AudioStream, pan:Float):Void {  _SetAudioStreamPan(cast stream, pan); }      // Set pan for audio stream (0.5 is centered)
+                                                         public static inline function SetAudioStreamPan(stream:AudioStreamRef, pan:Float):Void {  _SetAudioStreamPan(cast stream, pan); }      // Set pan for audio stream (0.5 is centered)
     @:native("SetAudioStreamBufferSizeDefault")          private static function _SetAudioStreamBufferSizeDefault(size:Int):Void;      // Default size for new audio streams
                                                          public static inline function SetAudioStreamBufferSizeDefault(size:Int):Void {  _SetAudioStreamBufferSizeDefault(size); }      // Default size for new audio streams
     @:native("SetAudioStreamCallback")                   private static function _SetAudioStreamCallback(stream:RayAudioStream, callback:AudioCallback):Void;      // Audio thread callback to request new data
-                                                         public static inline function SetAudioStreamCallback(stream:AudioStream, callback:AudioCallback):Void {  _SetAudioStreamCallback(cast stream, cast callback); }      // Audio thread callback to request new data
+                                                         public static inline function SetAudioStreamCallback(stream:AudioStreamRef, callback:AudioCallback):Void {  _SetAudioStreamCallback(cast stream, cast callback); }      // Audio thread callback to request new data
     @:native("AttachAudioStreamProcessor")               private static function _AttachAudioStreamProcessor(stream:RayAudioStream, processor:AudioCallback):Void;      // AttachAudioStreamProcessor
-                                                         public static inline function AttachAudioStreamProcessor(stream:AudioStream, processor:AudioCallback):Void {  _AttachAudioStreamProcessor(cast stream, cast processor); }      // AttachAudioStreamProcessor
+                                                         public static inline function AttachAudioStreamProcessor(stream:AudioStreamRef, processor:AudioCallback):Void {  _AttachAudioStreamProcessor(cast stream, cast processor); }      // AttachAudioStreamProcessor
     @:native("DetachAudioStreamProcessor")               private static function _DetachAudioStreamProcessor(stream:RayAudioStream, processor:AudioCallback):Void;      // DetachAudioStreamProcessor
-                                                         public static inline function DetachAudioStreamProcessor(stream:AudioStream, processor:AudioCallback):Void {  _DetachAudioStreamProcessor(cast stream, cast processor); }      // DetachAudioStreamProcessor
+                                                         public static inline function DetachAudioStreamProcessor(stream:AudioStreamRef, processor:AudioCallback):Void {  _DetachAudioStreamProcessor(cast stream, cast processor); }      // DetachAudioStreamProcessor
 }
 
 @:include("raylib.h")
