@@ -618,13 +618,13 @@ extern class FontRef extends RayFont {
     private inline function get_texture():Texture2DRef { return cast _texture; }
     private inline function set_texture(value:Texture2DRef):Texture2DRef { _texture = cast value; return value; }
 
-    public var recs(get, set):RectangleRef;
-    private inline function get_recs():RectangleRef { return cast _recs; }
-    private inline function set_recs(value:RectangleRef):RectangleRef { _recs = cast value; return value; }
+    public var recs(get, set):cpp.RawPointer<Rectangle>;
+    private inline function get_recs():cpp.RawPointer<Rectangle> { return cast _recs; }
+    private inline function set_recs(value:cpp.RawPointer<Rectangle>):cpp.RawPointer<Rectangle> { _recs = cast value; return value; }
 
-    public var glyphs(get, set):GlyphInfoRef;
-    private inline function get_glyphs():GlyphInfoRef { return cast _glyphs; }
-    private inline function set_glyphs(value:GlyphInfoRef):GlyphInfoRef { _glyphs = cast value; return value; }
+    public var glyphs(get, set):cpp.RawPointer<GlyphInfo>;
+    private inline function get_glyphs():cpp.RawPointer<GlyphInfo> { return cast _glyphs; }
+    private inline function set_glyphs(value:cpp.RawPointer<GlyphInfo>):cpp.RawPointer<GlyphInfo> { _glyphs = cast value; return value; }
 
 }
 
@@ -763,7 +763,7 @@ extern private class RayMesh {
     @:native("boneIds") @:dox(hide) @:noCompletion private var _boneIds:cpp.RawPointer<cpp.UInt8>; // Vertex bone ids, max 255 bone ids, up to 4 bones influence by vertex (skinning)
     @:native("boneWeights") @:dox(hide) @:noCompletion private var _boneWeights:cpp.RawPointer<Float>; // Vertex bone weight, up to 4 bones influence by vertex (skinning)
     @:native("vaoId") @:dox(hide) @:noCompletion private var _vaoId:Int; // OpenGL Vertex Array Object id
-    @:native("vboId") @:dox(hide) @:noCompletion private var _vboId:cpp.RawPointer<Int>; // OpenGL Vertex Buffer Objects id (default vertex data)
+    @:native("vboId") @:dox(hide) @:noCompletion private var _vboId:cpp.RawPointer<cpp.UInt32>; // OpenGL Vertex Buffer Objects id (default vertex data)
 }
 
 @:include("raylib.h")
@@ -825,16 +825,16 @@ extern class MeshRef extends RayMesh {
     private inline function get_vaoId():Int { return  _vaoId; }
     private inline function set_vaoId(value:Int):Int { _vaoId =  value; return value; }
 
-    public var vboId(get, set):cpp.RawPointer<Int>;
-    private inline function get_vboId():cpp.RawPointer<Int> { return cast _vboId; }
-    private inline function set_vboId(value:cpp.RawPointer<Int>):cpp.RawPointer<Int> { _vboId = cast value; return value; }
+    public var vboId(get, set):cpp.RawPointer<cpp.UInt32>;
+    private inline function get_vboId():cpp.RawPointer<cpp.UInt32> { return cast _vboId; }
+    private inline function set_vboId(value:cpp.RawPointer<cpp.UInt32>):cpp.RawPointer<cpp.UInt32> { _vboId = cast value; return value; }
 
 }
 
 @:include("raylib.h")
 @:native("cpp.Struct<Mesh>")
 extern class Mesh extends MeshRef {
-    public static inline function create(vertexCount:Int, triangleCount:Int, vertices:cpp.RawPointer<Float>, texcoords:cpp.RawPointer<Float>, texcoords2:cpp.RawPointer<Float>, normals:cpp.RawPointer<Float>, tangents:cpp.RawPointer<Float>, colors:cpp.RawPointer<cpp.UInt8>, indices:cpp.RawPointer<Int>, animVertices:cpp.RawPointer<Float>, animNormals:cpp.RawPointer<Float>, boneIds:cpp.RawPointer<cpp.UInt8>, boneWeights:cpp.RawPointer<Float>, vaoId:Int, vboId:cpp.RawPointer<Int>):MeshRef {
+    public static inline function create(vertexCount:Int, triangleCount:Int, vertices:cpp.RawPointer<Float>, texcoords:cpp.RawPointer<Float>, texcoords2:cpp.RawPointer<Float>, normals:cpp.RawPointer<Float>, tangents:cpp.RawPointer<Float>, colors:cpp.RawPointer<cpp.UInt8>, indices:cpp.RawPointer<Int>, animVertices:cpp.RawPointer<Float>, animNormals:cpp.RawPointer<Float>, boneIds:cpp.RawPointer<cpp.UInt8>, boneWeights:cpp.RawPointer<Float>, vaoId:Int, vboId:cpp.RawPointer<cpp.UInt32>):MeshRef {
         var t:RayMesh = untyped __cpp__("{ (int){0}, (int){1}, (float *){2}, (float *){3}, (float *){4}, (float *){5}, (float *){6}, (unsigned char *){7}, (unsigned short *){8}, (float *){9}, (float *){10}, (unsigned char *){11}, (float *){12}, (unsigned int){13}, (unsigned int *){14} }", vertexCount, triangleCount, vertices, texcoords, texcoords2, normals, tangents, colors, indices, animVertices, animNormals, boneIds, boneWeights, vaoId, vboId);
         return cast t;
     }
@@ -1878,8 +1878,8 @@ extern class RayLib {
                                                          public static inline function SetLoadFileTextCallback(callback:LoadFileTextCallback):Void {  _SetLoadFileTextCallback(cast callback); }      // Set custom file text data loader
     @:native("SetSaveFileTextCallback")                  private static function _SetSaveFileTextCallback(callback:SaveFileTextCallback):Void;      // Set custom file text data saver
                                                          public static inline function SetSaveFileTextCallback(callback:SaveFileTextCallback):Void {  _SetSaveFileTextCallback(cast callback); }      // Set custom file text data saver
-    @:native("LoadFileData")                             private static function _LoadFileData(fileName:cpp.ConstCharStar, bytesRead:cpp.RawPointer<Int>):cpp.RawPointer<cpp.UInt8>;      // Load file data as byte array (read)
-                                                         public static inline function LoadFileData(fileName:cpp.ConstCharStar, bytesRead:cpp.RawPointer<Int>):cpp.RawPointer<cpp.UInt8> { return cast _LoadFileData(cast fileName, cast bytesRead); }      // Load file data as byte array (read)
+    @:native("LoadFileData")                             private static function _LoadFileData(fileName:cpp.ConstCharStar, bytesRead:cpp.RawPointer<cpp.UInt32>):cpp.RawPointer<cpp.UInt8>;      // Load file data as byte array (read)
+                                                         public static inline function LoadFileData(fileName:cpp.ConstCharStar, bytesRead:cpp.RawPointer<cpp.UInt32>):cpp.RawPointer<cpp.UInt8> { return cast _LoadFileData(cast fileName, cast bytesRead); }      // Load file data as byte array (read)
     @:native("UnloadFileData")                           private static function _UnloadFileData(data:cpp.RawPointer<cpp.UInt8>):Void;      // Unload file data allocated by LoadFileData()
                                                          public static inline function UnloadFileData(data:cpp.RawPointer<cpp.UInt8>):Void {  _UnloadFileData(cast data); }      // Unload file data allocated by LoadFileData()
     @:native("SaveFileData")                             private static function _SaveFileData(fileName:cpp.ConstCharStar, data:cpp.RawPointer<cpp.Void>, bytesToWrite:Int):Bool;      // Save data to file from byte array (write), returns true on success
@@ -2333,7 +2333,7 @@ extern class RayLib {
     @:native("LoadFontData")                             private static function _LoadFontData(fileData:cpp.RawConstPointer<cpp.UInt8>, dataSize:Int, fontSize:Int, fontChars:cpp.RawPointer<Int>, glyphCount:Int, type:Int):cpp.RawPointer<RayGlyphInfo>;      // Load font data for further use
                                                          public static inline function LoadFontData(fileData:cpp.RawConstPointer<cpp.UInt8>, dataSize:Int, fontSize:Int, fontChars:cpp.RawPointer<Int>, glyphCount:Int, type:Int):cpp.RawPointer<GlyphInfo> { return cast _LoadFontData(cast fileData, dataSize, fontSize, cast fontChars, glyphCount, type); }      // Load font data for further use
     @:native("GenImageFontAtlas")                        private static function _GenImageFontAtlas(chars:cpp.RawConstPointer<RayGlyphInfo>, recs:cpp.RawPointer<cpp.RawPointer<RayRectangle>>, glyphCount:Int, fontSize:Int, padding:Int, packMethod:Int):RayImage;      // Generate image font atlas using chars info
-                                                         public static inline function GenImageFontAtlas(chars:GlyphInfoRef, recs:cpp.RawPointer<cpp.RawPointer<Rectangle>>, glyphCount:Int, fontSize:Int, padding:Int, packMethod:Int):Image { return cast _GenImageFontAtlas(cast chars, cast recs, glyphCount, fontSize, padding, packMethod); }      // Generate image font atlas using chars info
+                                                         public static inline function GenImageFontAtlas(chars:cpp.RawConstPointer<GlyphInfo>, recs:cpp.RawPointer<cpp.RawPointer<Rectangle>>, glyphCount:Int, fontSize:Int, padding:Int, packMethod:Int):Image { return cast _GenImageFontAtlas(cast chars, cast recs, glyphCount, fontSize, padding, packMethod); }      // Generate image font atlas using chars info
     @:native("UnloadFontData")                           private static function _UnloadFontData(chars:cpp.RawPointer<RayGlyphInfo>, glyphCount:Int):Void;      // Unload font chars info data (RAM)
                                                          public static inline function UnloadFontData(chars:GlyphInfoRef, glyphCount:Int):Void {  _UnloadFontData(cast chars, glyphCount); }      // Unload font chars info data (RAM)
     @:native("UnloadFont")                               private static function _UnloadFont(font:RayFont):Void;      // Unload font from GPU memory (VRAM)
@@ -2522,8 +2522,8 @@ extern class RayLib {
                                                          public static inline function SetMaterialTexture(material:MaterialRef, mapType:Int, texture:Texture2DRef):Void {  _SetMaterialTexture(cast material, mapType, cast texture); }      // Set texture for a material map type (MATERIAL_MAP_DIFFUSE, MATERIAL_MAP_SPECULAR...)
     @:native("SetModelMeshMaterial")                     private static function _SetModelMeshMaterial(model:cpp.RawPointer<RayModel>, meshId:Int, materialId:Int):Void;      // Set material for a mesh
                                                          public static inline function SetModelMeshMaterial(model:ModelRef, meshId:Int, materialId:Int):Void {  _SetModelMeshMaterial(cast model, meshId, materialId); }      // Set material for a mesh
-    @:native("LoadModelAnimations")                      private static function _LoadModelAnimations(fileName:cpp.ConstCharStar, animCount:cpp.RawPointer<Int>):cpp.RawPointer<RayModelAnimation>;      // Load model animations from file
-                                                         public static inline function LoadModelAnimations(fileName:cpp.ConstCharStar, animCount:cpp.RawPointer<Int>):cpp.RawPointer<ModelAnimation> { return cast _LoadModelAnimations(cast fileName, cast animCount); }      // Load model animations from file
+    @:native("LoadModelAnimations")                      private static function _LoadModelAnimations(fileName:cpp.ConstCharStar, animCount:cpp.RawPointer<cpp.UInt32>):cpp.RawPointer<RayModelAnimation>;      // Load model animations from file
+                                                         public static inline function LoadModelAnimations(fileName:cpp.ConstCharStar, animCount:cpp.RawPointer<cpp.UInt32>):cpp.RawPointer<ModelAnimation> { return cast _LoadModelAnimations(cast fileName, cast animCount); }      // Load model animations from file
     @:native("UpdateModelAnimation")                     private static function _UpdateModelAnimation(model:RayModel, anim:RayModelAnimation, frame:Int):Void;      // Update model animation pose
                                                          public static inline function UpdateModelAnimation(model:ModelRef, anim:ModelAnimationRef, frame:Int):Void {  _UpdateModelAnimation(cast model, cast anim, frame); }      // Update model animation pose
     @:native("UnloadModelAnimation")                     private static function _UnloadModelAnimation(anim:RayModelAnimation):Void;      // Unload animation data
