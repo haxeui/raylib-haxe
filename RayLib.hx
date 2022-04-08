@@ -455,13 +455,13 @@ extern class RenderTextureRef extends RayRenderTexture {
     private inline function get_id():Int { return  _id; }
     private inline function set_id(value:Int):Int { _id =  value; return value; }
 
-    public var texture(get, set):Texture;
-    private inline function get_texture():Texture { return cast _texture; }
-    private inline function set_texture(value:Texture):Texture { _texture = cast value; return value; }
+    public var texture(get, set):TextureRef;
+    private inline function get_texture():TextureRef { return cast _texture; }
+    private inline function set_texture(value:TextureRef):TextureRef { _texture = cast value; return value; }
 
-    public var depth(get, set):Texture;
-    private inline function get_depth():Texture { return cast _depth; }
-    private inline function set_depth(value:Texture):Texture { _depth = cast value; return value; }
+    public var depth(get, set):TextureRef;
+    private inline function get_depth():TextureRef { return cast _depth; }
+    private inline function set_depth(value:TextureRef):TextureRef { _depth = cast value; return value; }
 
 }
 
@@ -495,9 +495,9 @@ extern private class RayNPatchInfo {
 @:include("raylib.h")
 @:native("cpp.Reference<NPatchInfo>")
 extern class NPatchInfoRef extends RayNPatchInfo {
-    public var source(get, set):Rectangle;
-    private inline function get_source():Rectangle { return cast _source; }
-    private inline function set_source(value:Rectangle):Rectangle { _source = cast value; return value; }
+    public var source(get, set):RectangleRef;
+    private inline function get_source():RectangleRef { return cast _source; }
+    private inline function set_source(value:RectangleRef):RectangleRef { _source = cast value; return value; }
 
     public var left(get, set):Int;
     private inline function get_left():Int { return  _left; }
@@ -566,9 +566,9 @@ extern class GlyphInfoRef extends RayGlyphInfo {
     private inline function get_advanceX():Int { return  _advanceX; }
     private inline function set_advanceX(value:Int):Int { _advanceX =  value; return value; }
 
-    public var image(get, set):Image;
-    private inline function get_image():Image { return cast _image; }
-    private inline function set_image(value:Image):Image { _image = cast value; return value; }
+    public var image(get, set):ImageRef;
+    private inline function get_image():ImageRef { return cast _image; }
+    private inline function set_image(value:ImageRef):ImageRef { _image = cast value; return value; }
 
 }
 
@@ -614,17 +614,17 @@ extern class FontRef extends RayFont {
     private inline function get_glyphPadding():Int { return  _glyphPadding; }
     private inline function set_glyphPadding(value:Int):Int { _glyphPadding =  value; return value; }
 
-    public var texture(get, set):Texture2D;
-    private inline function get_texture():Texture2D { return cast _texture; }
-    private inline function set_texture(value:Texture2D):Texture2D { _texture = cast value; return value; }
+    public var texture(get, set):Texture2DRef;
+    private inline function get_texture():Texture2DRef { return cast _texture; }
+    private inline function set_texture(value:Texture2DRef):Texture2DRef { _texture = cast value; return value; }
 
-    public var recs(get, set):cpp.RawPointer<Rectangle>;
-    private inline function get_recs():cpp.RawPointer<Rectangle> { return cast _recs; }
-    private inline function set_recs(value:cpp.RawPointer<Rectangle>):cpp.RawPointer<Rectangle> { _recs = cast value; return value; }
+    public var recs(get, set):RectangleRef;
+    private inline function get_recs():RectangleRef { return cast _recs; }
+    private inline function set_recs(value:RectangleRef):RectangleRef { _recs = cast value; return value; }
 
-    public var glyphs(get, set):cpp.RawPointer<GlyphInfo>;
-    private inline function get_glyphs():cpp.RawPointer<GlyphInfo> { return cast _glyphs; }
-    private inline function set_glyphs(value:cpp.RawPointer<GlyphInfo>):cpp.RawPointer<GlyphInfo> { _glyphs = cast value; return value; }
+    public var glyphs(get, set):GlyphInfoRef;
+    private inline function get_glyphs():GlyphInfoRef { return cast _glyphs; }
+    private inline function set_glyphs(value:GlyphInfoRef):GlyphInfoRef { _glyphs = cast value; return value; }
 
 }
 
@@ -662,17 +662,17 @@ extern private class RayCamera3D {
 @:include("raylib.h")
 @:native("cpp.Reference<Camera3D>")
 extern class Camera3DRef extends RayCamera3D {
-    public var position(get, set):Vector3;
-    private inline function get_position():Vector3 { return cast _position; }
-    private inline function set_position(value:Vector3):Vector3 { _position = cast value; return value; }
+    public var position(get, set):Vector3Ref;
+    private inline function get_position():Vector3Ref { return cast _position; }
+    private inline function set_position(value:Vector3Ref):Vector3Ref { _position = cast value; return value; }
 
-    public var target(get, set):Vector3;
-    private inline function get_target():Vector3 { return cast _target; }
-    private inline function set_target(value:Vector3):Vector3 { _target = cast value; return value; }
+    public var target(get, set):Vector3Ref;
+    private inline function get_target():Vector3Ref { return cast _target; }
+    private inline function set_target(value:Vector3Ref):Vector3Ref { _target = cast value; return value; }
 
-    public var up(get, set):Vector3;
-    private inline function get_up():Vector3 { return cast _up; }
-    private inline function set_up(value:Vector3):Vector3 { _up = cast value; return value; }
+    public var up(get, set):Vector3Ref;
+    private inline function get_up():Vector3Ref { return cast _up; }
+    private inline function set_up(value:Vector3Ref):Vector3Ref { _up = cast value; return value; }
 
     public var fovy(get, set):Float;
     private inline function get_fovy():Float { return  _fovy; }
@@ -712,13 +712,13 @@ extern private class RayCamera2D {
 @:include("raylib.h")
 @:native("cpp.Reference<Camera2D>")
 extern class Camera2DRef extends RayCamera2D {
-    public var offset(get, set):Vector2;
-    private inline function get_offset():Vector2 { return cast _offset; }
-    private inline function set_offset(value:Vector2):Vector2 { _offset = cast value; return value; }
+    public var offset(get, set):Vector2Ref;
+    private inline function get_offset():Vector2Ref { return cast _offset; }
+    private inline function set_offset(value:Vector2Ref):Vector2Ref { _offset = cast value; return value; }
 
-    public var target(get, set):Vector2;
-    private inline function get_target():Vector2 { return cast _target; }
-    private inline function set_target(value:Vector2):Vector2 { _target = cast value; return value; }
+    public var target(get, set):Vector2Ref;
+    private inline function get_target():Vector2Ref { return cast _target; }
+    private inline function set_target(value:Vector2Ref):Vector2Ref { _target = cast value; return value; }
 
     public var rotation(get, set):Float;
     private inline function get_rotation():Float { return  _rotation; }
@@ -894,13 +894,13 @@ extern private class RayMaterialMap {
 @:include("raylib.h")
 @:native("cpp.Reference<MaterialMap>")
 extern class MaterialMapRef extends RayMaterialMap {
-    public var texture(get, set):Texture2D;
-    private inline function get_texture():Texture2D { return cast _texture; }
-    private inline function set_texture(value:Texture2D):Texture2D { _texture = cast value; return value; }
+    public var texture(get, set):Texture2DRef;
+    private inline function get_texture():Texture2DRef { return cast _texture; }
+    private inline function set_texture(value:Texture2DRef):Texture2DRef { _texture = cast value; return value; }
 
-    public var color(get, set):Color;
-    private inline function get_color():Color { return cast _color; }
-    private inline function set_color(value:Color):Color { _color = cast value; return value; }
+    public var color(get, set):ColorRef;
+    private inline function get_color():ColorRef { return cast _color; }
+    private inline function set_color(value:ColorRef):ColorRef { _color = cast value; return value; }
 
     public var value(get, set):Float;
     private inline function get_value():Float { return  _value; }
@@ -935,9 +935,9 @@ extern private class RayMaterial {
 @:include("raylib.h")
 @:native("cpp.Reference<Material>")
 extern class MaterialRef extends RayMaterial {
-    public var shader(get, set):Shader;
-    private inline function get_shader():Shader { return cast _shader; }
-    private inline function set_shader(value:Shader):Shader { _shader = cast value; return value; }
+    public var shader(get, set):ShaderRef;
+    private inline function get_shader():ShaderRef { return cast _shader; }
+    private inline function set_shader(value:ShaderRef):ShaderRef { _shader = cast value; return value; }
 
     public var maps(get, set):cpp.RawPointer<MaterialMap>;
     private inline function get_maps():cpp.RawPointer<MaterialMap> { return cast _maps; }
@@ -976,17 +976,17 @@ extern private class RayTransform {
 @:include("raylib.h")
 @:native("cpp.Reference<Transform>")
 extern class TransformRef extends RayTransform {
-    public var translation(get, set):Vector3;
-    private inline function get_translation():Vector3 { return cast _translation; }
-    private inline function set_translation(value:Vector3):Vector3 { _translation = cast value; return value; }
+    public var translation(get, set):Vector3Ref;
+    private inline function get_translation():Vector3Ref { return cast _translation; }
+    private inline function set_translation(value:Vector3Ref):Vector3Ref { _translation = cast value; return value; }
 
     public var rotation(get, set):Quaternion;
     private inline function get_rotation():Quaternion { return cast _rotation; }
     private inline function set_rotation(value:Quaternion):Quaternion { _rotation = cast value; return value; }
 
-    public var scale(get, set):Vector3;
-    private inline function get_scale():Vector3 { return cast _scale; }
-    private inline function set_scale(value:Vector3):Vector3 { _scale = cast value; return value; }
+    public var scale(get, set):Vector3Ref;
+    private inline function get_scale():Vector3Ref { return cast _scale; }
+    private inline function set_scale(value:Vector3Ref):Vector3Ref { _scale = cast value; return value; }
 
 }
 
@@ -1059,9 +1059,9 @@ extern private class RayModel {
 @:include("raylib.h")
 @:native("cpp.Reference<Model>")
 extern class ModelRef extends RayModel {
-    public var transform(get, set):Matrix;
-    private inline function get_transform():Matrix { return cast _transform; }
-    private inline function set_transform(value:Matrix):Matrix { _transform = cast value; return value; }
+    public var transform(get, set):MatrixRef;
+    private inline function get_transform():MatrixRef { return cast _transform; }
+    private inline function set_transform(value:MatrixRef):MatrixRef { _transform = cast value; return value; }
 
     public var meshCount(get, set):Int;
     private inline function get_meshCount():Int { return  _meshCount; }
@@ -1091,9 +1091,9 @@ extern class ModelRef extends RayModel {
     private inline function get_bones():cpp.RawPointer<BoneInfo> { return cast _bones; }
     private inline function set_bones(value:cpp.RawPointer<BoneInfo>):cpp.RawPointer<BoneInfo> { _bones = cast value; return value; }
 
-    public var bindPose(get, set):cpp.RawPointer<Transform>;
-    private inline function get_bindPose():cpp.RawPointer<Transform> { return cast _bindPose; }
-    private inline function set_bindPose(value:cpp.RawPointer<Transform>):cpp.RawPointer<Transform> { _bindPose = cast value; return value; }
+    public var bindPose(get, set):TransformRef;
+    private inline function get_bindPose():TransformRef { return cast _bindPose; }
+    private inline function set_bindPose(value:TransformRef):TransformRef { _bindPose = cast value; return value; }
 
 }
 
@@ -1133,9 +1133,9 @@ extern class ModelAnimationRef extends RayModelAnimation {
     private inline function get_frameCount():Int { return  _frameCount; }
     private inline function set_frameCount(value:Int):Int { _frameCount =  value; return value; }
 
-    public var bones(get, set):cpp.RawPointer<BoneInfo>;
-    private inline function get_bones():cpp.RawPointer<BoneInfo> { return cast _bones; }
-    private inline function set_bones(value:cpp.RawPointer<BoneInfo>):cpp.RawPointer<BoneInfo> { _bones = cast value; return value; }
+    public var bones(get, set):BoneInfoRef;
+    private inline function get_bones():BoneInfoRef { return cast _bones; }
+    private inline function set_bones(value:BoneInfoRef):BoneInfoRef { _bones = cast value; return value; }
 
     public var framePoses(get, set):cpp.RawPointer<cpp.RawPointer<Transform>>;
     private inline function get_framePoses():cpp.RawPointer<cpp.RawPointer<Transform>> { return cast _framePoses; }
@@ -1169,13 +1169,13 @@ extern private class RayRay {
 @:include("raylib.h")
 @:native("cpp.Reference<Ray>")
 extern class RayRef extends RayRay {
-    public var position(get, set):Vector3;
-    private inline function get_position():Vector3 { return cast _position; }
-    private inline function set_position(value:Vector3):Vector3 { _position = cast value; return value; }
+    public var position(get, set):Vector3Ref;
+    private inline function get_position():Vector3Ref { return cast _position; }
+    private inline function set_position(value:Vector3Ref):Vector3Ref { _position = cast value; return value; }
 
-    public var direction(get, set):Vector3;
-    private inline function get_direction():Vector3 { return cast _direction; }
-    private inline function set_direction(value:Vector3):Vector3 { _direction = cast value; return value; }
+    public var direction(get, set):Vector3Ref;
+    private inline function get_direction():Vector3Ref { return cast _direction; }
+    private inline function set_direction(value:Vector3Ref):Vector3Ref { _direction = cast value; return value; }
 
 }
 
@@ -1215,13 +1215,13 @@ extern class RayCollisionRef extends RayRayCollision {
     private inline function get_distance():Float { return  _distance; }
     private inline function set_distance(value:Float):Float { _distance =  value; return value; }
 
-    public var point(get, set):Vector3;
-    private inline function get_point():Vector3 { return cast _point; }
-    private inline function set_point(value:Vector3):Vector3 { _point = cast value; return value; }
+    public var point(get, set):Vector3Ref;
+    private inline function get_point():Vector3Ref { return cast _point; }
+    private inline function set_point(value:Vector3Ref):Vector3Ref { _point = cast value; return value; }
 
-    public var normal(get, set):Vector3;
-    private inline function get_normal():Vector3 { return cast _normal; }
-    private inline function set_normal(value:Vector3):Vector3 { _normal = cast value; return value; }
+    public var normal(get, set):Vector3Ref;
+    private inline function get_normal():Vector3Ref { return cast _normal; }
+    private inline function set_normal(value:Vector3Ref):Vector3Ref { _normal = cast value; return value; }
 
 }
 
@@ -1251,13 +1251,13 @@ extern private class RayBoundingBox {
 @:include("raylib.h")
 @:native("cpp.Reference<BoundingBox>")
 extern class BoundingBoxRef extends RayBoundingBox {
-    public var min(get, set):Vector3;
-    private inline function get_min():Vector3 { return cast _min; }
-    private inline function set_min(value:Vector3):Vector3 { _min = cast value; return value; }
+    public var min(get, set):Vector3Ref;
+    private inline function get_min():Vector3Ref { return cast _min; }
+    private inline function set_min(value:Vector3Ref):Vector3Ref { _min = cast value; return value; }
 
-    public var max(get, set):Vector3;
-    private inline function get_max():Vector3 { return cast _max; }
-    private inline function set_max(value:Vector3):Vector3 { _max = cast value; return value; }
+    public var max(get, set):Vector3Ref;
+    private inline function get_max():Vector3Ref { return cast _max; }
+    private inline function set_max(value:Vector3Ref):Vector3Ref { _max = cast value; return value; }
 
 }
 
@@ -1389,9 +1389,9 @@ extern private class RaySound {
 @:include("raylib.h")
 @:native("cpp.Reference<Sound>")
 extern class SoundRef extends RaySound {
-    public var stream(get, set):AudioStream;
-    private inline function get_stream():AudioStream { return cast _stream; }
-    private inline function set_stream(value:AudioStream):AudioStream { _stream = cast value; return value; }
+    public var stream(get, set):AudioStreamRef;
+    private inline function get_stream():AudioStreamRef { return cast _stream; }
+    private inline function set_stream(value:AudioStreamRef):AudioStreamRef { _stream = cast value; return value; }
 
     public var frameCount(get, set):Int;
     private inline function get_frameCount():Int { return  _frameCount; }
@@ -1428,9 +1428,9 @@ extern private class RayMusic {
 @:include("raylib.h")
 @:native("cpp.Reference<Music>")
 extern class MusicRef extends RayMusic {
-    public var stream(get, set):AudioStream;
-    private inline function get_stream():AudioStream { return cast _stream; }
-    private inline function set_stream(value:AudioStream):AudioStream { _stream = cast value; return value; }
+    public var stream(get, set):AudioStreamRef;
+    private inline function get_stream():AudioStreamRef { return cast _stream; }
+    private inline function set_stream(value:AudioStreamRef):AudioStreamRef { _stream = cast value; return value; }
 
     public var frameCount(get, set):Int;
     private inline function get_frameCount():Int { return  _frameCount; }
@@ -1558,13 +1558,13 @@ extern private class RayVrStereoConfig {
 @:include("raylib.h")
 @:native("cpp.Reference<VrStereoConfig>")
 extern class VrStereoConfigRef extends RayVrStereoConfig {
-    public var projection(get, set):Matrix;
-    private inline function get_projection():Matrix { return cast _projection; }
-    private inline function set_projection(value:Matrix):Matrix { _projection = cast value; return value; }
+    public var projection(get, set):MatrixRef;
+    private inline function get_projection():MatrixRef { return cast _projection; }
+    private inline function set_projection(value:MatrixRef):MatrixRef { _projection = cast value; return value; }
 
-    public var viewOffset(get, set):Matrix;
-    private inline function get_viewOffset():Matrix { return cast _viewOffset; }
-    private inline function set_viewOffset(value:Matrix):Matrix { _viewOffset = cast value; return value; }
+    public var viewOffset(get, set):MatrixRef;
+    private inline function get_viewOffset():MatrixRef { return cast _viewOffset; }
+    private inline function set_viewOffset(value:MatrixRef):MatrixRef { _viewOffset = cast value; return value; }
 
     public var leftLensCenter(get, set):Float;
     private inline function get_leftLensCenter():Float { return  _leftLensCenter; }
