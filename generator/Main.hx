@@ -33,6 +33,11 @@ class Main {
     
     static var typeMap:Map<String, String> = [];
     
+    static var useRefExceptions:Map<String, Array<String>> = [
+        "Model" => ["materials", "meshes", "bones"],
+        "Material" => ["maps"]
+    ];
+    
 	static function main() {
         var source = "https://raw.githubusercontent.com/raysan5/raylib/master/parser/raylib_api.xml"; // must use xml version so function params are ordered
         var output = "RayLib.hx";
@@ -238,6 +243,22 @@ extern class VaList {
                     isNativeArray = true;
                 }
                 var haxeType = convertType(cppType, false);
+                var useRef = false;
+                var temp = cppType.replace("const ", "");
+                temp = temp.split(" ").shift();
+                if (cppType.contains("**") == false && typeMap.exists(temp)) {
+                    if (useRefExceptions.exists(orginalName) && useRefExceptions.get(orginalName).indexOf(name) != -1) {
+                        useRef = false;
+                    } else {
+                        useRef = true;
+                        haxeType = haxeType.replace("cpp.RawConstPointer<", "");
+                        haxeType = haxeType.replace("cpp.RawPointer<", "");
+                        haxeType = haxeType.replace(">", "");
+                    }
+                }
+                if (useRef == true) {
+                    haxeType = haxeType + "Ref";
+                }
                 var prefix = "";
                 if (haxeType != "Int" && haxeType != "Bool" && haxeType != "Float" && haxeType != "String") {
                     prefix = "cast";
@@ -259,9 +280,6 @@ extern class VaList {
         sb.add('extern class ${orginalName} extends ${orginalName}Ref {\n');
 
         var useRef = true;
-        if (orginalName == "Vector2") {
-            useRef = true;
-        }
         var returnValueName = orginalName;
         if (useRef == true) {
             returnValueName = orginalName + "Ref";
@@ -467,9 +485,6 @@ extern class VaList {
                 paramTypeHaxe = paramTypeHaxe.replace("cpp.RawPointer<", "");
                 paramTypeHaxe = paramTypeHaxe.replace(">", "");
             }
-            if (paramType == "Vector2") {
-                useRef = true;
-            }
             if (useRef == true) {
                 paramTypeHaxe += "Ref";
             }
@@ -552,7 +567,7 @@ extern class VaList {
         }
         
         if (haxeType == null) {
-            log('\nWARNING: could not find haxe equivelent for cpp type "${cppType}"');
+            //log('\nWARNING: could not find haxe equivelent for cpp type "${cppType}"');
             if (failFast == true) {
                 throw('WARNING: could not find haxe equivelent for cpp type "${cppType}"');
             }
