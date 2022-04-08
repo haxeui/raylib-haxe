@@ -35,7 +35,9 @@ class Main {
     
     static var useRefExceptions:Map<String, Array<String>> = [
         "Model" => ["materials", "meshes", "bones"],
-        "Material" => ["maps"]
+        "Material" => ["maps"],
+        "Font" => ["glyphs", "recs"],
+        "GenImageFontAtlas" => ["chars"],
     ];
     
 	static function main() {
@@ -480,10 +482,14 @@ extern class VaList {
             var temp = paramType.replace("const ", "");
             temp = temp.split(" ").shift();
             if (paramType.contains("**") == false && typeMap.exists(temp)) {
-                useRef = true;
-                paramTypeHaxe = paramTypeHaxe.replace("cpp.RawConstPointer<", "");
-                paramTypeHaxe = paramTypeHaxe.replace("cpp.RawPointer<", "");
-                paramTypeHaxe = paramTypeHaxe.replace(">", "");
+                if (useRefExceptions.exists(name) && useRefExceptions.get(name).indexOf(paramName) != -1) {
+                    useRef = false;
+                } else {
+                    useRef = true;
+                    paramTypeHaxe = paramTypeHaxe.replace("cpp.RawConstPointer<", "");
+                    paramTypeHaxe = paramTypeHaxe.replace("cpp.RawPointer<", "");
+                    paramTypeHaxe = paramTypeHaxe.replace(">", "");
+                }
             }
             if (useRef == true) {
                 paramTypeHaxe += "Ref";
@@ -538,6 +544,9 @@ extern class VaList {
             if (type.contains("const")) {
                 type = type.replace("const", "").trim();
                 return 'cpp.RawConstPointer<${convertType(type, useTypeMap)}>';
+            }
+            if (type == "unsigned int") {
+                return 'cpp.RawPointer<cpp.UInt32>';
             }
             return 'cpp.RawPointer<${convertType(type, useTypeMap)}>';
         }
