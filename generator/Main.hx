@@ -147,6 +147,7 @@ extern class VaList {
             if (to == name) {
                 sb.add('// ${name} alias\n');
                 sb.add('typedef ${alias} = ${name};\n');
+                sb.add('typedef ${alias}Ref = ${name}Ref;\n');
                 sb.add('typedef Ray${alias} = Ray${name};\n');
                 sb.add('\n');
                 structsBuilt.set(alias, {
@@ -219,14 +220,8 @@ extern class VaList {
         
         sb.add('@:include("raylib.h")\n');
         sb.add('@:native("cpp.Reference<${orginalName}>")\n');
-        sb.add('extern private class ${orginalName}Ref extends ${name} {\n');
-        sb.add('}\n');
-        sb.add('\n');
+        sb.add('extern class ${orginalName}Ref extends ${name} {\n');
         
-        sb.add('@:include("raylib.h")\n');
-        sb.add('@:native("cpp.Struct<${orginalName}>")\n');
-        sb.add('extern class ${orginalName} extends ${orginalName}Ref {\n');
-
         // build getters
         var fieldIndex = 0;
         for (f in structEl.elementsNamed("Field")) {
@@ -256,10 +251,26 @@ extern class VaList {
             }
         }
         
+        sb.add('}\n');
+        sb.add('\n');
+        
+        sb.add('@:include("raylib.h")\n');
+        sb.add('@:native("cpp.Struct<${orginalName}>")\n');
+        sb.add('extern class ${orginalName} extends ${orginalName}Ref {\n');
+
+        var useRef = true;
+        if (orginalName == "Vector2") {
+            useRef = true;
+        }
+        var returnValueName = orginalName;
+        if (useRef == true) {
+            returnValueName = orginalName + "Ref";
+        }
+        
         // build create function
         sb.add('    public static inline function create(');
         sb.add(createParamsList.join(', '));
-        sb.add('):${orginalName} {\n');
+        sb.add('):${returnValueName} {\n');
         sb.add('        var t:${name} = untyped __cpp__("{ ');
         sb.add(createParamsUntypedList.join(', '));
         sb.add(' }", ');
@@ -271,7 +282,7 @@ extern class VaList {
         
         // build createEmpty function
         sb.add('\n');
-        sb.add('    public static inline function createEmpty():${orginalName} {\n');
+        sb.add('    public static inline function createEmpty():${returnValueName} {\n');
         sb.add('        var t:${name} = untyped __cpp__("{ 0 }");\n');
         sb.add('        return cast t;\n');
         sb.add('    }\n');
@@ -447,6 +458,21 @@ extern class VaList {
                 continue;
             }
             var paramTypeHaxe = convertType(paramType, false);
+            var useRef = false;
+            var temp = paramType.replace("const ", "");
+            temp = temp.split(" ").shift();
+            if (paramType.contains("**") == false && typeMap.exists(temp)) {
+                useRef = true;
+                paramTypeHaxe = paramTypeHaxe.replace("cpp.RawConstPointer<", "");
+                paramTypeHaxe = paramTypeHaxe.replace("cpp.RawPointer<", "");
+                paramTypeHaxe = paramTypeHaxe.replace(">", "");
+            }
+            if (paramType == "Vector2") {
+                useRef = true;
+            }
+            if (useRef == true) {
+                paramTypeHaxe += "Ref";
+            }
             var paramDesc = paramEl.get("desc");
             
             if (paramDesc != null && paramDesc.trim().length != 0) {
