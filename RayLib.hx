@@ -5,8 +5,8 @@ package;
 @:native("Vector2")
 @:structAccess
 extern private class RayVector2 {
-    @:native("x") private var _x:Float; // Vector x component
-    @:native("y") private var _y:Float; // Vector y component
+    @:native("x") @:dox(hide) @:noCompletion private var _x:Float; // Vector x component
+    @:native("y") @:dox(hide) @:noCompletion private var _y:Float; // Vector y component
 }
 
 @:include("raylib.h")
@@ -41,9 +41,9 @@ extern class Vector2 extends Vector2Ref {
 @:native("Vector3")
 @:structAccess
 extern private class RayVector3 {
-    @:native("x") private var _x:Float; // Vector x component
-    @:native("y") private var _y:Float; // Vector y component
-    @:native("z") private var _z:Float; // Vector z component
+    @:native("x") @:dox(hide) @:noCompletion private var _x:Float; // Vector x component
+    @:native("y") @:dox(hide) @:noCompletion private var _y:Float; // Vector y component
+    @:native("z") @:dox(hide) @:noCompletion private var _z:Float; // Vector z component
 }
 
 @:include("raylib.h")
@@ -82,10 +82,10 @@ extern class Vector3 extends Vector3Ref {
 @:native("Vector4")
 @:structAccess
 extern private class RayVector4 {
-    @:native("x") private var _x:Float; // Vector x component
-    @:native("y") private var _y:Float; // Vector y component
-    @:native("z") private var _z:Float; // Vector z component
-    @:native("w") private var _w:Float; // Vector w component
+    @:native("x") @:dox(hide) @:noCompletion private var _x:Float; // Vector x component
+    @:native("y") @:dox(hide) @:noCompletion private var _y:Float; // Vector y component
+    @:native("z") @:dox(hide) @:noCompletion private var _z:Float; // Vector z component
+    @:native("w") @:dox(hide) @:noCompletion private var _w:Float; // Vector w component
 }
 
 @:include("raylib.h")
@@ -128,22 +128,22 @@ extern class Vector4 extends Vector4Ref {
 @:native("Matrix")
 @:structAccess
 extern private class RayMatrix {
-    @:native("m0") private var _m0:Float; // Matrix first row (4 components)
-    @:native("m4") private var _m4:Float; // Matrix first row (4 components)
-    @:native("m8") private var _m8:Float; // Matrix first row (4 components)
-    @:native("m12") private var _m12:Float; // Matrix first row (4 components)
-    @:native("m1") private var _m1:Float; // Matrix second row (4 components)
-    @:native("m5") private var _m5:Float; // Matrix second row (4 components)
-    @:native("m9") private var _m9:Float; // Matrix second row (4 components)
-    @:native("m13") private var _m13:Float; // Matrix second row (4 components)
-    @:native("m2") private var _m2:Float; // Matrix third row (4 components)
-    @:native("m6") private var _m6:Float; // Matrix third row (4 components)
-    @:native("m10") private var _m10:Float; // Matrix third row (4 components)
-    @:native("m14") private var _m14:Float; // Matrix third row (4 components)
-    @:native("m3") private var _m3:Float; // Matrix fourth row (4 components)
-    @:native("m7") private var _m7:Float; // Matrix fourth row (4 components)
-    @:native("m11") private var _m11:Float; // Matrix fourth row (4 components)
-    @:native("m15") private var _m15:Float; // Matrix fourth row (4 components)
+    @:native("m0") @:dox(hide) @:noCompletion private var _m0:Float; // Matrix first row (4 components)
+    @:native("m4") @:dox(hide) @:noCompletion private var _m4:Float; // Matrix first row (4 components)
+    @:native("m8") @:dox(hide) @:noCompletion private var _m8:Float; // Matrix first row (4 components)
+    @:native("m12") @:dox(hide) @:noCompletion private var _m12:Float; // Matrix first row (4 components)
+    @:native("m1") @:dox(hide) @:noCompletion private var _m1:Float; // Matrix second row (4 components)
+    @:native("m5") @:dox(hide) @:noCompletion private var _m5:Float; // Matrix second row (4 components)
+    @:native("m9") @:dox(hide) @:noCompletion private var _m9:Float; // Matrix second row (4 components)
+    @:native("m13") @:dox(hide) @:noCompletion private var _m13:Float; // Matrix second row (4 components)
+    @:native("m2") @:dox(hide) @:noCompletion private var _m2:Float; // Matrix third row (4 components)
+    @:native("m6") @:dox(hide) @:noCompletion private var _m6:Float; // Matrix third row (4 components)
+    @:native("m10") @:dox(hide) @:noCompletion private var _m10:Float; // Matrix third row (4 components)
+    @:native("m14") @:dox(hide) @:noCompletion private var _m14:Float; // Matrix third row (4 components)
+    @:native("m3") @:dox(hide) @:noCompletion private var _m3:Float; // Matrix fourth row (4 components)
+    @:native("m7") @:dox(hide) @:noCompletion private var _m7:Float; // Matrix fourth row (4 components)
+    @:native("m11") @:dox(hide) @:noCompletion private var _m11:Float; // Matrix fourth row (4 components)
+    @:native("m15") @:dox(hide) @:noCompletion private var _m15:Float; // Matrix fourth row (4 components)
 }
 
 @:include("raylib.h")
@@ -234,10 +234,10 @@ extern class Matrix extends MatrixRef {
 @:native("Color")
 @:structAccess
 extern private class RayColor {
-    @:native("r") private var _r:cpp.UInt8; // Color red value
-    @:native("g") private var _g:cpp.UInt8; // Color green value
-    @:native("b") private var _b:cpp.UInt8; // Color blue value
-    @:native("a") private var _a:cpp.UInt8; // Color alpha value
+    @:native("r") @:dox(hide) @:noCompletion private var _r:cpp.UInt8; // Color red value
+    @:native("g") @:dox(hide) @:noCompletion private var _g:cpp.UInt8; // Color green value
+    @:native("b") @:dox(hide) @:noCompletion private var _b:cpp.UInt8; // Color blue value
+    @:native("a") @:dox(hide) @:noCompletion private var _a:cpp.UInt8; // Color alpha value
 }
 
 @:include("raylib.h")
@@ -280,10 +280,10 @@ extern class Color extends ColorRef {
 @:native("Rectangle")
 @:structAccess
 extern private class RayRectangle {
-    @:native("x") private var _x:Float; // Rectangle top-left corner position x
-    @:native("y") private var _y:Float; // Rectangle top-left corner position y
-    @:native("width") private var _width:Float; // Rectangle width
-    @:native("height") private var _height:Float; // Rectangle height
+    @:native("x") @:dox(hide) @:noCompletion private var _x:Float; // Rectangle top-left corner position x
+    @:native("y") @:dox(hide) @:noCompletion private var _y:Float; // Rectangle top-left corner position y
+    @:native("width") @:dox(hide) @:noCompletion private var _width:Float; // Rectangle width
+    @:native("height") @:dox(hide) @:noCompletion private var _height:Float; // Rectangle height
 }
 
 @:include("raylib.h")
@@ -326,11 +326,11 @@ extern class Rectangle extends RectangleRef {
 @:native("Image")
 @:structAccess
 extern private class RayImage {
-    @:native("data") private var _data:cpp.RawPointer<cpp.Void>; // Image raw data
-    @:native("width") private var _width:Int; // Image base width
-    @:native("height") private var _height:Int; // Image base height
-    @:native("mipmaps") private var _mipmaps:Int; // Mipmap levels, 1 by default
-    @:native("format") private var _format:Int; // Data format (PixelFormat type)
+    @:native("data") @:dox(hide) @:noCompletion private var _data:cpp.RawPointer<cpp.Void>; // Image raw data
+    @:native("width") @:dox(hide) @:noCompletion private var _width:Int; // Image base width
+    @:native("height") @:dox(hide) @:noCompletion private var _height:Int; // Image base height
+    @:native("mipmaps") @:dox(hide) @:noCompletion private var _mipmaps:Int; // Mipmap levels, 1 by default
+    @:native("format") @:dox(hide) @:noCompletion private var _format:Int; // Data format (PixelFormat type)
 }
 
 @:include("raylib.h")
@@ -385,11 +385,11 @@ typedef RayTexture2D = RayTexture;
 @:native("Texture")
 @:structAccess
 extern private class RayTexture {
-    @:native("id") private var _id:Int; // OpenGL texture id
-    @:native("width") private var _width:Int; // Texture base width
-    @:native("height") private var _height:Int; // Texture base height
-    @:native("mipmaps") private var _mipmaps:Int; // Mipmap levels, 1 by default
-    @:native("format") private var _format:Int; // Data format (PixelFormat type)
+    @:native("id") @:dox(hide) @:noCompletion private var _id:Int; // OpenGL texture id
+    @:native("width") @:dox(hide) @:noCompletion private var _width:Int; // Texture base width
+    @:native("height") @:dox(hide) @:noCompletion private var _height:Int; // Texture base height
+    @:native("mipmaps") @:dox(hide) @:noCompletion private var _mipmaps:Int; // Mipmap levels, 1 by default
+    @:native("format") @:dox(hide) @:noCompletion private var _format:Int; // Data format (PixelFormat type)
 }
 
 @:include("raylib.h")
@@ -440,9 +440,9 @@ typedef RayRenderTexture2D = RayRenderTexture;
 @:native("RenderTexture")
 @:structAccess
 extern private class RayRenderTexture {
-    @:native("id") private var _id:Int; // OpenGL framebuffer object id
-    @:native("texture") private var _texture:RayTexture; // Color buffer attachment texture
-    @:native("depth") private var _depth:RayTexture; // Depth buffer attachment texture
+    @:native("id") @:dox(hide) @:noCompletion private var _id:Int; // OpenGL framebuffer object id
+    @:native("texture") @:dox(hide) @:noCompletion private var _texture:RayTexture; // Color buffer attachment texture
+    @:native("depth") @:dox(hide) @:noCompletion private var _depth:RayTexture; // Depth buffer attachment texture
 }
 
 @:include("raylib.h")
@@ -481,12 +481,12 @@ extern class RenderTexture extends RenderTextureRef {
 @:native("NPatchInfo")
 @:structAccess
 extern private class RayNPatchInfo {
-    @:native("source") private var _source:RayRectangle; // Texture source rectangle
-    @:native("left") private var _left:Int; // Left border offset
-    @:native("top") private var _top:Int; // Top border offset
-    @:native("right") private var _right:Int; // Right border offset
-    @:native("bottom") private var _bottom:Int; // Bottom border offset
-    @:native("layout") private var _layout:Int; // Layout of the n-patch: 3x3, 1x3 or 3x1
+    @:native("source") @:dox(hide) @:noCompletion private var _source:RayRectangle; // Texture source rectangle
+    @:native("left") @:dox(hide) @:noCompletion private var _left:Int; // Left border offset
+    @:native("top") @:dox(hide) @:noCompletion private var _top:Int; // Top border offset
+    @:native("right") @:dox(hide) @:noCompletion private var _right:Int; // Right border offset
+    @:native("bottom") @:dox(hide) @:noCompletion private var _bottom:Int; // Bottom border offset
+    @:native("layout") @:dox(hide) @:noCompletion private var _layout:Int; // Layout of the n-patch: 3x3, 1x3 or 3x1
 }
 
 @:include("raylib.h")
@@ -537,11 +537,11 @@ extern class NPatchInfo extends NPatchInfoRef {
 @:native("GlyphInfo")
 @:structAccess
 extern private class RayGlyphInfo {
-    @:native("value") private var _value:Int; // Character value (Unicode)
-    @:native("offsetX") private var _offsetX:Int; // Character offset X when drawing
-    @:native("offsetY") private var _offsetY:Int; // Character offset Y when drawing
-    @:native("advanceX") private var _advanceX:Int; // Character advance position X
-    @:native("image") private var _image:RayImage; // Character image data
+    @:native("value") @:dox(hide) @:noCompletion private var _value:Int; // Character value (Unicode)
+    @:native("offsetX") @:dox(hide) @:noCompletion private var _offsetX:Int; // Character offset X when drawing
+    @:native("offsetY") @:dox(hide) @:noCompletion private var _offsetY:Int; // Character offset Y when drawing
+    @:native("advanceX") @:dox(hide) @:noCompletion private var _advanceX:Int; // Character advance position X
+    @:native("image") @:dox(hide) @:noCompletion private var _image:RayImage; // Character image data
 }
 
 @:include("raylib.h")
@@ -588,12 +588,12 @@ extern class GlyphInfo extends GlyphInfoRef {
 @:native("Font")
 @:structAccess
 extern private class RayFont {
-    @:native("baseSize") private var _baseSize:Int; // Base size (default chars height)
-    @:native("glyphCount") private var _glyphCount:Int; // Number of glyph characters
-    @:native("glyphPadding") private var _glyphPadding:Int; // Padding around the glyph characters
-    @:native("texture") private var _texture:RayTexture; // Texture atlas containing the glyphs
-    @:native("recs") private var _recs:cpp.RawPointer<RayRectangle>; // Rectangles in texture for the glyphs
-    @:native("glyphs") private var _glyphs:cpp.RawPointer<RayGlyphInfo>; // Glyphs info data
+    @:native("baseSize") @:dox(hide) @:noCompletion private var _baseSize:Int; // Base size (default chars height)
+    @:native("glyphCount") @:dox(hide) @:noCompletion private var _glyphCount:Int; // Number of glyph characters
+    @:native("glyphPadding") @:dox(hide) @:noCompletion private var _glyphPadding:Int; // Padding around the glyph characters
+    @:native("texture") @:dox(hide) @:noCompletion private var _texture:RayTexture; // Texture atlas containing the glyphs
+    @:native("recs") @:dox(hide) @:noCompletion private var _recs:cpp.RawPointer<RayRectangle>; // Rectangles in texture for the glyphs
+    @:native("glyphs") @:dox(hide) @:noCompletion private var _glyphs:cpp.RawPointer<RayGlyphInfo>; // Glyphs info data
 }
 
 @:include("raylib.h")
@@ -648,11 +648,11 @@ typedef RayCamera = RayCamera3D;
 @:native("Camera3D")
 @:structAccess
 extern private class RayCamera3D {
-    @:native("position") private var _position:RayVector3; // Camera position
-    @:native("target") private var _target:RayVector3; // Camera target it looks-at
-    @:native("up") private var _up:RayVector3; // Camera up vector (rotation over its axis)
-    @:native("fovy") private var _fovy:Float; // Camera field-of-view apperture in Y (degrees) in perspective, used as near plane width in orthographic
-    @:native("projection") private var _projection:Int; // Camera projection: CAMERA_PERSPECTIVE or CAMERA_ORTHOGRAPHIC
+    @:native("position") @:dox(hide) @:noCompletion private var _position:RayVector3; // Camera position
+    @:native("target") @:dox(hide) @:noCompletion private var _target:RayVector3; // Camera target it looks-at
+    @:native("up") @:dox(hide) @:noCompletion private var _up:RayVector3; // Camera up vector (rotation over its axis)
+    @:native("fovy") @:dox(hide) @:noCompletion private var _fovy:Float; // Camera field-of-view apperture in Y (degrees) in perspective, used as near plane width in orthographic
+    @:native("projection") @:dox(hide) @:noCompletion private var _projection:Int; // Camera projection: CAMERA_PERSPECTIVE or CAMERA_ORTHOGRAPHIC
 }
 
 @:include("raylib.h")
@@ -699,10 +699,10 @@ extern class Camera3D extends Camera3DRef {
 @:native("Camera2D")
 @:structAccess
 extern private class RayCamera2D {
-    @:native("offset") private var _offset:RayVector2; // Camera offset (displacement from target)
-    @:native("target") private var _target:RayVector2; // Camera target (rotation and zoom origin)
-    @:native("rotation") private var _rotation:Float; // Camera rotation in degrees
-    @:native("zoom") private var _zoom:Float; // Camera zoom (scaling), should be 1.0f by default
+    @:native("offset") @:dox(hide) @:noCompletion private var _offset:RayVector2; // Camera offset (displacement from target)
+    @:native("target") @:dox(hide) @:noCompletion private var _target:RayVector2; // Camera target (rotation and zoom origin)
+    @:native("rotation") @:dox(hide) @:noCompletion private var _rotation:Float; // Camera rotation in degrees
+    @:native("zoom") @:dox(hide) @:noCompletion private var _zoom:Float; // Camera zoom (scaling), should be 1.0f by default
 }
 
 @:include("raylib.h")
@@ -745,21 +745,21 @@ extern class Camera2D extends Camera2DRef {
 @:native("Mesh")
 @:structAccess
 extern private class RayMesh {
-    @:native("vertexCount") private var _vertexCount:Int; // Number of vertices stored in arrays
-    @:native("triangleCount") private var _triangleCount:Int; // Number of triangles stored (indexed or not)
-    @:native("vertices") private var _vertices:cpp.RawPointer<Float>; // Vertex position (XYZ - 3 components per vertex) (shader-location = 0)
-    @:native("texcoords") private var _texcoords:cpp.RawPointer<Float>; // Vertex texture coordinates (UV - 2 components per vertex) (shader-location = 1)
-    @:native("texcoords2") private var _texcoords2:cpp.RawPointer<Float>; // Vertex second texture coordinates (useful for lightmaps) (shader-location = 5)
-    @:native("normals") private var _normals:cpp.RawPointer<Float>; // Vertex normals (XYZ - 3 components per vertex) (shader-location = 2)
-    @:native("tangents") private var _tangents:cpp.RawPointer<Float>; // Vertex tangents (XYZW - 4 components per vertex) (shader-location = 4)
-    @:native("colors") private var _colors:cpp.RawPointer<cpp.UInt8>; // Vertex colors (RGBA - 4 components per vertex) (shader-location = 3)
-    @:native("indices") private var _indices:cpp.RawPointer<Int>; // Vertex indices (in case vertex data comes indexed)
-    @:native("animVertices") private var _animVertices:cpp.RawPointer<Float>; // Animated vertex positions (after bones transformations)
-    @:native("animNormals") private var _animNormals:cpp.RawPointer<Float>; // Animated normals (after bones transformations)
-    @:native("boneIds") private var _boneIds:cpp.RawPointer<cpp.UInt8>; // Vertex bone ids, max 255 bone ids, up to 4 bones influence by vertex (skinning)
-    @:native("boneWeights") private var _boneWeights:cpp.RawPointer<Float>; // Vertex bone weight, up to 4 bones influence by vertex (skinning)
-    @:native("vaoId") private var _vaoId:Int; // OpenGL Vertex Array Object id
-    @:native("vboId") private var _vboId:cpp.RawPointer<Int>; // OpenGL Vertex Buffer Objects id (default vertex data)
+    @:native("vertexCount") @:dox(hide) @:noCompletion private var _vertexCount:Int; // Number of vertices stored in arrays
+    @:native("triangleCount") @:dox(hide) @:noCompletion private var _triangleCount:Int; // Number of triangles stored (indexed or not)
+    @:native("vertices") @:dox(hide) @:noCompletion private var _vertices:cpp.RawPointer<Float>; // Vertex position (XYZ - 3 components per vertex) (shader-location = 0)
+    @:native("texcoords") @:dox(hide) @:noCompletion private var _texcoords:cpp.RawPointer<Float>; // Vertex texture coordinates (UV - 2 components per vertex) (shader-location = 1)
+    @:native("texcoords2") @:dox(hide) @:noCompletion private var _texcoords2:cpp.RawPointer<Float>; // Vertex second texture coordinates (useful for lightmaps) (shader-location = 5)
+    @:native("normals") @:dox(hide) @:noCompletion private var _normals:cpp.RawPointer<Float>; // Vertex normals (XYZ - 3 components per vertex) (shader-location = 2)
+    @:native("tangents") @:dox(hide) @:noCompletion private var _tangents:cpp.RawPointer<Float>; // Vertex tangents (XYZW - 4 components per vertex) (shader-location = 4)
+    @:native("colors") @:dox(hide) @:noCompletion private var _colors:cpp.RawPointer<cpp.UInt8>; // Vertex colors (RGBA - 4 components per vertex) (shader-location = 3)
+    @:native("indices") @:dox(hide) @:noCompletion private var _indices:cpp.RawPointer<Int>; // Vertex indices (in case vertex data comes indexed)
+    @:native("animVertices") @:dox(hide) @:noCompletion private var _animVertices:cpp.RawPointer<Float>; // Animated vertex positions (after bones transformations)
+    @:native("animNormals") @:dox(hide) @:noCompletion private var _animNormals:cpp.RawPointer<Float>; // Animated normals (after bones transformations)
+    @:native("boneIds") @:dox(hide) @:noCompletion private var _boneIds:cpp.RawPointer<cpp.UInt8>; // Vertex bone ids, max 255 bone ids, up to 4 bones influence by vertex (skinning)
+    @:native("boneWeights") @:dox(hide) @:noCompletion private var _boneWeights:cpp.RawPointer<Float>; // Vertex bone weight, up to 4 bones influence by vertex (skinning)
+    @:native("vaoId") @:dox(hide) @:noCompletion private var _vaoId:Int; // OpenGL Vertex Array Object id
+    @:native("vboId") @:dox(hide) @:noCompletion private var _vboId:cpp.RawPointer<Int>; // OpenGL Vertex Buffer Objects id (default vertex data)
 }
 
 @:include("raylib.h")
@@ -846,8 +846,8 @@ extern class Mesh extends MeshRef {
 @:native("Shader")
 @:structAccess
 extern private class RayShader {
-    @:native("id") private var _id:Int; // Shader program id
-    @:native("locs") private var _locs:cpp.RawPointer<Int>; // Shader locations array (RL_MAX_SHADER_LOCATIONS)
+    @:native("id") @:dox(hide) @:noCompletion private var _id:Int; // Shader program id
+    @:native("locs") @:dox(hide) @:noCompletion private var _locs:cpp.RawPointer<Int>; // Shader locations array (RL_MAX_SHADER_LOCATIONS)
 }
 
 @:include("raylib.h")
@@ -882,9 +882,9 @@ extern class Shader extends ShaderRef {
 @:native("MaterialMap")
 @:structAccess
 extern private class RayMaterialMap {
-    @:native("texture") private var _texture:RayTexture; // Material map texture
-    @:native("color") private var _color:RayColor; // Material map color
-    @:native("value") private var _value:Float; // Material map value
+    @:native("texture") @:dox(hide) @:noCompletion private var _texture:RayTexture; // Material map texture
+    @:native("color") @:dox(hide) @:noCompletion private var _color:RayColor; // Material map color
+    @:native("value") @:dox(hide) @:noCompletion private var _value:Float; // Material map value
 }
 
 @:include("raylib.h")
@@ -923,9 +923,9 @@ extern class MaterialMap extends MaterialMapRef {
 @:native("Material")
 @:structAccess
 extern private class RayMaterial {
-    @:native("shader") private var _shader:RayShader; // Material shader
-    @:native("maps") private var _maps:cpp.RawPointer<RayMaterialMap>; // Material maps array (MAX_MATERIAL_MAPS)
-    @:native("params") private var _params:Float; // Material generic parameters (if required) - TODO: cpp native array (original: "float params[4]")
+    @:native("shader") @:dox(hide) @:noCompletion private var _shader:RayShader; // Material shader
+    @:native("maps") @:dox(hide) @:noCompletion private var _maps:cpp.RawPointer<RayMaterialMap>; // Material maps array (MAX_MATERIAL_MAPS)
+    @:native("params") @:dox(hide) @:noCompletion private var _params:Float; // Material generic parameters (if required) - TODO: cpp native array (original: "float params[4]")
 }
 
 @:include("raylib.h")
@@ -964,9 +964,9 @@ extern class Material extends MaterialRef {
 @:native("Transform")
 @:structAccess
 extern private class RayTransform {
-    @:native("translation") private var _translation:RayVector3; // Translation
-    @:native("rotation") private var _rotation:Quaternion; // Rotation
-    @:native("scale") private var _scale:RayVector3; // Scale
+    @:native("translation") @:dox(hide) @:noCompletion private var _translation:RayVector3; // Translation
+    @:native("rotation") @:dox(hide) @:noCompletion private var _rotation:Quaternion; // Rotation
+    @:native("scale") @:dox(hide) @:noCompletion private var _scale:RayVector3; // Scale
 }
 
 @:include("raylib.h")
@@ -1005,8 +1005,8 @@ extern class Transform extends TransformRef {
 @:native("BoneInfo")
 @:structAccess
 extern private class RayBoneInfo {
-    @:native("name") private var _name:Int; // Bone name - TODO: cpp native array (original: "char name[32]")
-    @:native("parent") private var _parent:Int; // Bone parent
+    @:native("name") @:dox(hide) @:noCompletion private var _name:Int; // Bone name - TODO: cpp native array (original: "char name[32]")
+    @:native("parent") @:dox(hide) @:noCompletion private var _parent:Int; // Bone parent
 }
 
 @:include("raylib.h")
@@ -1041,15 +1041,15 @@ extern class BoneInfo extends BoneInfoRef {
 @:native("Model")
 @:structAccess
 extern private class RayModel {
-    @:native("transform") private var _transform:RayMatrix; // Local transform matrix
-    @:native("meshCount") private var _meshCount:Int; // Number of meshes
-    @:native("materialCount") private var _materialCount:Int; // Number of materials
-    @:native("meshes") private var _meshes:cpp.RawPointer<RayMesh>; // Meshes array
-    @:native("materials") private var _materials:cpp.RawPointer<RayMaterial>; // Materials array
-    @:native("meshMaterial") private var _meshMaterial:cpp.RawPointer<Int>; // Mesh material number
-    @:native("boneCount") private var _boneCount:Int; // Number of bones
-    @:native("bones") private var _bones:cpp.RawPointer<RayBoneInfo>; // Bones information (skeleton)
-    @:native("bindPose") private var _bindPose:cpp.RawPointer<RayTransform>; // Bones base transformation (pose)
+    @:native("transform") @:dox(hide) @:noCompletion private var _transform:RayMatrix; // Local transform matrix
+    @:native("meshCount") @:dox(hide) @:noCompletion private var _meshCount:Int; // Number of meshes
+    @:native("materialCount") @:dox(hide) @:noCompletion private var _materialCount:Int; // Number of materials
+    @:native("meshes") @:dox(hide) @:noCompletion private var _meshes:cpp.RawPointer<RayMesh>; // Meshes array
+    @:native("materials") @:dox(hide) @:noCompletion private var _materials:cpp.RawPointer<RayMaterial>; // Materials array
+    @:native("meshMaterial") @:dox(hide) @:noCompletion private var _meshMaterial:cpp.RawPointer<Int>; // Mesh material number
+    @:native("boneCount") @:dox(hide) @:noCompletion private var _boneCount:Int; // Number of bones
+    @:native("bones") @:dox(hide) @:noCompletion private var _bones:cpp.RawPointer<RayBoneInfo>; // Bones information (skeleton)
+    @:native("bindPose") @:dox(hide) @:noCompletion private var _bindPose:cpp.RawPointer<RayTransform>; // Bones base transformation (pose)
 }
 
 @:include("raylib.h")
@@ -1112,10 +1112,10 @@ extern class Model extends ModelRef {
 @:native("ModelAnimation")
 @:structAccess
 extern private class RayModelAnimation {
-    @:native("boneCount") private var _boneCount:Int; // Number of bones
-    @:native("frameCount") private var _frameCount:Int; // Number of animation frames
-    @:native("bones") private var _bones:cpp.RawPointer<RayBoneInfo>; // Bones information (skeleton)
-    @:native("framePoses") private var _framePoses:cpp.RawPointer<cpp.RawPointer<RayTransform>>; // Poses array by frame
+    @:native("boneCount") @:dox(hide) @:noCompletion private var _boneCount:Int; // Number of bones
+    @:native("frameCount") @:dox(hide) @:noCompletion private var _frameCount:Int; // Number of animation frames
+    @:native("bones") @:dox(hide) @:noCompletion private var _bones:cpp.RawPointer<RayBoneInfo>; // Bones information (skeleton)
+    @:native("framePoses") @:dox(hide) @:noCompletion private var _framePoses:cpp.RawPointer<cpp.RawPointer<RayTransform>>; // Poses array by frame
 }
 
 @:include("raylib.h")
@@ -1158,8 +1158,8 @@ extern class ModelAnimation extends ModelAnimationRef {
 @:native("Ray")
 @:structAccess
 extern private class RayRay {
-    @:native("position") private var _position:RayVector3; // Ray position (origin)
-    @:native("direction") private var _direction:RayVector3; // Ray direction
+    @:native("position") @:dox(hide) @:noCompletion private var _position:RayVector3; // Ray position (origin)
+    @:native("direction") @:dox(hide) @:noCompletion private var _direction:RayVector3; // Ray direction
 }
 
 @:include("raylib.h")
@@ -1194,10 +1194,10 @@ extern class Ray extends RayRef {
 @:native("RayCollision")
 @:structAccess
 extern private class RayRayCollision {
-    @:native("hit") private var _hit:Bool; // Did the ray hit something?
-    @:native("distance") private var _distance:Float; // Distance to nearest hit
-    @:native("point") private var _point:RayVector3; // Point of nearest hit
-    @:native("normal") private var _normal:RayVector3; // Surface normal of hit
+    @:native("hit") @:dox(hide) @:noCompletion private var _hit:Bool; // Did the ray hit something?
+    @:native("distance") @:dox(hide) @:noCompletion private var _distance:Float; // Distance to nearest hit
+    @:native("point") @:dox(hide) @:noCompletion private var _point:RayVector3; // Point of nearest hit
+    @:native("normal") @:dox(hide) @:noCompletion private var _normal:RayVector3; // Surface normal of hit
 }
 
 @:include("raylib.h")
@@ -1240,8 +1240,8 @@ extern class RayCollision extends RayCollisionRef {
 @:native("BoundingBox")
 @:structAccess
 extern private class RayBoundingBox {
-    @:native("min") private var _min:RayVector3; // Minimum vertex box-corner
-    @:native("max") private var _max:RayVector3; // Maximum vertex box-corner
+    @:native("min") @:dox(hide) @:noCompletion private var _min:RayVector3; // Minimum vertex box-corner
+    @:native("max") @:dox(hide) @:noCompletion private var _max:RayVector3; // Maximum vertex box-corner
 }
 
 @:include("raylib.h")
@@ -1276,11 +1276,11 @@ extern class BoundingBox extends BoundingBoxRef {
 @:native("Wave")
 @:structAccess
 extern private class RayWave {
-    @:native("frameCount") private var _frameCount:Int; // Total number of frames (considering channels)
-    @:native("sampleRate") private var _sampleRate:Int; // Frequency (samples per second)
-    @:native("sampleSize") private var _sampleSize:Int; // Bit depth (bits per sample): 8, 16, 32 (24 not supported)
-    @:native("channels") private var _channels:Int; // Number of channels (1-mono, 2-stereo, ...)
-    @:native("data") private var _data:cpp.RawPointer<cpp.Void>; // Buffer data pointer
+    @:native("frameCount") @:dox(hide) @:noCompletion private var _frameCount:Int; // Total number of frames (considering channels)
+    @:native("sampleRate") @:dox(hide) @:noCompletion private var _sampleRate:Int; // Frequency (samples per second)
+    @:native("sampleSize") @:dox(hide) @:noCompletion private var _sampleSize:Int; // Bit depth (bits per sample): 8, 16, 32 (24 not supported)
+    @:native("channels") @:dox(hide) @:noCompletion private var _channels:Int; // Number of channels (1-mono, 2-stereo, ...)
+    @:native("data") @:dox(hide) @:noCompletion private var _data:cpp.RawPointer<cpp.Void>; // Buffer data pointer
 }
 
 @:include("raylib.h")
@@ -1327,11 +1327,11 @@ extern class Wave extends WaveRef {
 @:native("AudioStream")
 @:structAccess
 extern private class RayAudioStream {
-    @:native("buffer") private var _buffer:cpp.RawPointer<RAudioBuffer>; // Pointer to internal data used by the audio system
-    @:native("processor") private var _processor:cpp.RawPointer<RAudioProcessor>; // Pointer to internal data processor, useful for audio effects
-    @:native("sampleRate") private var _sampleRate:Int; // Frequency (samples per second)
-    @:native("sampleSize") private var _sampleSize:Int; // Bit depth (bits per sample): 8, 16, 32 (24 not supported)
-    @:native("channels") private var _channels:Int; // Number of channels (1-mono, 2-stereo, ...)
+    @:native("buffer") @:dox(hide) @:noCompletion private var _buffer:cpp.RawPointer<RAudioBuffer>; // Pointer to internal data used by the audio system
+    @:native("processor") @:dox(hide) @:noCompletion private var _processor:cpp.RawPointer<RAudioProcessor>; // Pointer to internal data processor, useful for audio effects
+    @:native("sampleRate") @:dox(hide) @:noCompletion private var _sampleRate:Int; // Frequency (samples per second)
+    @:native("sampleSize") @:dox(hide) @:noCompletion private var _sampleSize:Int; // Bit depth (bits per sample): 8, 16, 32 (24 not supported)
+    @:native("channels") @:dox(hide) @:noCompletion private var _channels:Int; // Number of channels (1-mono, 2-stereo, ...)
 }
 
 @:include("raylib.h")
@@ -1378,8 +1378,8 @@ extern class AudioStream extends AudioStreamRef {
 @:native("Sound")
 @:structAccess
 extern private class RaySound {
-    @:native("stream") private var _stream:RayAudioStream; // Audio stream
-    @:native("frameCount") private var _frameCount:Int; // Total number of frames (considering channels)
+    @:native("stream") @:dox(hide) @:noCompletion private var _stream:RayAudioStream; // Audio stream
+    @:native("frameCount") @:dox(hide) @:noCompletion private var _frameCount:Int; // Total number of frames (considering channels)
 }
 
 @:include("raylib.h")
@@ -1414,11 +1414,11 @@ extern class Sound extends SoundRef {
 @:native("Music")
 @:structAccess
 extern private class RayMusic {
-    @:native("stream") private var _stream:RayAudioStream; // Audio stream
-    @:native("frameCount") private var _frameCount:Int; // Total number of frames (considering channels)
-    @:native("looping") private var _looping:Bool; // Music looping enable
-    @:native("ctxType") private var _ctxType:Int; // Type of music context (audio filetype)
-    @:native("ctxData") private var _ctxData:cpp.RawPointer<cpp.Void>; // Audio context data, depends on type
+    @:native("stream") @:dox(hide) @:noCompletion private var _stream:RayAudioStream; // Audio stream
+    @:native("frameCount") @:dox(hide) @:noCompletion private var _frameCount:Int; // Total number of frames (considering channels)
+    @:native("looping") @:dox(hide) @:noCompletion private var _looping:Bool; // Music looping enable
+    @:native("ctxType") @:dox(hide) @:noCompletion private var _ctxType:Int; // Type of music context (audio filetype)
+    @:native("ctxData") @:dox(hide) @:noCompletion private var _ctxData:cpp.RawPointer<cpp.Void>; // Audio context data, depends on type
 }
 
 @:include("raylib.h")
@@ -1465,16 +1465,16 @@ extern class Music extends MusicRef {
 @:native("VrDeviceInfo")
 @:structAccess
 extern private class RayVrDeviceInfo {
-    @:native("hResolution") private var _hResolution:Int; // Horizontal resolution in pixels
-    @:native("vResolution") private var _vResolution:Int; // Vertical resolution in pixels
-    @:native("hScreenSize") private var _hScreenSize:Float; // Horizontal size in meters
-    @:native("vScreenSize") private var _vScreenSize:Float; // Vertical size in meters
-    @:native("vScreenCenter") private var _vScreenCenter:Float; // Screen center in meters
-    @:native("eyeToScreenDistance") private var _eyeToScreenDistance:Float; // Distance between eye and display in meters
-    @:native("lensSeparationDistance") private var _lensSeparationDistance:Float; // Lens separation distance in meters
-    @:native("interpupillaryDistance") private var _interpupillaryDistance:Float; // IPD (distance between pupils) in meters
-    @:native("lensDistortionValues") private var _lensDistortionValues:Float; // Lens distortion constant parameters - TODO: cpp native array (original: "float lensDistortionValues[4]")
-    @:native("chromaAbCorrection") private var _chromaAbCorrection:Float; // Chromatic aberration correction parameters - TODO: cpp native array (original: "float chromaAbCorrection[4]")
+    @:native("hResolution") @:dox(hide) @:noCompletion private var _hResolution:Int; // Horizontal resolution in pixels
+    @:native("vResolution") @:dox(hide) @:noCompletion private var _vResolution:Int; // Vertical resolution in pixels
+    @:native("hScreenSize") @:dox(hide) @:noCompletion private var _hScreenSize:Float; // Horizontal size in meters
+    @:native("vScreenSize") @:dox(hide) @:noCompletion private var _vScreenSize:Float; // Vertical size in meters
+    @:native("vScreenCenter") @:dox(hide) @:noCompletion private var _vScreenCenter:Float; // Screen center in meters
+    @:native("eyeToScreenDistance") @:dox(hide) @:noCompletion private var _eyeToScreenDistance:Float; // Distance between eye and display in meters
+    @:native("lensSeparationDistance") @:dox(hide) @:noCompletion private var _lensSeparationDistance:Float; // Lens separation distance in meters
+    @:native("interpupillaryDistance") @:dox(hide) @:noCompletion private var _interpupillaryDistance:Float; // IPD (distance between pupils) in meters
+    @:native("lensDistortionValues") @:dox(hide) @:noCompletion private var _lensDistortionValues:Float; // Lens distortion constant parameters - TODO: cpp native array (original: "float lensDistortionValues[4]")
+    @:native("chromaAbCorrection") @:dox(hide) @:noCompletion private var _chromaAbCorrection:Float; // Chromatic aberration correction parameters - TODO: cpp native array (original: "float chromaAbCorrection[4]")
 }
 
 @:include("raylib.h")
@@ -1541,14 +1541,14 @@ extern class VrDeviceInfo extends VrDeviceInfoRef {
 @:native("VrStereoConfig")
 @:structAccess
 extern private class RayVrStereoConfig {
-    @:native("projection") private var _projection:RayMatrix; // VR projection matrices (per eye) - TODO: cpp native array (original: "Matrix projection[2]")
-    @:native("viewOffset") private var _viewOffset:RayMatrix; // VR view offset matrices (per eye) - TODO: cpp native array (original: "Matrix viewOffset[2]")
-    @:native("leftLensCenter") private var _leftLensCenter:Float; // VR left lens center - TODO: cpp native array (original: "float leftLensCenter[2]")
-    @:native("rightLensCenter") private var _rightLensCenter:Float; // VR right lens center - TODO: cpp native array (original: "float rightLensCenter[2]")
-    @:native("leftScreenCenter") private var _leftScreenCenter:Float; // VR left screen center - TODO: cpp native array (original: "float leftScreenCenter[2]")
-    @:native("rightScreenCenter") private var _rightScreenCenter:Float; // VR right screen center - TODO: cpp native array (original: "float rightScreenCenter[2]")
-    @:native("scale") private var _scale:Float; // VR distortion scale - TODO: cpp native array (original: "float scale[2]")
-    @:native("scaleIn") private var _scaleIn:Float; // VR distortion scale in - TODO: cpp native array (original: "float scaleIn[2]")
+    @:native("projection") @:dox(hide) @:noCompletion private var _projection:RayMatrix; // VR projection matrices (per eye) - TODO: cpp native array (original: "Matrix projection[2]")
+    @:native("viewOffset") @:dox(hide) @:noCompletion private var _viewOffset:RayMatrix; // VR view offset matrices (per eye) - TODO: cpp native array (original: "Matrix viewOffset[2]")
+    @:native("leftLensCenter") @:dox(hide) @:noCompletion private var _leftLensCenter:Float; // VR left lens center - TODO: cpp native array (original: "float leftLensCenter[2]")
+    @:native("rightLensCenter") @:dox(hide) @:noCompletion private var _rightLensCenter:Float; // VR right lens center - TODO: cpp native array (original: "float rightLensCenter[2]")
+    @:native("leftScreenCenter") @:dox(hide) @:noCompletion private var _leftScreenCenter:Float; // VR left screen center - TODO: cpp native array (original: "float leftScreenCenter[2]")
+    @:native("rightScreenCenter") @:dox(hide) @:noCompletion private var _rightScreenCenter:Float; // VR right screen center - TODO: cpp native array (original: "float rightScreenCenter[2]")
+    @:native("scale") @:dox(hide) @:noCompletion private var _scale:Float; // VR distortion scale - TODO: cpp native array (original: "float scale[2]")
+    @:native("scaleIn") @:dox(hide) @:noCompletion private var _scaleIn:Float; // VR distortion scale in - TODO: cpp native array (original: "float scaleIn[2]")
 }
 
 @:include("raylib.h")
