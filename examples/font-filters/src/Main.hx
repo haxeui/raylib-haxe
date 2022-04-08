@@ -57,8 +57,8 @@ class Main {
                 DrawTextEx(font, msg, fontPosition, fontSize, 0, BLACK);
                 
                 DrawRectangle(0, screenHeight - 80, screenWidth, 80, LIGHTGRAY);
-                DrawText(TextFormat("Font size: %02.02f", fontSize), 20, screenHeight - 50, 10, DARKGRAY);
-                DrawText(TextFormat("Text size: [%02.02f, %02.02f]", textSize.x, textSize.y), 20, screenHeight - 30, 10, DARKGRAY);
+                DrawText("Font size: " + fontSize, 20, screenHeight - 50, 10, DARKGRAY);
+                DrawText("Text size: [" + Math.round(textSize.x) + ", " + Math.round(textSize.y) + "]", 20, screenHeight - 30, 10, DARKGRAY);
                 DrawText("CURRENT TEXTURE FILTER:", 250, 400, 20, GRAY);
                 
                 if (currentFontFilter == 0) DrawText("POINT", 570, 400, 20, BLACK);
