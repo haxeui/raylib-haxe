@@ -5,6 +5,7 @@ import RayLib.Color;
 import RayLib.Colors.*;
 import RayLib.Font;
 import RayLib.Vector2;
+import RayLib.TextureFilter;
 import RayLib.Vector2Ref;
 
 @:unreflective
@@ -25,6 +26,8 @@ class Main {
         
         InitWindow(screenWidth, screenHeight, "RAYLIB HAXE!");
         
+        //SetTextureFilter(GetFontDefault().texture, TextureFilter.BILINEAR);
+        
         var fonts = new Array<FontInfo>();
         fonts.push({ font: LoadFont("../resources/alagard.png"),        message: "ALAGARD FONT designed by Hewett Tsoi",                spacing: 2, position: Vector2.createEmpty(), color: MAROON,     correction: 0 });
         fonts.push({ font: LoadFont("../resources/pixelplay.png"),      message: "PIXELPLAY FONT designed by Aleksander Shevchuk",      spacing: 4, position: Vector2.createEmpty(), color: ORANGE,     correction: 0 });
@@ -37,6 +40,7 @@ class Main {
         
         var i = 0;
         for (info in fonts) {
+            trace(i, info.font.baseSize);
             info.position.x = (screenWidth / 2) - (MeasureTextEx(info.font, info.message, info.font.baseSize * 2, info.spacing).x / 2);
             info.position.y = (60 + info.font.baseSize + 45 * i) + info.correction;
             i++;
@@ -47,11 +51,12 @@ class Main {
         while (!WindowShouldClose()) {
             BeginDrawing();
                 ClearBackground(RAYWHITE);
-                DrawText("free fonts included with raylib", 250, 20, 20, DARKGRAY);
-                DrawLine(220, 50, 590, 50, DARKGRAY);
+                DrawText("free fonts included with raylib", 250, 20, 15, DARKGRAY);
+                DrawText("free fonts included with raylib", 250, 40, 20, DARKGRAY);
+                //DrawLine(220, 50, 590, 50, DARKGRAY);
                 
                 for (info in fonts) {
-                    DrawTextEx(info.font, info.message, info.position, info.font.baseSize * 2, info.spacing, info.color);
+                    DrawTextEx(info.font, info.message, info.position, info.font.baseSize, info.spacing, info.color);
                 }
             EndDrawing();
         }

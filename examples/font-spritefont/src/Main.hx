@@ -19,6 +19,10 @@ class Main {
         var font2 = LoadFont("../resources/custom_alagard.png");
         var font3 = LoadFont("../resources/custom_jupiter_crash.png");
         
+        trace("---------------------> " + font1.baseSize);
+        trace("---------------------> " + font2.baseSize);
+        trace("---------------------> " + font3.baseSize);
+        
         var fontPosition1 = Vector2.create(screenWidth / 2 - MeasureTextEx(font1, msg1, font1.baseSize, -3).x / 2,
                                            screenHeight / 2 - font1.baseSize / 2 - 80);
         var fontPosition2 = Vector2.create(screenWidth / 2 - MeasureTextEx(font2, msg2, font2.baseSize, -2).x / 2,

@@ -15,7 +15,8 @@ class Main {
         var msg = "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHI\nJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmn\nopqrstuvwxyz{|}~¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓ\nÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷\nøùúûüýþÿ";
         
         var fontBm = LoadFont("../resources/pixantiqua.fnt");
-        var fontTtf = LoadFontEx("../resources/pixantiqua.ttf", 32, null, 250);
+        var fontTtf = LoadFontEx("../resources/StrangerCreature.ttf", 10, null, 255);
+//        var fontTtf = LoadFontEx("../resources/Roboto-Regular.ttf", 14, null, 255);
         var useTtf = false;
         var position = Vector2.create(20, 100);
         

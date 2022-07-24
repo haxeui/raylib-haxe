@@ -23,11 +23,11 @@ class Main {
         
         // Loading file to memory
         var fileSize:UInt32 = 0;
-        var fileData = LoadFileData("../resources/anonymous_pro_bold.ttf", RawPointer.addressOf(fileSize));
+        var fileData = LoadFileData("../resources/Roboto-Regular.ttf", RawPointer.addressOf(fileSize));
         
         // Default font generation from TTF font
         var fontDefault = Font.createEmpty();
-        fontDefault.baseSize = 16;
+        fontDefault.baseSize = 32;
         fontDefault.glyphCount = 95;
         
         // Loading font data from memory data
@@ -40,7 +40,7 @@ class Main {
 
         // SDF font generation from TTF font
         var fontSDF = Font.createEmpty();
-        fontSDF.baseSize = 16;
+        fontSDF.baseSize = 32;
         fontSDF.glyphCount = 95;
         // Parameters > font size: 16, no glyphs array provided (0), glyphs count: 0 (defaults to 95)
         fontSDF.glyphs = LoadFontData(fileData, fileSize, 16, null, 0, FontType.SDF);
