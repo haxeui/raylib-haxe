@@ -40,7 +40,7 @@ class Main {
         "GenImageFontAtlas" => ["chars"],
     ];
     
-	static function main() {
+    static function main() {
         var source = "https://raw.githubusercontent.com/raysan5/raylib/master/parser/raylib_api.xml"; // must use xml version so function params are ordered
         var output = "RayLib.hx";
         
@@ -57,7 +57,7 @@ class Main {
         
         log('writing externs to "${output}"');
         File.saveContent(output, sb.toString());
-	}
+    }
     
     static function buildHeader(sb:StringBuf) {
         sb.add('package;\n\n');
