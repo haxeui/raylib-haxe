@@ -41,7 +41,7 @@ class Main {
     ];
     
     static function main() {
-        var source = "https://raw.githubusercontent.com/raysan5/raylib/4.0.0/parser/raylib_api.xml"; // must use xml version so function params are ordered
+        var source = "https://raw.githubusercontent.com/raysan5/raylib/4.5.0/src/parser/output/raylib_api.xml"; // must use xml version so function params are ordered
         var output = "RayLib.hx";
         
         log('building externs from "${source}"');

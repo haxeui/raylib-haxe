@@ -1,121 +1,45 @@
-# Setup the project and settings
-project(raylib C)
-set(PROJECT_VERSION 4.0.0)
-set(API_VERSION 400)
+cmake_minimum_required(VERSION 3.0)
+project(raylib)
 
-include(GNUInstallDirs)
-include(JoinPaths)
+# Avoid excessive expansion of variables in conditionals. In particular, if
+# "PLATFORM" is "DRM" than:
+#
+# if (${PLATFORM} MATCHES "DRM")
+#
+# may expand e.g to:
+#
+# if (/usr/lib/aarch64-linux-gnu/libdrm.so MATCHES "DRM")
+#
+# See https://cmake.org/cmake/help/latest/policy/CMP0054.html
+cmake_policy(SET CMP0054 NEW)
 
-# Sets build type if not set by now
-if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
-    if(RAYLIB_IS_MAIN)
-        set(default_build_type Debug)
-    else()
-        message(WARNING "Default build type is not set (CMAKE_BUILD_TYPE)")
-    endif()
+# Directory for easier includes
+# Anywhere you see include(...) you can check <root>/cmake for that file
+set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
-    message(STATUS "Setting build type to '${default_build_type}' as none was specified.")
-    
-    set(CMAKE_BUILD_TYPE "${default_build_type}" CACHE STRING "Choose the type of build." FORCE)
-    set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release" "MinSizeRel" "RelWithDebInfo")
-endif()
-
-# Used as public API to be included into other projects
-set(raylib_public_headers
-    raylib.h
-    rlgl.h
-    raymath.h
-    raudio.h
-    )
-
-# Sources to be compiled
-set(raylib_sources
-    rcore.c
-    rmodels.c
-    rshapes.c
-    rtext.c
-    rtextures.c
-    utils.c
-    )
-
-# <root>/cmake/GlfwImport.cmake handles the details around the inclusion of glfw
-include(GlfwImport)
-
-
-if (USE_AUDIO)
-    MESSAGE(STATUS "Audio Backend: miniaudio")
-    list(APPEND raylib_sources raudio.c)
-else ()
-    MESSAGE(STATUS "Audio Backend: None (-DUSE_AUDIO=OFF)")
-endif ()
-
-# Sets additional platform options and link libraries for each platform
-# also selects the proper graphics API and version for that platform
-# Produces a variable LIBS_PRIVATE that will be used later
-include(LibraryConfigurations)
-
-add_library(raylib ${raylib_sources} ${raylib_public_headers})
-
-if (NOT BUILD_SHARED_LIBS)
-    MESSAGE(STATUS "Building raylib static library")
-    add_library(raylib_static ALIAS raylib)
+# RAYLIB_IS_MAIN determines whether the project is being used from root
+# or if it is added as a dependency (through add_subdirectory for example).
+if ("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_CURRENT_SOURCE_DIR}")
+  set(RAYLIB_IS_MAIN TRUE)
 else()
-    MESSAGE(STATUS "Building raylib shared library")
-    if (MSVC)
-        target_compile_definitions(raylib
-                                   PRIVATE $<BUILD_INTERFACE:BUILD_LIBTYPE_SHARED>
-                                   INTERFACE $<INSTALL_INTERFACE:USE_LIBTYPE_SHARED>
-                                   )
-    endif ()
+  set(RAYLIB_IS_MAIN FALSE)
 endif()
 
-set_target_properties(raylib PROPERTIES
-                      PUBLIC_HEADER "${raylib_public_headers}"
-                      VERSION ${PROJECT_VERSION}
-                      SOVERSION ${API_VERSION}
-                      )
+# Sets compiler flags and language standard
+include(CompilerFlags)
 
-if (WITH_PIC OR BUILD_SHARED_LIBS)
-    set_property(TARGET raylib PROPERTY POSITION_INDEPENDENT_CODE ON)
-endif ()
+# Registers build options that are exposed to cmake
+include(CMakeOptions.txt)
 
-target_link_libraries(raylib "${LIBS_PRIVATE}")
+# Enforces a few environment and compiler configurations
+include(BuildOptions)
 
-# Sets some compile time definitions for the pre-processor
-# If CUSTOMIZE_BUILD option is on you will not use config.h by default
-# and you will be able to select more build options
-include(CompileDefinitions)
+# Main sources directory (the second parameter sets the output directory name to raylib)
+add_subdirectory(src raylib)
 
-# Registering include directories
-target_include_directories(raylib
-                           PUBLIC
-                           $<INSTALL_INTERFACE:include>
-                           $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
-                           PRIVATE
-                           ${CMAKE_CURRENT_SOURCE_DIR}
-                           ${OPENGL_INCLUDE_DIR}
-                           ${OPENAL_INCLUDE_DIR}
-                           )
-
-# Copy the header files to the build directory for convenience
-file(COPY ${raylib_public_headers} DESTINATION "include")
-
-# Includes information on how the library will be installed on the system
-# when cmake --install is run
-include(InstallConfigurations)
-
-# Print the flags for the user
-if (DEFINED CMAKE_BUILD_TYPE)
-    message(STATUS "Generated build type: ${CMAKE_BUILD_TYPE}")
-else ()
-    message(STATUS "Generated config types: ${CMAKE_CONFIGURATION_TYPES}")
-endif ()
-
-message(STATUS "Compiling with the flags:")
-message(STATUS "  PLATFORM=" ${PLATFORM_CPP})
-message(STATUS "  GRAPHICS=" ${GRAPHICS})
-
-# Options if you want to create an installer using CPack
-include(PackConfigurations)
+if (${BUILD_EXAMPLES})
+  MESSAGE(STATUS "Building examples is enabled")
+  add_subdirectory(examples)
+endif()
 
 enable_testing()
