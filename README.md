@@ -58,7 +58,13 @@ To build run `haxe build.hxml` from the project root, this will create a `Main` 
 
 Refer to [hello world example](https://github.com/haxeui/raylib-haxe/tree/main/examples/hello-world) for a working example. 
 
+## macOS Arm64 (M1+ Processors)
 
+Running `haxe build.hxml` will result in an **Intel** binary. You need to add the correct flag to get the correct **Apple** binary:
+
+```bash
+haxe -D HXCPP_ARM64 -D macos build.hxml
+```
 
 # Advanced Usage
 
