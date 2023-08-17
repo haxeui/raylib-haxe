@@ -1,6 +1,6 @@
 <xml>
-    <set name="raylib_folder" value="${haxelib:raylib-haxe}/lib/raylib" />
-    <set name="glfw_folder" value="${haxelib:raylib-haxe}/lib/raylib/external/glfw" />
+    <set name="raylib_folder" value="${haxelib:raylib-haxe}/lib/raylib/src" />
+    <set name="glfw_folder" value="${haxelib:raylib-haxe}/lib/raylib/src/external/glfw" />
 
     <echo value="Using raylib from: ${raylib_folder}" />
     <echo value="Using glfw from: ${glfw_folder}" />
@@ -53,6 +53,8 @@
             <compilerflag value="-DPLATFORM_DESKTOP" />
             <compilerflag value="-D_GLFW_COCOA" />
 
+            <file name="${glfw_folder}/src/platform.c" />
+            <file name="${glfw_folder}/src/posix_module.c" />
             <file name="${glfw_folder}/src/cocoa_init.m" />
             <file name="${glfw_folder}/src/cocoa_monitor.m" />
             <file name="${glfw_folder}/src/cocoa_joystick.m" />
